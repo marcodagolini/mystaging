@@ -2,7 +2,10 @@
  
 <style>		
 	
-	
+
+#minuteAwake{
+    font-size: 20px;
+}
 	
 button {
     background-color: #f68a1f;
@@ -967,7 +970,7 @@ $(function() {
 
 </br></br></br>
 
-<label>Risveglia tra: </label> <input type="text" id="telefono"> <label> minuti</label> </br>
+<label>Risveglia tra: </label> <input type="text" id="minuteAwake" maxlength="3"> <label> minuti</label> </br>
 <button id ="submitawake" type="button" onclick="sendDataAwake()">Invia</button>
 
 </body>
