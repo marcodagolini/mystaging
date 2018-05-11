@@ -481,7 +481,7 @@ button:hover {
 		var daysAwake = $("#daysAwake").val();
 		var hourAwake = $("#hourAwake").val();
 		var minuteAwake = $("#minuteAwake").val();
-		if (parseInt(daysAwake, 10) || daysAwake === ""){
+		if (parseInt(daysAwake, 10) || daysAwake === "" || daysAwake == 0){
 			console.log("data is integer");
 		}else{
 			console.log("data is not an integer");
