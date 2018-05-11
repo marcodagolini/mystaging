@@ -476,6 +476,29 @@ button:hover {
 <script>
 	
 	
+	function sendToLimbo() {
+		document.getElementById("alertAwake").innerHTML = "...invio nel Limbo...";
+            	document.getElementById("alertAwake").style = "color : red";
+		var xhr = new XMLHttpRequest();
+        	xhr.addEventListener("readystatechange", function () {
+          		if (this.readyState === 4) {
+				// var jsonResult = JSON.parse(this.responseText);
+            			document.getElementById("alertAwake").innerHTML = "fatto!";
+            			document.getElementById("alertAwake").style = "color : green";
+				console.log(xhr.response);
+				setTimeout(function(){
+					document.getElementById("alertAwake").innerHTML = "";
+				}, 3000);
+          		}	
+        	});
+        	var URLforGET = "https://vodafonebotdario.herokuapp.com/add?retrieve=3&agentID=" + agentID + "&convID=" + convID;
+		console.log(URLforGET);
+		xhr.open("GET", URLforGET);
+        	xhr.send();
+		
+
+	}	
+	
 	
 	function sendDataAwake() {
 		document.getElementById("alertAwake").innerHTML = "...invio dati...";
