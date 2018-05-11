@@ -484,7 +484,7 @@ button:hover {
 		var minuteAwake = $("#minuteAwake").val();
 		if ((parseInt(daysAwake, 10) || daysAwake === "" || daysAwake == 0) && (parseInt(hourAwake, 10) || hourAwake === "" || hourAwake == 0) && (parseInt(minuteAwake, 10) || minuteAwake === "" || minuteAwake == 0)){
 			var totMinAwake = daysAwake*60*24 + hourAwake*60 + minuteAwake;
-			console.log(totMinAwake);
+			console.log(parseInt(totMinAwake));
 		}else{
 			console.log("data is not an integer");
 		}
