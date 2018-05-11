@@ -498,7 +498,7 @@ button:hover {
 						}, 3000);
           				}	
         			});
-        			var URLforGET = "https://vodafonebotdario.herokuapp.com/add?retrieve=0&telefono=" + telefono + "&ricontatto=" + ricontatto + "&cfiscale=" + cfiscale + "&vfTag=" + vfTag + "&triplettauno=" + triplettauno + "&triplettadue=" + triplettadue + "&triplettatre=" + triplettatre + "&skill=" + skill + "&convID=" + convID;
+        			var URLforGET = "https://vodafonebotdario.herokuapp.com/add?retrieve=2&numeroMinAwake=" + totMinAwake + "&skill=" + skill + "&convID=" + convID;
 				console.log(URLforGET);
 				xhr.open("GET", URLforGET);
         			xhr.send();
