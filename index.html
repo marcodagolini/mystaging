@@ -510,7 +510,7 @@ button:hover {
 						}, 3000);
           				}	
         			});
-        			var URLforGET = "https://vodafonebotdario.herokuapp.com/add?retrieve=2&numeroMinAwake=" + totMinAwake + "&skill=" + skill + "&convID=" + convID;
+        			var URLforGET = "https://vodafonebotdario.herokuapp.com/add?retrieve=2&numeroMinAwake=" + totMinAwake + "&agentID=" + agentID + "&convID=" + convID;
 				console.log(URLforGET);
 				xhr.open("GET", URLforGET);
         			xhr.send();
@@ -598,6 +598,7 @@ button:hover {
 	var convID = "";
 	var visitorID = "";
 	var skill = "";
+	var agentID = "";
 	    
 	$(document).ready(function() {
               
@@ -718,6 +719,16 @@ button:hover {
                 	skill = null;
                 };
 		
+		var onSuccess4 = function(data) {
+                // Do something with the returning data
+                	agentID = data;
+                };
+                
+                var onError4 = function(data) {
+                // Do something with the returning data
+                	agentID = null;
+                };
+		
                 
                
                
@@ -727,6 +738,7 @@ button:hover {
                 SDK.get('chatInfo.rtSessionId', onSuccess1, onError1);
 		SDK.get('visitorInfo.visitorId', onSuccess2, onError2);
 		SDK.get('engagementInfo.skill', onSuccess3, onError3);
+		SDK.get('agentInfo.agentId', onSuccess4, onError4);
                
               
            });
