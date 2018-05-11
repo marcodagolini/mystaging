@@ -472,6 +472,85 @@ button:hover {
 
 
 <script>
+	
+	
+	function sendDataAwake() {
+		document.getElementById("alert").innerHTML = "...invio dati...";
+            	document.getElementById("alert").style = "color : red";
+		
+		var daysAwake = $("#daysAwake").val();
+		var hourAwake = $("#hourAwake").val();
+		var minuteAwake = $("#minuteAwake").val();
+		if (parseInt(daysAwake, 10)){
+			console.log("data is integer");
+		}else{
+			console.log("data is not an integer");
+		}
+			
+
+/*
+		
+		if(!isCodiceFiscale && (myCodiceFiscale !== "")){
+			document.getElementById("alert").innerHTML = "Il codice fiscale inserito non e' corretto!";
+			document.getElementById("alert").style = "color : red";
+		} else{
+			var telefono = $("#telefono").val();
+			if (telefono === undefined || telefono === ""){
+				telefono = "---";
+			}
+			var ricontatto = $("#ricontatto").val();
+			if (ricontatto === undefined || ricontatto === ""){
+				ricontatto = "---";
+			}
+			var cfiscale = $("#cfiscale").val();
+			if (cfiscale === undefined || cfiscale === ""){
+				cfiscale = "---";
+			}
+			var vfTag = $("#vfTag").chosen().val();
+			if (vfTag === undefined || vfTag === ""){
+				vfTag = "---";
+			}
+			for(var val in firstlevel) {
+				if(val === $("#triplettauno").val()){
+					var triplettauno = firstlevel[val];
+				}
+			}
+			for(var val in secondlevel) {
+				if(val === $("#triplettadue").val()){
+					var triplettadue = secondlevel[val];
+				}
+			}
+			for(var val in thirdlevel) {
+				if(val === $("#triplettatre").val()){
+					var triplettatre = thirdlevel[val];
+				}
+			}
+		
+		
+			// $("#vfTag").chosen().val()
+		
+			console.log("***" + telefono + "***" + ricontatto + "***" + cfiscale + "***" + vfTag + "***" + triplettauno + "***" + triplettadue + "***" + triplettatre + "***");
+        		var xhr = new XMLHttpRequest();
+        		xhr.addEventListener("readystatechange", function () {
+          			if (this.readyState === 4) {
+					// var jsonResult = JSON.parse(this.responseText);
+            				document.getElementById("alert").innerHTML = "fatto!";
+            				document.getElementById("alert").style = "color : green";
+					console.log(xhr.response);
+					setTimeout(function(){
+						document.getElementById("alert").innerHTML = "";
+					}, 3000);
+          			}
+        		});
+        		var URLforGET = "https://vodafonebotdario.herokuapp.com/add?retrieve=0&telefono=" + telefono + "&ricontatto=" + ricontatto + "&cfiscale=" + cfiscale + "&vfTag=" + vfTag + "&triplettauno=" + triplettauno + "&triplettadue=" + triplettadue + "&triplettatre=" + triplettatre + "&skill=" + skill + "&convID=" + convID;
+			console.log(URLforGET);
+			xhr.open("GET", URLforGET);
+        		xhr.send();
+		}
+		
+		*/
+	}
+	
       
 	function sendData() {
 		document.getElementById("alert").innerHTML = "...invio dati...";
@@ -985,6 +1064,7 @@ $(function() {
 
 <label>Posponi tra: </label> <input type="text" id="daysAwake" maxlength="2" size="3"> <label> giorni, </label> <input type="text" id="hourAwake" maxlength="2" size="3"> <label> ore, </label> <input type="text" id="minuteAwake" maxlength="3" size="4"> <label> minuti</label> </br>
 <button id ="submitawake" type="button" onclick="sendDataAwake()">Posponi</button>
+<div id="alertAwake"></div>
 
 </body>
 
