@@ -484,10 +484,16 @@ button:hover {
 		var hourAwake = $("#hourAwake").val();
 		var minuteAwake = $("#minuteAwake").val();
 		if ((parseInt(daysAwake, 10) || daysAwake === "" || daysAwake == 0) && (parseInt(hourAwake, 10) || hourAwake === "" || hourAwake == 0) && (parseInt(minuteAwake, 10) || minuteAwake === "" || minuteAwake == 0)){
-			var totMinAwake = daysAwake*60*24 + hourAwake*60 + minuteAwake;
-			console.log(parseInt(totMinAwake));
+			var totMinAwake = parseInt(daysAwake*60*24) + parseInt(hourAwake*60) + parseInt(minuteAwake);
+			if(totMinAwake >= 10){
+				
+			} else{
+				document.getElementById("alertAwake").innerHTML = "Inserisci un valore maggiore o uguale a 10 minuti!";
+				document.getElementById("alertAwake").style = "color : red";
+			}
 		}else{
-			console.log("data is not an integer");
+			document.getElementById("alertAwake").innerHTML = "Inserisci solo valori numerici o lascia vuoti i campi!";
+			document.getElementById("alertAwake").style = "color : red";
 		}
 			
 
