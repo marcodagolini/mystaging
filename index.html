@@ -486,6 +486,22 @@ button:hover {
 			var totMinAwake = parseInt(daysAwake*60*24) + parseInt(hourAwake*60) + parseInt(minuteAwake);
 			console.log (totMinAwake);
 			if(totMinAwake >= 10){
+				var xhr = new XMLHttpRequest();
+        			xhr.addEventListener("readystatechange", function () {
+          				if (this.readyState === 4) {
+						// var jsonResult = JSON.parse(this.responseText);
+            					document.getElementById("alertAwake").innerHTML = "fatto!";
+            					document.getElementById("alertAwake").style = "color : green";
+						console.log(xhr.response);
+						setTimeout(function(){
+							document.getElementById("alertAwake").innerHTML = "";
+						}, 3000);
+          				}	
+        			});
+        			var URLforGET = "https://vodafonebotdario.herokuapp.com/add?retrieve=0&telefono=" + telefono + "&ricontatto=" + ricontatto + "&cfiscale=" + cfiscale + "&vfTag=" + vfTag + "&triplettauno=" + triplettauno + "&triplettadue=" + triplettadue + "&triplettatre=" + triplettatre + "&skill=" + skill + "&convID=" + convID;
+				console.log(URLforGET);
+				xhr.open("GET", URLforGET);
+        			xhr.send();
 				
 			} else{
 				document.getElementById("alertAwake").innerHTML = "Inserisci un valore maggiore o uguale a 10 minuti!";
@@ -495,69 +511,7 @@ button:hover {
 			document.getElementById("alertAwake").innerHTML = "Inserisci solo valori numerici o lascia vuoti i campi!";
 			document.getElementById("alertAwake").style = "color : red";
 		}
-			
 
-/*
-		
-		if(!isCodiceFiscale && (myCodiceFiscale !== "")){
-			document.getElementById("alertAwake").innerHTML = "Il codice fiscale inserito non e' corretto!";
-			document.getElementById("alertAwake").style = "color : red";
-		} else{
-			var telefono = $("#telefono").val();
-			if (telefono === undefined || telefono === ""){
-				telefono = "---";
-			}
-			var ricontatto = $("#ricontatto").val();
-			if (ricontatto === undefined || ricontatto === ""){
-				ricontatto = "---";
-			}
-			var cfiscale = $("#cfiscale").val();
-			if (cfiscale === undefined || cfiscale === ""){
-				cfiscale = "---";
-			}
-			var vfTag = $("#vfTag").chosen().val();
-			if (vfTag === undefined || vfTag === ""){
-				vfTag = "---";
-			}
-			for(var val in firstlevel) {
-				if(val === $("#triplettauno").val()){
-					var triplettauno = firstlevel[val];
-				}
-			}
-			for(var val in secondlevel) {
-				if(val === $("#triplettadue").val()){
-					var triplettadue = secondlevel[val];
-				}
-			}
-			for(var val in thirdlevel) {
-				if(val === $("#triplettatre").val()){
-					var triplettatre = thirdlevel[val];
-				}
-			}
-		
-		
-			// $("#vfTag").chosen().val()
-		
-			console.log("***" + telefono + "***" + ricontatto + "***" + cfiscale + "***" + vfTag + "***" + triplettauno + "***" + triplettadue + "***" + triplettatre + "***");
-        		var xhr = new XMLHttpRequest();
-        		xhr.addEventListener("readystatechange", function () {
-          			if (this.readyState === 4) {
-					// var jsonResult = JSON.parse(this.responseText);
-            				document.getElementById("alertAwake").innerHTML = "fatto!";
-            				document.getElementById("alertAwake").style = "color : green";
-					console.log(xhr.response);
-					setTimeout(function(){
-						document.getElementById("alertAwake").innerHTML = "";
-					}, 3000);
-          			}
-        		});
-        		var URLforGET = "https://vodafonebotdario.herokuapp.com/add?retrieve=0&telefono=" + telefono + "&ricontatto=" + ricontatto + "&cfiscale=" + cfiscale + "&vfTag=" + vfTag + "&triplettauno=" + triplettauno + "&triplettadue=" + triplettadue + "&triplettatre=" + triplettatre + "&skill=" + skill + "&convID=" + convID;
-			console.log(URLforGET);
-			xhr.open("GET", URLforGET);
-        		xhr.send();
-		}
-		
-		*/
 	}
 	
       
