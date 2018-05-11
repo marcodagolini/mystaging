@@ -531,7 +531,7 @@ button:hover {
 		document.getElementById("alert").innerHTML = "...invio dati...";
             	document.getElementById("alert").style = "color : red";
 		
-		var myRegex = /^[a-z]{6}[0-9]{2}[a-z][0-9]{2}[a-z][0-9]{3}[a-z]$/;
+		var myRegex = /^[A-Za-z]{6}[0-9]{2}[A-Za-z][0-9]{2}[A-Za-z][0-9]{3}[A-Za-z]$/;
 		var myCodiceFiscale = $("#cfiscale").val();
 		var isCodiceFiscale = myRegex.test(myCodiceFiscale);
 		console.log("codice fiscale test: " + isCodiceFiscale);
