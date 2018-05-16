@@ -5,7 +5,16 @@
 
 	
 
+	
+	
+	
+	
+	
 
+textarea {
+    resize: none;
+    border: none;
+}	
 	
 	
 button {
@@ -476,6 +485,11 @@ button:hover {
 <script>
 	
 	
+	var convID = "";
+	var visitorID = "";
+	var skill = "";
+	var agentID = "";
+	
 	function sendToLimbo() {
 		document.getElementById("alertAwake").innerHTML = "...invio nel Limbo...";
             	document.getElementById("alertAwake").style = "color : red";
@@ -496,7 +510,6 @@ button:hover {
 		xhr.open("GET", URLforGET);
         	xhr.send();
 		
-
 	}	
 	
 	
@@ -519,7 +532,6 @@ button:hover {
 				totMinAwake = totMinAwake + parseInt(minuteAwake);
 			}
 			   
-
 			console.log (totMinAwake);
 			if(totMinAwake >= 10){
 				var xhr = new XMLHttpRequest();
@@ -547,7 +559,94 @@ button:hover {
 			document.getElementById("alertAwake").innerHTML = "Inserisci solo valori numerici o lascia vuoti i campi!";
 			document.getElementById("alertAwake").style = "color : red";
 		}
-
+	}
+	
+	function doMyGet(){
+		
+		var xhr = new XMLHttpRequest();
+		xhr.addEventListener("readystatechange", function () {
+			if (this.readyState === 4) {
+				console.log(xhr.response);
+				var myXHR = JSON.parse(xhr.response)
+				$('#telefono').val(myXHR[0]);
+				$('#ricontatto').val(myXHR[1]);
+				$('#cfiscale').val(myXHR[2]);
+				if(myXHR[3] !== null){
+					if(myXHR[3].indexOf(",") == -1){
+						$(".chzn-select").val(myXHR[3]).trigger('chosen:updated');
+					} else{
+						var stringForTags = '[';
+						var alreadyCut = myXHR[3];
+						var alreadyIn = 0
+						do{
+							var initialPosition = myXHR[3].indexOf(",");
+							var myValue = alreadyCut.substring(0, initialPosition);
+							alreadyCut = alreadyCut.substring(initialPosition + 1);
+							if(alreadyIn == 0){
+								stringForTags = stringForTags + '"' + myValue + '"';
+							} else{
+								stringForTags = stringForTags + ',"' + myValue + '"';
+							}
+							alreadyIn = 1;
+							
+						} while(alreadyCut.indexOf(",") > -1);
+						stringForTags = stringForTags + ',"' + alreadyCut + '"]';
+						console.log("stringForTags: " + stringForTags);
+						stringForTags = JSON.parse(stringForTags);
+						$(".chzn-select").val(stringForTags);
+						$(".chzn-select").trigger("chosen:updated");
+						
+					}
+				}
+					
+				if(myXHR[4] !== null){
+					var triplettaunoposition = 0;
+					var triplettaunoname = "";
+					for(var val in firstlevel) {
+						if(firstlevel[val] === myXHR[4]){
+							triplettaunoname = val;
+							$("#triplettauno").prop("selectedIndex", triplettaunoposition).change();
+							break;
+						}
+						triplettaunoposition = triplettaunoposition + 1;
+					}
+				}
+				if(myXHR[5] !== null){
+					var triplettadueposition = 0;
+					var triplettaduename = "";
+					for(var val in secondlevel) {
+						if(val.indexOf(triplettaunoname) > -1){
+							if(secondlevel[val] === myXHR[5]){
+								triplettaduename = val;
+								$("#triplettadue").prop("selectedIndex", triplettadueposition).change();
+								break;
+							}
+							triplettadueposition = triplettadueposition + 1;
+						}
+							
+					}
+				}
+				if(myXHR[6] !== null){
+					var triplettatreposition = 0;
+					var triplettatrename = "";
+					for(var val in thirdlevel) {
+						if(val.indexOf(triplettaduename) > -1){
+							if(thirdlevel[val] === myXHR[6]){
+								triplettatrename = val;
+								$("#triplettatre").prop("selectedIndex", triplettatreposition).change();
+								break;
+							}
+							triplettatreposition = triplettatreposition + 1;
+						}
+							
+					}
+				}
+			}
+		});
+		var URLforGET = "https://vodafonebotdario.herokuapp.com/add?retrieve=1&visitorID=" + visitorID + "&convID=" + convID ;
+		console.log(URLforGET);
+		xhr.open("GET", URLforGET);
+		xhr.send();
 	}
 	
       
@@ -560,10 +659,7 @@ button:hover {
 		var isCodiceFiscale = myRegex.test(myCodiceFiscale);
 		console.log("codice fiscale test: " + isCodiceFiscale);
 		
-		if(!isCodiceFiscale && (myCodiceFiscale !== "")){
-			document.getElementById("alert").innerHTML = "Il codice fiscale inserito non e' corretto!";
-			document.getElementById("alert").style = "color : red";
-		} else{
+		if(isCodiceFiscale || (myCodiceFiscale === "") || (myCodiceFiscale === "---")){
 			var telefono = $("#telefono").val();
 			if (telefono === undefined || telefono === ""){
 				telefono = "---";
@@ -616,22 +712,29 @@ button:hover {
 			console.log(URLforGET);
 			xhr.open("GET", URLforGET);
         		xhr.send();
+		} else{
+			document.getElementById("alert").innerHTML = "Il codice fiscale inserito non e' corretto!";
+			document.getElementById("alert").style = "color : red";
 		}
 	}
 	
-	var convID = "";
-	var visitorID = "";
-	var skill = "";
-	var agentID = "";
+
 	    
 	$(document).ready(function() {
               
               	var SDK=lpTag.agentSDK;
               	SDK.init();
+		var call1 = 0;
+		var call2 = 0;
                 
                 var onSuccess1 = function(data) {
                 // Do something with the returning data
                 	convID = data;
+			$("textarea#myconversationID").val("Ticket nr: " + convID);
+			call1 = 1;
+			if (call2 == 1){
+				doMyGet();
+			}
                 };
                 
                 var onError1 = function(data) {
@@ -640,92 +743,12 @@ button:hover {
                 };
 		
 		var onSuccess2 = function(data) {
-                // Do something with the returning data
-                	visitorID = data;
-			var xhr = new XMLHttpRequest();
-			xhr.addEventListener("readystatechange", function () {
-				if (this.readyState === 4) {
-					console.log(xhr.response);
-					var myXHR = JSON.parse(xhr.response)
-					$('#telefono').val(myXHR[0]);
-					$('#ricontatto').val(myXHR[1]);
-					$('#cfiscale').val(myXHR[2]);
-					if(myXHR[3] !== null){
-						if(myXHR[3].indexOf(",") == -1){
-							$(".chzn-select").val(myXHR[3]).trigger('chosen:updated');
-						} else{
-							var stringForTags = '[';
-							var alreadyCut = myXHR[3];
-							var alreadyIn = 0
-							do{
-								var initialPosition = myXHR[3].indexOf(",");
-								var myValue = alreadyCut.substring(0, initialPosition);
-								alreadyCut = alreadyCut.substring(initialPosition + 1);
-								if(alreadyIn == 0){
-									stringForTags = stringForTags + '"' + myValue + '"';
-								} else{
-									stringForTags = stringForTags + ',"' + myValue + '"';
-								}
-								alreadyIn = 1;
-							
-							} while(alreadyCut.indexOf(",") > -1);
-							stringForTags = stringForTags + ',"' + alreadyCut + '"]';
-							console.log("stringForTags: " + stringForTags);
-							stringForTags = JSON.parse(stringForTags);
-							$(".chzn-select").val(stringForTags);
-							$(".chzn-select").trigger("chosen:updated");
-						
-						}
-					}
-					
-					if(myXHR[4] !== null){
-						var triplettaunoposition = 0;
-						var triplettaunoname = "";
-						for(var val in firstlevel) {
-							if(firstlevel[val] === myXHR[4]){
-								triplettaunoname = val;
-								$("#triplettauno").prop("selectedIndex", triplettaunoposition).change();
-								break;
-							}
-							triplettaunoposition = triplettaunoposition + 1;
-						}
-					}
-					if(myXHR[5] !== null){
-						var triplettadueposition = 0;
-						var triplettaduename = "";
-						for(var val in secondlevel) {
-							if(val.indexOf(triplettaunoname) > -1){
-								if(secondlevel[val] === myXHR[5]){
-									triplettaduename = val;
-									$("#triplettadue").prop("selectedIndex", triplettadueposition).change();
-									break;
-								}
-								triplettadueposition = triplettadueposition + 1;
-							}
-							
-						}
-					}
-					if(myXHR[6] !== null){
-						var triplettatreposition = 0;
-						var triplettatrename = "";
-						for(var val in thirdlevel) {
-							if(val.indexOf(triplettaduename) > -1){
-								if(thirdlevel[val] === myXHR[6]){
-									triplettatrename = val;
-									$("#triplettatre").prop("selectedIndex", triplettatreposition).change();
-									break;
-								}
-								triplettatreposition = triplettatreposition + 1;
-							}
-							
-						}
-					}
-				}
-			});
-			var URLforGET = "https://vodafonebotdario.herokuapp.com/add?retrieve=1&visitorID=" + visitorID;
-			console.log(URLforGET);
-			xhr.open("GET", URLforGET);
-			xhr.send();
+			visitorID = data;
+			call2 = 1;
+			if (call1 == 1){
+				doMyGet();
+			}
+
 		};
                 
                 var onError2 = function(data) {
@@ -1074,6 +1097,9 @@ $(function() {
 <label>Posponi tra: </label> <input type="text" id="daysAwake" maxlength="2" size="3"> <label> giorni, </label> <input type="text" id="hourAwake" maxlength="2" size="3"> <label> ore, </label> <input type="text" id="minuteAwake" maxlength="3" size="4"> <label> minuti</label> </br>
 <button id ="submitawake" type="button" onclick="sendDataAwake()">Posponi</button>
 <button id ="submitlimbo" type="button" onclick="sendToLimbo()" style="float: right;">Limbo</button>
+</br>
+</br>
+<textarea rows="5" cols="30" id="myconversationID" readonly></textarea>
 <div id="alertAwake"></div>
 
 </body>
