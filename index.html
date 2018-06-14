@@ -40,6 +40,13 @@ body{
   background-color: #c1c1c1;
   padding: 0px;
 }
+.grid-tot {
+  display: grid;
+  grid-template-columns: 200px 100px 100px 100px;
+  width: 500px;
+  background-color: #b6f3b5;
+  padding: 0px;
+}
 .grid-item {
   background-color: rgba(255, 255, 255, 0.8);
   border: 0px solid rgba(0, 0, 0, 0.8);
@@ -275,16 +282,13 @@ span.psw {
   		<div class="grid-item-left">skill</div>  
   		<div class="grid-item" id="openConv">open</div>
 		<div class="grid-item" id="unassignedConv">unassigned</div>
-  		<div class="grid-item" id="assignedConv">assigned</div>
-  		
+  		<div class="grid-item" id="assignedConv">assigned</div>	
 	</div>
 	<div class="grid-bright">
   		<div class="grid-item-left">Facebook_priv</div>
   		<div class="grid-item" id="FBPopenConv"></div>
 		<div class="grid-item" id="FBPassignedConv"></div>
 		<div class="grid-item" id="FBPunassignedConv"></div>
-  		
-  		
 	</div>
 
 	<div class="grid-dark">
@@ -292,10 +296,91 @@ span.psw {
   		<div class="grid-item" id="FBRopenConv"></div>
 		<div class="grid-item" id="FBRassignedConv"></div>
 		<div class="grid-item" id="FBRunassignedConv"></div>
-  		
-  		
 	</div>
 	
+	<div class="grid-bright">
+  		<div class="grid-item-left">Facebook_priv_night</div>
+  		<div class="grid-item" id="FBPNopenConv"></div>
+		<div class="grid-item" id="FBPNassignedConv"></div>
+		<div class="grid-item" id="FBPNunassignedConv"></div>
+	</div>
+
+	<div class="grid-dark">
+  		<div class="grid-item-left">Facebook_priv_night_risvegliate</div>
+  		<div class="grid-item" id="FBPRNopenConv"></div>
+		<div class="grid-item" id="FBPRNassignedConv"></div>
+		<div class="grid-item" id="FBPRNunassignedConv"></div>
+	</div>
+	
+	<div class="grid-bright">
+  		<div class="grid-item-left">Human</div>
+  		<div class="grid-item" id="HopenConv"></div>
+		<div class="grid-item" id="HassignedConv"></div>
+		<div class="grid-item" id="HunassignedConv"></div>
+	</div>
+
+	<div class="grid-dark">
+  		<div class="grid-item-left">Human_risvegliate</div>
+  		<div class="grid-item" id="HRopenConv"></div>
+		<div class="grid-item" id="HRassignedConv"></div>
+		<div class="grid-item" id="HRunassignedConv"></div>
+	</div>
+
+	<div class="grid-bright">
+  		<div class="grid-item-left">Human_night</div>
+  		<div class="grid-item" id="HNopenConv"></div>
+		<div class="grid-item" id="HNassignedConv"></div>
+		<div class="grid-item" id="HNunassignedConv"></div>
+	</div>
+
+	<div class="grid-dark">
+  		<div class="grid-item-left">Human_night_risvegliate</div>
+  		<div class="grid-item" id="HNRopenConv"></div>
+		<div class="grid-item" id="HNRassignedConv"></div>
+		<div class="grid-item" id="HNRunassignedConv"></div>
+	</div>
+
+	<div class="grid-bright">
+  		<div class="grid-item-left">Outbound</div>
+  		<div class="grid-item" id="OopenConv"></div>
+		<div class="grid-item" id="OassignedConv"></div>
+		<div class="grid-item" id="OunassignedConv"></div>
+	</div>
+
+	<div class="grid-dark">
+  		<div class="grid-item-left">Outbound_risvegliate</div>
+  		<div class="grid-item" id="ORopenConv"></div>
+		<div class="grid-item" id="ORassignedConv"></div>
+		<div class="grid-item" id="ORunassignedConv"></div>
+	</div>
+
+	<div class="grid-bright">
+  		<div class="grid-item-left">Outbound_fixed</div>
+  		<div class="grid-item" id="OFopenConv"></div>
+		<div class="grid-item" id="OFassignedConv"></div>
+		<div class="grid-item" id="OFunassignedConv"></div>
+	</div>
+
+	<div class="grid-dark">
+  		<div class="grid-item-left">Outbound_fixed_risvegliate</div>
+  		<div class="grid-item" id="OFRopenConv"></div>
+		<div class="grid-item" id="OFRassignedConv"></div>
+		<div class="grid-item" id="OFRunassignedConv"></div>
+	</div>
+
+	<div class="grid-dark">
+  		<div class="grid-item-left">Inglese</div>
+  		<div class="grid-item" id="IopenConv"></div>
+		<div class="grid-item" id="IassignedConv"></div>
+		<div class="grid-item" id="IunassignedConv"></div>
+	</div>
+
+	<div class="grid-tot">
+  		<div class="grid-item-left">Totale</div>
+  		<div class="grid-item" id="TopenConv"></div>
+		<div class="grid-item" id="TassignedConv"></div>
+		<div class="grid-item" id="TunassignedConv"></div>
+	</div>
 	</br></br></br></br>
 
     </div>
