@@ -1034,9 +1034,12 @@ checklogin(accnumb, bearer);
 	  }
 	  if($(evt.target).is('#refresh')) {
 		  
-		  $('#loadedStats').css('display', 'none');
-		  $('#loadingStats').css('display', 'inline');
-		  loadConvs();
+		document.getElementById("loaderMSG").innerHTML = "Refreshing data!";
+		document.getElementById("loaderMSG").style = "color : green";
+		  
+		$('#loadedStats').css('display', 'none');
+		$('#loadingStats').css('display', 'inline');
+		loadConvs();
 		  							
 	  }
   });
