@@ -519,28 +519,28 @@ span.psw {
 	
  
 	
-function botOrNot() {
+function herokuOrNot() {
         var xhr = new XMLHttpRequest();
         xhr.addEventListener("readystatechange", function () {
           	if (this.readyState === 4) {
 			if (this.status == 200 && xhr.status < 300){
-				document.getElementById("reportBot").innerHTML = "Il bot e' connesso";
+				document.getElementById("reportBot").innerHTML = "Il servizio di hosting del bot e' up";
 				document.getElementById("reportBot").style = "color : green";
 				document.getElementById("reportBot").style.fontWeight = "bold";
-				document.getElementById("reportBot").style.fontSize = "xx-large";
+				document.getElementById("reportBot").style.fontSize = "large";
 			}
 			else{
-				document.getElementById("reportBot").innerHTML = "Il bot non e' connesso";
+				document.getElementById("reportBot").innerHTML = "Il servizio di hosting del bot e' down";
 				document.getElementById("reportBot").style = "color : red";
 				document.getElementById("reportBot").style.fontWeight = "bold";
-				document.getElementById("reportBot").style.fontSize = "xx-large";
+				document.getElementById("reportBot").style.fontSize = "large";
 			}
           	}
 		else {
-            		document.getElementById("reportBot").innerHTML = "...checking bot status...";
+            		document.getElementById("reportBot").innerHTML = "...checking hosting bot status...";
             		document.getElementById("reportBot").style = "color : black";
 			document.getElementById("reportBot").style.fontWeight = "bold";
-			document.getElementById("reportBot").style.fontSize = "xx-large";
+			document.getElementById("reportBot").style.fontSize = "large";
           	}
         });
         var URLforGET = "https://vodafonebotdario.herokuapp.com/ping?ping=true&username=" + localStorage.getItem('username');
