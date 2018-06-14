@@ -1207,6 +1207,7 @@ function retrieveAgentsLogged(){
 						$('#loadedStats').css('display', 'none');
 						$('#loadingStats').css('display', 'inline');
 						loadConvs();
+						retrieveAgentsLogged();
                               		},
                               		error: function error(e, text) {
 						localStorage.setItem('account_number', '');
@@ -1254,6 +1255,7 @@ checklogin(accnumb, bearer);
 		$('#loadedStats').css('display', 'none');
 		$('#loadingStats').css('display', 'inline');
 		loadConvs();
+		retrieveAgentsLogged();
 		  							
 	  }
   });
@@ -1310,6 +1312,7 @@ checklogin(accnumb, bearer);
 									  $('#loadingStats').css('display', 'inline');
 	 
 									  loadConvs();
+									  retrieveAgentsLogged();
 									  
 								  }, 2000);
 							  },
