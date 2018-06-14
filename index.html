@@ -23,21 +23,21 @@ body{
   grid-template-columns: 180px 100px 100px 100px 100px 100px 100px 100px 100px;
   width: 980px;
   background-color: #2196F3;
-  padding: 5px;
+  padding: 3px;
 }
-.grid-container-closed {
+.grid-bright {
   display: grid;
   grid-template-columns: 180px 100px 100px 100px 100px 100px 100px 100px 100px;
   width: 980px;
-  background-color: #ff0000;
-  padding: 5px;
+  background-color: #ebf3fb;
+  padding: 3px;
 }
-.grid-container-open {
+.grid-dark {
   display: grid;
   grid-template-columns: 180px 100px 100px 100px 100px 100px 100px 100px 100px;
   width: 980px;
-  background-color: #00ff00;
-  padding: 5px;
+  background-color: #c1c1c1;
+  padding: 3px;
 }
 .grid-item {
   background-color: rgba(255, 255, 255, 0.8);
@@ -281,155 +281,30 @@ span.psw {
 		<div class="grid-item" id="agentBacksoon">back soon</div>
 		<div class="grid-item" id="maxSlots">slots</div>
 	</div>
-	<div class="grid-container-closed">
-  		<div class="grid-item-left">closed</div>
-  		<div class="grid-item" id="lastMonthClosedClosed"></div>
-		<div class="grid-item" id="customTimeClosedClosed"></div>
-  		<div class="grid-item" id="lastDayClosedClosed"></div>  
-  		<div class="grid-item" id="lastHourClosedClosed"></div>
-  		<div class="grid-item" id="last10ClosedClosed"></div>
-		<div class="grid-item-left">manual closed</div>
-  		<div class="grid-item" id="lastMonthClosedClosedManual"></div>
-		<div class="grid-item" id="customTimeClosedClosedManual"></div>
-  		<div class="grid-item" id="lastDayClosedClosedManual"></div>  
-  		<div class="grid-item" id="lastHourClosedClosedManual"></div>
-		<div class="grid-item" id="last10ClosedClosedManual"></div>
-		<div class="grid-item-left">automatic closed</div>
-  		<div class="grid-item" id="lastMonthClosedClosedAutomatic"></div>
-		<div class="grid-item" id="customTimeClosedClosedAutomatic"></div>
-  		<div class="grid-item" id="lastDayClosedClosedAutomatic"></div>  
-  		<div class="grid-item" id="lastHourClosedClosedAutomatic"></div>
-		<div class="grid-item" id="last10ClosedClosedAutomatic"></div>
-		<div class="grid-item-left">time to accept</div>
-  		<div class="grid-item" id="lastMonthClosedTimeToAccept"></div>
-		<div class="grid-item" id="customTimeClosedTimeToAccept"></div>
-  		<div class="grid-item" id="lastDayClosedTimeToAccept"></div>  
-  		<div class="grid-item" id="lastHourClosedTimeToAccept"></div>
-		<div class="grid-item" id="last10ClosedTimeToAccept"></div>
-		<div class="grid-item-left">0-30 sec</div>
-  		<div class="grid-item" id="lastMonthClosedTimeToAcceptFirstBulk"></div>
-		<div class="grid-item" id="customTimeClosedTimeToAcceptFirstBulk"></div>
-  		<div class="grid-item" id="lastDayClosedTimeToAcceptFirstBulk"></div>  
-  		<div class="grid-item" id="lastHourClosedTimeToAcceptFirstBulk"></div>
-		<div class="grid-item" id="last10ClosedTimeToAcceptFirstBulk"></div>
-		<div class="grid-item-left">31-60 sec</div>
-  		<div class="grid-item" id="lastMonthClosedTimeToAcceptSecondBulk"></div>
-		<div class="grid-item" id="customTimeClosedTimeToAcceptSecondBulk"></div>
-  		<div class="grid-item" id="lastDayClosedTimeToAcceptSecondBulk"></div>  
-  		<div class="grid-item" id="lastHourClosedTimeToAcceptSecondBulk"></div>
-		<div class="grid-item" id="last10ClosedTimeToAcceptSecondBulk"></div>
-		<div class="grid-item-left">> 60 sec</div>
-  		<div class="grid-item" id="lastMonthClosedTimeToAcceptThirdBulk"></div>
-		<div class="grid-item" id="customTimeClosedTimeToAcceptThirdBulk"></div>
-  		<div class="grid-item" id="lastDayClosedTimeToAcceptThirdBulk"></div>  
-  		<div class="grid-item" id="lastHourClosedTimeToAcceptThirdBulk"></div>
-		<div class="grid-item" id="last10ClosedTimeToAcceptThirdBulk"></div>
-  		<div class="grid-item-left">first time answer</div>  
-  		<div class="grid-item" id="lastMonthFTAClosed"></div>
-		<div class="grid-item" id="customTimeFTAClosed"></div>
-  		<div class="grid-item" id="lastDayFTAClosed"></div>
-  		<div class="grid-item" id="lastHourFTAClosed"></div> 
-  		<div class="grid-item" id="last10FTAClosed"></div>
-		<div class="grid-item-left">0-30 sec</div>  
-  		<div class="grid-item" id="lastMonthFTAClosedFirstBulk"></div>
-		<div class="grid-item" id="customTimeFTAClosedFirstBulk"></div>
-  		<div class="grid-item" id="lastDayFTAClosedFirstBulk"></div>
-  		<div class="grid-item" id="lastHourFTAClosedFirstBulk"></div> 
-  		<div class="grid-item" id="last10FTAClosedFirstBulk"></div>
-		<div class="grid-item-left">31-60 sec</div>  
-  		<div class="grid-item" id="lastMonthFTAClosedSecondBulk"></div>
-		<div class="grid-item" id="customTimeFTAClosedSecondBulk"></div>
-  		<div class="grid-item" id="lastDayFTAClosedSecondBulk"></div>
-  		<div class="grid-item" id="lastHourFTAClosedSecondBulk"></div> 
-  		<div class="grid-item" id="last10FTAClosedSecondBulk"></div>
-		<div class="grid-item-left">> 60 sec</div>  
-  		<div class="grid-item" id="lastMonthFTAClosedThirdBulk"></div>
-		<div class="grid-item" id="customTimeFTAClosedThirdBulk"></div>
-  		<div class="grid-item" id="lastDayFTAClosedThirdBulk"></div>
-  		<div class="grid-item" id="lastHourFTAClosedThirdBulk"></div> 
-  		<div class="grid-item" id="last10FTAClosedThirdBulk"></div>
-  		<div class="grid-item-left">general time answer</div>  
-  		<div class="grid-item" id="lastMonthGTAClosed"></div>
-		<div class="grid-item" id="customTimeGTAClosed"></div>
-  		<div class="grid-item" id="lastDayGTAClosed"></div>
-  		<div class="grid-item" id="lastHourGTAClosed"></div> 
-  		<div class="grid-item" id="last10GTAClosed"></div>
-	</div>
-	<div class="grid-container-open">
-  		<div class="grid-item-left">open</div>
-  		<div class="grid-item" id="lastMonthOpenOpen"></div>
-		<div class="grid-item" id="customTimeOpenOpen"></div>
-  		<div class="grid-item" id="lastDayOpenOpen"></div>  
-  		<div class="grid-item" id="lastHourOpenOpen"></div>
-  		<div class="grid-item" id="last10OpenOpen"></div>
-		<div class="grid-item-left">time to accept</div>
-  		<div class="grid-item" id="lastMonthOpenTimeToAccept"></div>
-		<div class="grid-item" id="customTimeOpenTimeToAccept"></div>
-  		<div class="grid-item" id="lastDayOpenTimeToAccept"></div>  
-  		<div class="grid-item" id="lastHourOpenTimeToAccept"></div>
-		<div class="grid-item" id="last10OpenTimeToAccept"></div>
-		<div class="grid-item-left">0-30 sec</div>
-  		<div class="grid-item" id="lastMonthOpenTimeToAcceptFirstBulk"></div>
-		<div class="grid-item" id="customTimeOpenTimeToAcceptFirstBulk"></div>
-  		<div class="grid-item" id="lastDayOpenTimeToAcceptFirstBulk"></div>  
-  		<div class="grid-item" id="lastHourOpenTimeToAcceptFirstBulk"></div>
-		<div class="grid-item" id="last10OpenTimeToAcceptFirstBulk"></div>
-		<div class="grid-item-left">31-60 sec</div>
-  		<div class="grid-item" id="lastMonthOpenTimeToAcceptSecondBulk"></div>
-		<div class="grid-item" id="customTimeOpenTimeToAcceptSecondBulk"></div>
-  		<div class="grid-item" id="lastDayOpenTimeToAcceptSecondBulk"></div>  
-  		<div class="grid-item" id="lastHourOpenTimeToAcceptSecondBulk"></div>
-		<div class="grid-item" id="last10OpenTimeToAcceptSecondBulk"></div>
-		<div class="grid-item-left">> 60 sec</div>
-  		<div class="grid-item" id="lastMonthOpenTimeToAcceptThirdBulk"></div>
-		<div class="grid-item" id="customTimeOpenTimeToAcceptThirdBulk"></div>
-  		<div class="grid-item" id="lastDayOpenTimeToAcceptThirdBulk"></div>  
-  		<div class="grid-item" id="lastHourOpenTimeToAcceptThirdBulk"></div>
-		<div class="grid-item" id="last10OpenTimeToAcceptThirdBulk"></div>
-  		<div class="grid-item-left">first time answer</div>  
-  		<div class="grid-item" id="lastMonthFTAOpen"></div>
-		<div class="grid-item" id="customTimeFTAOpen"></div>
-  		<div class="grid-item" id="lastDayFTAOpen"></div>
-  		<div class="grid-item" id="lastHourFTAOpen"></div> 
-  		<div class="grid-item" id="last10FTAOpen"></div>
-		<div class="grid-item-left">0-30 sec</div>  
-  		<div class="grid-item" id="lastMonthFTAOpenFirstBulk"></div>
-		<div class="grid-item" id="customTimeFTAOpenFirstBulk"></div>
-  		<div class="grid-item" id="lastDayFTAOpenFirstBulk"></div>
-  		<div class="grid-item" id="lastHourFTAOpenFirstBulk"></div> 
-  		<div class="grid-item" id="last10FTAOpenFirstBulk"></div>
-		<div class="grid-item-left">31-60 sec</div>  
-  		<div class="grid-item" id="lastMonthFTAOpenSecondBulk"></div>
-		<div class="grid-item" id="customTimeFTAOpenSecondBulk"></div>
-  		<div class="grid-item" id="lastDayFTAOpenSecondBulk"></div>
-  		<div class="grid-item" id="lastHourFTAOpenSecondBulk"></div> 
-  		<div class="grid-item" id="last10FTAOpenSecondBulk"></div>
-		<div class="grid-item-left">> 60 sec</div>  
-  		<div class="grid-item" id="lastMonthFTAOpenThirdBulk"></div>
-		<div class="grid-item" id="customTimeFTAOpenThirdBulk"></div>
-  		<div class="grid-item" id="lastDayFTAOpenThirdBulk"></div>
-  		<div class="grid-item" id="lastHourFTAOpenThirdBulk"></div> 
-  		<div class="grid-item" id="last10FTAOpenThirdBulk"></div>
-  		<div class="grid-item-left">general time answer</div>  
-  		<div class="grid-item" id="lastMonthGTAOpen"></div>
-		<div class="grid-item" id="customTimeGTAOpen"></div>
-  		<div class="grid-item" id="lastDayGTAOpen"></div>
-  		<div class="grid-item" id="lastHourGTAOpen"></div> 
-  		<div class="grid-item" id="last10GTAOpen"></div>
-  		<div class="grid-item-left">pending</div>  
-  		<div class="grid-item" id="lastMonthWaitingOpen"></div>
-		<div class="grid-item" id="customTimeWaitingOpen"></div>
-  		<div class="grid-item" id="lastDayWaitingOpen"></div>
-  		<div class="grid-item" id="lastHourWaitingOpen"></div> 
-  		<div class="grid-item" id="last10WaitingOpen"></div>
-  		<div class="grid-item-left">unassigned</div>  
-  		<div class="grid-item" id="lastMonthNAOpen"></div>
-		<div class="grid-item" id="customTimeNAOpen"></div>
-  		<div class="grid-item" id="lastDayNAOpen"></div>
-  		<div class="grid-item" id="lastHourNAOpen"></div> 
-  		<div class="grid-item" id="last10NAOpen"></div>
+	<div class="grid-bright">
+  		<div class="grid-item-left">Facebook_priv</div>
+  		<div class="grid-item" id="FBPopenConv"></div>
+		<div class="grid-item" id="FBPassignedConv"></div>
+  		<div class="grid-item" id="FBPload"></div>  
+  		<div class="grid-item" id="FBPagentOnline"></div>
+  		<div class="grid-item" id="FBPagentAway"></div>
+  		<div class="grid-item" id="FBPagentBacksoon"></div>
+		<div class="grid-item" id="FBPmaxSlots"></div>
+  		
 	</div>
 
+	<div class="grid-dark">
+  		<div class="grid-item-left">Facebook_risvegliate</div>
+  		<div class="grid-item" id="FBRopenConv"></div>
+		<div class="grid-item" id="FBRassignedConv"></div>
+  		<div class="grid-item" id="FBRload"></div>  
+  		<div class="grid-item" id="FBRagentOnline"></div>
+  		<div class="grid-item" id="FBRagentAway"></div>
+  		<div class="grid-item" id="FBRagentBacksoon"></div>
+		<div class="grid-item" id="FBRmaxSlots"></div>
+  		
+	</div>
+	
 	</br></br></br></br>
 
     </div>
