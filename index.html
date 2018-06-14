@@ -582,6 +582,39 @@ function botOrNot() {
 	
 	
 	
+function retrieveAgentsLogged(){
+	
+	var body = '{"status":["ONLINE"]}';
+	
+	setTimeout(function(){
+		  
+		  $.ajax({
+			  url: "https://lo.msghist.liveperson.net/messaging_history/api/account/13099967/agent-view/status",
+			  method: "POST",
+			  jsonp: "cb",
+			  jsonpCallback: "domainCallback",
+			  cache: true,
+			  contentType: "application/json",
+			  "If-Match": "-1",
+			  data: body,
+			  success: function success(data) {
+				  console.log("********");
+				  console.log(JSON.stringify(data));
+			  },
+			  error: function error(e, text) {
+				  localStorage.setItem('account_number', '');
+				  location.reload();
+			  },
+			  beforeSend: function(xhr, settings) { xhr.setRequestHeader('Authorization','Bearer ' + bearer); }
+		  });
+                       
+	}, 3000);
+	
+	
+}
+	
+	
+	
 	
 	
   function secondsToString(timeInSeconds){
