@@ -227,8 +227,9 @@ span.psw {
   	<div id="soonOverdue" class="bar-item"></div>
     </div>
 
+	</br></br>
     
-
+    <div id="reportBot"></div>
 
     <div id="loadingStats">
 	    </br></br>
@@ -239,11 +240,13 @@ span.psw {
 	    </br>
     </div>
 	
-    <div id="reportBot"></div>
+    
 
     <div id="loadedStats" style="display:none;">
 	    </br>
-	    
+
+
+<!--
 	    <h2>Statistics:</h2>
 	<label><b>Skill</b></label></br>   
 	<div id="skill"></div>
@@ -260,7 +263,9 @@ span.psw {
 	
 
 
-</br></br>
+        </br></br>
+
+-->
 
 	<button type="button" id ="refresh" class="refresh" style="float: right;">Refresh</button>
 
@@ -2203,7 +2208,7 @@ function botOrNot() {
 	 isAnswered = 0;
 	  
 	 $('#loadingStats').css('display', 'none');
-	 // $('#loadedStats').css('display', 'inline');
+	 $('#loadedStats').css('display', 'inline');
   
 	 
   }
