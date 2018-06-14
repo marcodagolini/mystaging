@@ -909,6 +909,18 @@ function botOrNot() {
 	  var HRopenConv =0;
 	  var HRassignedConv =0;
 	  var HRunassignedConv =0;
+	  var HNopenConv =0;
+	  var HNassignedConv =0;
+	  var HNunassignedConv =0;
+	  var HNRopenConv =0;
+	  var HNRassignedConv =0;
+	  var HNRunassignedConv =0;
+	  var OopenConv =0;
+	  var OassignedConv =0;
+	  var OunassignedConv =0;
+	  var ORopenConv =0;
+	  var ORassignedConv =0;
+	  var ORunassignedConv =0;
 	  
 	  
 	  
@@ -980,6 +992,42 @@ function botOrNot() {
 				  }
 				  break;
 				  
+			case "human_night":
+				  HNopenConv ++;
+				  if(isAssigned){
+					  HNassignedConv ++;
+				  } else{
+					  HNunassignedConv ++;
+				  }
+				  break;
+				  
+			case "human_night_risvegliate":
+				  HNRopenConv ++;
+				  if(isAssigned){
+					  HNRassignedConv ++;
+				  } else{
+					  HNRunassignedConv ++;
+				  }
+				  break;
+				  
+			case "Outbound":
+				  OopenConv ++;
+				  if(isAssigned){
+					  OassignedConv ++;
+				  } else{
+					  OunassignedConv ++;
+				  }
+				  break;
+				  
+			case "outbound_risvegliate":
+				  ORopenConv ++;
+				  if(isAssigned){
+					  ORassignedConv ++;
+				  } else{
+					  ORunassignedConv ++;
+				  }
+				  break;
+				  
 				  
 				  
 
@@ -1006,6 +1054,18 @@ function botOrNot() {
 	  document.getElementById("HRopenConv").innerHTML = HRopenConv;
 	  document.getElementById("HRassignedConv").innerHTML = HRassignedConv;
 	  document.getElementById("HRunassignedConv").innerHTML = HRunassignedConv;
+	  document.getElementById("HNopenConv").innerHTML = HNopenConv;
+	  document.getElementById("HNassignedConv").innerHTML = HNassignedConv;
+	  document.getElementById("HNunassignedConv").innerHTML = HNunassignedConv;
+	  document.getElementById("HNRopenConv").innerHTML = HNRopenConv;
+	  document.getElementById("HNRassignedConv").innerHTML = HNRassignedConv;
+	  document.getElementById("HNRunassignedConv").innerHTML = HNRunassignedConv;
+	  document.getElementById("OopenConv").innerHTML = OopenConv;
+	  document.getElementById("OassignedConv").innerHTML = OassignedConv;
+	  document.getElementById("OunassignedConv").innerHTML = OunassignedConv;
+	  document.getElementById("ORopenConv").innerHTML = ORopenConv;
+	  document.getElementById("ORassignedConv").innerHTML = ORassignedConv;
+	  document.getElementById("ORunassignedConv").innerHTML = ORunassignedConv;
 
 	 
   }
