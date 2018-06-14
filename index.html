@@ -2345,14 +2345,17 @@ checklogin(accnumb, bearer);
 								  setTimeout(function(){
 									  $('#myloader').css('display', 'none');
 									  $('#myreports').css('display', 'inline');
-									  setInterval(function(){
-										  loadBar();
-									  }, 30000);
+									  
 									  loadBar();
 									  loadSkills();
 									  loadTeams();
 									  refreshTranscripts();
+									  
+									  $('#loadedStats').css('display', 'none');
+									  $('#loadingStats').css('display', 'inline');
+	 
 									  loadConvs();
+									  
 								  }, 2000);
 							  },
 							  error: function error(e, text) {
