@@ -2571,9 +2571,24 @@ checklogin(accnumb, bearer);
 						      } else{
 						      		timestampLastActOut = new Date(timestampLastActOut);
 						      }
-						      		
-						
 						      
+						      
+						      
+						      var timestampNextUnfreeze = "-";
+						      if (answer[i].hasOwnProperty('transfers')){
+						      		var transferlength = answer[i].transfers.length;
+								if (transferlength > 1){
+									if(answer[i].transfers[(transferlength - 1)].hasOwnProperty('contextData')){
+										if(answer[i].transfers[(transferlength - 1)].contextData.hasOwnProperty('structuredMetadata')){
+											if(answer[i].transfers[(transferlength - 1)].contextData.structuredMetadata[0].botResponse.intents[0].id === "awakeLater"){
+												timestampNextUnfreeze = new Date(answer[i].transfers[(transferlength - 1)].timeL);
+											}
+										}
+									}
+								}
+						      }
+						      
+	
 						     
 						      
 						      var pieceToAdd = {"start": startDateEngagement,
