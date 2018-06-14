@@ -892,6 +892,12 @@ function botOrNot() {
 	  var FBPopenConv = 0;
 	  var FBPassignedConv = 0;
 	  var FBPunassignedConv = 0;
+	  var FBRopenConv =0;
+	  var FBRassignedConv =0;
+	  var FBRunassignedConv =0;
+	  var FBPNopenConv =0;
+	  var FBPNassignedConv =0;
+	  var FBPNunassignedConv =0;
 	  
 	  
 	  
@@ -909,16 +915,31 @@ function botOrNot() {
 		  }
 		  switch(latestSkill) {
 			  case "Facebook_priv":
-				  
 				  FBPopenConv ++;
 				  if(isAssigned){
 					  FBPassignedConv ++;
 				  } else{
 					  FBPunassignedConv ++;
 				  }
+				  break;
 				  
 				  
+			case "facebook_risvegliate":
+				  FBRopenConv ++;
+				  if(isAssigned){
+					  FBRassignedConv ++;
+				  } else{
+					  FBRunassignedConv ++;
+				  }
+				  break;
 				  
+			case "Facebook_priv_night":
+				  FBPNopenConv ++;
+				  if(isAssigned){
+					  FBPNassignedConv ++;
+				  } else{
+					  FBPNunassignedConv ++;
+				  }
 				  break;
 				  
 				  
@@ -928,6 +949,12 @@ function botOrNot() {
 	  document.getElementById("FBPopenConv").innerHTML = FBPopenConv;
 	  document.getElementById("FBPassignedConv").innerHTML = FBPassignedConv;
 	  document.getElementById("FBPunassignedConv").innerHTML = FBPunassignedConv;
+	  document.getElementById("FBRopenConv").innerHTML = FBRopenConv;
+	  document.getElementById("FBRassignedConv").innerHTML = FBRassignedConv;
+	  document.getElementById("FBRunassignedConv").innerHTML = FBRunassignedConv;
+	  document.getElementById("FBPNopenConv").innerHTML = FBPNopenConv;
+	  document.getElementById("FBPNassignedConv").innerHTML = FBPNassignedConv;
+	  document.getElementById("FBPNunassignedConv").innerHTML = FBPNunassignedConv;
 
 	 
   }
