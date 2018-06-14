@@ -306,9 +306,9 @@ span.psw {
 
 	<div class="grid-dark">
   		<div class="grid-item-left">Facebook_priv_night_risvegliate</div>
-  		<div class="grid-item" id="FBPRNopenConv"></div>
-		<div class="grid-item" id="FBPRNassignedConv"></div>
-		<div class="grid-item" id="FBPRNunassignedConv"></div>
+  		<div class="grid-item" id="FBPNRopenConv"></div>
+		<div class="grid-item" id="FBPNRassignedConv"></div>
+		<div class="grid-item" id="FBPNRunassignedConv"></div>
 	</div>
 	
 	<div class="grid-bright">
@@ -899,6 +899,15 @@ function botOrNot() {
 	  var FBPNopenConv =0;
 	  var FBPNassignedConv =0;
 	  var FBPNunassignedConv =0;
+	  var FBPNRopenConv =0;
+	  var FBPNRassignedConv =0;
+	  var FBPNRunassignedConv =0;
+	  var HopenConv =0;
+	  var HassignedConv =0;
+	  var HunassignedConv =0;
+	  var HRopenConv =0;
+	  var HRassignedConv =0;
+	  var HRunassignedConv =0;
 	  
 	  
 	  
@@ -943,6 +952,37 @@ function botOrNot() {
 				  }
 				  break;
 				  
+			case "Facebook_priv_night_risvegli":
+				  FBPNRopenConv ++;
+				  if(isAssigned){
+					  FBPNRassignedConv ++;
+				  } else{
+					  FBPNRunassignedConv ++;
+				  }
+				  break;
+				  
+			case "human":
+				  HopenConv ++;
+				  if(isAssigned){
+					  HassignedConv ++;
+				  } else{
+					  HunassignedConv ++;
+				  }
+				  break;
+				  
+			case "human_risvegliate":
+				  HRopenConv ++;
+				  if(isAssigned){
+					  HRassignedConv ++;
+				  } else{
+					  HRunassignedConv ++;
+				  }
+				  break;
+				  
+				  
+				  
+
+				  
 				  
 		  }
 
@@ -956,6 +996,15 @@ function botOrNot() {
 	  document.getElementById("FBPNopenConv").innerHTML = FBPNopenConv;
 	  document.getElementById("FBPNassignedConv").innerHTML = FBPNassignedConv;
 	  document.getElementById("FBPNunassignedConv").innerHTML = FBPNunassignedConv;
+	  document.getElementById("FBPNRopenConv").innerHTML = FBPNRopenConv;
+	  document.getElementById("FBPNRassignedConv").innerHTML = FBPNRassignedConv;
+	  document.getElementById("FBPNRunassignedConv").innerHTML = FBPNRunassignedConv;
+	  document.getElementById("HopenConv").innerHTML = HopenConv;
+	  document.getElementById("HassignedConv").innerHTML = HassignedConv;
+	  document.getElementById("HunassignedConv").innerHTML = HunassignedConv;
+	  document.getElementById("HRopenConv").innerHTML = HRopenConv;
+	  document.getElementById("HRassignedConv").innerHTML = HRassignedConv;
+	  document.getElementById("HRunassignedConv").innerHTML = HRunassignedConv;
 
 	 
   }
