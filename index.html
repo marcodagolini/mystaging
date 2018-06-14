@@ -898,14 +898,25 @@ function botOrNot() {
 	  $('#loadedStats').css('display', 'inline');
 	  var answerLength = answer.length;
 	  var latestSkill = "";
+	  var isAssigned = false;
 	  for (var z = 0; z < answerLength; z++){
 		  latestSkill = answer[z].info.latestSkillName;
+		  if(answer[z].info.latestQueueState === "IN_QUEUE"){
+			  isAssigned = false;
+		  } else{
+			  isAssigned = true;
+		  }
 		  switch(latestSkill) {
 			  case "Facebook_priv":
 				  
 				  FBPopenConv ++;
-				  FBPassignedConv ++;
-				  FBPunassignedConv ++;
+				  if(isAssigned){
+					  FBPassignedConv ++;
+				  } else{
+					  FBPunassignedConv ++;
+				  }
+				  
+				  
 				  
 				  break;
 				  
