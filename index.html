@@ -494,31 +494,7 @@ span.psw {
   }
 	
 	
-  function percentage(a, b, c){
-	  var a1 = parseInt(a);
-	  var b1 = parseInt(b);
-	  var c1 = parseInt(c);
-	  var tot = a1 + b1 + c1;
-	  if (tot){
-		  var percent1 = Math.floor(100 * a1/tot);
-		  var percent2 = Math.floor(100 * b1/tot);
-		  var percent3 = 100 - percent1 - percent2;
-		  var percent1 = percent1 + '%';
-		  var percent2 = percent2 + '%';
-		  var percent3 = percent3 + '%';
-		  var response = [percent1, percent2, percent3];
-		  return response;
-	  }
-	  else{
-		  var percent1 = '--';
-		  var percent2 = '--';
-		  var percent3 = '--';
-		  var response = [percent1, percent2, percent3];
-		  return response;
-	  }
-	    
-	  
-  }
+  
 	
  
 	
@@ -616,43 +592,7 @@ function retrieveAgentsLogged(){
 	
 	
 	
-	
-	
-  function secondsToString(timeInSeconds){
-						      
-	var hours;
-	var minutes;
-	var seconds;
-	var diff;
-	var stringAnswer;
-	if (isNaN(timeInSeconds)){
-		stringAnswer = "--";
-		return stringAnswer;
-	}
-	if (Math.floor(timeInSeconds/(60*60)) > 0){
-		hours = Math.floor(timeInSeconds/(60*60));
-		diff = timeInSeconds - hours*60*60;
-		if (Math.floor(diff/60) > 0){
-			minutes = Math.floor(diff/60);
-			seconds = Math.floor(diff - minutes*60);
-			stringAnswer = hours + "h, " + minutes + "m, " + seconds + "s";
-		}
-		else{
-			seconds = Math.floor(diff);
-			stringAnswer = hours + "h, " + seconds + "s";
-		}
-	}
-	else if (Math.floor(timeInSeconds/60) > 0){
-		var minutes = Math.floor(timeInSeconds/60);
-		var seconds = Math.floor(timeInSeconds - minutes*60);
-		stringAnswer = minutes + "m, " + seconds + "s";
-	}
-	else{
-		var seconds = Math.floor(timeInSeconds);
-		stringAnswer = seconds + "s";
-	}
-	return stringAnswer;
-  }
+
 	
   function loadLimboBar(){
 	  
@@ -1813,7 +1753,6 @@ checklogin(accnumb, bearer);
 								      }
 								      
 								      if (isAnswered){
-									      // firstTimeAnswer = secondsToString(TimeAnswer);
 									      firstTimeAnswer = Math.floor(parseInt(TimeAnswer));
 								      }
 								      else{
