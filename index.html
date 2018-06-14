@@ -889,12 +889,35 @@ function botOrNot() {
 
 	
   function loadStats(answer){
+	  var FBPopenConv = 0;
+	  var FBPassignedConv = 0;
+	  var FBPunassignedConv = 0;
 	  
-	 
 	  
-	 $('#loadingStats').css('display', 'none');
-	 $('#loadedStats').css('display', 'inline');
-  
+	  
+	  $('#loadingStats').css('display', 'none');
+	  $('#loadedStats').css('display', 'inline');
+	  var answerLength = answer.length;
+	  var latestSkill = "";
+	  for (var z = 0; z < answerLength; z++){
+		  latestSkill = answer[z].info.latestSkillName;
+		  switch(latestSkill) {
+			  case "Facebook_priv":
+				  
+				  FBPopenConv ++;
+				  FBPassignedConv ++;
+				  FBPunassignedConv ++;
+				  
+				  break;
+				  
+				  
+		  }
+
+	  }
+	  document.getElementById("FBPopenConv").innerHTML = FBPopenConv;
+	  document.getElementById("FBPassignedConv").innerHTML = FBPassignedConv;
+	  document.getElementById("FBPunassignedConv").innerHTML = FBPunassignedConv;
+
 	 
   }
 	
