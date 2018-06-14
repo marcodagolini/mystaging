@@ -2295,43 +2295,9 @@ checklogin(accnumb, bearer);
 	  }
 	  if($(evt.target).is('#refresh')) {
 		  
-		  var isChanged = 0;
-		  var length = skillArray.length;
-		  for (var m = 0; m < length; m++){
-			  if(skillArray[m].name === $("#skillName").val()){
-				  if(skillArray[m].name === "human"){
-					  skillNumber = skillArray[m].id + overwriteHumanSkill;
-					  isChanged = 1;
-				  }else{
-				  	skillNumber = skillArray[m].id;
-				  	isChanged = 1;
-				  }
-			  }
-		  }
-		  if (!isChanged){
-			  skillNumber = "-1";
-		  }
-		  length = teamArray.length;
-		  for (var m = 0; m < length; m++){
-			  if(teamArray[m].name === $("#teamName").val()){
-				  teamNumber = teamArray[m].id;
-				  console.log("teamNumber="+teamNumber);
-			  }
-		  }
-		  if (customDate < (Date.now() - (1000*60*60*24*30))){
-			  document.getElementById("refreshMSG").innerHTML = "Please do a query related to the last 30 days!";
-			  document.getElementById("refreshMSG").style = "color : red";
-		  }
-		  else if (customDate > endCustomDate){
-			  document.getElementById("refreshMSG").innerHTML = "Start date ist more recent than the end date!";
-			  document.getElementById("refreshMSG").style = "color : red";
-		  }
-		  else{
-			  document.getElementById("refreshMSG").innerHTML = "";
-			  console.log("skill:" + skillNumber + "*****start:" + customDate + "*****end:" + endCustomDate);
-			  loadConvs();
-		  }
-		  
+		  $('#myreports').css('display', 'none');
+		  $('#myloader').css('display', 'inline');
+		  loadConvs();
 		  							
 	  }
   });
