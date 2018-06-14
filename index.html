@@ -207,7 +207,7 @@ span.psw {
 </div>
 
 
-<div id="myreports">
+<div id="myreports" style="display:none;">
 	
     
     </br>
@@ -2583,8 +2583,7 @@ checklogin(accnumb, bearer);
 	 $('#loadingStats').css('display', 'inline');
 	 
 	 var end = Date.now();
-	 // var start = end - (1000*60*60*24*30);  // loading Convs started till 30 days ago
-	 var start = end - (1000);  // loading Convs started till 1 sec ago
+	 var start = end - (1000*60*60*24*30);  // loading Convs started till 30 days ago
 	 var offset = 0;
 	 var body = "";
 	 var answer = [];
@@ -2662,6 +2661,8 @@ checklogin(accnumb, bearer);
 					      loadOpenConvs(body, offset, callback);   
 				      }
 				      else{
+					      
+					      /****************
 					      answer = answer.concat(data.conversationHistoryRecords);
 					      offset = 0;
 					      if(skillNumber === "-1"){
@@ -2679,6 +2680,13 @@ checklogin(accnumb, bearer);
 					      }
 					      console.log(body);
 					      loadClosedConvs(body, offset, callback);
+					      ******************/
+					      
+					      // console.log(answer.length);
+					      answer = answer.concat(data.conversationHistoryRecords);
+					      console.log(answer.length);
+					      loadCustomStats(answer);
+					      loadStats(answer);
 				      }
 				      
      
