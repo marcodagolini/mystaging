@@ -2580,7 +2580,7 @@ checklogin(accnumb, bearer);
 									if(answer[i].transfers[(transferlength - 2)].hasOwnProperty('contextData')){
 										if(answer[i].transfers[(transferlength - 2)].contextData.hasOwnProperty('structuredMetadata')){
 											if(answer[i].transfers[(transferlength - 2)].contextData.structuredMetadata[0].botResponse.intents[0].id === "awakeLater"){
-												timestampNextUnfreeze = new Date(answer[i].transfers[(transferlength - 2)].contextData.structuredMetadata[0].botResponse.intents[0].name);
+												timestampNextUnfreeze = new Date(parseInt(answer[i].transfers[(transferlength - 2)].contextData.structuredMetadata[0].botResponse.intents[0].name));
 											}
 										}
 									}
