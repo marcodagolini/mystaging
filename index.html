@@ -384,6 +384,10 @@ span.psw {
 		<div class="grid-item" id="TassignedConv"></div>
 		<div class="grid-item" id="TunassignedConv"></div>
 	</div>
+
+	</br>
+	<div id="slotsAvailable"></div>
+
 	</br></br></br></br>
 
     </div>
@@ -563,6 +567,8 @@ function botOrNot() {
 function retrieveAgentsLogged(){
 	
 	var body = '{"status":["ONLINE"],"skillIds":["1089726032","1096374632","1102673132","1102673332","987637232","1096374432","1105369932","1105551632","1093097632","1096374732","1105849832","1105849932","1097496532","1012134132","1111294132"]}';
+	var totalSpots = 0;
+	var availableSpots = 0;
 	
 	setTimeout(function(){
 		  
@@ -578,6 +584,25 @@ function retrieveAgentsLogged(){
 			  success: function success(data) {
 				  console.log("********");
 				  console.log(JSON.stringify(data));
+				  if(data.hasOwnProperty('_metadata')){
+					  if(data._metadata.hasOwnProperty('count')){
+						  if(data._metadata.count > 0){
+							  if(data.hasOwnProperty('agentStatusRecords')){
+								  var agentStatusRecordsLength = data.agentStatusRecords.length;
+								  for (var z = 0; z < agentStatusRecordsLength; z++){
+									  totalSpots = data.agentStatusRecords[z].configuredMaxSlots - data.agentStatusRecords[z].busySlots;
+									  availableSpots = availableSpots + totalSpots;
+								  }
+							  }
+						  }
+					  }
+				  }
+				  document.getElementById("slotsAvailable").innerHTML = "Sessioni disponibili: " + availableSpots;
+				  document.getElementById("slotsAvailable").style = "color : green";
+				  document.getElementById("slotsAvailable").style.fontWeight = "bold";
+				  document.getElementById("slotsAvailable").style.fontSize = "large";
+
+
 			  },
 			  error: function error(e, text) {
 				  localStorage.setItem('account_number', '');
