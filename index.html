@@ -2254,6 +2254,8 @@ function botOrNot() {
 						loadSkills();
 						loadTeams();
 						refreshTranscripts();
+						$('#loadedStats').css('display', 'none');
+						$('#loadingStats').css('display', 'inline');
 						loadConvs();
                               		},
                               		error: function error(e, text) {
@@ -2559,8 +2561,6 @@ checklogin(accnumb, bearer);
  function loadConvs(){
 	 
 	 
-	 $('#loadedStats').css('display', 'none');
-	 $('#loadingStats').css('display', 'inline');
 	 
 	 var end = Date.now();
 	 var start = end - (1000*60*60*24*30);  // loading Convs started till 30 days ago
