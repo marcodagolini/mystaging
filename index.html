@@ -713,6 +713,15 @@ function retrieveAgentsLogged(){
 							  if(data.hasOwnProperty('agentStatusRecords')){
 								  var agentStatusRecordsLength = data.agentStatusRecords.length;
 								  for (var z = 0; z < agentStatusRecordsLength; z++){
+									  var skillLength = data.agentStatusRecords[z].agentSkills.length;
+									  var statusAgent = data.agentStatusRecords[z].currentStatus;
+									  for (var m = 0; m < skillLength; m++){
+										  if (data.agentStatusRecords[z].agentSkills[m].skillId === "-1"){
+											 // do nothing 
+										  } else{
+											  
+										  }
+									  }
 									  totalSpots = data.agentStatusRecords[z].configuredMaxSlots - data.agentStatusRecords[z].busySlots;
 									  availableSpots = availableSpots + totalSpots;
 								  }
