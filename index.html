@@ -800,51 +800,231 @@ function retrieveAgentsLogged(){
 													  break;
 													  
 													  case "facebook_risvegliate":
-													  
+													  switch(statusAgent) {
+															  case "ONLINE":
+															  FBRonlineAgents = FBRonlineAgents + 1;
+															  FBRslots = FBRslots + totalSpots;
+															  break;
+															  
+															  case "AWAY":
+															  FBRawayAgents = FBRawayAgents + 1;
+															  FBRslots = FBRslots + totalSpots;
+															  break;
+															  
+															  case "BACK_SOON":
+															  FBRsoonAgents = FBRsoonAgents + 1;
+															  FBRslots = FBRslots + totalSpots;
+															  break;	  
+													  }
 													  break;
 													  
 													  case "Facebook_priv_night":
-													  
+													  switch(statusAgent) {
+															  case "ONLINE":
+															  FBPNonlineAgents = FBPNonlineAgents + 1;
+															  FBPNslots = FBPNslots + totalSpots;
+															  break;
+															  
+															  case "AWAY":
+															  FBPNawayAgents = FBPNawayAgents + 1;
+															  FBPNslots = FBPNslots + totalSpots;
+															  break;
+															  
+															  case "BACK_SOON":
+															  FBPNsoonAgents = FBPNsoonAgents + 1;
+															  FBPNslots = FBPNslots + totalSpots;
+															  break;	  
+													  }
 													  break;
 													  
 													  case "Facebook_priv_night_risvegli":
-													  
+													  switch(statusAgent) {
+															  case "ONLINE":
+															  FBPNRonlineAgents = FBPNRonlineAgents + 1;
+															  FBPNRslots = FBPNRslots + totalSpots;
+															  break;
+															  
+															  case "AWAY":
+															  FBPNRawayAgents = FBPNRawayAgents + 1;
+															  FBPNRslots = FBPNRslots + totalSpots;
+															  break;
+															  
+															  case "BACK_SOON":
+															  FBPNRsoonAgents = FBPNRsoonAgents + 1;
+															  FBPNRslots = FBPNRslots + totalSpots;
+															  break;	  
+													  }
 													  break;
 													  
 													  case "human":
-													  
+													  switch(statusAgent) {
+															  case "ONLINE":
+															  HonlineAgents = HonlineAgents + 1;
+															  Hslots = Hslots + totalSpots;
+															  break;
+															  
+															  case "AWAY":
+															  HawayAgents = HawayAgents + 1;
+															  Hslots = Hslots + totalSpots;
+															  break;
+															  
+															  case "BACK_SOON":
+															  HsoonAgents = HsoonAgents + 1;
+															  Hslots = Hslots + totalSpots;
+															  break;	  
+													  }
 													  break;
 													  
 													  case "human_risvegliate":
-													  
+													  switch(statusAgent) {
+															  case "ONLINE":
+															  HRonlineAgents = HRonlineAgents + 1;
+															  HRslots = HRslots + totalSpots;
+															  break;
+															  
+															  case "AWAY":
+															  HRawayAgents = HRawayAgents + 1;
+															  HRslots = HRslots + totalSpots;
+															  break;
+															  
+															  case "BACK_SOON":
+															  HRsoonAgents = HRsoonAgents + 1;
+															  HRslots = HRslots + totalSpots;
+															  break;	  
+													  }
 													  break;
 													  
 													  case "human_night":
-													  
+													  switch(statusAgent) {
+															  case "ONLINE":
+															  HNonlineAgents = HNonlineAgents + 1;
+															  HNslots = HNslots + totalSpots;
+															  break;
+															  
+															  case "AWAY":
+															  HNawayAgents = HNawayAgents + 1;
+															  HNslots = HNslots + totalSpots;
+															  break;
+															  
+															  case "BACK_SOON":
+															  HNsoonAgents = HNsoonAgents + 1;
+															  HNslots = HNslots + totalSpots;
+															  break;	  
+													  }
 													  break;
 													  
 													  case "human_night_risvegliate":
-													  
+													  switch(statusAgent) {
+															  case "ONLINE":
+															  HNRonlineAgents = HNRonlineAgents + 1;
+															  HNRslots = HNRslots + totalSpots;
+															  break;
+															  
+															  case "AWAY":
+															  HNRawayAgents = HNRawayAgents + 1;
+															  HNRslots = HNRslots + totalSpots;
+															  break;
+															  
+															  case "BACK_SOON":
+															  HNRsoonAgents = HNRsoonAgents + 1;
+															  HNRslots = HNRslots + totalSpots;
+															  break;	  
+													  }
 													  break;
 													  
 													  case "Outbound":
-													  
+													  switch(statusAgent) {
+															  case "ONLINE":
+															  OonlineAgents = OonlineAgents + 1;
+															  Oslots = Oslots + totalSpots;
+															  break;
+															  
+															  case "AWAY":
+															  OawayAgents = OawayAgents + 1;
+															  Oslots = Oslots + totalSpots;
+															  break;
+															  
+															  case "BACK_SOON":
+															  OsoonAgents = OsoonAgents + 1;
+															  Oslots = Oslots + totalSpots;
+															  break;	  
+													  }
 													  break;
 													  
 													  case "outbound_risvegliate":
-													  
+													  switch(statusAgent) {
+															  case "ONLINE":
+															  ORonlineAgents = ORonlineAgents + 1;
+															  ORslots = ORslots + totalSpots;
+															  break;
+															  
+															  case "AWAY":
+															  ORawayAgents = ORawayAgents + 1;
+															  ORslots = ORslots + totalSpots;
+															  break;
+															  
+															  case "BACK_SOON":
+															  ORsoonAgents = ORsoonAgents + 1;
+															  ORslots = ORslots + totalSpots;
+															  break;	  
+													  }
 													  break;
 													  
 													  case "Outbound_fixed":
-													  
+													  switch(statusAgent) {
+															  case "ONLINE":
+															  OFonlineAgents = OFonlineAgents + 1;
+															  OFslots = OFslots + totalSpots;
+															  break;
+															  
+															  case "AWAY":
+															  OFawayAgents = OFawayAgents + 1;
+															  OFslots = OFslots + totalSpots;
+															  break;
+															  
+															  case "BACK_SOON":
+															  OFsoonAgents = OFsoonAgents + 1;
+															  OFslots = OFslots + totalSpots;
+															  break;	  
+													  }
 													  break;
 													  
 													  case "Outbound_fixed_risvegliate":
-													  
+													  switch(statusAgent) {
+															  case "ONLINE":
+															  OFRonlineAgents = OFRonlineAgents + 1;
+															  OFRslots = OFRslots + totalSpots;
+															  break;
+															  
+															  case "AWAY":
+															  OFRawayAgents = OFRawayAgents + 1;
+															  OFRslots = OFRslots + totalSpots;
+															  break;
+															  
+															  case "BACK_SOON":
+															  OFRsoonAgents = OFRsoonAgents + 1;
+															  OFRslots = OFRslots + totalSpots;
+															  break;	  
+													  }
 													  break;
 													  
 													  case "Inglese":
-													  
+													  switch(statusAgent) {
+															  case "ONLINE":
+															  IonlineAgents = IonlineAgents + 1;
+															  Islots = Islots + totalSpots;
+															  break;
+															  
+															  case "AWAY":
+															  IawayAgents = IawayAgents + 1;
+															  Islots = Islots + totalSpots;
+															  break;
+															  
+															  case "BACK_SOON":
+															  IsoonAgents = IsoonAgents + 1;
+															  Islots = Islots + totalSpots;
+															  break;	  
+													  }
 													  break;
 													  
 											  }
