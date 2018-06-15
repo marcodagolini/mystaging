@@ -1858,7 +1858,7 @@ checklogin(accnumb, bearer);
 					      answer = answer.concat(data.conversationHistoryRecords);
 					      document.getElementById("reportMSG").innerHTML = "...downloading sessions:" + Math.round(100*(offset/data._metadata.count)) + "% completed...";
 					      document.getElementById("reportMSG").style = "color : green";      
-					      console.log(data.conversationHistoryRecords);
+					      // console.log(data.conversationHistoryRecords);
 					      console.log ("adding conversations...");
 					      // setTimeout(function(){
 						      tryUntilSuccess(offset, callback);
