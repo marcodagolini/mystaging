@@ -2737,6 +2737,10 @@ checklogin(accnumb, bearer);
 								}
 						      }
 						      
+						      var campo1 = "";
+						      var campo2 = "";
+						      var campo3 = "";
+						      
 	
 						     
 						      
@@ -2795,7 +2799,10 @@ checklogin(accnumb, bearer);
 									"phoneNumber": phoneNumber,
 									"imeiNumber": imeiNumber,
 									"conversation": answer[i].info.conversationId,
-									"transcript": messages
+									"transcript": messages,
+									"campo1": campo1,
+									"campo2": campo2,
+									"campo3": campo3
 								       };
 						      exportObject = exportObject.concat(pieceToAdd);
 					      }
@@ -2882,7 +2889,10 @@ checklogin(accnumb, bearer);
 			"phoneNumber": "String",
 			"imeiNumber": "String",
     			"conversation": "String",
-    			"transcript": "String"
+    			"transcript": "String",
+			"campo1": "String",
+			"campo2": "String",
+			"campo3": "String"
 		 };
 		 
 		 emitXmlHeader = function () {
