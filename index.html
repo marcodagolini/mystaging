@@ -686,58 +686,64 @@ function botOrNot() {
 	
 	
 function retrieveAgentsLogged(){
+
 	
-	var FBPopenConv = 0;
-	  var FBPassignedConv = 0;
-	  var FBPunassignedConv = 0;
-	  var FBRopenConv =0;
-	  var FBRassignedConv =0;
-	  var FBRunassignedConv =0;
-	  var FBPNopenConv =0;
-	  var FBPNassignedConv =0;
-	  var FBPNunassignedConv =0;
-	  var FBPNRopenConv =0;
-	  var FBPNRassignedConv =0;
-	  var FBPNRunassignedConv =0;
-	  var HopenConv =0;
-	  var HassignedConv =0;
-	  var HunassignedConv =0;
-	  var HRopenConv =0;
-	  var HRassignedConv =0;
-	  var HRunassignedConv =0;
-	  var HNopenConv =0;
-	  var HNassignedConv =0;
-	  var HNunassignedConv =0;
-	  var HNRopenConv =0;
-	  var HNRassignedConv =0;
-	  var HNRunassignedConv =0;
-	  var OopenConv =0;
-	  var OassignedConv =0;
-	  var OunassignedConv =0;
-	  var ORopenConv =0;
-	  var ORassignedConv =0;
-	  var ORunassignedConv =0;
-	  var OFopenConv =0;
-	  var OFassignedConv =0;
-	  var OFunassignedConv =0;
-	  var OFRopenConv =0;
-	  var OFRassignedConv =0;
-	  var OFRunassignedConv =0;
-	  var IopenConv =0;
-	  var IassignedConv =0;
-	  var IunassignedConv =0;
-	  var TFBopenConv =0;
-	  var TFBassignedConv =0;
-	  var TFBunassignedConv =0;
-	  var TWebopenConv =0;
-	  var TWebassignedConv =0;
-	  var TWebunassignedConv =0;
-	  var TOopenConv =0;
-	  var TOassignedConv =0;
-	  var TOunassignedConv =0;
-	  var TOtheropenConv =0;
-	  var TOtherassignedConv =0;
-	  var TOtherunassignedConv =0;
+	var FBPonlineAgents = 0;
+	var FBPawayAgents = 0;
+	var FBPsoonAgents = 0;
+	var FBPslots =0;
+	var FBRonlineAgents = 0;
+	var FBRawayAgents = 0;
+	var FBRsoonAgents = 0;
+	var FBRslots =0;
+	var FBPNonlineAgents = 0;
+	var FBPNawayAgents = 0;
+	var FBPNsoonAgents = 0;
+	var FBPNslots =0;
+	var FBPNRonlineAgents = 0;
+	var FBPNRawayAgents = 0;
+	var FBPNRsoonAgents = 0;
+	var FBPNRslots =0;
+	var HonlineAgents = 0;
+	var HawayAgents = 0;
+	var HsoonAgents = 0;
+	var Hslots =0;
+	var HRonlineAgents = 0;
+	var HRawayAgents = 0;
+	var HRsoonAgents = 0;
+	var HRslots =0;
+	var HNonlineAgents = 0;
+	var HNawayAgents = 0;
+	var HNsoonAgents = 0;
+	var HNslots =0;
+	var HNRonlineAgents = 0;
+	var HNRawayAgents = 0;
+	var HNRsoonAgents = 0;
+	var HNRslots =0;
+	var OonlineAgents = 0;
+	var OawayAgents = 0;
+	var OsoonAgents = 0;
+	var Oslots =0;
+	var ORonlineAgents = 0;
+	var ORawayAgents = 0;
+	var ORsoonAgents = 0;
+	var ORslots =0;
+	var OFonlineAgents = 0;
+	var OFawayAgents = 0;
+	var OFsoonAgents = 0;
+	var OFslots =0;
+	var OFRonlineAgents = 0;
+	var OFRawayAgents = 0;
+	var OFRsoonAgents = 0;
+	var OFRslots =0;
+	var IonlineAgents = 0;
+	var IawayAgents = 0;
+	var IsoonAgents = 0;
+	var Islots =0;
+
+
+
+
 	
 	// var body = '{"status":["ONLINE"],"skillIds":["1089726032","1096374632","1102673132","1102673332","987637232","1096374432","1105369932","1105551632","1093097632","1096374732","1105849832","1105849932","1097496532","1012134132","1111294132"]}';
 	var body = '{"skillIds":["1089726032","1096374632","1102673132","1102673332","987637232","1096374432","1105369932","1105551632","1093097632","1096374732","1105849832","1105849932","1097496532","1012134132","1111294132"]}';
@@ -764,6 +770,8 @@ function retrieveAgentsLogged(){
 							  if(data.hasOwnProperty('agentStatusRecords')){
 								  var agentStatusRecordsLength = data.agentStatusRecords.length;
 								  for (var z = 0; z < agentStatusRecordsLength; z++){
+									  totalSpots = (data.agentStatusRecords[z].configuredMaxSlots) - (data.agentStatusRecords[z].busySlots);
+									  availableSpots = availableSpots + totalSpots;
 									  var skillLength = data.agentStatusRecords[z].agentSkills.length;
 									  var statusAgent = data.agentStatusRecords[z].currentStatus;
 									  for (var m = 0; m < skillLength; m++){
@@ -775,18 +783,20 @@ function retrieveAgentsLogged(){
 													  case "Facebook_priv":
 													  switch(statusAgent) {
 															  case "ONLINE":
-															  
+															  FBPonlineAgents = FBPonlineAgents + 1;
+															  FBPslots = FBPslots + totalSpots;
 															  break;
 															  
 															  case "AWAY":
-															  
+															  FBPawayAgents = FBPawayAgents + 1;
+															  FBPslots = FBPslots + totalSpots;
 															  break;
 															  
 															  case "BACK_SOON":
-															  
+															  FBPsoonAgents = FBPsoonAgents + 1;
+															  FBPslots = FBPslots + totalSpots;
 															  break;	  
 													  }
-													  
 													  break;
 													  
 													  case "facebook_risvegliate":
@@ -841,8 +851,7 @@ function retrieveAgentsLogged(){
 											  
 										  }
 									  }
-									  totalSpots = data.agentStatusRecords[z].configuredMaxSlots - data.agentStatusRecords[z].busySlots;
-									  availableSpots = availableSpots + totalSpots;
+									  
 								  }
 							  }
 						  }
