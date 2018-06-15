@@ -348,9 +348,9 @@ span.psw {
 
 	<div class="grid-tot">
   		<div class="grid-item-left">Totale</div>
-  		<div class="grid-item" id="TopenConv"></div>
-		<div class="grid-item" id="TassignedConv"></div>
-		<div class="grid-item" id="TunassignedConv"></div>
+  		<div class="grid-item" id="TFBopenConv"></div>
+		<div class="grid-item" id="TFBassignedConv"></div>
+		<div class="grid-item" id="TFBunassignedConv"></div>
 	</div></br>
 
 	<div class="grid-container-header">
@@ -411,9 +411,9 @@ span.psw {
 
 	<div class="grid-tot">
   		<div class="grid-item-left">Totale</div>
-  		<div class="grid-item" id="TopenConv"></div>
-		<div class="grid-item" id="TassignedConv"></div>
-		<div class="grid-item" id="TunassignedConv"></div>
+  		<div class="grid-item" id="TWebopenConv"></div>
+		<div class="grid-item" id="TWebassignedConv"></div>
+		<div class="grid-item" id="TWebunassignedConv"></div>
 	</div></br>
 
 	<div class="grid-container-header">
@@ -474,9 +474,9 @@ span.psw {
 
 	<div class="grid-tot">
   		<div class="grid-item-left">Totale</div>
-  		<div class="grid-item" id="TopenConv"></div>
-		<div class="grid-item" id="TassignedConv"></div>
-		<div class="grid-item" id="TunassignedConv"></div>
+  		<div class="grid-item" id="TOopenConv"></div>
+		<div class="grid-item" id="TOassignedConv"></div>
+		<div class="grid-item" id="TOunassignedConv"></div>
 	</div></br>
 
 	<div class="grid-container-header">
@@ -504,9 +504,9 @@ span.psw {
 
 	<div class="grid-tot">
   		<div class="grid-item-left">Totale</div>
-  		<div class="grid-item" id="TopenConv"></div>
-		<div class="grid-item" id="TassignedConv"></div>
-		<div class="grid-item" id="TunassignedConv"></div>
+  		<div class="grid-item" id="TOtheropenConv"></div>
+		<div class="grid-item" id="TOtherassignedConv"></div>
+		<div class="grid-item" id="TOtherunassignedConv"></div>
 	</div>
 
 	</br>
@@ -1086,9 +1086,18 @@ function retrieveAgentsLogged(){
 	  var IopenConv =0;
 	  var IassignedConv =0;
 	  var IunassignedConv =0;
-	  var TopenConv =0;
-	  var TassignedConv =0;
-	  var TunassignedConv =0;
+	  var TFBopenConv =0;
+	  var TFBassignedConv =0;
+	  var TFBunassignedConv =0;
+	  var TWebopenConv =0;
+	  var TWebassignedConv =0;
+	  var TWebunassignedConv =0;
+	  var TOopenConv =0;
+	  var TOassignedConv =0;
+	  var TOunassignedConv =0;
+	  var TOtheropenConv =0;
+	  var TOtherassignedConv =0;
+	  var TOtherunassignedConv =0;
 	  
 	  
 	  
@@ -1107,158 +1116,158 @@ function retrieveAgentsLogged(){
 		  switch(latestSkill) {
 			  case "Facebook_priv":
 				  FBPopenConv ++;
-				  TopenConv ++;
+				  TFBopenConv ++;
 				  if(isAssigned){
 					  FBPassignedConv ++;
-					  TassignedConv ++;
+					  TFBassignedConv ++;
 				  } else{
 					  FBPunassignedConv ++;
-					  TunassignedConv ++;
+					  TFBunassignedConv ++;
 				  }
 				  break;
 				  
 				  
 			case "facebook_risvegliate":
 				  FBRopenConv ++;
-				  TopenConv ++;
+				  TFBopenConv ++;
 				  if(isAssigned){
 					  FBRassignedConv ++;
-					  TassignedConv ++;
+					  TFBassignedConv ++;
 				  } else{
 					  FBRunassignedConv ++;
-					  TunassignedConv ++;
+					  TFBunassignedConv ++;
 				  }
 				  break;
 				  
 			case "Facebook_priv_night":
 				  FBPNopenConv ++;
-				  TopenConv ++;
+				  TFBopenConv ++;
 				  if(isAssigned){
 					  FBPNassignedConv ++;
-					  TassignedConv ++;
+					  TFBassignedConv ++;
 				  } else{
 					  FBPNunassignedConv ++;
-					  TunassignedConv ++;
+					  TFBunassignedConv ++;
 				  }
 				  break;
 				  
 			case "Facebook_priv_night_risvegli":
 				  FBPNRopenConv ++;
-				  TopenConv ++;
+				  TFBopenConv ++;
 				  if(isAssigned){
 					  FBPNRassignedConv ++;
-					  TassignedConv ++;
+					  TFBassignedConv ++;
 				  } else{
 					  FBPNRunassignedConv ++;
-					  TunassignedConv ++;
+					  TFBunassignedConv ++;
 				  }
 				  break;
 				  
 			case "human":
 				  HopenConv ++;
-				  TopenConv ++;
+				  TWebopenConv ++;
 				  if(isAssigned){
 					  HassignedConv ++;
-					  TassignedConv ++;
+					  TWebassignedConv ++;
 				  } else{
 					  HunassignedConv ++;
-					  TunassignedConv ++;
+					  TWebunassignedConv ++;
 				  }
 				  break;
 				  
 			case "human_risvegliate":
 				  HRopenConv ++;
-				  TopenConv ++;
+				  TWebopenConv ++;
 				  if(isAssigned){
 					  HRassignedConv ++;
-					  TassignedConv ++;
+					  TWebassignedConv ++;
 				  } else{
 					  HRunassignedConv ++;
-					  TunassignedConv ++;
+					  TWebunassignedConv ++;
 				  }
 				  break;
 				  
 			case "human_night":
 				  HNopenConv ++;
-				  TopenConv ++;
+				  TWebopenConv ++;
 				  if(isAssigned){
 					  HNassignedConv ++;
-					  TassignedConv ++;
+					  TWebassignedConv ++;
 				  } else{
 					  HNunassignedConv ++;
-					  TunassignedConv ++;
+					  TWebunassignedConv ++;
 				  }
 				  break;
 				  
 			case "human_night_risvegliate":
 				  HNRopenConv ++;
-				  TopenConv ++;
+				  TWebopenConv ++;
 				  if(isAssigned){
 					  HNRassignedConv ++;
-					  TassignedConv ++;
+					  TWebassignedConv ++;
 				  } else{
 					  HNRunassignedConv ++;
-					  TunassignedConv ++;
+					  TWebunassignedConv ++;
 				  }
 				  break;
 				  
 			case "Outbound":
 				  OopenConv ++;
-				  TopenConv ++;
+				  TOopenConv ++;
 				  if(isAssigned){
 					  OassignedConv ++;
-					  TassignedConv ++;
+					  TOassignedConv ++;
 				  } else{
 					  OunassignedConv ++;
-					  TunassignedConv ++;
+					  TOunassignedConv ++;
 				  }
 				  break;
 				  
 			case "outbound_risvegliate":
 				  ORopenConv ++;
-				  TopenConv ++;
+				  TOopenConv ++;
 				  if(isAssigned){
 					  ORassignedConv ++;
-					  TassignedConv ++;
+					  TOassignedConv ++;
 				  } else{
 					  ORunassignedConv ++;
-					  TunassignedConv ++;
+					  TOunassignedConv ++;
 				  }
 				  break;
 				  
 			case "Outbound_fixed":
 				  OFopenConv ++;
-				  TopenConv ++;
+				  TOopenConv ++;
 				  if(isAssigned){
 					  OFassignedConv ++;
-					  TassignedConv ++;
+					  TOassignedConv ++;
 				  } else{
 					  OFunassignedConv ++;
-					  TunassignedConv ++;
+					  TOunassignedConv ++;
 				  }
 				  break;
 				  
 			case "Outbound_fixed_risvegliate":
 				  OFRopenConv ++;
-				  TopenConv ++;
+				  TOopenConv ++;
 				  if(isAssigned){
 					  OFRassignedConv ++;
-					  TassignedConv ++;
+					  TOassignedConv ++;
 				  } else{
 					  OFRunassignedConv ++;
-					  TunassignedConv ++;
+					  TOunassignedConv ++;
 				  }
 				  break;
 				  
 			case "Inglese":
 				  IopenConv ++;
-				  TopenConv ++;
+				  TOtheropenConv ++;
 				  if(isAssigned){
 					  IassignedConv ++;
-					  TassignedConv ++;
+					  TOtherassignedConv ++;
 				  } else{
 					  IunassignedConv ++;
-					  TunassignedConv ++;
+					  TOtherunassignedConv ++;
 				  }
 				  break;
 				  
@@ -1309,9 +1318,18 @@ function retrieveAgentsLogged(){
 	  document.getElementById("IopenConv").innerHTML = IopenConv;
 	  document.getElementById("IassignedConv").innerHTML = IassignedConv;
 	  document.getElementById("IunassignedConv").innerHTML = IunassignedConv;
-	  document.getElementById("TopenConv").innerHTML = TopenConv;
-	  document.getElementById("TassignedConv").innerHTML = TassignedConv;
-	  document.getElementById("TunassignedConv").innerHTML = TunassignedConv;
+	  document.getElementById("TFBopenConv").innerHTML = TFBopenConv;
+	  document.getElementById("TFBassignedConv").innerHTML = TFBassignedConv;
+	  document.getElementById("TFBunassignedConv").innerHTML = TFBunassignedConv;
+	  document.getElementById("TWebopenConv").innerHTML = TWebopenConv;
+	  document.getElementById("TWebassignedConv").innerHTML = TWebassignedConv;
+	  document.getElementById("TWebunassignedConv").innerHTML = TWebunassignedConv;
+	  document.getElementById("TOopenConv").innerHTML = TOopenConv;
+	  document.getElementById("TOassignedConv").innerHTML = TOassignedConv;
+	  document.getElementById("TOunassignedConv").innerHTML = TOunassignedConv;
+	  document.getElementById("TOtheropenConv").innerHTML = TOtheropenConv;
+	  document.getElementById("TOtherassignedConv").innerHTML = TOtherassignedConv;
+	  document.getElementById("TOtherunassignedConv").innerHTML = TOtherunassignedConv;
 
 	 
   }
