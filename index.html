@@ -596,7 +596,7 @@ function retrieveAgentsLogged(){
 						  }
 					  }
 				  }
-				  document.getElementById("slotsAvailable").innerHTML = "Sessioni disponibili: " + availableSpots;
+				  document.getElementById("slotsAvailable").innerHTML = "Sessioni disponibili: " + (Math.round(availableSpots * 100) / 100);
 				  document.getElementById("slotsAvailable").style = "color : green";
 				  document.getElementById("slotsAvailable").style.fontWeight = "bold";
 				  document.getElementById("slotsAvailable").style.fontSize = "large";
