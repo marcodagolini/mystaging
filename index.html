@@ -688,6 +688,58 @@ function botOrNot() {
 	
 function retrieveAgentsLogged(){
 	
+	var FBPopenConv = 0;
+	  var FBPassignedConv = 0;
+	  var FBPunassignedConv = 0;
+	  var FBRopenConv =0;
+	  var FBRassignedConv =0;
+	  var FBRunassignedConv =0;
+	  var FBPNopenConv =0;
+	  var FBPNassignedConv =0;
+	  var FBPNunassignedConv =0;
+	  var FBPNRopenConv =0;
+	  var FBPNRassignedConv =0;
+	  var FBPNRunassignedConv =0;
+	  var HopenConv =0;
+	  var HassignedConv =0;
+	  var HunassignedConv =0;
+	  var HRopenConv =0;
+	  var HRassignedConv =0;
+	  var HRunassignedConv =0;
+	  var HNopenConv =0;
+	  var HNassignedConv =0;
+	  var HNunassignedConv =0;
+	  var HNRopenConv =0;
+	  var HNRassignedConv =0;
+	  var HNRunassignedConv =0;
+	  var OopenConv =0;
+	  var OassignedConv =0;
+	  var OunassignedConv =0;
+	  var ORopenConv =0;
+	  var ORassignedConv =0;
+	  var ORunassignedConv =0;
+	  var OFopenConv =0;
+	  var OFassignedConv =0;
+	  var OFunassignedConv =0;
+	  var OFRopenConv =0;
+	  var OFRassignedConv =0;
+	  var OFRunassignedConv =0;
+	  var IopenConv =0;
+	  var IassignedConv =0;
+	  var IunassignedConv =0;
+	  var TFBopenConv =0;
+	  var TFBassignedConv =0;
+	  var TFBunassignedConv =0;
+	  var TWebopenConv =0;
+	  var TWebassignedConv =0;
+	  var TWebunassignedConv =0;
+	  var TOopenConv =0;
+	  var TOassignedConv =0;
+	  var TOunassignedConv =0;
+	  var TOtheropenConv =0;
+	  var TOtherassignedConv =0;
+	  var TOtherunassignedConv =0;
+	
 	// var body = '{"status":["ONLINE"],"skillIds":["1089726032","1096374632","1102673132","1102673332","987637232","1096374432","1105369932","1105551632","1093097632","1096374732","1105849832","1105849932","1097496532","1012134132","1111294132"]}';
 	var body = '{"skillIds":["1089726032","1096374632","1102673132","1102673332","987637232","1096374432","1105369932","1105551632","1093097632","1096374732","1105849832","1105849932","1097496532","1012134132","1111294132"]}';
 	var totalSpots = 0;
@@ -719,6 +771,61 @@ function retrieveAgentsLogged(){
 										  if (data.agentStatusRecords[z].agentSkills[m].skillId === "-1"){
 											 // do nothing 
 										  } else{
+											  var currentSkill = data.agentStatusRecords[z].agentSkills[m].skillName;
+											  switch(currentSkill) {
+													case "Facebook_priv":
+													  
+													  break;
+													  
+													  case "facebook_risvegliate":
+													  
+													  break;
+													  
+													  case "Facebook_priv_night":
+													  
+													  break;
+													  
+													  case "Facebook_priv_night_risvegli":
+													  
+													  break;
+													  
+													  case "human":
+													  
+													  break;
+													  
+													  case "human_risvegliate":
+													  
+													  break;
+													  
+													  case "human_night":
+													  
+													  break;
+													  
+													  case "human_night_risvegliate":
+													  
+													  break;
+													  
+													  case "Outbound":
+													  
+													  break;
+													  
+													  case "outbound_risvegliate":
+													  
+													  break;
+													  
+													  case "Outbound_fixed":
+													  
+													  break;
+													  
+													  case "Outbound_fixed_risvegliate":
+													  
+													  break;
+													  
+													  case "Inglese":
+													  
+													  break;
+													  
+											  }
 											  
 										  }
 									  }
@@ -1278,11 +1385,7 @@ function retrieveAgentsLogged(){
 					  TOtherunassignedConv ++;
 				  }
 				  break;
-				  
-				  
-				  
-
-				  
+				  	  
 				  
 		  }
 
