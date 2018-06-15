@@ -19,7 +19,7 @@ body{
 }
 .grid-container-header {
   display: grid;
-  grid-template-columns: 300px 100px 100px 100px 100px 100px 100px 100px;
+  grid-template-columns: 100px 200px 100px 100px 100px 100px 100px 100px 100px;
   width: 1000px;
   background-color: #2196F3;
   padding: 0px;
@@ -58,6 +58,15 @@ body{
   padding: 0px;
   font-size: 20px;
   text-align: right;
+}
+	
+.grid-title-left {
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 0px solid rgba(0, 0, 0, 0.8);
+  padding: 0px;
+  font-size: 20px;
+  text-align: left;
+  color: red;
 }
 	
 .bar-container {
@@ -280,6 +289,8 @@ span.psw {
 
 	    
 	<div class="grid-container-header">
+		
+		<div class="grid-title-left">FaceBook PM</div> 
   		<div class="grid-item-left">skill</div>  
   		<div class="grid-item" id="openConv">open</div>
 		<div class="grid-item" id="assignedConv">assigned</div>
