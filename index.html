@@ -807,8 +807,8 @@ function retrieveAgentsLogged(){
 			  "If-Match": "-1",
 			  data: body,
 			  success: function success(data) {
-				  console.log("********");
-				  console.log(JSON.stringify(data));
+				  // console.log("********");
+				  // console.log(JSON.stringify(data));
 				  if(data.hasOwnProperty('_metadata')){
 					  if(data._metadata.hasOwnProperty('count')){
 						  if(data._metadata.count > 0){
@@ -1565,11 +1565,11 @@ function retrieveAgentsLogged(){
 								newHuman = newHuman.concat(toAppendHuman);
 							}
 						}
-						console.log("*****");
-						console.log("*****");
-						console.log(newHuman);
-						console.log("*****");
-						console.log("*****");
+						// console.log("*****");
+						// console.log("*****");
+						// console.log(newHuman);
+						// console.log("*****");
+						// console.log("*****");
 						overwriteHumanSkill = newHuman;
 						appendSkill = appendSkill.concat('</select>');
 						$("#skill").append(appendSkill);
