@@ -2544,10 +2544,9 @@ checklogin(accnumb, bearer);
                               success: function success(data) {
 				      
 				      if(offset == 0){
-					      conversationsToDownload = data._metadata.count;
-					      conversationsPartial = data.conversationHistoryRecords.length;
-					      console.log(conversationsPartial + " of --> " + conversationsToDownload);      
+					      conversationsToDownload = data._metadata.count;    
 				      }
+				      
 				      conversationsPartial = conversationsPartial + data.conversationHistoryRecords.length;
 				      if(conversationsPartial < conversationsToDownload){
 					      offset = conversationsPartial;
