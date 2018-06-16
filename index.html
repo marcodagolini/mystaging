@@ -1355,10 +1355,10 @@ function retrieveAgentsLogged(){
 				  document.getElementById("TWebsoonAgents").innerHTML = TWebsoonAgents;
 				  document.getElementById("TOsoonAgents").innerHTML = TOsoonAgents;
 				  document.getElementById("TOthersoonAgents").innerHTML = TOthersoonAgents;
-				  document.getElementById("TFBslots").innerHTML = TFBslots;
-				  document.getElementById("TWebslots").innerHTML = TWebslots;
-				  document.getElementById("TOslots").innerHTML = TOslots;
-				  document.getElementById("TOtherslots").innerHTML = TOtherslots;
+				  document.getElementById("TFBslots").innerHTML = (Math.round(TFBslots * 100) / 100);
+				  document.getElementById("TWebslots").innerHTML = (Math.round(TWebslots * 100) / 100);
+				  document.getElementById("TOslots").innerHTML = (Math.round(TOslots * 100) / 100);
+				  document.getElementById("TOtherslots").innerHTML = (Math.round(TOtherslots * 100) / 100);
 				  
 	  
 	  
