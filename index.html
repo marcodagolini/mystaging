@@ -769,6 +769,10 @@ function retrieveAgentsLogged(){
 	var TWebsoonAgents = 0;
 	var TOsoonAgents = 0;
 	var TOthersoonAgents = 0;
+	var TFBslots = 0;
+	var TWebslots = 0;
+	var TOslots = 0;
+	var TOtherslots = 0;
 	
 
 
@@ -817,10 +821,10 @@ function retrieveAgentsLogged(){
 															  FBPonlineAgents = FBPonlineAgents + 1;
 															  if(!counted){
 																  TFBonlineAgents = TFBonlineAgents + 1;
-																  FBPslots = FBPslots + totalSpots;
+																  TFBslots = TFBslots + totalSpots;
 																  counted = true;
 															  }
-															  
+															  FBPslots = FBPslots + totalSpots;
 															  break;
 															  
 															  case "AWAY":
@@ -849,10 +853,10 @@ function retrieveAgentsLogged(){
 															  FBRonlineAgents = FBRonlineAgents + 1;
 															  if(!counted){
 																  TFBonlineAgents = TFBonlineAgents + 1;
-																  FBRslots = FBRslots + totalSpots;
+																  TFBslots = TFBslots + totalSpots;
 																  counted = true;
 															  }
-															  
+															  FBRslots = FBRslots + totalSpots;
 															  
 															  break;
 															  case "AWAY":
@@ -881,10 +885,10 @@ function retrieveAgentsLogged(){
 															  FBPNonlineAgents = FBPNonlineAgents + 1;
 															  if(!counted){
 																  TFBonlineAgents = TFBonlineAgents + 1;
-																  FBPNslots = FBPNslots + totalSpots;
+																  TFBslots = TFBslots + totalSpots;
 																  counted = true;
 															  }
-															  
+															  FBPNslots = FBPNslots + totalSpots;
 															  
 															  break;
 															  
@@ -916,10 +920,10 @@ function retrieveAgentsLogged(){
 															  FBPNRonlineAgents = FBPNRonlineAgents + 1;
 															  if(!counted){
 																  TFBonlineAgents = TFBonlineAgents + 1;
-																  FBPNRslots = FBPNRslots + totalSpots;
+																  TFBslots = TFBslots + totalSpots;
 																  counted = true;
 															  }
-															  
+															  FBPNRslots = FBPNRslots + totalSpots;
 															  
 															  break;
 															  
@@ -951,10 +955,10 @@ function retrieveAgentsLogged(){
 															  HonlineAgents = HonlineAgents + 1;
 															  if(!counted){
 																  TWebonlineAgents = TWebonlineAgents + 1;
-																  Hslots = Hslots + totalSpots;
+																  TWebslots = TWebslots + totalSpots;
 																  counted = true;
 															  }
-															  
+															  Hslots = Hslots + totalSpots;
 															  
 															  break;
 															  
@@ -986,10 +990,10 @@ function retrieveAgentsLogged(){
 															  HRonlineAgents = HRonlineAgents + 1;
 															  if(!counted){
 																  TWebonlineAgents = TWebonlineAgents + 1;
-																  HRslots = HRslots + totalSpots;
+																  TWebslots = TWebslots + totalSpots;
 																  counted = true;
 															  }
-															  
+															  HRslots = HRslots + totalSpots;
 															  
 															  break;
 															  
@@ -1021,10 +1025,10 @@ function retrieveAgentsLogged(){
 															  HNonlineAgents = HNonlineAgents + 1;
 															  if(!counted){
 																  TWebonlineAgents = TWebonlineAgents + 1;
-																  HNslots = HNslots + totalSpots;
+																  TWebslots = TWebslots + totalSpots;
 																  counted = true;
 															  }
-															  
+															  HNslots = HNslots + totalSpots;
 															  
 															  break;
 															  
@@ -1056,10 +1060,10 @@ function retrieveAgentsLogged(){
 															  HNRonlineAgents = HNRonlineAgents + 1;
 															  if(!counted){
 																  TWebonlineAgents = TWebonlineAgents + 1;
-																  HNRslots = HNRslots + totalSpots;
+																  TWebslots = TWebslots + totalSpots;
 																  counted = true;
 															  }
-															  
+															  HNRslots = HNRslots + totalSpots;
 															  
 															  break;
 															  
@@ -1091,10 +1095,10 @@ function retrieveAgentsLogged(){
 															  OonlineAgents = OonlineAgents + 1;
 															  if(!counted){
 																  TOonlineAgents = TOonlineAgents + 1;
-																  Oslots = Oslots + totalSpots;
+																  TOslots = TOslots + totalSpots;
 																  counted = true;
 															  }
-															  
+															  Oslots = Oslots + totalSpots;
 															  
 															  break;
 															  
@@ -1126,10 +1130,10 @@ function retrieveAgentsLogged(){
 															  ORonlineAgents = ORonlineAgents + 1;
 															  if(!counted){
 																  TOonlineAgents = TOonlineAgents + 1;
-																  ORslots = ORslots + totalSpots;
+																  TOslots = TOslots + totalSpots;
 																  counted = true;
 															  }
-															  
+															  ORslots = ORslots + totalSpots;
 															  
 															  break;
 															  
@@ -1161,10 +1165,10 @@ function retrieveAgentsLogged(){
 															  OFonlineAgents = OFonlineAgents + 1;
 															  if(!counted){
 																  TOonlineAgents = TOonlineAgents + 1;
-																  OFslots = OFslots + totalSpots;
+																  TOslots = TOslots + totalSpots;
 																  counted = true;
 															  }
-															  
+															  OFslots = OFslots + totalSpots;
 															  
 															  break;
 															  
@@ -1196,10 +1200,10 @@ function retrieveAgentsLogged(){
 															  OFRonlineAgents = OFRonlineAgents + 1;
 															  if(!counted){
 																  TOonlineAgents = TOonlineAgents + 1;
-																  OFRslots = OFRslots + totalSpots;
+																  TOslots = TOslots + totalSpots;
 																  counted = true;
 															  }
-															  
+															  OFRslots = OFRslots + totalSpots;
 															  
 															  break;
 															  
@@ -1231,10 +1235,10 @@ function retrieveAgentsLogged(){
 															  IonlineAgents = IonlineAgents + 1;
 															  if(!counted){
 																  TOtheronlineAgents = TOtheronlineAgents + 1;
-																  Islots = Islots + totalSpots;
+																  TOtherslots = TOtherslots + totalSpots;
 																  counted = true;
 															  }
-															  
+															  Islots = Islots + totalSpots;
 															  
 															  break;
 															  
@@ -1352,10 +1356,10 @@ function retrieveAgentsLogged(){
 				  document.getElementById("TWebsoonAgents").innerHTML = TWebsoonAgents;
 				  document.getElementById("TOsoonAgents").innerHTML = TOsoonAgents;
 				  document.getElementById("TOthersoonAgents").innerHTML = TOthersoonAgents;
-				  document.getElementById("TFBslots").innerHTML = FBPslots + FBRslots + FBPNslots + FBPNRslots;
-				  document.getElementById("TWebslots").innerHTML = Hslots + HRslots + HNslots + HNRslots;
-				  document.getElementById("TOslots").innerHTML = Oslots + ORslots + OFslots + OFRslots;
-				  document.getElementById("TOtherslots").innerHTML = Islots;
+				  document.getElementById("TFBslots").innerHTML = TFBslots;
+				  document.getElementById("TWebslots").innerHTML = TWebslots;
+				  document.getElementById("TOslots").innerHTML = TOslots;
+				  document.getElementById("TOtherslots").innerHTML = TOtherslots;
 				  
 	  
 	  
