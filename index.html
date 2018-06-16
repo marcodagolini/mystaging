@@ -2541,13 +2541,15 @@ checklogin(accnumb, bearer);
                               contentType: "application/json",
                               data: body,
                               success: function success(data) {
+				      
 				      if(offset == 0){
 					      conversationsToDownload = data._metadata.count;
 					      conversationsPartial = data.conversationHistoryRecords.length;
 					      console.log(conversationsPartial + " of --> " + conversationsToDownload);      
 				      }
-				      if((data.conversationHistoryRecords.length) == 100){
-					      offset = offset + 100;
+				      conversationsPartial = conversationsPartial + data.conversationHistoryRecords.length;
+				      if(conversationsPartial < conversationsToDownload){
+					      offset = conversationsPartial;
 					      answer = answer.concat(data.conversationHistoryRecords);
 					      document.getElementById("reportMSG").innerHTML = "...downloading sessions:" + Math.round(100*(offset/data._metadata.count)) + "% completed...";
 					      document.getElementById("reportMSG").style = "color : green";      
