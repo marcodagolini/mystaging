@@ -2561,6 +2561,7 @@ checklogin(accnumb, bearer);
 					      // }, 1000);
 				      }
 				      else{
+					      console.log("offset: " + offset);
 					      answer = answer.concat(data.conversationHistoryRecords);
 					      console.log(answer.length);
 					      document.getElementById("reportMSG").innerHTML = answer.length + " Messaging conversations downloaded with success!";
