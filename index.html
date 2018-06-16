@@ -2511,6 +2511,16 @@ checklogin(accnumb, bearer);
 	 });
 	 
  }
+	
+ function stampAnalyzingData(){
+	 document.getElementById("reportMSG").innerHTML = "...analyzing data...";
+	 document.getElementById("reportMSG").style = "color : green";
+	 $( "#reportMSG" ).fadeIn( "slow", function() {
+		 
+	 });
+
+					      
+ }
  
  
  function downloadTranscripts(start, end, options){
@@ -2565,8 +2575,12 @@ checklogin(accnumb, bearer);
 					      console.log("last bucket: " + data.conversationHistoryRecords.length);
 					      answer = answer.concat(data.conversationHistoryRecords);
 					      console.log(answer.length);
-					      document.getElementById("reportMSG").innerHTML = answer.length + " Messaging conversations downloaded with success!";
+					      document.getElementById("reportMSG").innerHTML = "almost done, starting with analysis...";
 					      document.getElementById("reportMSG").style = "color : green";
+					      
+					      var analyzingData;
+					      analyzingData = window.setInterval(stampAnalyzingData,4000);
+					      
 					      for (var i = 0; i < (answer.length); i++){
 						      var messages = "";
 						      var thismessage = "";
@@ -3669,7 +3683,9 @@ checklogin(accnumb, bearer);
 		};
 		download(jsonToSsXml(exportObject), 'transcripts.xls', 'application/vnd.ms-excel');
 		$("#hiddenbutton")[0].click();
-		 
+		window.clearInterval(stampAnalyzingData);
+		document.getElementById("reportMSG").innerHTML = answer.length + " Messaging conversations downloaded with success!";
+		document.getElementById("reportMSG").style = "color : green";
 		 
 	 }
 	 
