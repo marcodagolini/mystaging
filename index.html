@@ -2512,11 +2512,7 @@ checklogin(accnumb, bearer);
 	 
  }
 	
- function stampAnalyzingData(){
-	 document.getElementById("reportMSG").innerHTML = "...analyzing data...";
-	 document.getElementById("reportMSG").style = "color : green";
-				      
- }
+ 
  
  
  function downloadTranscripts(start, end, options){
@@ -2574,8 +2570,14 @@ checklogin(accnumb, bearer);
 					      document.getElementById("reportMSG").innerHTML = "almost done, starting with analysis...";
 					      document.getElementById("reportMSG").style = "color : green";
 					      
-					      var analyzingData;
-					      analyzingData = window.setInterval(stampAnalyzingData,4000);
+					      function stampAnalyzingData(){
+						      document.getElementById("reportMSG").innerHTML = "...analyzing data...";
+						      document.getElementById("reportMSG").style = "color : green";
+						      console.log ("*** inside stampAnalyzingData ***");
+					      }
+	 
+			      
+					      var analyzingData = window.setInterval(stampAnalyzingData,1000);
 					      
 					      for (var i = 0; i < (answer.length); i++){
 						      var messages = "";
@@ -3537,10 +3539,11 @@ checklogin(accnumb, bearer);
 					      }
 				      	      // console.log(exportObject);
 					      if (exportObject.length > 0){
-						      exportData(exportObject);
+						      
 						      window.clearInterval(analyzingData);
 						      document.getElementById("reportMSG").innerHTML = answer.length + " Messaging conversations downloaded with success!";
 						      document.getElementById("reportMSG").style = "color : green";
+						      exportData(exportObject);
 		
 					      }
 					      else{
