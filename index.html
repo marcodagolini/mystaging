@@ -2560,7 +2560,7 @@ checklogin(accnumb, bearer);
 					      // }, 1000);
 				      }
 				      else{
-					      console.log("offset: " + offset);
+					      console.log("last bucket: " + data.conversationHistoryRecords.length);
 					      answer = answer.concat(data.conversationHistoryRecords);
 					      console.log(answer.length);
 					      document.getElementById("reportMSG").innerHTML = answer.length + " Messaging conversations downloaded with success!";
