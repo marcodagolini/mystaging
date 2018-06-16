@@ -2514,11 +2514,7 @@ checklogin(accnumb, bearer);
  function stampAnalyzingData(){
 	 document.getElementById("reportMSG").innerHTML = "...analyzing data...";
 	 document.getElementById("reportMSG").style = "color : green";
-	 $( "#reportMSG" ).fadeIn( "slow", function() {
-		 
-	 });
-
-					      
+				      
  }
  
  
@@ -3541,6 +3537,10 @@ checklogin(accnumb, bearer);
 				      	      // console.log(exportObject);
 					      if (exportObject.length > 0){
 						      exportData(exportObject);
+						      window.clearInterval(analyzingData);
+						      document.getElementById("reportMSG").innerHTML = answer.length + " Messaging conversations downloaded with success!";
+						      document.getElementById("reportMSG").style = "color : green";
+		
 					      }
 					      else{
 						      document.getElementById("reportMSG").innerHTML = "I've not found any conversation in this period!";
@@ -3682,9 +3682,7 @@ checklogin(accnumb, bearer);
 		};
 		download(jsonToSsXml(exportObject), 'transcripts.xls', 'application/vnd.ms-excel');
 		$("#hiddenbutton")[0].click();
-		window.clearInterval(stampAnalyzingData);
-		document.getElementById("reportMSG").innerHTML = answer.length + " Messaging conversations downloaded with success!";
-		document.getElementById("reportMSG").style = "color : green";
+		
 		 
 	 }
 	 
