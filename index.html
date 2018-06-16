@@ -511,6 +511,16 @@ span.psw {
 		<div class="grid-item" id="IsoonAgents"></div>
 		<div class="grid-item" id="Islots"></div>
 	</div>
+	<div class="grid-dark">
+  		<div class="grid-item-left">Priority</div>
+  		<div class="grid-item" id="PopenConv"></div>
+		<div class="grid-item" id="PassignedConv"></div>
+		<div class="grid-item" id="PunassignedConv"></div>
+		<div class="grid-item" id="PonlineAgents"></div>
+		<div class="grid-item" id="PawayAgents"></div>
+		<div class="grid-item" id="PsoonAgents"></div>
+		<div class="grid-item" id="Pslots"></div>
+	</div>
 
 	<div class="grid-tot">
   		<div class="grid-item-left">Totale</div>
@@ -757,6 +767,10 @@ function retrieveAgentsLogged(){
 	var IawayAgents = 0;
 	var IsoonAgents = 0;
 	var Islots = 0;
+	var PonlineAgents = 0;
+	var PawayAgents = 0;
+	var PsoonAgents = 0;
+	var Pslots = 0;
 	var TFBonlineAgents = 0;
 	var TWebonlineAgents = 0;
 	var TOonlineAgents = 0;
@@ -777,10 +791,7 @@ function retrieveAgentsLogged(){
 
 
 
-
-	
-	// var body = '{"status":["ONLINE"],"skillIds":["1089726032","1096374632","1102673132","1102673332","987637232","1096374432","1105369932","1105551632","1093097632","1096374732","1105849832","1105849932","1097496532","1012134132","1111294132"]}';
-	var body = '{"skillIds":["1089726032","1096374632","1102673132","1102673332","987637232","1096374432","1105369932","1105551632","1093097632","1096374732","1105849832","1105849932","1097496532","1012134132","1111294132"]}';
+	var body = '{"skillIds":["1089726032","1096374632","1102673132","1102673332","987637232","1096374432","1105369932","1105551632","1093097632","1096374732","1105849832","1105849932","1097496532","1012134132","1111294132","1111905932"]}';
 	var totalSpots = 0;
 	var availableSpots = 0;
 	
@@ -1264,6 +1275,41 @@ function retrieveAgentsLogged(){
 													  }
 													  break;
 													  
+													  case "Priority":
+													  switch(statusAgent) {
+															  case "ONLINE":
+															  PonlineAgents = PonlineAgents + 1;
+															  if(!counted){
+																  TOtheronlineAgents = TOtheronlineAgents + 1;
+																  TOtherslots = TOtherslots + totalSpots;
+																  counted = true;
+															  }
+															  Pslots = Pslots + totalSpots;
+															  
+															  break;
+															  
+															  case "AWAY":
+															  PawayAgents = PawayAgents + 1;
+															  if(!counted){
+																  TOtherawayAgents = TOtherawayAgents + 1;
+																  counted = true;
+															  }
+															  
+															  // Islots = Islots + totalSpots;
+															  break;
+															  
+															  case "BACK_SOON":
+															  PsoonAgents = PsoonAgents + 1;
+															  if(!counted){
+																  TOthersoonAgents = TOthersoonAgents + 1;
+																  counted = true;
+															  }
+															  
+															  // Islots = Islots + totalSpots;
+															  break;	  
+													  }
+													  break;
+													  
 											  }
 											  
 											  
@@ -1344,6 +1390,11 @@ function retrieveAgentsLogged(){
 				  document.getElementById("IsoonAgents").innerHTML = IsoonAgents;
 				  Islots = (Math.round(Islots * 100) / 100);
 				  document.getElementById("Islots").innerHTML = Islots;
+				  document.getElementById("PonlineAgents").innerHTML = PonlineAgents;
+				  document.getElementById("PawayAgents").innerHTML = PawayAgents;
+				  document.getElementById("PsoonAgents").innerHTML = PsoonAgents;
+				  Pslots = (Math.round(Pslots * 100) / 100);
+				  document.getElementById("Pslots").innerHTML = Pslots;
 				  document.getElementById("TFBonlineAgents").innerHTML = TFBonlineAgents;
 				  document.getElementById("TWebonlineAgents").innerHTML = TWebonlineAgents;
 				  document.getElementById("TOonlineAgents").innerHTML = TOonlineAgents;
@@ -1725,6 +1776,9 @@ function retrieveAgentsLogged(){
 	  var IopenConv =0;
 	  var IassignedConv =0;
 	  var IunassignedConv =0;
+	  var PopenConv =0;
+	  var PassignedConv =0;
+	  var PunassignedConv =0;
 	  var TFBopenConv =0;
 	  var TFBassignedConv =0;
 	  var TFBunassignedConv =0;
@@ -1909,7 +1963,18 @@ function retrieveAgentsLogged(){
 					  TOtherunassignedConv ++;
 				  }
 				  break;
-				  	  
+				  
+			case "Priority":
+				  PopenConv ++;
+				  TOtheropenConv ++;
+				  if(isAssigned){
+					  PassignedConv ++;
+					  TOtherassignedConv ++;
+				  } else{
+					  PunassignedConv ++;
+					  TOtherunassignedConv ++;
+				  }
+				  break;  	  
 				  
 		  }
 
@@ -1953,6 +2018,9 @@ function retrieveAgentsLogged(){
 	  document.getElementById("IopenConv").innerHTML = IopenConv;
 	  document.getElementById("IassignedConv").innerHTML = IassignedConv;
 	  document.getElementById("IunassignedConv").innerHTML = IunassignedConv;
+	  document.getElementById("PopenConv").innerHTML = PopenConv;
+	  document.getElementById("PassignedConv").innerHTML = PassignedConv;
+	  document.getElementById("PunassignedConv").innerHTML = PunassignedConv;
 	  document.getElementById("TFBopenConv").innerHTML = TFBopenConv;
 	  document.getElementById("TFBassignedConv").innerHTML = TFBassignedConv;
 	  document.getElementById("TFBunassignedConv").innerHTML = TFBunassignedConv;
