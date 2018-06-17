@@ -3381,10 +3381,16 @@ checklogin(accnumb, bearer);
 										timestampLastActGen = lastMessageSentGeneral;
 									}
 									for (var z = 0; z < transferLength; z++){
-										if((answer[i].transfers[z].targetSkillName.indexOf("acebook") > -1) || (answer[i].transfers[z].targetSkillName.indexOf("uman") > -1)){
+										if(answer[i].transfers[z].targetSkillName.indexOf("acebook") > -1){
 											if(!thisIsGeneral){
 												thisIsGeneral = true;
 												startThisPeriod = answer[i].transfers[z].timeL;
+											}
+										}
+										if(answer[i].transfers[z].targetSkillName.indexOf("uman") > -1){
+											if(!thisIsGeneral){
+												thisIsGeneral = true;
+												startThisPeriod = answer[i].startTimeL;
 											}
 										}
 										if(answer[i].transfers[z].targetSkillName.indexOf("utbound") > -1){
