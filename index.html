@@ -2570,15 +2570,9 @@ checklogin(accnumb, bearer);
 					      console.log(answer.length);
 					      
 					      
-					      
-					      var analyzingData = setInterval(function analyzingMyData(){
+					      for (var i = 0; i < (answer.length); i++){
 						      document.getElementById("reportMSG").innerHTML = "...analyzing data...";
 						      document.getElementById("reportMSG").style = "color : green";
-						      console.log ("*** inside stampAnalyzingData ***");
-					      }, 1000);
-					      
-					      
-					      for (var i = 0; i < (answer.length); i++){
 						      var messages = "";
 						      var thismessage = "";
 						      var thisactor = "";
@@ -3539,8 +3533,6 @@ checklogin(accnumb, bearer);
 				      	      // console.log(exportObject);
 					      if (exportObject.length > 0){
 						      
-						      window.clearInterval(analyzingData);
-						      analyzingData = 0;
 						      document.getElementById("reportMSG").innerHTML = answer.length + " Messaging conversations downloaded with success!";
 						      document.getElementById("reportMSG").style = "color : green";
 						      exportData(exportObject);
