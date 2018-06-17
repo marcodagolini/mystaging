@@ -837,6 +837,7 @@ button[disabled]{
 		var onSuccess8 = function(data) {
                 // Do something with the returning data
 			assignedAgent = data;
+			console.log("assigned: " + assignedAgent);
 			call3 = 1;
 			if (call4 == 1 && assignedAgent !== null && thisAgent !== null){
 				if( assignedAgent === thisAgent){
@@ -856,6 +857,7 @@ button[disabled]{
 		var onSuccess9 = function(data) {
                 // Do something with the returning data
 			thisAgent = data;
+			console.log("thisAgent: " + thisAgent);
 			call4 = 1;
 			if (call3 == 1 && assignedAgent !== null && thisAgent !== null){
 				if( assignedAgent === thisAgent){
