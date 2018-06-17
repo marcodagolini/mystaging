@@ -2996,15 +2996,52 @@ checklogin(accnumb, bearer);
 								      var dfghjhgfd = answer[i].transfers.length;
 								}
 						      		if(answer[i].hasOwnProperty('agentParticipants') && answer[i].agentParticipants.length){
+									var agentParticipantsLength = answer[i].agentParticipants.length;
+									var agentLoginName = "";
+									var jumpInTimestamp = 0;
+									if(answer[i].hasOwnProperty('transfers') && (answer[i].transfers.length === "0")){
+										for (var z = 0; z < agentParticipantsLength; z++){
+											if((answer[i].agentParticipants[z].userTypeName === "Human") && (answer[i].agentParticipants[z].permission === "ASSIGNED_AGENT")){
+												agentLoginName = answer[i].agentParticipants[z].agentLoginName;
+												jumpInTimestamp = answer[i].agentParticipants[z].timeL;
+												if(answer[i].info.endTimeL > 0){
+													effortTimeGeneral = (answer[i].info.endTimeL - jumpInTimestamp)/1000;
+												}
+												lastAgentGeneral = answer[i].agentParticipants[z].agentFullName;
+												lastTeamGeneral = answer[i].agentParticipants[z].agentGroupName;
+												lastProperTeamGeneral = answer[i].agentParticipants[z].agentGroupName;
+												if(!arrayProperTeamsGeneral.includes(lastTeamGeneral)){
+													arrayProperTeamsGeneral.push(lastTeamGeneral);
+												}
+												if(!arrayAgentsGeneral.includes(lastAgentGeneral)){
+													arrayAgentsGeneral.push(lastAgentGeneral);
+												}
+												var agentAlberoLength = alberoArray.length;
+												for(var counter = 0; counter < agentAlberoLength; counter++){
+													if (alberoArray[counter].son === lastTeamGeneral){
+														lastTeamGeneral = alberoArray[counter].father;
+														counter = agentAlberoLength;
+													}
+												}
+												if(!arrayTeamsGeneral.includes(lastTeamGeneral)){
+													arrayTeamsGeneral.push(lastTeamGeneral);
+												}
+												z = agentParticipantsLength;
+												
+											}
+										}
+									}
+									
+									
 									if(answer[i].hasOwnProperty('transfers') && answer[i].transfers.length){
-										var agentParticipantsLength = answer[i].agentParticipants.length;
+										
 										var transferLength = answer[i].transfers.length;
 										var isGeneral = 0;
 										var isOutbound = 0;
-										var agentLoginName = "";
+										
 										var agentSkill = "";
 										var sourceSkillName = "";
-										var jumpInTimestamp = 0;
+										
 										
 										for (var f = 0; f < transferLength; f++){
 											if(answer[i].transfers[f].sourceSkillName.indexOf("bound") > -1){
