@@ -2568,13 +2568,13 @@ checklogin(accnumb, bearer);
 					      answer = answer.concat(data.conversationHistoryRecords);
 					      console.log(answer.length);
 					      
-					      function analyzingMyData(){
+					      
+					      
+					      var analyzingData = setInterval(function analyzingMyData(){
 						      document.getElementById("reportMSG").innerHTML = "...analyzing data...";
 						      document.getElementById("reportMSG").style = "color : green";
 						      console.log ("*** inside stampAnalyzingData ***");
-					      }
-					      
-					      var analyzingData = setInterval(analyzingMyData, 1000);
+					      }, 1000);
 					      
 					      
 					      for (var i = 0; i < (answer.length); i++){
