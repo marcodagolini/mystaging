@@ -3379,19 +3379,7 @@ checklogin(accnumb, bearer);
 												m = 0;
 											}
 										}
-										if(answer[i].transfers[z].hasOwnProperty('contextData')){
-											if(answer[i].transfers[z].contextData.hasOwnProperty('structuredMetadata')){
-												if(answer[i].transfers[z].contextData.structuredMetadata[0].botResponse.intents[0].id === "telefono"){
-													timestampLastActGen = answer[i].transfers[z].timeL;
-												}
-												if(answer[i].transfers[z].contextData.structuredMetadata[0].botResponse.intents[0].id === "awakeLater"){
-													timestampLastActGen = answer[i].transfers[z].timeL;
-												}
-											}
-										}
-										if(lastMessageSentGeneral > timestampLastActGen){
-											timestampLastActGen = lastMessageSentGeneral;
-										}
+										timestampLastActGen = lastMessageSentGeneral;
 									}
 									for (var z = 0; z < transferLength; z++){
 										if((answer[i].transfers[z].targetSkillName.indexOf("acebook") > -1) || (answer[i].transfers[z].targetSkillName.indexOf("uman") > -1)){
