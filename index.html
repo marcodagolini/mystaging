@@ -2567,7 +2567,7 @@ checklogin(accnumb, bearer);
 					      answer = answer.concat(data.conversationHistoryRecords);
 					      console.log(answer.length);
 					      
-					      var analyzingData = window.setInterval(function(){
+					      var analyzingData = setInterval(function(){
 						      document.getElementById("reportMSG").innerHTML = "...analyzing data...";
 						      document.getElementById("reportMSG").style = "color : green";
 						      console.log ("*** inside stampAnalyzingData ***");
@@ -3534,7 +3534,8 @@ checklogin(accnumb, bearer);
 				      	      // console.log(exportObject);
 					      if (exportObject.length > 0){
 						      
-						      window.clearInterval(analyzingData);
+						      clearInterval(analyzingData);
+						      analyzingData = 0;
 						      document.getElementById("reportMSG").innerHTML = answer.length + " Messaging conversations downloaded with success!";
 						      document.getElementById("reportMSG").style = "color : green";
 						      exportData(exportObject);
