@@ -3373,6 +3373,27 @@ checklogin(accnumb, bearer);
 									var endThisPeriod = 0;
 									var lastMessageSentGeneral = 0;
 									var lastMessageSentOutbound = 0;
+							      		if (transferLength === 0){
+										for (var m = (howManyMessages - 1); m > -1 ; m--){
+											if((answer[i].messageRecords[m].timeL < endThisPeriod) && (answer[i].messageRecords[m].timeL > startThisPeriod) && (answer[i].messageRecords[m].sentBy === "Agent") && (answer[i].messageRecords[m].participantId !== "1089636032")){
+												lastMessageSentGeneral = answer[i].messageRecords[m].timeL;
+												m = 0;
+											}
+										}
+										if(answer[i].transfers[z].hasOwnProperty('contextData')){
+											if(answer[i].transfers[z].contextData.hasOwnProperty('structuredMetadata')){
+												if(answer[i].transfers[z].contextData.structuredMetadata[0].botResponse.intents[0].id === "telefono"){
+													timestampLastActGen = answer[i].transfers[z].timeL;
+												}
+												if(answer[i].transfers[z].contextData.structuredMetadata[0].botResponse.intents[0].id === "awakeLater"){
+													timestampLastActGen = answer[i].transfers[z].timeL;
+												}
+											}
+										}
+										if(lastMessageSentGeneral > timestampLastActGen){
+											timestampLastActGen = lastMessageSentGeneral;
+										}
+									}
 									for (var z = 0; z < transferLength; z++){
 										if((answer[i].transfers[z].targetSkillName.indexOf("acebook") > -1) || (answer[i].transfers[z].targetSkillName.indexOf("uman") > -1)){
 											if(!thisIsGeneral){
