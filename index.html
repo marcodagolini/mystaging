@@ -3373,7 +3373,7 @@ checklogin(accnumb, bearer);
 									var lastMessageSentOutbound = 0;
 							      		if (transferLength === 0){
 										for (var m = (howManyMessages - 1); m > -1 ; m--){
-											if((answer[i].messageRecords[m].timeL < endThisPeriod) && (answer[i].messageRecords[m].timeL > startThisPeriod) && (answer[i].messageRecords[m].sentBy === "Agent") && (answer[i].messageRecords[m].participantId !== "1089636032")){
+											if ((answer[i].messageRecords[m].sentBy === "Agent") && (answer[i].messageRecords[m].participantId !== "1089636032")){
 												lastMessageSentGeneral = answer[i].messageRecords[m].timeL;
 												m = 0;
 											}
