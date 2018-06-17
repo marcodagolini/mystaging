@@ -2566,14 +2566,11 @@ checklogin(accnumb, bearer);
 					      answer = answer.concat(data.conversationHistoryRecords);
 					      console.log(answer.length);
 					      
-					      function stampAnalyzingData(){
+					      var analyzingData = window.setInterval(function(){
 						      document.getElementById("reportMSG").innerHTML = "...analyzing data...";
 						      document.getElementById("reportMSG").style = "color : green";
 						      console.log ("*** inside stampAnalyzingData ***");
-					      }
-	 
-			      
-					      var analyzingData = window.setInterval(stampAnalyzingData(),1000);
+					      },1000);
 					      
 					      for (var i = 0; i < (answer.length); i++){
 						      var messages = "";
