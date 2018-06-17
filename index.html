@@ -886,8 +886,8 @@ button[disabled]{
 		SDK.get('authenticatedData.customerDetails.customerId', onSuccess5, onError5); //codice fiscale
 		SDK.get('authenticatedData.customerDetails.imei', onSuccess6, onError6); //ricontatto
 		SDK.get('authenticatedData.personalInfo.contactInfo', onSuccess7, onError7); //telefono
-		SDK.get('authenticatedData.agentInfo.agentId', onSuccess8, onError8); //currentagent
-		SDK.get('authenticatedData.chattingAgentInfo.agentId', onSuccess9, onError9); //agentassigned
+		SDK.get('agentInfo.agentId', onSuccess8, onError8); //currentagent
+		SDK.get('chattingAgentInfo.agentId', onSuccess9, onError9); //agentassigned
                
               
            });
