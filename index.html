@@ -2575,8 +2575,8 @@ checklogin(accnumb, bearer);
 						      console.log ("*** inside stampAnalyzingData ***");
 					      }
 					      
-					      var analyzingData = setInterval(function() { analyzingMyData(); }, 1000);
-					      setInterval(function() { console.log("ok"); }, 1000);
+					      var analyzingData = setInterval(analyzingMyData, 1000);
+					      
 					      
 					      for (var i = 0; i < (answer.length); i++){
 						      var messages = "";
@@ -3539,7 +3539,7 @@ checklogin(accnumb, bearer);
 				      	      // console.log(exportObject);
 					      if (exportObject.length > 0){
 						      
-						      clearInterval(analyzingData);
+						      window.clearInterval(analyzingData);
 						      analyzingData = 0;
 						      document.getElementById("reportMSG").innerHTML = answer.length + " Messaging conversations downloaded with success!";
 						      document.getElementById("reportMSG").style = "color : green";
