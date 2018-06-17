@@ -34,6 +34,12 @@ button:hover {
     color: white;	
 }
 	
+button:disabled,
+button[disabled]{
+  background-color: #f68a1f;
+  opacity: 0.5;
+}
+	
 .chosen-container {
   position: relative;
   display: inline-block;
@@ -488,6 +494,8 @@ button:hover {
 	var telefonoTobi = "";
 	var ricontattoTobi = "";
 	var cfiscaleTobi = "";
+	var assignedAgent = "";
+	var thisAgent = "";
 	
 	function sendToLimbo() {
 		document.getElementById("alertAwake").innerHTML = "...invio nel Limbo...";
@@ -732,11 +740,17 @@ button:hover {
 	
 	    
 	$(document).ready(function() {
+		
+		$("#submit").prop( "disabled", true );
+		$("#submitawake").prop( "disabled", true );
+		$("#submitlimbo").prop( "disabled", true );
               
               	var SDK=lpTag.agentSDK;
               	SDK.init();
 		var call1 = 0;
 		var call2 = 0;
+		var call3 = 0;
+		var call4 = 0;
 		
                 var onSuccess1 = function(data) {
                 // Do something with the returning data
@@ -821,6 +835,38 @@ button:hover {
                 	telefonoTobi = null;
                 };
 		
+		var onSuccess8 = function(data) {
+                // Do something with the returning data
+			assignedAgent = data;
+			call3 = 1;
+			if (call4 == 1 && assignedAgent !== null && thisAgent !== null){
+				$("#submit").prop( "disabled", false );
+				$("#submitawake").prop( "disabled", false );
+				$("#submitlimbo").prop( "disabled", false );
+			}
+                };
+                
+                var onError8 = function(data) {
+                // Do something with the returning data
+                	assignedAgent = null;
+                };
+		
+		var onSuccess9 = function(data) {
+                // Do something with the returning data
+			thisAgent = data;
+			call4 = 1;
+			if (call3 == 1 && assignedAgent !== null && thisAgent !== null){
+				$("#submit").prop( "disabled", false );
+				$("#submitawake").prop( "disabled", false );
+				$("#submitlimbo").prop( "disabled", false );
+			}
+                };
+                
+                var onError9 = function(data) {
+                // Do something with the returning data
+                	thisAgent = null;
+                };
+		
 		
                
                
@@ -834,6 +880,8 @@ button:hover {
 		SDK.get('authenticatedData.customerDetails.customerId', onSuccess5, onError5); //codice fiscale
 		SDK.get('authenticatedData.customerDetails.imei', onSuccess6, onError6); //ricontatto
 		SDK.get('authenticatedData.personalInfo.contactInfo', onSuccess7, onError7); //telefono
+		SDK.get('authenticatedData.agentInfo.agentId', onSuccess8, onError8); //currentagent
+		SDK.get('authenticatedData.chattingAgentInfo.agentId', onSuccess9, onError9); //agentassigned
                
               
            });
