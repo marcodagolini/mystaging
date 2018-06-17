@@ -2993,6 +2993,9 @@ checklogin(accnumb, bearer);
 						      howManyMessages = answer[i].messageRecords.length;
 						      var partialTime = 0;
 						      if(howManyMessages){
+							      if(answer[i].info.conversationId === "a8b24d91-98db-4426-b3b1-18ba06062218"){
+									console.log("hoooray!!");
+								}
 						      		if(answer[i].hasOwnProperty('agentParticipants') && answer[i].agentParticipants.length){
 									if(answer[i].hasOwnProperty('transfers') && answer[i].transfers.length){
 										var agentParticipantsLength = answer[i].agentParticipants.length;
@@ -3016,9 +3019,7 @@ checklogin(accnumb, bearer);
 											}
 										}
 										
-										if(answer[i].info.conversationId === "a8b24d91-98db-4426-b3b1-18ba06062218"){
-											console.log("hoooray!!");
-										}
+										
 												
 										for (var z = 0; z < agentParticipantsLength; z++){
 											if((answer[i].agentParticipants[z].userTypeName === "Human") && (answer[i].agentParticipants[z].permission === "ASSIGNED_AGENT")){
