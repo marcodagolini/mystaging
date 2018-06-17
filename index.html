@@ -741,10 +741,7 @@ button[disabled]{
 	
 	    
 	$(document).ready(function() {
-		
-		$("#submit").prop( "disabled", true );
-		$("#submitawake").prop( "disabled", true );
-		$("#submitlimbo").prop( "disabled", true );
+
               
               	var SDK=lpTag.agentSDK;
               	SDK.init();
@@ -1194,7 +1191,7 @@ $(function() {
 
   </br>
               
-   <button id ="submit" type="button" onclick="sendData()">Invia Dati</button>
+   <button id ="submit" type="button" onclick="sendData()" disabled>Invia Dati</button>
    <div id="alert"></div>
 
 </div>
@@ -1204,8 +1201,8 @@ $(function() {
 <label>Posponi tra: </br>
 </label> <input type="text" id="daysAwake" maxlength="2" size="3"> <label> giorni, </label> <input type="text" id="hourAwake" maxlength="2" size="3"> <label> ore, </label> <input type="text" id="minuteAwake" maxlength="3" size="4"> <label> minuti</label> </br>
 </br>
-<button id ="submitawake" type="button" onclick="sendDataAwake()">Posponi</button>
-<button id ="submitlimbo" type="button" onclick="sendToLimbo()" style="float: right;">Limbo</button>
+<button id ="submitawake" type="button" onclick="sendDataAwake()" disabled>Posponi</button>
+<button id ="submitlimbo" type="button" onclick="sendToLimbo()" style="float: right;" disabled>Limbo</button>
 </br>
 </br>
 <div id="alertAwake"></div>
