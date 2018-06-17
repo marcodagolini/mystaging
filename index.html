@@ -2575,7 +2575,7 @@ checklogin(accnumb, bearer);
 						      console.log ("*** inside stampAnalyzingData ***");
 					      }
 					      
-					      var analyzingData = setInterval(analyzingMyData(),100);
+					      var analyzingData = setInterval(function() { analyzingMyData(); }, 1000);
 					      
 					      for (var i = 0; i < (answer.length); i++){
 						      var messages = "";
