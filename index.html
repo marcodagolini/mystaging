@@ -1,117 +1,15 @@
-<!DOCTYPE html>
-
-
-
-
-
-
-
-
-
-<head>
-  
-</head>
-
-
 <html>
-<style>
+ 
+<style>		
 	
-body{
-  margin: 20px;	
-}
-.grid-container-header {
-  display: grid;
-  grid-template-columns: 200px 100px 100px 100px 100px 100px 100px 100px 100px;
-  width: 1000px;
-  background-color: #2196F3;
-  padding: 0px;
-}
-.grid-bright {
-  display: grid;
-  grid-template-columns: 300px 100px 100px 100px 100px 100px 100px 100px;
-  width: 1000px;
-  background-color: #ebf3fb;
-  padding: 0px;
-}
-.grid-dark {
-  display: grid;
-  grid-template-columns: 300px 100px 100px 100px 100px 100px 100px 100px;
-  width: 1000px;
-  background-color: #c1c1c1;
-  padding: 0px;
-}
-.grid-tot {
-  display: grid;
-  grid-template-columns: 300px 100px 100px 100px 100px 100px 100px 100px;
-  width: 1000px;
-  background-color: #79b178;
-  padding: 0px;
-}
-.grid-item {
-  background-color: rgba(255, 255, 255, 0.8);
-  border: 0px solid rgba(0, 0, 0, 0.8);
-  padding: 0px;
-  font-size: 20px;
-  text-align: center;
-}
-.grid-item-left {
-  background-color: rgba(255, 255, 255, 0.8);
-  border: 0px solid rgba(0, 0, 0, 0.8);
-  padding: 0px;
-  font-size: 20px;
-  text-align: right;
-}
 	
-.grid-title-left {
-  background-color: rgba(255, 255, 255, 0.8);
-  border: 0px solid rgba(0, 0, 0, 0.8);
-  padding: 0px;
-  font-size: 20px;
-  text-align: left;
-  color: red;
-}
 	
-.bar-container {
-  display: grid;
-  grid-template-columns: auto auto auto auto;
-  background-color: #2196F3;
-  padding: 5px;
-}
-.bar-item {
-  background-color: rgba(255, 255, 255, 0.8);
-  border: 0px solid rgba(0, 0, 0, 0.8);
-  padding: 0px;
-  font-size: 20px;
-  text-align: center;
-}
-.loader {
-  border: 16px solid #f3f3f3;
-  border-radius: 50%;
-  border-top: 16px solid #3498db;
-  width: 120px;
-  height: 120px;
-  -webkit-animation: spin 2s linear infinite; /* Safari */
-  animation: spin 2s linear infinite;
-}
+textarea {
+    resize: none;
+    border: none;
+}	
 	
-/* Safari */
-@-webkit-keyframes spin {
-  0% { -webkit-transform: rotate(0deg); }
-  100% { -webkit-transform: rotate(360deg); }
-}
-@keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}   
-  
-input[type=text], input[type=password] {
-    width: 200px;
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    box-sizing: border-box;
-}
+	
 button {
     background-color: #f68a1f;
     border: none;
@@ -133,3620 +31,1136 @@ button:hover {
     color: white;	
 }
 	
-button:disabled,
-button[disabled]{
-  background-color: #f68a1f;
-  opacity: 0.5;
+.chosen-container {
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 13px;
+  zoom: 1;
+  *display: inline;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
 }
-	
-.cancelbtn {
-    width: auto;
-    padding: 10px 18px;
-    background-color: #f44336;
+.chosen-container * {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
 }
-.imgcontainer {
-    text-align: center;
-    margin: 24px 0 12px 0;
+.chosen-container .chosen-drop {
+  position: absolute;
+  top: 100%;
+  left: -9999px;
+  z-index: 1010;
+  width: 250px;
+  border: 1px solid #aaa;
+  border-top: 0;
+  background: #fff;
+  box-shadow: 0 4px 5px rgba(0, 0, 0, 0.15);
 }
-img.avatar {
-    width: 40%;
-    border-radius: 50%;
+.chosen-container.chosen-with-drop .chosen-drop {
+  left: 0;
 }
-	
-.label {
-    color: black;
-    width: 120px;
-    height: 50px;
-    padding: 6px;
-    display: block;
-    float:left;
-    vertical-align: middle;
+.chosen-container a {
+  cursor: pointer;
 }
-	
-.loginelement {
-    width: 130px;
-    height: 50px;
-    vertical-align: middle;
-    line-height: 50px;
-    float: left;
+.chosen-container .search-choice .group-name, .chosen-container .chosen-single .group-name {
+  margin-right: 4px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-weight: normal;
+  color: #999999;
 }
-.container {
-    padding: 16px;
+.chosen-container .search-choice .group-name:after, .chosen-container .chosen-single .group-name:after {
+  content: ":";
+  padding-left: 2px;
+  vertical-align: top;
 }
-span.psw {
-    float: right;
-    padding-top: 16px;
+/* @end */
+/* @group Single Chosen */
+.chosen-container-single .chosen-single {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  padding: 0 0 0 8px;
+  height: 25px;
+  border: 1px solid #aaa;
+  border-radius: 5px;
+  background-color: #fff;
+  background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(20%, #ffffff), color-stop(50%, #f6f6f6), color-stop(52%, #eeeeee), color-stop(100%, #f4f4f4));
+  background: -webkit-linear-gradient(top, #ffffff 20%, #f6f6f6 50%, #eeeeee 52%, #f4f4f4 100%);
+  background: -moz-linear-gradient(top, #ffffff 20%, #f6f6f6 50%, #eeeeee 52%, #f4f4f4 100%);
+  background: -o-linear-gradient(top, #ffffff 20%, #f6f6f6 50%, #eeeeee 52%, #f4f4f4 100%);
+  background: linear-gradient(top, #ffffff 20%, #f6f6f6 50%, #eeeeee 52%, #f4f4f4 100%);
+  background-clip: padding-box;
+  box-shadow: 0 0 3px white inset, 0 1px 1px rgba(0, 0, 0, 0.1);
+  color: #444;
+  text-decoration: none;
+  white-space: nowrap;
+  line-height: 24px;
 }
-/* Change styles for span and cancel button on extra small screens */
-@media screen and (max-width: 300px) {
-    span.psw {
-       display: block;
-       float: none;
-    }
-    .cancelbtn {
-       width: 100%;
-    }
+.chosen-container-single .chosen-default {
+  color: #999;
 }
+.chosen-container-single .chosen-single span {
+  display: block;
+  overflow: hidden;
+  margin-right: 26px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.chosen-container-single .chosen-single-with-deselect span {
+  margin-right: 38px;
+}
+.chosen-container-single .chosen-single abbr {
+  position: absolute;
+  top: 6px;
+  right: 26px;
+  display: block;
+  width: 12px;
+  height: 12px;
+  background: url('https://harvesthq.github.io/chosen/chosen-sprite.png') -42px 1px no-repeat;
+  font-size: 1px;
+}
+.chosen-container-single .chosen-single abbr:hover {
+  background-position: -42px -10px;
+}
+.chosen-container-single.chosen-disabled .chosen-single abbr:hover {
+  background-position: -42px -10px;
+}
+.chosen-container-single .chosen-single div {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: block;
+  width: 18px;
+  height: 100%;
+}
+.chosen-container-single .chosen-single div b {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: url('https://harvesthq.github.io/chosen/chosen-sprite.png') no-repeat 0px 2px;
+}
+.chosen-container-single .chosen-search {
+  position: relative;
+  z-index: 1010;
+  margin: 0;
+  padding: 3px 4px;
+  white-space: nowrap;
+}
+.chosen-container-single .chosen-search input[type="text"] {
+  margin: 1px 0;
+  padding: 4px 20px 4px 5px;
+  width: 100%;
+  height: auto;
+  outline: 0;
+  border: 1px solid #aaa;
+  background: white url('https://harvesthq.github.io/chosen/chosen-sprite.png') no-repeat 100% -20px;
+  background: url('https://harvesthq.github.io/chosen/chosen-sprite.png') no-repeat 100% -20px;
+  font-size: 1em;
+  font-family: sans-serif;
+  line-height: normal;
+  border-radius: 0;
+}
+.chosen-container-single .chosen-drop {
+  margin-top: -1px;
+  border-radius: 0 0 4px 4px;
+  background-clip: padding-box;
+}
+.chosen-container-single.chosen-container-single-nosearch .chosen-search {
+  position: absolute;
+  left: -9999px;
+}
+/* @end */
+/* @group Results */
+.chosen-container .chosen-results {
+  color: #444;
+  position: relative;
+  overflow-x: hidden;
+  overflow-y: auto;
+  margin: 0 4px 4px 0;
+  padding: 0 0 0 4px;
+  max-height: 240px;
+  -webkit-overflow-scrolling: touch;
+}
+.chosen-container .chosen-results li {
+  display: none;
+  margin: 0;
+  padding: 5px 6px;
+  list-style: none;
+  line-height: 15px;
+  word-wrap: break-word;
+  -webkit-touch-callout: none;
+}
+.chosen-container .chosen-results li.active-result {
+  display: list-item;
+  cursor: pointer;
+}
+.chosen-container .chosen-results li.disabled-result {
+  display: list-item;
+  color: #ccc;
+  cursor: default;
+}
+.chosen-container .chosen-results li.highlighted {
+  background-color: #3875d7;
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(20%, #3875d7), color-stop(90%, #2a62bc));
+  background-image: -webkit-linear-gradient(#3875d7 20%, #2a62bc 90%);
+  background-image: -moz-linear-gradient(#3875d7 20%, #2a62bc 90%);
+  background-image: -o-linear-gradient(#3875d7 20%, #2a62bc 90%);
+  background-image: linear-gradient(#3875d7 20%, #2a62bc 90%);
+  color: #fff;
+}
+.chosen-container .chosen-results li.no-results {
+  color: #777;
+  display: list-item;
+  background: #f4f4f4;
+}
+.chosen-container .chosen-results li.group-result {
+  display: list-item;
+  font-weight: bold;
+  cursor: default;
+}
+.chosen-container .chosen-results li.group-option {
+  padding-left: 15px;
+}
+.chosen-container .chosen-results li em {
+  font-style: normal;
+  text-decoration: underline;
+}
+/* @end */
+/* @group Multi Chosen */
+.chosen-container-multi .chosen-choices {
+  position: relative;
+  overflow: hidden;
+  margin: 0;
+  padding: 0 5px;
+  width: 250px;
+  height: auto !important;
+  height: 1%;
+  border: 1px solid #aaa;
+  background-color: #fff;
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(1%, #eeeeee), color-stop(15%, #ffffff));
+  background-image: -webkit-linear-gradient(#eeeeee 1%, #ffffff 15%);
+  background-image: -moz-linear-gradient(#eeeeee 1%, #ffffff 15%);
+  background-image: -o-linear-gradient(#eeeeee 1%, #ffffff 15%);
+  background-image: linear-gradient(#eeeeee 1%, #ffffff 15%);
+  cursor: text;
+}
+.chosen-container-multi .chosen-choices li {
+  float: left;
+  list-style: none;
+}
+.chosen-container-multi .chosen-choices li.search-field {
+  margin: 0;
+  padding: 0;
+  white-space: nowrap;
+}
+.chosen-container-multi .chosen-choices li.search-field input[type="text"] {
+  margin: 1px 0;
+  padding: 0;
+  height: 25px;
+  outline: 0;
+  border: 0 !important;
+  background: transparent !important;
+  box-shadow: none;
+  color: #999;
+  font-size: 100%;
+  font-family: sans-serif;
+  line-height: normal;
+  border-radius: 0;
+}
+.chosen-container-multi .chosen-choices li.search-choice {
+  position: relative;
+  margin: 3px 5px 3px 0;
+  padding: 3px 20px 3px 5px;
+  border: 1px solid #aaa;
+  max-width: 100%;
+  border-radius: 3px;
+  background-color: #eeeeee;
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(20%, #f4f4f4), color-stop(50%, #f0f0f0), color-stop(52%, #e8e8e8), color-stop(100%, #eeeeee));
+  background-image: -webkit-linear-gradient(#f4f4f4 20%, #f0f0f0 50%, #e8e8e8 52%, #eeeeee 100%);
+  background-image: -moz-linear-gradient(#f4f4f4 20%, #f0f0f0 50%, #e8e8e8 52%, #eeeeee 100%);
+  background-image: -o-linear-gradient(#f4f4f4 20%, #f0f0f0 50%, #e8e8e8 52%, #eeeeee 100%);
+  background-image: linear-gradient(#f4f4f4 20%, #f0f0f0 50%, #e8e8e8 52%, #eeeeee 100%);
+  background-size: 100% 19px;
+  background-repeat: repeat-x;
+  background-clip: padding-box;
+  box-shadow: 0 0 2px white inset, 0 1px 0 rgba(0, 0, 0, 0.05);
+  color: #333;
+  line-height: 13px;
+  cursor: default;
+}
+.chosen-container-multi .chosen-choices li.search-choice span {
+  word-wrap: break-word;
+}
+.chosen-container-multi .chosen-choices li.search-choice .search-choice-close {
+  position: absolute;
+  top: 4px;
+  right: 3px;
+  display: block;
+  width: 12px;
+  height: 12px;
+  background: url('https://harvesthq.github.io/chosen/chosen-sprite.png') -42px 1px no-repeat;
+  font-size: 1px;
+}
+.chosen-container-multi .chosen-choices li.search-choice .search-choice-close:hover {
+  background-position: -42px -10px;
+}
+.chosen-container-multi .chosen-choices li.search-choice-disabled {
+  padding-right: 5px;
+  border: 1px solid #ccc;
+  background-color: #e4e4e4;
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(20%, #f4f4f4), color-stop(50%, #f0f0f0), color-stop(52%, #e8e8e8), color-stop(100%, #eeeeee));
+  background-image: -webkit-linear-gradient(top, #f4f4f4 20%, #f0f0f0 50%, #e8e8e8 52%, #eeeeee 100%);
+  background-image: -moz-linear-gradient(top, #f4f4f4 20%, #f0f0f0 50%, #e8e8e8 52%, #eeeeee 100%);
+  background-image: -o-linear-gradient(top, #f4f4f4 20%, #f0f0f0 50%, #e8e8e8 52%, #eeeeee 100%);
+  background-image: linear-gradient(top, #f4f4f4 20%, #f0f0f0 50%, #e8e8e8 52%, #eeeeee 100%);
+  color: #666;
+}
+.chosen-container-multi .chosen-choices li.search-choice-focus {
+  background: #d4d4d4;
+}
+.chosen-container-multi .chosen-choices li.search-choice-focus .search-choice-close {
+  background-position: -42px -10px;
+}
+.chosen-container-multi .chosen-results {
+  margin: 0;
+  padding: 0;
+}
+.chosen-container-multi .chosen-drop .result-selected {
+  display: list-item;
+  color: #ccc;
+  cursor: default;
+}
+/* @end */
+/* @group Active  */
+.chosen-container-active .chosen-single {
+  border: 1px solid #5897fb;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+.chosen-container-active.chosen-with-drop .chosen-single {
+  border: 1px solid #aaa;
+  -moz-border-radius-bottomright: 0;
+  border-bottom-right-radius: 0;
+  -moz-border-radius-bottomleft: 0;
+  border-bottom-left-radius: 0;
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(20%, #eeeeee), color-stop(80%, #ffffff));
+  background-image: -webkit-linear-gradient(#eeeeee 20%, #ffffff 80%);
+  background-image: -moz-linear-gradient(#eeeeee 20%, #ffffff 80%);
+  background-image: -o-linear-gradient(#eeeeee 20%, #ffffff 80%);
+  background-image: linear-gradient(#eeeeee 20%, #ffffff 80%);
+  box-shadow: 0 1px 0 #fff inset;
+}
+.chosen-container-active.chosen-with-drop .chosen-single div {
+  border-left: none;
+  background: transparent;
+}
+.chosen-container-active.chosen-with-drop .chosen-single div b {
+  background-position: -18px 2px;
+}
+.chosen-container-active .chosen-choices {
+  border: 1px solid #5897fb;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+.chosen-container-active .chosen-choices li.search-field input[type="text"] {
+  color: #222 !important;
+}
+/* @end */
+/* @group Disabled Support */
+.chosen-disabled {
+  opacity: 0.5 !important;
+  cursor: default;
+}
+.chosen-disabled .chosen-single {
+  cursor: default;
+}
+.chosen-disabled .chosen-choices .search-choice .search-choice-close {
+  cursor: default;
+}
+/* @end */
+/* @group Right to Left */
+.chosen-rtl {
+  text-align: right;
+}
+.chosen-rtl .chosen-single {
+  overflow: visible;
+  padding: 0 8px 0 0;
+}
+.chosen-rtl .chosen-single span {
+  margin-right: 0;
+  margin-left: 26px;
+  direction: rtl;
+}
+.chosen-rtl .chosen-single-with-deselect span {
+  margin-left: 38px;
+}
+.chosen-rtl .chosen-single div {
+  right: auto;
+  left: 3px;
+}
+.chosen-rtl .chosen-single abbr {
+  right: auto;
+  left: 26px;
+}
+.chosen-rtl .chosen-choices li {
+  float: right;
+}
+.chosen-rtl .chosen-choices li.search-field input[type="text"] {
+  direction: rtl;
+}
+.chosen-rtl .chosen-choices li.search-choice {
+  margin: 3px 5px 3px 0;
+  padding: 3px 5px 3px 19px;
+}
+.chosen-rtl .chosen-choices li.search-choice .search-choice-close {
+  right: auto;
+  left: 4px;
+}
+.chosen-rtl.chosen-container-single-nosearch .chosen-search,
+.chosen-rtl .chosen-drop {
+  left: 9999px;
+}
+.chosen-rtl.chosen-container-single .chosen-results {
+  margin: 0 0 4px 4px;
+  padding: 0 4px 0 0;
+}
+.chosen-rtl .chosen-results li.group-option {
+  padding-right: 15px;
+  padding-left: 0;
+}
+.chosen-rtl.chosen-container-active.chosen-with-drop .chosen-single div {
+  border-right: none;
+}
+.chosen-rtl .chosen-search input[type="text"] {
+  padding: 4px 5px 4px 20px;
+  background: white url('https://harvesthq.github.io/chosen/chosen-sprite.png') no-repeat -30px -20px;
+  background: url('https://harvesthq.github.io/chosen/chosen-sprite.png') no-repeat -30px -20px;
+  direction: rtl;
+}
+.chosen-rtl.chosen-container-single .chosen-single div b {
+  background-position: 6px 2px;
+}
+.chosen-rtl.chosen-container-single.chosen-with-drop .chosen-single div b {
+  background-position: -12px 2px;
+}
+/* @end */
+/* @group Retina compatibility */
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 144dpi), only screen and (min-resolution: 1.5dppx) {
+  .chosen-rtl .chosen-search input[type="text"],
+  .chosen-container-single .chosen-single abbr,
+  .chosen-container-single .chosen-single div b,
+  .chosen-container-single .chosen-search input[type="text"],
+  .chosen-container-multi .chosen-choices .search-choice .search-choice-close,
+  .chosen-container .chosen-results-scroll-down span,
+  .chosen-container .chosen-results-scroll-up span {
+    background-image: url('https://harvesthq.github.io/chosen/chosen-sprite@2x.png') !important;
+    background-size: 52px 37px !important;
+    background-repeat: no-repeat !important;
+  }
+}
+ 
 </style>
-<body>
-  
-  <div id="myloader" style="display:none;">
-    	<h2>Loading your page...</h2>
-    	<div class="loader"></div>
-  </div>
-    
-
-
-
-
-  <div id="mylogin" style="display:none;">
-    
-    <h2>Report Login</h2>
-        <div class="loginelement"><b>Account Number</b></div>
-	<input id="accnumb" type="text" placeholder="Enter Account Number">
-	</br>
-	
-	<div class="loginelement"><b>Username</b></div>
-        <input id="uname" type="text" placeholder="Enter Username">
-	</br>
-        
-	<div class="loginelement"><b>Password</b></div>
-        <input id="pwd" type="password" placeholder="Enter Password">
-	</br>
-        
-    <button id="submitLogin" >Login</button>
-    
-    </br></br></br></br>
-
-  <div id="sendStat"></div>
-
-</div>
-
-
-<div id="myreports" style="display:none;">
-	
-    
-    </br>
-    <button type="button" id ="logout" class="logout" style="float: right;">Log Out</button>
-
-    <div class="bar-container" style="display:none;">
-  	<div class="bar-item">open</div>
-  	<div class="bar-item">pending</div>
-  	<div class="bar-item">unassigned</div>
-	<div class="bar-item">limbo</div>
-  	<div class="bar-item">overdue</div>
-  	<div class="bar-item">soon overdue</div>
-  	<div id="open" class="bar-item"></div>  
-  	<div id="pending" class="bar-item"></div>
-  	<div id="unassigned" class="bar-item"></div>
-	<div id="limbo" class="bar-item"></div>
-  	<div id="overdue" class="bar-item"></div> 
-  	<div id="soonOverdue" class="bar-item"></div>
-    </div>
-
-	</br></br>
-    
-    <div id="reportHeroku"></div>
-    <div id="reportBot"></div>
-
-
-
-    <div id="loadingStats">
-	    </br></br>
-	    <label><b>...loading your stats...</b></label></br></br>
-	    <div class="loader"></div>
-	    </br></br>
-	    <div id="loaderMSG"></div>
-	    </br>
-    </div>
-	
-    
-
-    <div id="loadedStats" style="display:none;">
-	    </br>
-
-
-<!--
-	    <h2>Statistics:</h2>
-	<label><b>Skill</b></label></br>   
-	<div id="skill"></div>
-	<label><b>Team</b></label></br>
- 	<div id="team"></div>
-	    </br>
-	<label><b>Start custom date</b></label></br>
-    	<input id="customDate" type="date" />
-	<input id="customHour" type="time"></br>
-	<label><b>End custom date</b></label></br>
-    	<input id="endCustomDate" type="date" />
-	<input id="endCustomHour" type="time"></br>
-	<div id="refreshMSG"></div>
-	
-
-
-        </br></br>
-
--->
-
-	<button type="button" id ="refresh" class="refresh" style="float: right;">Refresh</button>
-
-	    
-	<div class="grid-container-header">
-		<div class="grid-title-left">FaceBook PM</div> 
-  		<div class="grid-item-left">skill</div>  
-  		<div class="grid-item" id="openConv">open</div>
-		<div class="grid-item" id="assignedConv">assigned</div>
-  		<div class="grid-item" id="unassignedConv">unassigned</div>
-		<div class="grid-item" id="onlineAgents">online</div>
-		<div class="grid-item" id="awayAgents">away</div>
-		<div class="grid-item" id="backsoonAgents">back soon</div>
-		<div class="grid-item" id="maxSlots">slots</div>
-	</div>
-	<div class="grid-bright">
-  		<div class="grid-item-left">Facebook_priv</div>
-  		<div class="grid-item" id="FBPopenConv"></div>
-		<div class="grid-item" id="FBPassignedConv"></div>
-		<div class="grid-item" id="FBPunassignedConv"></div>
-		<div class="grid-item" id="FBPonlineAgents"></div>
-		<div class="grid-item" id="FBPawayAgents"></div>
-		<div class="grid-item" id="FBPsoonAgents"></div>
-		<div class="grid-item" id="FBPslots"></div>
-	</div>
-
-	<div class="grid-dark">
-  		<div class="grid-item-left">Facebook_risvegliate</div>
-  		<div class="grid-item" id="FBRopenConv"></div>
-		<div class="grid-item" id="FBRassignedConv"></div>
-		<div class="grid-item" id="FBRunassignedConv"></div>
-		<div class="grid-item" id="FBRonlineAgents"></div>
-		<div class="grid-item" id="FBRawayAgents"></div>
-		<div class="grid-item" id="FBRsoonAgents"></div>
-		<div class="grid-item" id="FBRslots"></div>
-	</div>
-	
-	<div class="grid-bright">
-  		<div class="grid-item-left">Facebook_priv_night</div>
-  		<div class="grid-item" id="FBPNopenConv"></div>
-		<div class="grid-item" id="FBPNassignedConv"></div>
-		<div class="grid-item" id="FBPNunassignedConv"></div>
-		<div class="grid-item" id="FBPNonlineAgents"></div>
-		<div class="grid-item" id="FBPNawayAgents"></div>
-		<div class="grid-item" id="FBPNsoonAgents"></div>
-		<div class="grid-item" id="FBPNslots"></div>
-	</div>
-
-	<div class="grid-dark">
-  		<div class="grid-item-left">Facebook_priv_night_risvegliate</div>
-  		<div class="grid-item" id="FBPNRopenConv"></div>
-		<div class="grid-item" id="FBPNRassignedConv"></div>
-		<div class="grid-item" id="FBPNRunassignedConv"></div>
-		<div class="grid-item" id="FBPNRonlineAgents"></div>
-		<div class="grid-item" id="FBPNRawayAgents"></div>
-		<div class="grid-item" id="FBPNRsoonAgents"></div>
-		<div class="grid-item" id="FBPNRslots"></div>
-	</div>
-
-	<div class="grid-tot">
-  		<div class="grid-item-left">Totale</div>
-  		<div class="grid-item" id="TFBopenConv"></div>
-		<div class="grid-item" id="TFBassignedConv"></div>
-		<div class="grid-item" id="TFBunassignedConv"></div>
-		<div class="grid-item" id="TFBonlineAgents"></div>
-		<div class="grid-item" id="TFBawayAgents"></div>
-		<div class="grid-item" id="TFBsoonAgents"></div>
-		<div class="grid-item" id="TFBslots"></div>
-	</div></br>
-
-	<div class="grid-container-header">
-		<div class="grid-title-left">Chat Web</div> 
-  		<div class="grid-item-left">skill</div>  
-  		<div class="grid-item" id="openConv">open</div>
-		<div class="grid-item" id="assignedConv">assigned</div>
-  		<div class="grid-item" id="unassignedConv">unassigned</div>
-		<div class="grid-item" id="onlineAgents">online</div>
-		<div class="grid-item" id="awayAgents">away</div>
-		<div class="grid-item" id="backsoonAgents">back soon</div>
-		<div class="grid-item" id="maxSlots">slots</div>
-	</div>
-	
-	<div class="grid-bright">
-  		<div class="grid-item-left">Human</div>
-  		<div class="grid-item" id="HopenConv"></div>
-		<div class="grid-item" id="HassignedConv"></div>
-		<div class="grid-item" id="HunassignedConv"></div>
-		<div class="grid-item" id="HonlineAgents"></div>
-		<div class="grid-item" id="HawayAgents"></div>
-		<div class="grid-item" id="HsoonAgents"></div>
-		<div class="grid-item" id="Hslots"></div>
-	</div>
-
-	<div class="grid-dark">
-  		<div class="grid-item-left">Human_risvegliate</div>
-  		<div class="grid-item" id="HRopenConv"></div>
-		<div class="grid-item" id="HRassignedConv"></div>
-		<div class="grid-item" id="HRunassignedConv"></div>
-		<div class="grid-item" id="HRonlineAgents"></div>
-		<div class="grid-item" id="HRawayAgents"></div>
-		<div class="grid-item" id="HRsoonAgents"></div>
-		<div class="grid-item" id="HRslots"></div>
-	</div>
-
-	<div class="grid-bright">
-  		<div class="grid-item-left">Human_night</div>
-  		<div class="grid-item" id="HNopenConv"></div>
-		<div class="grid-item" id="HNassignedConv"></div>
-		<div class="grid-item" id="HNunassignedConv"></div>
-		<div class="grid-item" id="HNonlineAgents"></div>
-		<div class="grid-item" id="HNawayAgents"></div>
-		<div class="grid-item" id="HNsoonAgents"></div>
-		<div class="grid-item" id="HNslots"></div>
-	</div>
-
-	<div class="grid-dark">
-  		<div class="grid-item-left">Human_night_risvegliate</div>
-  		<div class="grid-item" id="HNRopenConv"></div>
-		<div class="grid-item" id="HNRassignedConv"></div>
-		<div class="grid-item" id="HNRunassignedConv"></div>
-		<div class="grid-item" id="HNRonlineAgents"></div>
-		<div class="grid-item" id="HNRawayAgents"></div>
-		<div class="grid-item" id="HNRsoonAgents"></div>
-		<div class="grid-item" id="HNRslots"></div>
-	</div>
-
-	<div class="grid-tot">
-  		<div class="grid-item-left">Totale</div>
-  		<div class="grid-item" id="TWebopenConv"></div>
-		<div class="grid-item" id="TWebassignedConv"></div>
-		<div class="grid-item" id="TWebunassignedConv"></div>
-		<div class="grid-item" id="TWebonlineAgents"></div>
-		<div class="grid-item" id="TWebawayAgents"></div>
-		<div class="grid-item" id="TWebsoonAgents"></div>
-		<div class="grid-item" id="TWebslots"></div>
-	</div></br>
-
-	<div class="grid-container-header">
-		<div class="grid-title-left">Outbound</div> 
-  		<div class="grid-item-left">skill</div>  
-  		<div class="grid-item" id="openConv">open</div>
-		<div class="grid-item" id="assignedConv">assigned</div>
-  		<div class="grid-item" id="unassignedConv">unassigned</div>
-		<div class="grid-item" id="onlineAgents">online</div>
-		<div class="grid-item" id="awayAgents">away</div>
-		<div class="grid-item" id="backsoonAgents">back soon</div>
-		<div class="grid-item" id="maxSlots">slots</div>
-	</div>
-
-	<div class="grid-bright">
-  		<div class="grid-item-left">Outbound</div>
-  		<div class="grid-item" id="OopenConv"></div>
-		<div class="grid-item" id="OassignedConv"></div>
-		<div class="grid-item" id="OunassignedConv"></div>
-		<div class="grid-item" id="OonlineAgents"></div>
-		<div class="grid-item" id="OawayAgents"></div>
-		<div class="grid-item" id="OsoonAgents"></div>
-		<div class="grid-item" id="Oslots"></div>
-	</div>
-
-	<div class="grid-dark">
-  		<div class="grid-item-left">Outbound_risvegliate</div>
-  		<div class="grid-item" id="ORopenConv"></div>
-		<div class="grid-item" id="ORassignedConv"></div>
-		<div class="grid-item" id="ORunassignedConv"></div>
-		<div class="grid-item" id="ORonlineAgents"></div>
-		<div class="grid-item" id="ORawayAgents"></div>
-		<div class="grid-item" id="ORsoonAgents"></div>
-		<div class="grid-item" id="ORslots"></div>
-	</div>
-
-	<div class="grid-bright">
-  		<div class="grid-item-left">Outbound_fixed</div>
-  		<div class="grid-item" id="OFopenConv"></div>
-		<div class="grid-item" id="OFassignedConv"></div>
-		<div class="grid-item" id="OFunassignedConv"></div>
-		<div class="grid-item" id="OFonlineAgents"></div>
-		<div class="grid-item" id="OFawayAgents"></div>
-		<div class="grid-item" id="OFsoonAgents"></div>
-		<div class="grid-item" id="OFslots"></div>
-	</div>
-
-	<div class="grid-dark">
-  		<div class="grid-item-left">Outbound_fixed_risvegliate</div>
-  		<div class="grid-item" id="OFRopenConv"></div>
-		<div class="grid-item" id="OFRassignedConv"></div>
-		<div class="grid-item" id="OFRunassignedConv"></div>
-		<div class="grid-item" id="OFRonlineAgents"></div>
-		<div class="grid-item" id="OFRawayAgents"></div>
-		<div class="grid-item" id="OFRsoonAgents"></div>
-		<div class="grid-item" id="OFRslots"></div>
-	</div>
-
-	<div class="grid-tot">
-  		<div class="grid-item-left">Totale</div>
-  		<div class="grid-item" id="TOopenConv"></div>
-		<div class="grid-item" id="TOassignedConv"></div>
-		<div class="grid-item" id="TOunassignedConv"></div>
-		<div class="grid-item" id="TOonlineAgents"></div>
-		<div class="grid-item" id="TOawayAgents"></div>
-		<div class="grid-item" id="TOsoonAgents"></div>
-		<div class="grid-item" id="TOslots"></div>
-	</div></br>
-
-	<div class="grid-container-header">
-		<div class="grid-title-left">Other</div> 
-  		<div class="grid-item-left">skill</div>  
-  		<div class="grid-item" id="openConv">open</div>
-		<div class="grid-item" id="assignedConv">assigned</div>
-  		<div class="grid-item" id="unassignedConv">unassigned</div>
-		<div class="grid-item" id="onlineAgents">online</div>
-		<div class="grid-item" id="awayAgents">away</div>
-		<div class="grid-item" id="backsoonAgents">back soon</div>
-		<div class="grid-item" id="maxSlots">slots</div>
-	</div>
-
-	<div class="grid-bright">
-  		<div class="grid-item-left">Inglese</div>
-  		<div class="grid-item" id="IopenConv"></div>
-		<div class="grid-item" id="IassignedConv"></div>
-		<div class="grid-item" id="IunassignedConv"></div>
-		<div class="grid-item" id="IonlineAgents"></div>
-		<div class="grid-item" id="IawayAgents"></div>
-		<div class="grid-item" id="IsoonAgents"></div>
-		<div class="grid-item" id="Islots"></div>
-	</div>
-	<div class="grid-dark">
-  		<div class="grid-item-left">Priority</div>
-  		<div class="grid-item" id="PopenConv"></div>
-		<div class="grid-item" id="PassignedConv"></div>
-		<div class="grid-item" id="PunassignedConv"></div>
-		<div class="grid-item" id="PonlineAgents"></div>
-		<div class="grid-item" id="PawayAgents"></div>
-		<div class="grid-item" id="PsoonAgents"></div>
-		<div class="grid-item" id="Pslots"></div>
-	</div>
-
-	<div class="grid-tot">
-  		<div class="grid-item-left">Totale</div>
-  		<div class="grid-item" id="TOtheropenConv"></div>
-		<div class="grid-item" id="TOtherassignedConv"></div>
-		<div class="grid-item" id="TOtherunassignedConv"></div>
-		<div class="grid-item" id="TOtheronlineAgents"></div>
-		<div class="grid-item" id="TOtherawayAgents"></div>
-		<div class="grid-item" id="TOthersoonAgents"></div>
-		<div class="grid-item" id="TOtherslots"></div>
-	</div>
-
-	</br>
-	<div id="slotsAvailable"></div>
-
-	</br></br></br></br>
-
-    </div>
-
-
-  
-    <h2>Download transcripts:</h2>
-    <label><b>Start date</b></label></br>
-
-    <input id="startdate" type="date" />
-    <input id="starthour" type="time">
-    </br>
-
-    <label><b>End date</b></label></br>
-
-    <input id="enddate" type="date" />
-    <input id="endhour" type="time">
-    
-
-    </br></br>
-    <select name="DropDownTimezone" id="DropDownTimezone">
-      <option>(GMT +1:00 hour) Rome, Brussels, Copenhagen, Madrid, Paris</option>
-      <option>(GMT +2:00) Kaliningrad, South Africa</option>
-      <option>(GMT +3:00) Baghdad, Riyadh, Moscow, St. Petersburg</option>
-      <option>(GMT +3:30) Tehran</option>
-      <option>(GMT +4:00) Abu Dhabi, Muscat, Baku, Tbilisi</option>
-      <option>(GMT +4:30) Kabul</option>
-      <option>(GMT +5:00) Ekaterinburg, Islamabad, Karachi, Tashkent</option>
-      <option>(GMT +5:30) Bombay, Calcutta, Madras, New Delhi</option>
-      <option>(GMT +6:00) Almaty, Dhaka, Colombo</option>
-      <option>(GMT +7:00) Bangkok, Hanoi, Jakarta</option>
-      <option>(GMT +8:00) Beijing, Perth, Singapore, Hong Kong</option>
-      <option>(GMT +9:00) Tokyo, Seoul, Osaka, Sapporo, Yakutsk</option>
-      <option>(GMT +9:30) Adelaide, Darwin</option>
-      <option>(GMT +10:00) Eastern Australia, Guam, Vladivostok</option>
-      <option>(GMT +11:00) Magadan, Solomon Islands, New Caledonia</option>
-      <option>(GMT +12:00) Auckland, Wellington, Fiji, Kamchatka</option>
-      <option>(GMT -12:00) Eniwetok, Kwajalein</option>
-      <option>(GMT -11:00) Midway Island, Samoa</option>
-      <option>(GMT -10:00) Hawaii</option>
-      <option>(GMT -9:00) Alaska</option>
-      <option>(GMT -8:00) Pacific Time (US &amp; Canada)</option>
-      <option>(GMT -7:00) Mountain Time (US &amp; Canada)</option>
-      <option>(GMT -6:00) Central Time (US &amp; Canada), Mexico City</option>
-      <option>(GMT -5:00) Eastern Time (US &amp; Canada), Bogota, Lima</option>
-      <option>(GMT -4:00) Atlantic Time (Canada), Caracas, La Paz</option>
-      <option>(GMT -3:30) Newfoundland</option>
-      <option>(GMT -3:00) Brazil, Buenos Aires, Georgetown</option>
-      <option>(GMT -2:00) Mid-Atlantic</option>
-      <option>(GMT -1:00 hour) Azores, Cape Verde Islands</option>
-      <option>(GMT) Western Europe Time, London, Lisbon, Casablanca</option>
-    </select>
-    </br></br>
-
-
-    <label><b>Options: </b></label>
-    <select id="transcriptOptions">
-        <option>Open</option>
-        <option>Close</option>
-        <option>Open+Close</option>
-    </select>
-
-    </br></br>
-
-    <button type="button" id ="downloadTranscripts" class="downloadTranscripts" disabled>Download</button></br></br>
-    <div id="reportMSG"></div>
-    </br></br></br>
-
-    <a id="hiddenbutton" style="visibility:hidden;" href="">Hidden</a>
-</div>
-
-
-
+ 
+<head>
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css">
+<script src="https://lpcdn.lpsnmedia.net/webagent/client-SDK.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-1.8.3.js"></script>
+<script src="https://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.4.2/chosen.jquery.js"></script>
+
+</head>
+<body>
 
 
 <script>
-  
-  var uri = "";
-  var facadeUri = "";
-  var accountReadWrite = "";
-  var timeZone = "";
-  var skillNumber = "-1";
-  var teamNumber = 0;
-  var skillArray = [];
-  var teamArray = [];
-  var alberoArray = [];
-  var uname;
-  var pwd;
-  var csrf;
-  var accnumb = localStorage.getItem('account_number');
-  var bearer = localStorage.getItem('bearer');
-  var statisticOptions = 0;
-  var customDate;
-  var endCustomDate;
-  var overwriteHumanSkill = "";
-  var FacebookBotID = "1089636032";
-	
-  function findBulk(Seconds){
-	 if (Seconds <= 30){
-		return 1; 
-	 }
-	  else if (Seconds <= 60){
-		return 2;  
-	  }
-	  else{
-		return 3;  
-	  }
-  }
 	
 	
-  
+	var convID = "";
+	var visitorID = "";
+	var skill = "";
+	var agentID = "";
+	var telefonoTobi = "";
+	var ricontattoTobi = "";
+	var cfiscaleTobi = "";
 	
- 
+	function sendToLimbo() {
+		document.getElementById("alertAwake").innerHTML = "...invio nel Limbo...";
+            	document.getElementById("alertAwake").style = "color : red";
+		var xhr = new XMLHttpRequest();
+        	xhr.addEventListener("readystatechange", function () {
+          		if (this.readyState === 4) {
+				// var jsonResult = JSON.parse(this.responseText);
+            			document.getElementById("alertAwake").innerHTML = "fatto!";
+            			document.getElementById("alertAwake").style = "color : green";
+				console.log(xhr.response);
+				setTimeout(function(){
+					document.getElementById("alertAwake").innerHTML = "";
+				}, 3000);
+          		}	
+        	});
+        	var URLforGET = "https://vodafonebotdario.herokuapp.com/add?retrieve=3&agentID=" + agentID + "&convID=" + convID;
+		console.log(URLforGET);
+		xhr.open("GET", URLforGET);
+        	xhr.send();
+		
+	}	
 	
-function herokuOrNot() {
-        var xhr = new XMLHttpRequest();
-        xhr.addEventListener("readystatechange", function () {
-          	if (this.readyState === 4) {
-			if (this.status == 200 && xhr.status < 300){
-				document.getElementById("reportHeroku").innerHTML = "Il servizio di hosting del bot e' up";
-				document.getElementById("reportHeroku").style = "color : green";
-				document.getElementById("reportHeroku").style.fontWeight = "bold";
-				document.getElementById("reportHeroku").style.fontSize = "large";
+	
+	function sendDataAwake() {
+		document.getElementById("alertAwake").innerHTML = "...invio dati...";
+            	document.getElementById("alertAwake").style = "color : red";
+		
+		var daysAwake = $("#daysAwake").val();
+		var hourAwake = $("#hourAwake").val();
+		var minuteAwake = $("#minuteAwake").val();
+		if ((parseInt(daysAwake, 10) || daysAwake === "" || daysAwake == 0) && (parseInt(hourAwake, 10) || hourAwake === "" || hourAwake == 0) && (parseInt(minuteAwake, 10) || minuteAwake === "" || minuteAwake == 0)){
+			var totMinAwake = 0;
+			if(parseInt(daysAwake*60*24)){
+				totMinAwake = totMinAwake + parseInt(daysAwake*60*24);
 			}
-			else{
-				document.getElementById("reportHeroku").innerHTML = "Il servizio di hosting del bot e' down";
-				document.getElementById("reportHeroku").style = "color : red";
-				document.getElementById("reportHeroku").style.fontWeight = "bold";
-				document.getElementById("reportHeroku").style.fontSize = "large";
+			if(parseInt(hourAwake*60)){
+				totMinAwake = totMinAwake + parseInt(hourAwake*60);
 			}
-          	}
-		else {
-            		document.getElementById("reportHeroku").innerHTML = "...checking hosting bot status...";
-            		document.getElementById("reportHeroku").style = "color : black";
-			document.getElementById("reportHeroku").style.fontWeight = "bold";
-			document.getElementById("reportHeroku").style.fontSize = "large";
-          	}
-        });
-        var URLforGET = "https://vodafonebotdario.herokuapp.com/ping?ping=true&username=" + localStorage.getItem('username');
-	xhr.open("GET", URLforGET);
-        xhr.send();
-}
-	
-	
-function botOrNot() {
-        var xhr = new XMLHttpRequest();
-        xhr.addEventListener("readystatechange", function () {
-          	if (this.readyState === 4) {
-			if (this.status == 200 && xhr.status < 300){
-				document.getElementById("reportBot").innerHTML = "Il bot e' connesso";
-				document.getElementById("reportBot").style = "color : green";
-				document.getElementById("reportBot").style.fontWeight = "bold";
-				document.getElementById("reportBot").style.fontSize = "large";
+			if(parseInt(minuteAwake*60*24)){
+				totMinAwake = totMinAwake + parseInt(minuteAwake);
 			}
-			else{
-				document.getElementById("reportBot").innerHTML = "Il bot non e' connesso";
-				document.getElementById("reportBot").style = "color : red";
-				document.getElementById("reportBot").style.fontWeight = "bold";
-				document.getElementById("reportBot").style.fontSize = "large";
+			   
+			console.log (totMinAwake);
+			if(totMinAwake >= 10){
+				var xhr = new XMLHttpRequest();
+        			xhr.addEventListener("readystatechange", function () {
+          				if (this.readyState === 4) {
+						// var jsonResult = JSON.parse(this.responseText);
+            					document.getElementById("alertAwake").innerHTML = "fatto!";
+            					document.getElementById("alertAwake").style = "color : green";
+						console.log(xhr.response);
+						setTimeout(function(){
+							document.getElementById("alertAwake").innerHTML = "";
+						}, 3000);
+          				}	
+        			});
+        			var URLforGET = "https://vodafonebotdario.herokuapp.com/add?retrieve=2&numeroMinAwake=" + totMinAwake + "&agentID=" + agentID + "&convID=" + convID;
+				console.log(URLforGET);
+				xhr.open("GET", URLforGET);
+        			xhr.send();
+				
+			} else{
+				document.getElementById("alertAwake").innerHTML = "Inserisci un valore maggiore o uguale a 10 minuti!";
+				document.getElementById("alertAwake").style = "color : red";
 			}
-          	}
-		else {
-            		document.getElementById("reportBot").innerHTML = "...checking bot status...";
-            		document.getElementById("reportBot").style = "color : black";
-			document.getElementById("reportBot").style.fontWeight = "bold";
-			document.getElementById("reportBot").style.fontSize = "large";
-          	}
-        });
-        var URLforGET = "https://vodafonebotdario.herokuapp.com/add?retrieve=1&visitorID=0&convID=0";
-	xhr.open("GET", URLforGET);
-        xhr.send();
-}
+		}else{
+			document.getElementById("alertAwake").innerHTML = "Inserisci solo valori numerici o lascia vuoti i campi!";
+			document.getElementById("alertAwake").style = "color : red";
+		}
+	}
 	
-	
-	
-function retrieveAgentsLogged(){
-
-	
-	var FBPonlineAgents = 0;
-	var FBPawayAgents = 0;
-	var FBPsoonAgents = 0;
-	var FBPslots =0;
-	var FBRonlineAgents = 0;
-	var FBRawayAgents = 0;
-	var FBRsoonAgents = 0;
-	var FBRslots =0;
-	var FBPNonlineAgents = 0;
-	var FBPNawayAgents = 0;
-	var FBPNsoonAgents = 0;
-	var FBPNslots =0;
-	var FBPNRonlineAgents = 0;
-	var FBPNRawayAgents = 0;
-	var FBPNRsoonAgents = 0;
-	var FBPNRslots =0;
-	var HonlineAgents = 0;
-	var HawayAgents = 0;
-	var HsoonAgents = 0;
-	var Hslots =0;
-	var HRonlineAgents = 0;
-	var HRawayAgents = 0;
-	var HRsoonAgents = 0;
-	var HRslots =0;
-	var HNonlineAgents = 0;
-	var HNawayAgents = 0;
-	var HNsoonAgents = 0;
-	var HNslots =0;
-	var HNRonlineAgents = 0;
-	var HNRawayAgents = 0;
-	var HNRsoonAgents = 0;
-	var HNRslots =0;
-	var OonlineAgents = 0;
-	var OawayAgents = 0;
-	var OsoonAgents = 0;
-	var Oslots =0;
-	var ORonlineAgents = 0;
-	var ORawayAgents = 0;
-	var ORsoonAgents = 0;
-	var ORslots =0;
-	var OFonlineAgents = 0;
-	var OFawayAgents = 0;
-	var OFsoonAgents = 0;
-	var OFslots =0;
-	var OFRonlineAgents = 0;
-	var OFRawayAgents = 0;
-	var OFRsoonAgents = 0;
-	var OFRslots =0;
-	var IonlineAgents = 0;
-	var IawayAgents = 0;
-	var IsoonAgents = 0;
-	var Islots = 0;
-	var PonlineAgents = 0;
-	var PawayAgents = 0;
-	var PsoonAgents = 0;
-	var Pslots = 0;
-	var TFBonlineAgents = 0;
-	var TWebonlineAgents = 0;
-	var TOonlineAgents = 0;
-	var TOtheronlineAgents = 0;
-	var TFBawayAgents = 0;
-	var TWebawayAgents = 0;
-	var TOawayAgents = 0;
-	var TOtherawayAgents = 0;
-	var TFBsoonAgents = 0;
-	var TWebsoonAgents = 0;
-	var TOsoonAgents = 0;
-	var TOthersoonAgents = 0;
-	var TFBslots = 0;
-	var TWebslots = 0;
-	var TOslots = 0;
-	var TOtherslots = 0;
-	
-
-
-
-	var body = '{"skillIds":["1089726032","1096374632","1102673132","1102673332","987637232","1096374432","1105369932","1105551632","1093097632","1096374732","1105849832","1105849932","1097496532","1012134132","1111294132","1111905932"]}';
-	var totalSpots = 0;
-	var availableSpots = 0;
-	
-	setTimeout(function(){
-		  
-		  $.ajax({
-			  url: "https://lo.msghist.liveperson.net/messaging_history/api/account/13099967/agent-view/status",
-			  method: "POST",
-			  jsonp: "cb",
-			  jsonpCallback: "domainCallback",
-			  cache: true,
-			  contentType: "application/json",
-			  "If-Match": "-1",
-			  data: body,
-			  success: function success(data) {
-				  // console.log("********");
-				  // console.log(JSON.stringify(data));
-				  if(data.hasOwnProperty('_metadata')){
-					  if(data._metadata.hasOwnProperty('count')){
-						  if(data._metadata.count > 0){
-							  if(data.hasOwnProperty('agentStatusRecords')){
-								  var agentStatusRecordsLength = data.agentStatusRecords.length;
-								  for (var z = 0; z < agentStatusRecordsLength; z++){
-									  var counted = false;
-									  totalSpots = (data.agentStatusRecords[z].configuredMaxSlots) - (data.agentStatusRecords[z].busySlots);
-									  availableSpots = availableSpots + totalSpots;
-									  var skillLength = data.agentStatusRecords[z].agentSkills.length;
-									  var statusAgent = data.agentStatusRecords[z].currentStatus;
-									  for (var m = 0; m < skillLength; m++){
-										  if (data.agentStatusRecords[z].agentSkills[m].skillId === "-1"){
-											 // do nothing 
-										  } else{
-											  var currentSkill = data.agentStatusRecords[z].agentSkills[m].skillName;
-											  switch(currentSkill) {
-													  case "Facebook_priv":
-													  switch(statusAgent) {
-															  case "ONLINE":
-															  FBPonlineAgents = FBPonlineAgents + 1;
-															  if(!counted){
-																  TFBonlineAgents = TFBonlineAgents + 1;
-																  TFBslots = TFBslots + totalSpots;
-																  counted = true;
-															  }
-															  FBPslots = FBPslots + totalSpots;
-															  break;
-															  
-															  case "AWAY":
-															  FBPawayAgents = FBPawayAgents + 1;
-															  if(!counted){
-																  TFBawayAgents = TFBawayAgents + 1;
-																  counted = true;
-															  }
-															  // FBPslots = FBPslots + totalSpots;
-															  break;
-															  
-															  case "BACK_SOON":
-															  FBPsoonAgents = FBPsoonAgents + 1;
-															  if(!counted){
-																  TFBsoonAgents = TFBsoonAgents + 1;
-																  counted = true;
-															  }
-															  // FBPslots = FBPslots + totalSpots;
-															  break;	  
-													  }
-													  break;
-													  
-													  case "facebook_risvegliate":
-													  switch(statusAgent) {
-															  case "ONLINE":
-															  FBRonlineAgents = FBRonlineAgents + 1;
-															  if(!counted){
-																  TFBonlineAgents = TFBonlineAgents + 1;
-																  TFBslots = TFBslots + totalSpots;
-																  counted = true;
-															  }
-															  FBRslots = FBRslots + totalSpots;
-															  
-															  break;
-															  case "AWAY":
-															  FBRawayAgents = FBRawayAgents + 1;
-															  if(!counted){
-																  TFBawayAgents = TFBawayAgents + 1;
-																  counted = true;
-															  }
-															  // FBRslots = FBRslots + totalSpots;
-															  break;
-															  
-															  case "BACK_SOON":
-															  FBRsoonAgents = FBRsoonAgents + 1;
-															  if(!counted){
-																  TFBsoonAgents = TFBsoonAgents + 1;
-																  counted = true;
-															  }
-															  // FBRslots = FBRslots + totalSpots;
-															  break;	  
-													  }
-													  break;
-													  
-													  case "Facebook_priv_night":
-													  switch(statusAgent) {
-															  case "ONLINE":
-															  FBPNonlineAgents = FBPNonlineAgents + 1;
-															  if(!counted){
-																  TFBonlineAgents = TFBonlineAgents + 1;
-																  TFBslots = TFBslots + totalSpots;
-																  counted = true;
-															  }
-															  FBPNslots = FBPNslots + totalSpots;
-															  
-															  break;
-															  
-															  case "AWAY":
-															  FBPNawayAgents = FBPNawayAgents + 1;
-															  if(!counted){
-																  TFBawayAgents = TFBawayAgents + 1;
-																  counted = true;
-															  }
-															  
-															  // FBPNslots = FBPNslots + totalSpots;
-															  break;
-															  
-															  case "BACK_SOON":
-															  FBPNsoonAgents = FBPNsoonAgents + 1;
-															  if(!counted){
-																  TFBsoonAgents = TFBsoonAgents + 1;
-																  counted = true;
-															  }
-															  
-															  // FBPNslots = FBPNslots + totalSpots;
-															  break;	  
-													  }
-													  break;
-													  
-													  case "Facebook_priv_night_risvegli":
-													  switch(statusAgent) {
-															  case "ONLINE":
-															  FBPNRonlineAgents = FBPNRonlineAgents + 1;
-															  if(!counted){
-																  TFBonlineAgents = TFBonlineAgents + 1;
-																  TFBslots = TFBslots + totalSpots;
-																  counted = true;
-															  }
-															  FBPNRslots = FBPNRslots + totalSpots;
-															  
-															  break;
-															  
-															  case "AWAY":
-															  FBPNRawayAgents = FBPNRawayAgents + 1;
-															  if(!counted){
-																  TFBawayAgents = TFBawayAgents + 1;
-																  counted = true;
-															  }
-															  
-															  // FBPNRslots = FBPNRslots + totalSpots;
-															  break;
-															  
-															  case "BACK_SOON":
-															  FBPNRsoonAgents = FBPNRsoonAgents + 1;
-															  if(!counted){
-																  TFBsoonAgents = TFBsoonAgents + 1;
-																  counted = true;
-															  }
-															  
-															  // FBPNRslots = FBPNRslots + totalSpots;
-															  break;	  
-													  }
-													  break;
-													  
-													  case "human":
-													  switch(statusAgent) {
-															  case "ONLINE":
-															  HonlineAgents = HonlineAgents + 1;
-															  if(!counted){
-																  TWebonlineAgents = TWebonlineAgents + 1;
-																  TWebslots = TWebslots + totalSpots;
-																  counted = true;
-															  }
-															  Hslots = Hslots + totalSpots;
-															  
-															  break;
-															  
-															  case "AWAY":
-															  HawayAgents = HawayAgents + 1;
-															  if(!counted){
-																  TWebawayAgents = TWebawayAgents + 1;
-																  counted = true;
-															  }
-															  
-															  // Hslots = Hslots + totalSpots;
-															  break;
-															  
-															  case "BACK_SOON":
-															  HsoonAgents = HsoonAgents + 1;
-															  if(!counted){
-																  TWebsoonAgents = TWebsoonAgents + 1;
-																  counted = true;
-															  }
-															  
-															  // Hslots = Hslots + totalSpots;
-															  break;	  
-													  }
-													  break;
-													  
-													  case "human_risvegliate":
-													  switch(statusAgent) {
-															  case "ONLINE":
-															  HRonlineAgents = HRonlineAgents + 1;
-															  if(!counted){
-																  TWebonlineAgents = TWebonlineAgents + 1;
-																  TWebslots = TWebslots + totalSpots;
-																  counted = true;
-															  }
-															  HRslots = HRslots + totalSpots;
-															  
-															  break;
-															  
-															  case "AWAY":
-															  HRawayAgents = HRawayAgents + 1;
-															  if(!counted){
-																  TWebawayAgents = TWebawayAgents + 1;
-																  counted = true;
-															  }
-															  
-															  // HRslots = HRslots + totalSpots;
-															  break;
-															  
-															  case "BACK_SOON":
-															  HRsoonAgents = HRsoonAgents + 1;
-															  if(!counted){
-																  TWebsoonAgents = TWebsoonAgents + 1;
-																  counted = true;
-															  }
-															  
-															  // HRslots = HRslots + totalSpots;
-															  break;	  
-													  }
-													  break;
-													  
-													  case "human_night":
-													  switch(statusAgent) {
-															  case "ONLINE":
-															  HNonlineAgents = HNonlineAgents + 1;
-															  if(!counted){
-																  TWebonlineAgents = TWebonlineAgents + 1;
-																  TWebslots = TWebslots + totalSpots;
-																  counted = true;
-															  }
-															  HNslots = HNslots + totalSpots;
-															  
-															  break;
-															  
-															  case "AWAY":
-															  HNawayAgents = HNawayAgents + 1;
-															  if(!counted){
-																  TWebawayAgents = TWebawayAgents + 1;
-																  counted = true;
-															  }
-															  
-															  // HNslots = HNslots + totalSpots;
-															  break;
-															  
-															  case "BACK_SOON":
-															  HNsoonAgents = HNsoonAgents + 1;
-															  if(!counted){
-																  TWebsoonAgents = TWebsoonAgents + 1;
-																  counted = true;
-															  }
-															  
-															  // HNslots = HNslots + totalSpots;
-															  break;	  
-													  }
-													  break;
-													  
-													  case "human_night_risvegliate":
-													  switch(statusAgent) {
-															  case "ONLINE":
-															  HNRonlineAgents = HNRonlineAgents + 1;
-															  if(!counted){
-																  TWebonlineAgents = TWebonlineAgents + 1;
-																  TWebslots = TWebslots + totalSpots;
-																  counted = true;
-															  }
-															  HNRslots = HNRslots + totalSpots;
-															  
-															  break;
-															  
-															  case "AWAY":
-															  HNRawayAgents = HNRawayAgents + 1;
-															  if(!counted){
-																  TWebawayAgents = TWebawayAgents + 1;
-																  counted = true;
-															  }
-															  
-															  // HNRslots = HNRslots + totalSpots;
-															  break;
-															  
-															  case "BACK_SOON":
-															  HNRsoonAgents = HNRsoonAgents + 1;
-															  if(!counted){
-																  TWebsoonAgents = TWebsoonAgents + 1;
-																  counted = true;
-															  }
-															  
-															  // HNRslots = HNRslots + totalSpots;
-															  break;	  
-													  }
-													  break;
-													  
-													  case "Outbound":
-													  switch(statusAgent) {
-															  case "ONLINE":
-															  OonlineAgents = OonlineAgents + 1;
-															  if(!counted){
-																  TOonlineAgents = TOonlineAgents + 1;
-																  TOslots = TOslots + totalSpots;
-																  counted = true;
-															  }
-															  Oslots = Oslots + totalSpots;
-															  
-															  break;
-															  
-															  case "AWAY":
-															  OawayAgents = OawayAgents + 1;
-															  if(!counted){
-																  TOawayAgents = TOawayAgents + 1;
-																  counted = true;
-															  }
-															  
-															  // Oslots = Oslots + totalSpots;
-															  break;
-															  
-															  case "BACK_SOON":
-															  OsoonAgents = OsoonAgents + 1;
-															  if(!counted){
-																  TOsoonAgents = TOsoonAgents + 1;
-																  counted = true;
-															  }
-															  
-															  // Oslots = Oslots + totalSpots;
-															  break;	  
-													  }
-													  break;
-													  
-													  case "outbound_risvegliate":
-													  switch(statusAgent) {
-															  case "ONLINE":
-															  ORonlineAgents = ORonlineAgents + 1;
-															  if(!counted){
-																  TOonlineAgents = TOonlineAgents + 1;
-																  TOslots = TOslots + totalSpots;
-																  counted = true;
-															  }
-															  ORslots = ORslots + totalSpots;
-															  
-															  break;
-															  
-															  case "AWAY":
-															  ORawayAgents = ORawayAgents + 1;
-															  if(!counted){
-																  TOawayAgents = TOawayAgents + 1;
-																  counted = true;
-															  }
-															  
-															  // ORslots = ORslots + totalSpots;
-															  break;
-															  
-															  case "BACK_SOON":
-															  ORsoonAgents = ORsoonAgents + 1;
-															  if(!counted){
-																  TOsoonAgents = TOsoonAgents + 1;
-																  counted = true;
-															  }
-															  
-															  // ORslots = ORslots + totalSpots;
-															  break;	  
-													  }
-													  break;
-													  
-													  case "Outbound_fixed":
-													  switch(statusAgent) {
-															  case "ONLINE":
-															  OFonlineAgents = OFonlineAgents + 1;
-															  if(!counted){
-																  TOonlineAgents = TOonlineAgents + 1;
-																  TOslots = TOslots + totalSpots;
-																  counted = true;
-															  }
-															  OFslots = OFslots + totalSpots;
-															  
-															  break;
-															  
-															  case "AWAY":
-															  OFawayAgents = OFawayAgents + 1;
-															  if(!counted){
-																  TOawayAgents = TOawayAgents + 1;
-																  counted = true;
-															  }
-															  
-															  // OFslots = OFslots + totalSpots;
-															  break;
-															  
-															  case "BACK_SOON":
-															  OFsoonAgents = OFsoonAgents + 1;
-															  if(!counted){
-																  TOsoonAgents = TOsoonAgents + 1;
-																  counted = true;
-															  }
-															  
-															  // OFslots = OFslots + totalSpots;
-															  break;	  
-													  }
-													  break;
-													  
-													  case "Outbound_fixed_risvegliate":
-													  switch(statusAgent) {
-															  case "ONLINE":
-															  OFRonlineAgents = OFRonlineAgents + 1;
-															  if(!counted){
-																  TOonlineAgents = TOonlineAgents + 1;
-																  TOslots = TOslots + totalSpots;
-																  counted = true;
-															  }
-															  OFRslots = OFRslots + totalSpots;
-															  
-															  break;
-															  
-															  case "AWAY":
-															  OFRawayAgents = OFRawayAgents + 1;
-															  if(!counted){
-																  TOawayAgents = TOawayAgents + 1;
-																  counted = true;
-															  }
-															  
-															  // OFRslots = OFRslots + totalSpots;
-															  break;
-															  
-															  case "BACK_SOON":
-															  OFRsoonAgents = OFRsoonAgents + 1;
-															  if(!counted){
-																  TOsoonAgents = TOsoonAgents + 1;
-																  counted = true;
-															  }
-															  
-															  // OFRslots = OFRslots + totalSpots;
-															  break;	  
-													  }
-													  break;
-													  
-													  case "Inglese":
-													  switch(statusAgent) {
-															  case "ONLINE":
-															  IonlineAgents = IonlineAgents + 1;
-															  if(!counted){
-																  TOtheronlineAgents = TOtheronlineAgents + 1;
-																  TOtherslots = TOtherslots + totalSpots;
-																  counted = true;
-															  }
-															  Islots = Islots + totalSpots;
-															  
-															  break;
-															  
-															  case "AWAY":
-															  IawayAgents = IawayAgents + 1;
-															  if(!counted){
-																  TOtherawayAgents = TOtherawayAgents + 1;
-																  counted = true;
-															  }
-															  
-															  // Islots = Islots + totalSpots;
-															  break;
-															  
-															  case "BACK_SOON":
-															  IsoonAgents = IsoonAgents + 1;
-															  if(!counted){
-																  TOthersoonAgents = TOthersoonAgents + 1;
-																  counted = true;
-															  }
-															  
-															  // Islots = Islots + totalSpots;
-															  break;	  
-													  }
-													  break;
-													  
-													  case "Priority":
-													  switch(statusAgent) {
-															  case "ONLINE":
-															  PonlineAgents = PonlineAgents + 1;
-															  if(!counted){
-																  TOtheronlineAgents = TOtheronlineAgents + 1;
-																  TOtherslots = TOtherslots + totalSpots;
-																  counted = true;
-															  }
-															  Pslots = Pslots + totalSpots;
-															  
-															  break;
-															  
-															  case "AWAY":
-															  PawayAgents = PawayAgents + 1;
-															  if(!counted){
-																  TOtherawayAgents = TOtherawayAgents + 1;
-																  counted = true;
-															  }
-															  
-															  // Islots = Islots + totalSpots;
-															  break;
-															  
-															  case "BACK_SOON":
-															  PsoonAgents = PsoonAgents + 1;
-															  if(!counted){
-																  TOthersoonAgents = TOthersoonAgents + 1;
-																  counted = true;
-															  }
-															  
-															  // Islots = Islots + totalSpots;
-															  break;	  
-													  }
-													  break;
-													  
-											  }
-											  
-											  
-										  }
-									  }
-									  
-								  }
-							  }
-						  }
-					  }
-				  }
-				  document.getElementById("slotsAvailable").innerHTML = "Sessioni disponibili: " + (Math.round(availableSpots * 100) / 100);
-				  document.getElementById("slotsAvailable").style = "color : green";
-				  document.getElementById("slotsAvailable").style.fontWeight = "bold";
-				  document.getElementById("slotsAvailable").style.fontSize = "large";
-				  document.getElementById("FBPonlineAgents").innerHTML = FBPonlineAgents;
-				  document.getElementById("FBPawayAgents").innerHTML = FBPawayAgents;
-				  document.getElementById("FBPsoonAgents").innerHTML = FBPsoonAgents;
-				  FBPslots = (Math.round(FBPslots * 100) / 100);
-				  document.getElementById("FBPslots").innerHTML = FBPslots;
-				  document.getElementById("FBRonlineAgents").innerHTML = FBRonlineAgents;
-				  document.getElementById("FBRawayAgents").innerHTML = FBRawayAgents;
-				  document.getElementById("FBRsoonAgents").innerHTML = FBRsoonAgents;
-				  FBRslots = (Math.round(FBRslots * 100) / 100);
-				  document.getElementById("FBRslots").innerHTML = FBRslots;
-				  document.getElementById("FBPNonlineAgents").innerHTML = FBPNonlineAgents;
-				  document.getElementById("FBPNawayAgents").innerHTML = FBPNawayAgents;
-				  document.getElementById("FBPNsoonAgents").innerHTML = FBPNsoonAgents;
-				  FBPNslots = (Math.round(FBPNslots * 100) / 100);
-				  document.getElementById("FBPNslots").innerHTML = FBPNslots;
-				  document.getElementById("FBPNRonlineAgents").innerHTML = FBPNRonlineAgents;
-				  document.getElementById("FBPNRawayAgents").innerHTML = FBPNRawayAgents;
-				  document.getElementById("FBPNRsoonAgents").innerHTML = FBPNRsoonAgents;
-				  FBPNRslots = (Math.round(FBPNRslots * 100) / 100);
-				  document.getElementById("FBPNRslots").innerHTML = FBPNRslots;
-				  document.getElementById("HonlineAgents").innerHTML = HonlineAgents;
-				  document.getElementById("HawayAgents").innerHTML = HawayAgents;
-				  document.getElementById("HsoonAgents").innerHTML = HsoonAgents;
-				  Hslots = (Math.round(Hslots * 100) / 100);
-				  document.getElementById("Hslots").innerHTML = Hslots;
-				  document.getElementById("HRonlineAgents").innerHTML = HRonlineAgents;
-				  document.getElementById("HRawayAgents").innerHTML = HRawayAgents;
-				  document.getElementById("HRsoonAgents").innerHTML = HRsoonAgents;
-				  HRslots = (Math.round(HRslots * 100) / 100);
-				  document.getElementById("HRslots").innerHTML = HRslots;
-				  document.getElementById("HNonlineAgents").innerHTML = HNonlineAgents;
-				  document.getElementById("HNawayAgents").innerHTML = HNawayAgents;
-				  document.getElementById("HNsoonAgents").innerHTML = HNsoonAgents;
-				  HNslots = (Math.round(HNslots * 100) / 100);
-				  document.getElementById("HNslots").innerHTML = HNslots;
-				  document.getElementById("HNRonlineAgents").innerHTML = HNRonlineAgents;
-				  document.getElementById("HNRawayAgents").innerHTML = HNRawayAgents;
-				  document.getElementById("HNRsoonAgents").innerHTML = HNRsoonAgents;
-				  HNRslots = (Math.round(HNRslots * 100) / 100);
-				  document.getElementById("HNRslots").innerHTML = HNRslots;
-				  document.getElementById("OonlineAgents").innerHTML = OonlineAgents;
-				  document.getElementById("OawayAgents").innerHTML = OawayAgents;
-				  document.getElementById("OsoonAgents").innerHTML = OsoonAgents;
-				  Oslots = (Math.round(Oslots * 100) / 100);
-				  document.getElementById("Oslots").innerHTML = Oslots;
-				  document.getElementById("ORonlineAgents").innerHTML = ORonlineAgents;
-				  document.getElementById("ORawayAgents").innerHTML = ORawayAgents;
-				  document.getElementById("ORsoonAgents").innerHTML = ORsoonAgents;
-				  ORslots = (Math.round(ORslots * 100) / 100);
-				  document.getElementById("ORslots").innerHTML = ORslots;
-				  document.getElementById("OFonlineAgents").innerHTML = OFonlineAgents;
-				  document.getElementById("OFawayAgents").innerHTML = OFawayAgents;
-				  document.getElementById("OFsoonAgents").innerHTML = OFsoonAgents;
-				  OFslots = (Math.round(OFslots * 100) / 100);
-				  document.getElementById("OFslots").innerHTML = OFslots;
-				  document.getElementById("OFRonlineAgents").innerHTML = OFRonlineAgents;
-				  document.getElementById("OFRawayAgents").innerHTML = OFRawayAgents;
-				  document.getElementById("OFRsoonAgents").innerHTML = OFRsoonAgents;
-				  OFRslots = (Math.round(OFRslots * 100) / 100);
-				  document.getElementById("OFRslots").innerHTML = OFRslots;
-				  document.getElementById("IonlineAgents").innerHTML = IonlineAgents;
-				  document.getElementById("IawayAgents").innerHTML = IawayAgents;
-				  document.getElementById("IsoonAgents").innerHTML = IsoonAgents;
-				  Islots = (Math.round(Islots * 100) / 100);
-				  document.getElementById("Islots").innerHTML = Islots;
-				  document.getElementById("PonlineAgents").innerHTML = PonlineAgents;
-				  document.getElementById("PawayAgents").innerHTML = PawayAgents;
-				  document.getElementById("PsoonAgents").innerHTML = PsoonAgents;
-				  Pslots = (Math.round(Pslots * 100) / 100);
-				  document.getElementById("Pslots").innerHTML = Pslots;
-				  document.getElementById("TFBonlineAgents").innerHTML = TFBonlineAgents;
-				  document.getElementById("TWebonlineAgents").innerHTML = TWebonlineAgents;
-				  document.getElementById("TOonlineAgents").innerHTML = TOonlineAgents;
-				  document.getElementById("TOtheronlineAgents").innerHTML = TOtheronlineAgents;
-				  document.getElementById("TFBawayAgents").innerHTML = TFBawayAgents;
-				  document.getElementById("TWebawayAgents").innerHTML = TWebawayAgents;
-				  document.getElementById("TOawayAgents").innerHTML = TOawayAgents;
-				  document.getElementById("TOtherawayAgents").innerHTML = TOtherawayAgents;
-				  document.getElementById("TFBsoonAgents").innerHTML = TFBsoonAgents;
-				  document.getElementById("TWebsoonAgents").innerHTML = TWebsoonAgents;
-				  document.getElementById("TOsoonAgents").innerHTML = TOsoonAgents;
-				  document.getElementById("TOthersoonAgents").innerHTML = TOthersoonAgents;
-				  document.getElementById("TFBslots").innerHTML = (Math.round(TFBslots * 100) / 100);
-				  document.getElementById("TWebslots").innerHTML = (Math.round(TWebslots * 100) / 100);
-				  document.getElementById("TOslots").innerHTML = (Math.round(TOslots * 100) / 100);
-				  document.getElementById("TOtherslots").innerHTML = (Math.round(TOtherslots * 100) / 100);
-				  
-	  
-	  
-	  
-
-
-			  },
-			  error: function error(e, text) {
-				  localStorage.setItem('account_number', '');
-				  location.reload();
-			  },
-			  beforeSend: function(xhr, settings) { xhr.setRequestHeader('Authorization','Bearer ' + bearer); }
-		  });
-                       
-	}, 3000);
-	
-	
-}
-	
-	
-	
-
-	
-  function loadLimboBar(){
-	  
-	 var howManyLimbo = 0; 
-	 var howManyUnassigned = 0;
-	 var body = body = '{"start":{"from":' + (Date.now() - (1000*60*60*24*30)) + ',"to":' + (Date.now()) + '}, "status": ["OPEN"]}';
-	 var offset = 0;
-	  
-	 $.ajax({
-                              url: "https://" + uri + "/messaging_history/api/account/" + accnumb + "/conversations/search?offset=" + offset + "&limit=100",
-                              method: "POST",
-                              jsonp: "cb",
-                              jsonpCallback: "domainCallback",
-                              cache: true,
-                              contentType: "application/json",
-                              data: body,
-                              success: function success(data) {
-				      herokuOrNot();
-				      botOrNot();
-				      if((data._metadata.count) > 0){
-					      var length = data.conversationHistoryRecords.length;
-					      for (var m = 0; m < length; m++){
-						      if((data.conversationHistoryRecords[m].info.latestSkillName) === "Limbo"){
-							      howManyLimbo = howManyLimbo + 1;
-						      }
-						      else{
-							      if((data.conversationHistoryRecords[m].info.latestAgentLoginName) === "NA"){
-								      howManyUnassigned = howManyUnassigned + 1;
-							      }   
-						      }
-					      }
-				      }
-				      document.getElementById("limbo").innerHTML = howManyLimbo;
-				      document.getElementById("unassigned").innerHTML = howManyUnassigned;
-                              },
-                              error: function error(e, text) {
-		 
-                              },
-                              beforeSend: function(xhr, settings) { xhr.setRequestHeader('Authorization','Bearer ' + bearer); }
-		});
-	  
-  }
-	
-  function loadBar(){
-	  
-	  setTimeout(function(){
-		  
-	      	$.ajax({
-                    url: "https://adminlogin.liveperson.net/csdr/account/" + accnumb + "/service/facadeMsg/baseURI.lpCsds?version=1.0",
-                    jsonp: "cb",
-                    jsonpCallback: "domainCallback",
-                    cache: true,
-                    dataType: "jsonp",
-                    success: function success(data) {
-			loadLimboBar();
-                        if('lpCallError' in data.ResultSet){
-				localStorage.setItem('account_number', '');
-			   	location.reload(); 
-                        }
-                        else{
-                           	facadeUri = data.ResultSet.lpData[0].lpServer;
-                           	$.ajax({
-                              		url: "https://" + facadeUri + "/api/messaging/rest/reporting/brands/" + accnumb + "/msgstatistics?v=1",
-                              		method: "GET",
-                              		jsonp: "cb",
-                              		jsonpCallback: "domainCallback",
-                              		cache: true,
-                              		contentType: "application/json",
-                              		success: function success(data) {
-						document.getElementById("open").innerHTML = data.active;
-						document.getElementById("pending").innerHTML = data.pending;
-						document.getElementById("overdue").innerHTML = data.overdue;
-						document.getElementById("soonOverdue").innerHTML = data.soonToOverdue;
-                              		},
-                              		error: function error(e, text) {
-						localStorage.setItem('account_number', '');
-				    		location.reload(); 
-                              		},
-                              		beforeSend: function(xhr, settings) { xhr.setRequestHeader('Authorization','Bearer ' + bearer); } 
-                          	});   
-                        }
-                    },
-                    error: function error(e, text) {
-			    console.log(text);
-			    localStorage.setItem('account_number', '');
-			    location.reload(); 
-                    }
-              	});
-	}, 1000);
-  }
-	
-  function loadSkills(){
-	  
-	  setTimeout(function(){
-		  
-	      	$.ajax({
-                    url: "https://adminlogin.liveperson.net/csdr/account/" + accnumb + "/service/accountConfigReadWrite/baseURI.lpCsds?version=1.0",
-                    jsonp: "cb",
-                    jsonpCallback: "domainCallback",
-                    cache: true,
-                    dataType: "jsonp",
-                    success: function success(data) {
-                        if('lpCallError' in data.ResultSet){
-				localStorage.setItem('account_number', '');
-			   	location.reload(); 
-                        }
-                        else{
-                           	accountReadWrite = data.ResultSet.lpData[0].lpServer;
-                           	$.ajax({
-                              		url: "https://" + accountReadWrite + "/api/account/" + accnumb + "/configuration/le-users/skills",
-                              		method: "GET",
-                              		jsonp: "cb",
-                              		jsonpCallback: "domainCallback",
-                              		cache: true,
-                              		contentType: "application/json",
-                              		success: function success(data) {
-						skillArray = data;
-						var appendSkill = '<select name="skillSelector" id="skillName"><option>All</option>';
-						var toAppend = '';
-						var newHuman = '';
-						var toAppendHuman = '';
-						var length = data.length;
-						for (var m = 0; m < length; m++){
-							if(!data[m].name.startsWith("***")){
-								toAppend = '<option>' + data[m].name + '</option>';
-								appendSkill = appendSkill.concat(toAppend);
+	function doMyGet(){
+		
+		var xhr = new XMLHttpRequest();
+		xhr.addEventListener("readystatechange", function () {
+			if (this.readyState === 4) {
+				console.log(xhr.response);
+				var myXHR = JSON.parse(xhr.response)
+				console.log(cfiscaleTobi);
+				if (cfiscaleTobi.indexOf("acebook") > -1){
+					console.log("questo non e' web");
+					$('#telefono').val(myXHR[0]);
+					$('#ricontatto').val(myXHR[1]);
+					$('#cfiscale').val(myXHR[2]);
+				} else{
+					console.log("questo e' web");
+					$('#telefono').val(telefonoTobi[0].phone);
+					$('#ricontatto').val(ricontattoTobi);
+					$('#cfiscale').val(cfiscaleTobi);
+				}
+				
+				
+				
+				if(myXHR[3] !== null){
+					if(myXHR[3].indexOf(",") == -1){
+						$(".chzn-select").val(myXHR[3]).trigger('chosen:updated');
+					} else{
+						var stringForTags = '[';
+						var alreadyCut = myXHR[3];
+						var alreadyIn = 0
+						do{
+							var initialPosition = myXHR[3].indexOf(",");
+							var myValue = alreadyCut.substring(0, initialPosition);
+							alreadyCut = alreadyCut.substring(initialPosition + 1);
+							if(alreadyIn == 0){
+								stringForTags = stringForTags + '"' + myValue + '"';
+							} else{
+								stringForTags = stringForTags + ',"' + myValue + '"';
 							}
-							else{
-								toAppendHuman = '","' + data[m].id;
-								newHuman = newHuman.concat(toAppendHuman);
-							}
-						}
-						// console.log("*****");
-						// console.log("*****");
-						// console.log(newHuman);
-						// console.log("*****");
-						// console.log("*****");
-						overwriteHumanSkill = newHuman;
-						appendSkill = appendSkill.concat('</select>');
-						$("#skill").append(appendSkill);
-						$('#customDate').val($('#startdate').val());
-						$('#endCustomDate').val($('#enddate').val());
-						$('#customHour').val("00:00");
-						$('#endCustomHour').val("23:59");
-						var thisDate = $('#customDate').val();
-						thisDate = new Date(thisDate);
-						var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
-						var year = thisDate.getFullYear();
-						var month = months[thisDate.getMonth()];
-						var date = thisDate.getDate();
-						var hour = $('#customHour').val();
-						thisDate = month + " " + date + " " + year + " " + hour + timeZone;
-						var d = new Date(thisDate);
-						customDate = d.getTime();
-						thisDate = $('#endCustomDate').val();
-						thisDate = new Date(thisDate);
-						months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
-						year = thisDate.getFullYear();
-						month = months[thisDate.getMonth()];
-						date = thisDate.getDate();
-						hour = $('#endCustomHour').val();
-						thisDate = month + " " + date + " " + year + " " + hour + timeZone;
-						d = new Date(thisDate);
-						endCustomDate = d.getTime();
+							alreadyIn = 1;
+							
+						} while(alreadyCut.indexOf(",") > -1);
+						stringForTags = stringForTags + ',"' + alreadyCut + '"]';
+						console.log("stringForTags: " + stringForTags);
+						stringForTags = JSON.parse(stringForTags);
+						$(".chzn-select").val(stringForTags);
+						$(".chzn-select").trigger("chosen:updated");
 						
-						$('#customDate,#customHour').on('change', function() {
-							
-							var thisDate = $('#customDate').val();
-							thisDate = new Date(thisDate);
-							var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
-							var year = thisDate.getFullYear();
-							var month = months[thisDate.getMonth()];
-							var date = thisDate.getDate();
-							var hour = $('#customHour').val();
-							thisDate = month + " " + date + " " + year + " " + hour + timeZone;
-							var d = new Date(thisDate);
-							customDate = d.getTime();
-						})
-						$('#endCustomDate,#endCustomHour').on('change', function() {
-							
-							var thisDate = $('#endCustomDate').val();
-							thisDate = new Date(thisDate);
-							var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
-							var year = thisDate.getFullYear();
-							var month = months[thisDate.getMonth()];
-							var date = thisDate.getDate();
-							var hour = $('#endCustomHour').val();
-							thisDate = month + " " + date + " " + year + " " + hour + timeZone;
-							var d = new Date(thisDate);
-							endCustomDate = d.getTime();
-							
-						})
-                              		},
-                              		error: function error(e, text) {
-						localStorage.setItem('account_number', '');
-				    		location.reload(); 
-                              		},
-                              		beforeSend: function(xhr, settings) { xhr.setRequestHeader('Authorization','Bearer ' + bearer); } 
-                          	});   
-                        }
-                    },
-                    error: function error(e, text) {
-			    console.log(text);
-			    localStorage.setItem('account_number', '');
-			    location.reload(); 
-                    }
-              	});
-	}, 2000);
-  }
-	
-  function loadTeams(){
-	  
-	  setTimeout(function(){
-		  
-		  $.ajax({
-			  url: "https://" + accountReadWrite + "/api/account/" + accnumb + "/configuration/le-users/agentGroups",
-			  method: "GET",
-			  jsonp: "cb",
-			  jsonpCallback: "domainCallback",
-			  cache: true,
-			  contentType: "application/json",
-			  "If-Match": "-1",
-			  success: function success(data) {
-				  teamArray = data;
-				  var appendTeam = '<select name="teamSelector" id="teamName"><option>All</option>';
-				  var toAppend = '';
-				  var length = data.length;
-				  for (var m = 0; m < length; m++){
-					  toAppend = '<option>' + data[m].name + '</option>';
-					  appendTeam = appendTeam.concat(toAppend);
-				  }
-				  appendTeam = appendTeam.concat('</select>');
-				  $("#team").append(appendTeam);
-				  buildAlbero(data);
-			  },
-			  error: function error(e, text) {
-				  localStorage.setItem('account_number', '');
-				  location.reload();
-			  },
-			  beforeSend: function(xhr, settings) { xhr.setRequestHeader('Authorization','Bearer ' + bearer); }
-		  });
-                       
-	}, 3000);
-  }
-	
-	
-	
-	
-	
-  function buildAlbero(agentJSON){
-	  
-	  var length = agentJSON.length;
-	  var groupID;
-	  var nameGroupFather;
-	  console.log("*********************");
-	  console.log("*** Albero Gruppi ***");
-	  console.log("*********************");
-	  for (var p = 0; p < length; p++){
-		  
-		  groupID = agentJSON[p].id;
-		  
-		  if (groupID < 0){
-			  var newElementAlbero = '{"son":"Main Group","father":"Main Group"}';
-			  newElementAlbero = JSON.parse(newElementAlbero);
-			  alberoArray.push(newElementAlbero);
-		  }
-		  else{
-		  
-		  	$.ajax({
-			  	url: "https://" + accountReadWrite + "/api/account/" + accnumb + "/configuration/le-users/agentGroups/" + groupID,
-			  	method: "GET",
-			  	jsonp: "cb",
-			  	jsonpCallback: "domainCallback",
-			  	cache: true,
-			  	contentType: "application/json",
-			  	"If-Match": "-1",
-			  	success: function success(data) {
-				  	for (var v = 0; v < length; v++){
-					  	if (agentJSON[v].id === data.parentGroupId){
-						  	nameGroupFather = agentJSON[v].name;
-						  	var newElementAlbero = '{"son":"' + data.name + '","father":"' + nameGroupFather + '"}';
-						  	newElementAlbero = JSON.parse(newElementAlbero);
-						  	alberoArray.push(newElementAlbero);
-					  	}
-				  	}
-				  	console.log(data.name + "*****" + nameGroupFather);
-			  	},
-			  	error: function error(e, text) {
-				  	localStorage.setItem('account_number', '');
-				  	location.reload();
-			  	},
-			  	beforeSend: function(xhr, settings) { xhr.setRequestHeader('Authorization','Bearer ' + bearer); }
-		  	});
-		  }
-	  }
-	  $("#downloadTranscripts").prop( "disabled", false );
-	  setTimeout(function(){ console.log(alberoArray); }, 5000);
-                       
-	
-  }
-	
-
-	
-  function loadStats(answer){
-	  var FBPopenConv = 0;
-	  var FBPassignedConv = 0;
-	  var FBPunassignedConv = 0;
-	  var FBRopenConv =0;
-	  var FBRassignedConv =0;
-	  var FBRunassignedConv =0;
-	  var FBPNopenConv =0;
-	  var FBPNassignedConv =0;
-	  var FBPNunassignedConv =0;
-	  var FBPNRopenConv =0;
-	  var FBPNRassignedConv =0;
-	  var FBPNRunassignedConv =0;
-	  var HopenConv =0;
-	  var HassignedConv =0;
-	  var HunassignedConv =0;
-	  var HRopenConv =0;
-	  var HRassignedConv =0;
-	  var HRunassignedConv =0;
-	  var HNopenConv =0;
-	  var HNassignedConv =0;
-	  var HNunassignedConv =0;
-	  var HNRopenConv =0;
-	  var HNRassignedConv =0;
-	  var HNRunassignedConv =0;
-	  var OopenConv =0;
-	  var OassignedConv =0;
-	  var OunassignedConv =0;
-	  var ORopenConv =0;
-	  var ORassignedConv =0;
-	  var ORunassignedConv =0;
-	  var OFopenConv =0;
-	  var OFassignedConv =0;
-	  var OFunassignedConv =0;
-	  var OFRopenConv =0;
-	  var OFRassignedConv =0;
-	  var OFRunassignedConv =0;
-	  var IopenConv =0;
-	  var IassignedConv =0;
-	  var IunassignedConv =0;
-	  var PopenConv =0;
-	  var PassignedConv =0;
-	  var PunassignedConv =0;
-	  var TFBopenConv =0;
-	  var TFBassignedConv =0;
-	  var TFBunassignedConv =0;
-	  var TWebopenConv =0;
-	  var TWebassignedConv =0;
-	  var TWebunassignedConv =0;
-	  var TOopenConv =0;
-	  var TOassignedConv =0;
-	  var TOunassignedConv =0;
-	  var TOtheropenConv =0;
-	  var TOtherassignedConv =0;
-	  var TOtherunassignedConv =0;
-	  
-	  
-	  
-	  $('#loadingStats').css('display', 'none');
-	  $('#loadedStats').css('display', 'inline');
-	  var answerLength = answer.length;
-	  var latestSkill = "";
-	  var isAssigned = false;
-	  for (var z = 0; z < answerLength; z++){
-		  latestSkill = answer[z].info.latestSkillName;
-		  if(answer[z].info.latestQueueState === "IN_QUEUE"){
-			  isAssigned = false;
-		  } else{
-			  isAssigned = true;
-		  }
-		  switch(latestSkill) {
-			  case "Facebook_priv":
-				  FBPopenConv ++;
-				  TFBopenConv ++;
-				  if(isAssigned){
-					  FBPassignedConv ++;
-					  TFBassignedConv ++;
-				  } else{
-					  FBPunassignedConv ++;
-					  TFBunassignedConv ++;
-				  }
-				  break;
-				  
-				  
-			case "facebook_risvegliate":
-				  FBRopenConv ++;
-				  TFBopenConv ++;
-				  if(isAssigned){
-					  FBRassignedConv ++;
-					  TFBassignedConv ++;
-				  } else{
-					  FBRunassignedConv ++;
-					  TFBunassignedConv ++;
-				  }
-				  break;
-				  
-			case "Facebook_priv_night":
-				  FBPNopenConv ++;
-				  TFBopenConv ++;
-				  if(isAssigned){
-					  FBPNassignedConv ++;
-					  TFBassignedConv ++;
-				  } else{
-					  FBPNunassignedConv ++;
-					  TFBunassignedConv ++;
-				  }
-				  break;
-				  
-			case "Facebook_priv_night_risvegli":
-				  FBPNRopenConv ++;
-				  TFBopenConv ++;
-				  if(isAssigned){
-					  FBPNRassignedConv ++;
-					  TFBassignedConv ++;
-				  } else{
-					  FBPNRunassignedConv ++;
-					  TFBunassignedConv ++;
-				  }
-				  break;
-				  
-			case "human":
-				  HopenConv ++;
-				  TWebopenConv ++;
-				  if(isAssigned){
-					  HassignedConv ++;
-					  TWebassignedConv ++;
-				  } else{
-					  HunassignedConv ++;
-					  TWebunassignedConv ++;
-				  }
-				  break;
-				  
-			case "human_risvegliate":
-				  HRopenConv ++;
-				  TWebopenConv ++;
-				  if(isAssigned){
-					  HRassignedConv ++;
-					  TWebassignedConv ++;
-				  } else{
-					  HRunassignedConv ++;
-					  TWebunassignedConv ++;
-				  }
-				  break;
-				  
-			case "human_night":
-				  HNopenConv ++;
-				  TWebopenConv ++;
-				  if(isAssigned){
-					  HNassignedConv ++;
-					  TWebassignedConv ++;
-				  } else{
-					  HNunassignedConv ++;
-					  TWebunassignedConv ++;
-				  }
-				  break;
-				  
-			case "human_night_risvegliate":
-				  HNRopenConv ++;
-				  TWebopenConv ++;
-				  if(isAssigned){
-					  HNRassignedConv ++;
-					  TWebassignedConv ++;
-				  } else{
-					  HNRunassignedConv ++;
-					  TWebunassignedConv ++;
-				  }
-				  break;
-				  
-			case "Outbound":
-				  OopenConv ++;
-				  TOopenConv ++;
-				  if(isAssigned){
-					  OassignedConv ++;
-					  TOassignedConv ++;
-				  } else{
-					  OunassignedConv ++;
-					  TOunassignedConv ++;
-				  }
-				  break;
-				  
-			case "outbound_risvegliate":
-				  ORopenConv ++;
-				  TOopenConv ++;
-				  if(isAssigned){
-					  ORassignedConv ++;
-					  TOassignedConv ++;
-				  } else{
-					  ORunassignedConv ++;
-					  TOunassignedConv ++;
-				  }
-				  break;
-				  
-			case "Outbound_fixed":
-				  OFopenConv ++;
-				  TOopenConv ++;
-				  if(isAssigned){
-					  OFassignedConv ++;
-					  TOassignedConv ++;
-				  } else{
-					  OFunassignedConv ++;
-					  TOunassignedConv ++;
-				  }
-				  break;
-				  
-			case "Outbound_fixed_risvegliate":
-				  OFRopenConv ++;
-				  TOopenConv ++;
-				  if(isAssigned){
-					  OFRassignedConv ++;
-					  TOassignedConv ++;
-				  } else{
-					  OFRunassignedConv ++;
-					  TOunassignedConv ++;
-				  }
-				  break;
-				  
-			case "Inglese":
-				  IopenConv ++;
-				  TOtheropenConv ++;
-				  if(isAssigned){
-					  IassignedConv ++;
-					  TOtherassignedConv ++;
-				  } else{
-					  IunassignedConv ++;
-					  TOtherunassignedConv ++;
-				  }
-				  break;
-				  
-			case "Priority":
-				  PopenConv ++;
-				  TOtheropenConv ++;
-				  if(isAssigned){
-					  PassignedConv ++;
-					  TOtherassignedConv ++;
-				  } else{
-					  PunassignedConv ++;
-					  TOtherunassignedConv ++;
-				  }
-				  break;  	  
-				  
-		  }
-
-	  }
-	  document.getElementById("FBPopenConv").innerHTML = FBPopenConv;
-	  document.getElementById("FBPassignedConv").innerHTML = FBPassignedConv;
-	  document.getElementById("FBPunassignedConv").innerHTML = FBPunassignedConv;
-	  document.getElementById("FBRopenConv").innerHTML = FBRopenConv;
-	  document.getElementById("FBRassignedConv").innerHTML = FBRassignedConv;
-	  document.getElementById("FBRunassignedConv").innerHTML = FBRunassignedConv;
-	  document.getElementById("FBPNopenConv").innerHTML = FBPNopenConv;
-	  document.getElementById("FBPNassignedConv").innerHTML = FBPNassignedConv;
-	  document.getElementById("FBPNunassignedConv").innerHTML = FBPNunassignedConv;
-	  document.getElementById("FBPNRopenConv").innerHTML = FBPNRopenConv;
-	  document.getElementById("FBPNRassignedConv").innerHTML = FBPNRassignedConv;
-	  document.getElementById("FBPNRunassignedConv").innerHTML = FBPNRunassignedConv;
-	  document.getElementById("HopenConv").innerHTML = HopenConv;
-	  document.getElementById("HassignedConv").innerHTML = HassignedConv;
-	  document.getElementById("HunassignedConv").innerHTML = HunassignedConv;
-	  document.getElementById("HRopenConv").innerHTML = HRopenConv;
-	  document.getElementById("HRassignedConv").innerHTML = HRassignedConv;
-	  document.getElementById("HRunassignedConv").innerHTML = HRunassignedConv;
-	  document.getElementById("HNopenConv").innerHTML = HNopenConv;
-	  document.getElementById("HNassignedConv").innerHTML = HNassignedConv;
-	  document.getElementById("HNunassignedConv").innerHTML = HNunassignedConv;
-	  document.getElementById("HNRopenConv").innerHTML = HNRopenConv;
-	  document.getElementById("HNRassignedConv").innerHTML = HNRassignedConv;
-	  document.getElementById("HNRunassignedConv").innerHTML = HNRunassignedConv;
-	  document.getElementById("OopenConv").innerHTML = OopenConv;
-	  document.getElementById("OassignedConv").innerHTML = OassignedConv;
-	  document.getElementById("OunassignedConv").innerHTML = OunassignedConv;
-	  document.getElementById("ORopenConv").innerHTML = ORopenConv;
-	  document.getElementById("ORassignedConv").innerHTML = ORassignedConv;
-	  document.getElementById("ORunassignedConv").innerHTML = ORunassignedConv;
-	  document.getElementById("OFopenConv").innerHTML = OFopenConv;
-	  document.getElementById("OFassignedConv").innerHTML = OFassignedConv;
-	  document.getElementById("OFunassignedConv").innerHTML = OFunassignedConv;
-	  document.getElementById("OFRopenConv").innerHTML = OFRopenConv;
-	  document.getElementById("OFRassignedConv").innerHTML = OFRassignedConv;
-	  document.getElementById("OFRunassignedConv").innerHTML = OFRunassignedConv;
-	  document.getElementById("IopenConv").innerHTML = IopenConv;
-	  document.getElementById("IassignedConv").innerHTML = IassignedConv;
-	  document.getElementById("IunassignedConv").innerHTML = IunassignedConv;
-	  document.getElementById("PopenConv").innerHTML = PopenConv;
-	  document.getElementById("PassignedConv").innerHTML = PassignedConv;
-	  document.getElementById("PunassignedConv").innerHTML = PunassignedConv;
-	  document.getElementById("TFBopenConv").innerHTML = TFBopenConv;
-	  document.getElementById("TFBassignedConv").innerHTML = TFBassignedConv;
-	  document.getElementById("TFBunassignedConv").innerHTML = TFBunassignedConv;
-	  document.getElementById("TWebopenConv").innerHTML = TWebopenConv;
-	  document.getElementById("TWebassignedConv").innerHTML = TWebassignedConv;
-	  document.getElementById("TWebunassignedConv").innerHTML = TWebunassignedConv;
-	  document.getElementById("TOopenConv").innerHTML = TOopenConv;
-	  document.getElementById("TOassignedConv").innerHTML = TOassignedConv;
-	  document.getElementById("TOunassignedConv").innerHTML = TOunassignedConv;
-	  document.getElementById("TOtheropenConv").innerHTML = TOtheropenConv;
-	  document.getElementById("TOtherassignedConv").innerHTML = TOtherassignedConv;
-	  document.getElementById("TOtherunassignedConv").innerHTML = TOtherunassignedConv;
-
-	 
-  }
-	
-  	
-  
-  function checklogin(accnumb, bearer){	
-	$('#myloader').css('display', 'inline');
-  	if(!((accnumb === null) || (accnumb === '') || (bearer === null) || (bearer === ''))){
-    		$.ajax({
-                    url: "https://adminlogin.liveperson.net/csdr/account/" + accnumb + "/service/msgHist/baseURI.lpCsds?version=1.0",
-                    jsonp: "cb",
-                    jsonpCallback: "domainCallback",
-                    cache: true,
-                    dataType: "jsonp",
-                    success: function success(data) {
-                        if('lpCallError' in data.ResultSet){
-				localStorage.setItem('account_number', '');
-			   	location.reload(); 
-                        }
-                        else{
-                           	uri = data.ResultSet.lpData[0].lpServer;
-				console.log(data);
-                           	console.log(uri);
-                           	$.ajax({
-                              		url: "https://" + uri + "/messaging_history/api/account/" + accnumb + "/conversations/search?offset=0&limit=50",
-                              		method: "POST",
-                              		jsonp: "cb",
-                              		jsonpCallback: "domainCallback",
-                              		cache: true,
-                              		contentType: "application/json",
-                              		data: '{\"start":{\"from\":' + (new Date().getTime()-5000) + ',\"to\":'+ new Date().getTime() + '}}',
-                              		success: function success(data) {
-						$('#myloader').css('display', 'none');
-          					$('#myreports').css('display', 'inline');
-						setInterval(function(){
-							loadBar();
-						}, 30000);
-						loadBar();
-						loadSkills();
-						loadTeams();
-						refreshTranscripts();
-						$('#loadedStats').css('display', 'none');
-						$('#loadingStats').css('display', 'inline');
-						loadConvs();
-						retrieveAgentsLogged();
-                              		},
-                              		error: function error(e, text) {
-						localStorage.setItem('account_number', '');
-				    		location.reload(); 
-                              		},
-                              		beforeSend: function(xhr, settings) { xhr.setRequestHeader('Authorization','Bearer ' + bearer); } 
-                          	});   
-                        }
-                    },
-                    error: function error(e, text) {
-			    console.log(text);
-			    localStorage.setItem('account_number', '');
-			    location.reload(); 
-                    }
-              	});
-  	  }
-	  else{
-		  $('#myloader').css('display', 'none');
-		  $('#mylogin').css('display', 'inline');
-	  }
-  }
-	
-	
-checklogin(accnumb, bearer);
-	
-	 
-		
-  
-	
-	
-  $(document).on('click', function(evt) {
-	  if($(evt.target).is('#logout')) {
-		  $('#myreports').css('display', 'none');
-		  $('#myloader').css('display', 'inline');
-		  setTimeout(function(){
-			  localStorage.setItem('account_number', '');
-			  location.reload();
-		  }, 2000);
-	  }
-	  if($(evt.target).is('#refresh')) {
-		  
-		document.getElementById("loaderMSG").innerHTML = "Refreshing data!";
-		document.getElementById("loaderMSG").style = "color : green";
-		  
-		$('#loadedStats').css('display', 'none');
-		$('#loadingStats').css('display', 'inline');
-		loadConvs();
-		retrieveAgentsLogged();
-		  							
-	  }
-  });
-		  	
-  
-  $(document).on('click', function(evt) {
-	  if($("#accnumb").val() != ""){
-		  if($(evt.target).is('#submitLogin')) {			  
-			  uname = $("#uname").val();
-			  localStorage.setItem('username', uname);
-			  pwd = $("#pwd").val();
-			  accnumb = $("#accnumb").val();
-			  console.log(accnumb + " *** " + uname + " *** " + pwd);
-			  $.ajax({
-				  url: "https://adminlogin.liveperson.net/csdr/account/" + accnumb + "/service/agentVep/baseURI.lpCsds?version=1.0",
-				  jsonp: "cb",
-				  jsonpCallback: "domainCallback",
-				  cache: true,
-				  dataType: "jsonp",
-				  success: function success(data) {
-					  if('lpCallError' in data.ResultSet){
-						  document.getElementById("sendStat").innerHTML = "Please insert a correct login!";
-						  document.getElementById("sendStat").style = "color : red";
-					  }
-					  else{
-						  uri = data.ResultSet.lpData[0].lpServer;
-						  console.log(uri);
-						  $.ajax({
-							  url: "https://" + uri + "/api/account/" + accnumb + "/login?v=1.3",
-							  method: "POST",
-							  jsonp: "cb",
-							  jsonpCallback: "domainCallback",
-							  cache: true,
-							  contentType: "application/json",
-							  data: '{"username":"' + uname + '","password":"' + pwd +'"}',
-							  success: function success(data) {
-								  csrf = data.csrf;
-								  bearer = data.bearer;
-								  localStorage.setItem('account_number', accnumb);
-								  localStorage.setItem('csrf', csrf);
-								  localStorage.setItem('bearer', bearer);
-								  $('#mylogin').css('display', 'none');
-								  $('#myloader').css('display', 'inline');
-								  setTimeout(function(){
-									  $('#myloader').css('display', 'none');
-									  $('#myreports').css('display', 'inline');
-									  
-									  loadBar();
-									  loadSkills();
-									  loadTeams();
-									  refreshTranscripts();
-									  
-									  $('#loadedStats').css('display', 'none');
-									  $('#loadingStats').css('display', 'inline');
-	 
-									  loadConvs();
-									  retrieveAgentsLogged();
-									  
-								  }, 2000);
-							  },
-							  error: function error(e, text) {
-								  document.getElementById("sendStat").innerHTML = "Please insert a correct login!";
-								  document.getElementById("sendStat").style = "color : red";
-							  }
-						  });
-						  return data;
-					  }
-				  },
-				  error: function error(e, text) {
-					  console.log(text);
-					  return e;
-				  }
-			  });
-		  }
-	  }
-  });
-    
-  function refreshTranscripts(){
-	  
-	 var date = new Date();
-	 var dd = date.getDate();
-	 if (dd < 10){
-		 dd = "0" + dd;
-	 }
-    	 var mm = date.getMonth() + 1;
-	 if (mm < 10){
-		 mm = "0" + mm;
-	 }
-    	 var y = date.getFullYear();
-	 var enddate = y + "-" + mm + "-" + dd;
-	 
-	 date.setDate(date.getDate() - 7);
-	 var dd = date.getDate();
-	 if (dd < 10){
-		 dd = "0" + dd;
-	 }
-    	 var mm = date.getMonth() + 1;
-	 if (mm < 10){
-		 mm = "0" + mm;
-	 }
-    	 var y = date.getFullYear();
-	 var startdate = y + "-" + mm + "-" + dd;
-	 
-	 $('#startdate').val(startdate);
-	 $('#starthour').val("00:00");
-	 $('#enddate').val(enddate);
-	 $('#endhour').val("23:59");
-	 
-	 
-  		
-	  
-	 $(document).on('click', function(evt) {
-		 
-              if($(evt.target).is('.downloadTranscripts')) {
-		
-		      console.log($("#DropDownTimezone").val());
-		      switch($("#DropDownTimezone").val()) {
-    				case "(GMT +1:00 hour) Rome, Brussels, Copenhagen, Madrid, Paris":
-        				timeZone = ":00 GMT+0100";
-        			break;
-    				case "(GMT +2:00) Kaliningrad, South Africa":
-        				timeZone = ":00 GMT+0200";
-        			break;
-    				case "(GMT +3:00) Baghdad, Riyadh, Moscow, St. Petersburg":
-        				timeZone = ":00 GMT+0300";
-        			break;
-				case "(GMT +3:30) Tehran":
-        				timeZone = ":00 GMT+0330";
-        			break;
-    				case "(GMT +4:00) Abu Dhabi, Muscat, Baku, Tbilisi":
-        				timeZone = ":00 GMT+0400";
-        			break;
-    				case "(GMT +4:30) Kabul":
-        				timeZone = ":00 GMT+0430";
-        			break;
-    				case "(GMT +5:00) Ekaterinburg, Islamabad, Karachi, Tashkent":
-        				timeZone = ":00 GMT+0500";
-        			break;
-				case "(GMT +5:30) Bombay, Calcutta, Madras, New Delhi":
-        				timeZone = ":00 GMT+0530";
-        			break;
-    				case "(GMT +6:00) Almaty, Dhaka, Colombo":
-        				timeZone = ":00 GMT+0600";
-        			break;
-    				case "(GMT +7:00) Bangkok, Hanoi, Jakarta":
-        				timeZone = ":00 GMT+0700";
-        			break;
-				case "(GMT +8:00) Beijing, Perth, Singapore, Hong Kong":
-        				timeZone = ":00 GMT+0800";
-        			break;
-				case "(GMT +9:00) Tokyo, Seoul, Osaka, Sapporo, Yakutsk":
-        				timeZone = ":00 GMT+0900";
-        			break;
-				case "(GMT +9:30) Adelaide, Darwin":
-        				timeZone = ":00 GMT+0930";
-        			break;
-    				case "(GMT +10:00) Eastern Australia, Guam, Vladivostok":
-        				timeZone = ":00 GMT+1000";
-        			break;
-    				case "(GMT +11:00) Magadan, Solomon Islands, New Caledonia":
-        				timeZone = ":00 GMT+1100";
-        			break;
-    				case "(GMT +12:00) Auckland, Wellington, Fiji, Kamchatka":
-        				timeZone = ":00 GMT+1200";
-        			break;
-				case "(GMT -12:00) Eniwetok, Kwajalein":
-        				timeZone = ":00 GMT-1200";
-        			break;
-    				case "(GMT -11:00) Midway Island, Samoa":
-        				timeZone = ":00 GMT-1100";
-        			break;
-				case "(GMT -10:00) Hawaii":
-        				timeZone = ":00 GMT-1000";
-        			break;
-    				case "(GMT -9:00) Alaska":
-        				timeZone = ":00 GMT-0900";
-        			break;
-    				case "(GMT -8:00) Pacific Time (US &amp; Canada)":
-        				timeZone = ":00 GMT-0800";
-        			break;
-    				case "(GMT -7:00) Mountain Time (US &amp; Canada)":
-        				timeZone = ":00 GMT-0700";
-        			break;
-				case "(GMT -6:00) Central Time (US &amp; Canada), Mexico City":
-        				timeZone = ":00 GMT-0600";
-        			break;
-				case "(GMT -5:00) Eastern Time (US &amp; Canada), Bogota, Lima":
-        				timeZone = ":00 GMT-0500";
-        			break;
-				case "(GMT -4:00) Atlantic Time (Canada), Caracas, La Paz":
-        				timeZone = ":00 GMT-0400";
-        			break;
-    				case "(GMT -3:30) Newfoundland":
-        				timeZone = ":00 GMT-0330";
-        			break;
-    				case "(GMT -3:00) Brazil, Buenos Aires, Georgetown":
-        				timeZone = ":00 GMT-0300";
-        			break;
-    				case "(GMT -2:00) Mid-Atlantic":
-        				timeZone = ":00 GMT-0200";
-        			break;
-				case "(GMT -1:00 hour) Azores, Cape Verde Islands":
-        				timeZone = ":00 GMT-0100";
-        			break;
-				case "(GMT) Western Europe Time, London, Lisbon, Casablanca":
-        				timeZone = ":00 GMT+0000";
-        			break;
-			}
-		      
-		      
-		      
-		     
-		    startdate = $('#startdate').val();
-		    startdate = new Date(startdate);
-		    var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
-		    var year = startdate.getFullYear();
-  		    var month = months[startdate.getMonth()];
-  	            var date = startdate.getDate(); 
-		    var hour = $('#starthour').val();
-		    startdate = month + " " + date + " " + year + " " + hour + timeZone;
-		    var d = new Date(startdate);
-		    var start = d.getTime();
-		      
-		    
-		    enddate = $('#enddate').val();
-		    enddate = new Date(enddate);
-		    var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
-		    var year = enddate.getFullYear();
-  		    var month = months[enddate.getMonth()];
-  	            var date = enddate.getDate(); 
-		    var hour = $('#endhour').val();
-		    enddate = month + " " + date + " " + year + " " + hour + timeZone;
-		    var d = new Date(enddate);
-		    var end = d.getTime();  
-		    var options = $('#transcriptOptions').val();
-		      
-		    if (start >= end) { 
-			    document.getElementById("reportMSG").innerHTML = "Please insert a correct end date!";
-                            document.getElementById("reportMSG").style = "color : red"; 
-		    }
-		    else if (((end - start)/1000) > (60*60*24*30)){
-			    document.getElementById("reportMSG").innerHTML = "No more than 30 days!";
-                            document.getElementById("reportMSG").style = "color : red"; 
-		    }
-		    else{
-			    document.getElementById("reportMSG").innerHTML = "";
-			    downloadTranscripts(start, end, options);
-		    }
-		      
-		      
-		    
-              }
-	 });
-	  
-	  
-  }
-    
- 
- function loadConvs(){
-	 
-	 
-	 
-	 var end = Date.now();
-	 var start = end - (1000*60*60*24*30);  // loading Convs started till 30 days ago
-	 var offset = 0;
-	 var body = "";
-	 var answer = [];
-	 if(skillNumber === "-1"){
-		 body = '{"start":{"from":' + start + ',"to":' + end + '}, "status": ["OPEN"]';
-	 }
-	 else{
-		 body = '{"start":{"from":' + start + ',"to":' + end + '}, "status": ["OPEN"], "skillIds": ["' + skillNumber + overwriteHumanSkill + '"]';
-		 console.log(body);
-	 }
-	 if (teamNumber){
-		 body = body + ' ,"agentGroupIds":["' + teamNumber + '"]}';
-	 }
-	 else{
-		 body = body + '}';
-	 }
-	 
-	 console.log(body);
-	 console.log("(HISTORICAL) skill: " + skillNumber + " ***** team: " + teamNumber + " ***** start: " + start + " ***** end: " + end);
-	 function loadClosedConvs(body, offset, callback) {
-	 
-	 	$.ajax({
-                              url: "https://" + uri + "/messaging_history/api/account/" + accnumb + "/conversations/search?offset=" + offset + "&limit=100&sort=start:desc",
-                              method: "POST",
-                              jsonp: "cb",
-                              jsonpCallback: "domainCallback",
-                              cache: true,
-                              contentType: "application/json",
-                              data: body,
-                              success: function success(data) {
-				      if((data.conversationHistoryRecords.length) == 100){
-					      offset = offset + 100;
-					      answer = answer.concat(data.conversationHistoryRecords);
-					      document.getElementById("loaderMSG").innerHTML = "...downloading sessions:" + Math.round(100*(offset/data._metadata.count)) + "% completed...";
-					      document.getElementById("loaderMSG").style = "color : green";
-					      console.log ("adding conversations...");
-					      loadClosedConvs(body, offset, callback);
-				      }
-				      else{
-					      console.log(answer.length);
-					      answer = answer.concat(data.conversationHistoryRecords);
-					      console.log(answer.length);
-					      loadStats(answer);
-				      }
-				      
-     
-				      
-                              },
-                              error: function error(e, text) {
-				      location.reload();
-                              },
-                              beforeSend: function(xhr, settings) { xhr.setRequestHeader('Authorization','Bearer ' + bearer); }
-		});
-	 }
-	 
-	 function loadOpenConvs(body, offset, callback) {
-		 
-	 
-	 	$.ajax({
-                              url: "https://" + uri + "/messaging_history/api/account/" + accnumb + "/conversations/search?offset=" + offset + "&limit=100",
-                              method: "POST",
-                              jsonp: "cb",
-                              jsonpCallback: "domainCallback",
-                              cache: true,
-                              contentType: "application/json",
-                              data: body,
-                              success: function success(data) {
-				      if((data.conversationHistoryRecords.length) == 100){
-					      offset = offset + 100;
-					      answer = answer.concat(data.conversationHistoryRecords);
-					      document.getElementById("loaderMSG").innerHTML = "...downloading open sessions:" + Math.round(100*(offset/data._metadata.count)) + "% completed...";
-					      document.getElementById("loaderMSG").style = "color : green";
-					      console.log ("adding conversations...");
-					      loadOpenConvs(body, offset, callback);   
-				      }
-				      else{
-					      
-					      /****************
-					      answer = answer.concat(data.conversationHistoryRecords);
-					      offset = 0;
-					      if(skillNumber === "-1"){
-						     body = '{"start":{"from":' + start + ',"to":' + end + '}, "status": ["CLOSE"]';
-					      }
-					      else{
-						       body = '{"start":{"from":' + start + ',"to":' + end + '}, "status": ["CLOSE"], "skillIds": ["' + skillNumber + overwriteHumanSkill + '"]';
-						      console.log(body);
-					      }
-					      if(teamNumber){
-						      body = body + ' ,"agentGroupIds":["' + teamNumber + '"]}';
-					      }
-					      else{
-						      body = body + '}';
-					      }
-					      console.log(body);
-					      loadClosedConvs(body, offset, callback);
-					      ******************/
-					      
-					      // console.log(answer.length);
-					      answer = answer.concat(data.conversationHistoryRecords);
-					      console.log(answer.length);
-					      loadStats(answer);
-				      }
-				      
-     
-				      
-                              },
-                              error: function error(e, text) {
-				      location.reload();
-                              },
-                              beforeSend: function(xhr, settings) { xhr.setRequestHeader('Authorization','Bearer ' + bearer); }
-		});
-	 }
-	 
-	 
-	
-	 loadOpenConvs(body, offset, function(err, resp) {
-		 // Your code here...
-	 });
-	 
- }
-	
- 
- 
- 
- function downloadTranscripts(start, end, options){
-	 
-	 var conversationsToDownload = 0;
-	 var conversationsPartial = 0;
-	 var offset = 0;
-	 var body = "";
-	 var answer = [];
-	 var exportObject = [];
-	 
-	 if (options === "Open"){ 
-		 body = '{"start":{"from":' + start + ',"to":' + end + '},"status":["OPEN"]}'; 
-	 }
-	 else if (options === "Close"){
-		 body = '{"start":{"from":' + start + ',"to":' + end + '},"status":["CLOSE"]}';	 
-	 }
-	 else if (options === "Open+Close"){
-		 body = '{"start":{"from":' + start + ',"to":' + end + '}, "status":["OPEN","CLOSE"]}';	 
-	 }
-	 
-	 function tryUntilSuccess(offset, callback) {
-	 
-	 	$.ajax({
-                              url: "https://" + uri + "/messaging_history/api/account/" + accnumb + "/conversations/search?offset=" + offset + "&limit=100",
-                              method: "POST",
-                              jsonp: "cb",
-                              jsonpCallback: "domainCallback",
-                              cache: true,
-                              contentType: "application/json",
-                              data: body,
-                              success: function success(data) {
-				      
-				      if(offset == 0){
-					      conversationsToDownload = data._metadata.count;    
-				      }
-				      
-				      conversationsPartial = conversationsPartial + data.conversationHistoryRecords.length;
-				      if(conversationsPartial < conversationsToDownload){
-					      offset = conversationsPartial;
-					      answer = answer.concat(data.conversationHistoryRecords);
-					      document.getElementById("reportMSG").innerHTML = "...downloading sessions:" + Math.round(100*(offset/data._metadata.count)) + "% completed...";
-					      document.getElementById("reportMSG").style = "color : green";      
-					      // console.log(data.conversationHistoryRecords);
-					      console.log ("adding conversations...");
-					      console.log(offset + " of --> " + conversationsToDownload);
-					      // setTimeout(function(){
-						      tryUntilSuccess(offset, callback);
-					      // }, 1000);
-				      }
-				      else{
-					      console.log("last bucket: " + data.conversationHistoryRecords.length);
-					      answer = answer.concat(data.conversationHistoryRecords);
-					      console.log(answer.length);
-					      
-					      
-					      for (var i = 0; i < (answer.length); i++){
-						      document.getElementById("reportMSG").innerHTML = "...analyzing data...";
-						      document.getElementById("reportMSG").style = "color : green";
-						      var messages = "";
-						      var thismessage = "";
-						      var thisactor = "";
-						      var endReason = "";
-						      var length = answer[i].messageRecords.length;
-						      for (var m = 0; m < length; m++){
-							      var type = answer[i].messageRecords[m].type;
-							      if(type === "TEXT_PLAIN"){
-								   thismessage = answer[i].messageRecords[m].messageData.msg.text;
-								   // thismessage = thismessage.replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/, '**emoticon**');
-								   // thismessage = thismessage.replace(/www./, '**link**');
-								   // thismessage = thismessage.replace(/http/, '**link**');
-								   thismessage = thismessage.replace(/[&\/\\#+$~%<>{}]/g,'%d');
-							      }
-							      else{
-								   thismessage = "-structured content-";
-							      }
-							      thisactor = answer[i].messageRecords[m].sentBy;
-							      messages = messages + "     " + thisactor + ": " + thismessage;
-						      }
-						      if(answer[i].info.endTimeL === -1){
-							      endReason = "IN_PROGRESS";
-						      }
-						      else{
-							      if(answer[i].info.latestSkillName === "Limbo"){
-								      endReason = "AUTO_CLOSURE";
-      
-							      }else{
-								      endReason = answer[i].info.closeReason;
-							      }
-						      }
-						      
-						      
-						      
-						      
-						      var TimeAnswer = 0;
-						      var whatTime = 0;
-						      var firstTimeAnswer = "";
-						      var isAnswered = 0;
-						      var lastMessageAgent = 0;
-						      var howManyMessages = answer[i].messageRecords.length;
-						      if(howManyMessages){
-							      for (var nh = (howManyMessages-1); nh >= 0; nh--){
-								      if ((answer[i].messageRecords[nh].sentBy === "Agent") && (answer[i].messageRecords[nh].participantId !== "1089636032")){
-									      lastMessageAgent = answer[i].messageRecords[nh].timeL;
-									      nh = 0;
-								      }
-							      }
-							      if (answer[i].messageRecords[0].sentBy === "Consumer"){
-								      whatTime = answer[i].messageRecords[0].timeL;
-								      isAnswered = 0;
-								      for (var n = 1; n < howManyMessages; n++){
-									      if(answer[i].messageRecords[n].sentBy === "Agent" && answer[i].messageRecords[n].participantId !== FacebookBotID){
-										      TimeAnswer = (answer[i].messageRecords[n].timeL - whatTime)/1000;
-										      isAnswered = 1;
-										      n = howManyMessages;
-									      }
-								      }
-								      
-								      if (isAnswered){
-									      firstTimeAnswer = Math.floor(parseInt(TimeAnswer));
-								      }
-								      else{
-									      firstTimeAnswer = "NOT_ANSWERED"
-								      }
-							      }
-						      }
-						      var phoneNumber = "";
-						      var imeiNumber = "";
-						      var customerName = "";
-						      var channel = "Web";
-						      if(answer[i].hasOwnProperty('sdes')){
-							      if(answer[i].sdes.events[0].hasOwnProperty('customerInfo')){
-								      imeiNumber = answer[i].sdes.events[0].customerInfo.customerInfo.imei;
-								      if(answer[i].sdes.events[0].customerInfo.customerInfo.customerId.indexOf("facebook") > -1){
-									      channel = "FaceBook";
-								      }
-							      }
-							      if(answer[i].sdes.events[1].hasOwnProperty('customerInfo')){
-								      imeiNumber = answer[i].sdes.events[1].customerInfo.customerInfo.imei;
-								      if(answer[i].sdes.events[1].customerInfo.customerInfo.customerId.indexOf("facebook") > -1){
-									      channel = "FaceBook";
-								      }
-							      }
-							      if(answer[i].sdes.events[0].hasOwnProperty('personalInfo')){
-								      if(answer[i].sdes.events[0].personalInfo.personalInfo.contacts.length){
-									      phoneNumber = answer[i].sdes.events[0].personalInfo.personalInfo.contacts[0].personalContact.phone;
-									      if(answer[i].sdes.events[0].personalInfo.personalInfo.hasOwnProperty('name')){
-										      var sdesName = answer[i].sdes.events[0].personalInfo.personalInfo.name;
-									      }
-									      else{
-										      var sdesName = "";
-									      }
-									      if(answer[i].sdes.events[0].personalInfo.personalInfo.hasOwnProperty('surname')){
-										      var sdesSurname = answer[i].sdes.events[0].personalInfo.personalInfo.surname;
-									      }
-									      else{
-										      var sdesSurname = "";
-									      }
-									      customerName = sdesName + " " + sdesSurname;
-								      }
-							      }
-							      
-							      
-							      /*****************/
-							      
-							   
-							      var timestampFacebook_priv;
-							      var timestampOutbound = 0;
-							      var timestampNight = 0;
-							      var timeSpentInFacebook_bot = 0;
-							      var startingTime = 0;
-							      var timeToAcceptFacebook = "-";
-							      var firstTimeAnswerFacebook =  "-";
-							      var participantID = 0;
-							      var controlOB = 0;
-							      var night = "No";
-							      if((channel === "FaceBook") || (channel === "Web")){
-								      if(answer[i].hasOwnProperty('transfers')){
-									      if (typeof answer[i].transfers !== 'undefined' && answer[i].transfers.length > 0) {
-										      var arraylength = answer[i].transfers.length;
-										      for (var z = 0; z < arraylength; z++){
-											     if((answer[i].transfers[z].targetSkillName === "Facebook_priv") || (answer[i].transfers[z].targetSkillName === "Facebook_priv_night") || (answer[i].transfers[z].targetSkillName === "human") || (answer[i].transfers[z].targetSkillName === "human_night")){
-												     startingTime = answer[i].transfers[z].timeL;
-												     z = arraylength;
-											     }
-										      }
-										      for (var p = 0; p < arraylength; p++){
-											     if(answer[i].transfers[p].targetSkillName.indexOf("utbound") > -1){
-												     timestampOutbound = new Date(answer[i].transfers[p].timeL);
-												     p = arraylength;
-												     controlOB = 1;
-											     }
-										      }
-										      for (var t = 0; t < arraylength; t++){
-											     if(answer[i].transfers[t].targetSkillName === "Facebook_priv_night"){
-												     night = "Yes";
-												     t = arraylength;
-											     }
-										      }
-										      for (var tz = 0; tz < arraylength; tz++){
-											     if(answer[i].transfers[tz].targetSkillName === "human_night"){
-												     night = "Yes";
-												     tz = arraylength;
-											     }
-										      }
-										      if(controlOB === 0){
-											      timestampOutbound = "-";
-										      }
-									      }
-								      }
-								      
-								      if(channel === "FaceBook"){
-									 
-									 if(answer[i].hasOwnProperty('agentParticipants') && answer[i].agentParticipants.length){
-									      for (var b = 0; b < answer[i].agentParticipants.length; b++){
-										      if((answer[i].agentParticipants[b].userTypeName === "Human") && (answer[i].agentParticipants[b].permission === "ASSIGNED_AGENT")){
-											      participantID = answer[i].agentParticipants[b].agentId;
-											      timeToAcceptFacebook = Math.floor((answer[i].agentParticipants[b].timeL - startingTime)/1000);
-											      
-											      b = answer[i].agentParticipants.length;
-										      }
-									      }
-										
-								      	}
-									      
-									if((startingTime === 0) || (timeToAcceptFacebook < 0)){
-									      timeToAcceptFacebook = "-";
-									      firstTimeAnswerFacebook = "-";
-									      timestampFacebook_priv = "-";
-									      timeSpentInFacebook_bot = "-";
-								      } else{
-									      timeToAcceptFacebook = timeToAcceptFacebook.toString();
-									      firstTimeAnswerFacebook = firstTimeAnswer.toString();
-									      timestampFacebook_priv = new Date(startingTime);
-									      timeSpentInFacebook_bot = Math.floor((startingTime - answer[i].info.startTimeL)/1000);
-								      }
-									      
-								      }
-							      
-							      	      if(channel === "Web"){
-									      
-									      if(answer[i].hasOwnProperty('agentParticipants') && answer[i].agentParticipants.length){
-									      	for (var b = 0; b < answer[i].agentParticipants.length; b++){
-										      if((answer[i].agentParticipants[b].userTypeName === "Human") && (answer[i].agentParticipants[b].permission === "ASSIGNED_AGENT")){
-											      participantID = answer[i].agentParticipants[b].agentId;
-											      timeToAcceptFacebook = Math.floor((answer[i].agentParticipants[b].timeL - answer[i].info.startTimeL)/1000);
-											      
-											      b = answer[i].agentParticipants.length;
-										      }
-									      	}
-										
-									      }
-									      
-									      timeSpentInFacebook_bot = "-";
-									      
-									     if(timeToAcceptFacebook < 0){
-									      timeToAcceptFacebook = "-";
-									      firstTimeAnswerFacebook = "-";
-									      timestampFacebook_priv = "-";
-									      
-								      } else{
-									      timeToAcceptFacebook = timeToAcceptFacebook.toString();
-									      firstTimeAnswerFacebook = firstTimeAnswer.toString();
-									      timestampFacebook_priv = new Date(answer[i].info.startTimeL);
-									      
-								      }
-									 
-									 
-									      
-								      }
-								      
-								      
-								      
-								      
-								      
-								      
-								  
-							      }
-							      
-							      
-							      if(answer[i].sdes.events[1].hasOwnProperty('personalInfo')){
-								      if(answer[i].sdes.events[1].personalInfo.personalInfo.contacts.length){
-									      phoneNumber = answer[i].sdes.events[1].personalInfo.personalInfo.contacts[0].personalContact.phone;
-									      if(answer[i].sdes.events[1].personalInfo.personalInfo.hasOwnProperty('name')){
-										      var sdesName = answer[i].sdes.events[1].personalInfo.personalInfo.name;
-									      }
-									      else{
-										      var sdesName = "";
-									      }
-									      if(answer[i].sdes.events[1].personalInfo.personalInfo.hasOwnProperty('surname')){
-										      var sdesSurname = answer[i].sdes.events[1].personalInfo.personalInfo.surname;
-									      }
-									      else{
-										      var sdesSurname = "";
-									      }
-									      customerName = sdesName + " " + sdesSurname;
-								      }
-							      }
-						      }
-						      
-						      var yesno = "-";
-						      var comments = "-";
-						      var facebook_out = "No";
-						      if(answer[i].hasOwnProperty('transfers')){
-							      if (typeof answer[i].transfers !== 'undefined' && answer[i].transfers.length > 0) {
-								      var arraylength = answer[i].transfers.length;
-								      for (var z = 0; z < arraylength; z++){
-									      if((answer[i].transfers[z].targetSkillName.indexOf("utbound")) > -1){
-										      facebook_out = "Yes";
-									      }
-								      }
-								      for (var z = (arraylength -1); z > -1; z--){
-									      if(answer[i].transfers[z].hasOwnProperty('contextData')){
-										      if(answer[i].transfers[z].contextData.hasOwnProperty('structuredMetadata')){
-											      if(answer[i].transfers[z].contextData.structuredMetadata[0].botResponse.intents[0].id === "yesno"){
-												      yesno = answer[i].transfers[z].contextData.structuredMetadata[0].botResponse.intents[0].name;
-												      if (yesno !== undefined || yesno !== "---"){
-													      comments = answer[i].transfers[z].contextData.structuredMetadata[0].botResponse.intents[1].name;
-													      z = 0;
-												      }
-											      }
-											      
-										      }
-									      }
-								      }
-							      }
-						      }
-						      if(yesno === undefined || yesno ==="-"){
-							      yesno = "---";
-						      }
-						      var skill = answer[i].info.latestSkillName;
-						      var limbo = 0;
-						      var freeze = 0;
-						      var risvegliata = 0;
-						      var risvegliataFreeze = 0;
-						      var risvegliataOutbound = 0;
-						      var risvegliataGeneral = 0;
-						      var risvegliataFreezeOutbound = 0;
-						      var risvegliataFreezeGeneral = 0;
-						      var limboOutbound = 0;
-						      var limboGeneral = 0;
-						      var freezeOutbound = 0;
-						      var freezeGeneral = 0;
-						      var isRisvegliataOutbound = false;
-						      var limboaveragetime = 0;
-						      var wasInLimbo = 0;
-						      var startLimbo = 0;
-						      var totalLimbo = 0;
-						      var numero_telefono = "---";
-						      var numero_ricontatto = "---";
-						      var numero_cfiscale = "---";
-						      var vfTag = "---";
-						      var triplettauno = "---";
-						      var triplettadue = "---";
-						      var triplettatre = "---";
-						      var lastTagFromAgent = 0;
-						      if(answer[i].hasOwnProperty('transfers')){
-							      if (typeof answer[i].transfers !== 'undefined' && answer[i].transfers.length > 0) {
-								      
-								      var arraylength = answer[i].transfers.length;
-								      for (var z = (arraylength -1); z > -1; z--){
-									      if(answer[i].transfers[z].hasOwnProperty('contextData')){
-										      if(answer[i].transfers[z].contextData.hasOwnProperty('structuredMetadata')){
-											      if(answer[i].transfers[z].contextData.structuredMetadata[0].botResponse.intents[0].id === "telefono"){
-												      lastTagFromAgent = answer[i].transfers[z].timeL;
-												      numero_telefono = answer[i].transfers[z].contextData.structuredMetadata[0].botResponse.intents[0].name;
-												      numero_ricontatto = answer[i].transfers[z].contextData.structuredMetadata[0].botResponse.intents[1].name;
-												      numero_cfiscale = answer[i].transfers[z].contextData.structuredMetadata[0].botResponse.intents[2].name;
-												      vfTag = answer[i].transfers[z].contextData.structuredMetadata[0].botResponse.intents[3].name;
-												      triplettauno = answer[i].transfers[z].contextData.structuredMetadata[0].botResponse.intents[4].name;
-												      triplettadue = answer[i].transfers[z].contextData.structuredMetadata[0].botResponse.intents[5].name;
-												      triplettatre = answer[i].transfers[z].contextData.structuredMetadata[0].botResponse.intents[6].name;
-												      if(vfTag === "undefined"){
-													      vfTag = "---";
-												      }
-												      if(triplettauno === "undefined"){
-													     triplettauno = "---"; 
-												      }
-												      if(triplettadue === "undefined"){
-													     triplettadue = "---"; 
-												      }
-												      if(triplettatre === "undefined"){
-													     triplettatre = "---"; 
-												      }
-												      z = 0;
-											      }
-										      }
-									      }
-								      }
-   
-								      for (var z = 0; z < arraylength; z++){
-									      if (answer[i].transfers[z].targetSkillName.indexOf("utbound") > -1){
-										      isRisvegliataOutbound = true;
-									      } else if (answer[i].transfers[z].targetSkillName.indexOf("acebook") > -1){
-										      isRisvegliataOutbound = false;
-									      } else if (answer[i].transfers[z].targetSkillName.indexOf("uman") > -1){
-										      isRisvegliataOutbound = false;
-									      }
-									      if ((answer[i].transfers[z].targetSkillName === "Limbo") && (answer[i].transfers[z].sourceSkillName !== "Limbo")){
-										      limbo = limbo +1;
-										      if (isRisvegliataOutbound){
-											      limboOutbound = limboOutbound + 1;
-										      } else{
-											      limboGeneral = limboGeneral + 1;
-										      }
-										      wasInLimbo = 1;
-										      startLimbo = answer[i].transfers[z].timeL;
-									      }
-									      if ((answer[i].transfers[z].targetSkillName === "Freeze") && (answer[i].transfers[z].sourceSkillName !== "Freeze")){
-										      freeze = freeze +1;
-										      if (isRisvegliataOutbound){
-											      freezeOutbound = freezeOutbound + 1;
-										      } else{
-											      freezeGeneral = freezeGeneral + 1;
-										      }
-									      }
-									      if ((answer[i].transfers[z].targetSkillName !== "Limbo") && (answer[i].transfers[z].sourceSkillName === "Limbo")){
-										      risvegliata = risvegliata +1;
-										      if (isRisvegliataOutbound){
-											      risvegliataOutbound = risvegliataOutbound + 1;
-										      } else{
-											      risvegliataGeneral = risvegliataGeneral + 1;
-										      }
-										      totalLimbo = totalLimbo + ((answer[i].transfers[z].timeL - startLimbo)/1000);
-									      }
-									      if ((answer[i].transfers[z].targetSkillName !== "Freeze") && (answer[i].transfers[z].sourceSkillName === "Freeze")){
-										      risvegliataFreeze = risvegliataFreeze +1;
-										      if (isRisvegliataOutbound){
-											      risvegliataFreezeOutbound = risvegliataFreezeOutbound + 1;
-										      } else{
-											      risvegliataFreezeGeneral = risvegliataFreezeGeneral + 1;
-										      }
-									      }
-								      }
-							      }
-						      }
-						      if(wasInLimbo == 1){
-							      if (totalLimbo > 0){
-								     limboaveragetime = Math.floor(totalLimbo/limbo); 
-							      }
-							      else{
-								     limboaveragetime = "non svegliata"; 
-							      }
-						      }
-						      else{
-							      limboaveragetime = "niente Limbo";
-						      }
-						      
-						      var timeToAccept = 0;
-						      TimeAnswer = 0;
-						      whatTime = 0;
-						      isAnswered = 0;
-						      
-						      
-						      var effortTimeGeneral = 0;
-						      var effortTimeOutbound = 0;
-						      var lastAgentGeneral = "";
-						      var lastAgentOutbound = "";
-						      var lastTeamGeneral = "";
-						      var lastTeamOutbound = "";
-						      var lastProperTeamGeneral = "";
-						      var lastProperTeamOutbound = "";
-						      
-						      var numberAgentsGeneral = 0;
-						      var numberAgentsOutbound = 0;
-						      var numberTeamsGeneral = 0;
-						      var numberTeamsOutbound = 0;
-						      
-						      var arrayAgentsGeneral = [];
-						      var arrayAgentsOutbound = [];
-						      var arrayTeamsGeneral = [];
-						      var arrayTeamsOutbound = [];
-						      var arrayProperTeamsGeneral = [];
-						      var arrayProperTeamsOutbound = [];
-						      howManyMessages = answer[i].messageRecords.length;
-						      var partialTime = 0;
-						      if(howManyMessages){
-							      if(answer[i].info.conversationId === "08e07b7a-b3d8-4fac-953a-32f0aae1deea"){
-									console.log("hoooray!!");
-								      var dfghjhgfd = answer[i].transfers.length;
-								}
-						      		if(answer[i].hasOwnProperty('agentParticipants') && answer[i].agentParticipants.length){
-									var agentParticipantsLength = answer[i].agentParticipants.length;
-									var agentLoginName = "";
-									var jumpInTimestamp = 0;
-									if(answer[i].hasOwnProperty('transfers') && (answer[i].transfers.length === 0)){
-										for (var z = 0; z < agentParticipantsLength; z++){
-											if((answer[i].agentParticipants[z].userTypeName === "Human") && (answer[i].agentParticipants[z].permission === "ASSIGNED_AGENT")){
-												agentLoginName = answer[i].agentParticipants[z].agentLoginName;
-												jumpInTimestamp = answer[i].agentParticipants[z].timeL;
-												if(answer[i].info.endTimeL > 0){
-													effortTimeGeneral = (answer[i].info.endTimeL - jumpInTimestamp)/1000;
-												}
-												lastAgentGeneral = answer[i].agentParticipants[z].agentFullName;
-												lastTeamGeneral = answer[i].agentParticipants[z].agentGroupName;
-												lastProperTeamGeneral = answer[i].agentParticipants[z].agentGroupName;
-												if(!arrayProperTeamsGeneral.includes(lastTeamGeneral)){
-													arrayProperTeamsGeneral.push(lastTeamGeneral);
-												}
-												if(!arrayAgentsGeneral.includes(lastAgentGeneral)){
-													arrayAgentsGeneral.push(lastAgentGeneral);
-												}
-												var agentAlberoLength = alberoArray.length;
-												for(var counter = 0; counter < agentAlberoLength; counter++){
-													if (alberoArray[counter].son === lastTeamGeneral){
-														lastTeamGeneral = alberoArray[counter].father;
-														counter = agentAlberoLength;
-													}
-												}
-												if(!arrayTeamsGeneral.includes(lastTeamGeneral)){
-													arrayTeamsGeneral.push(lastTeamGeneral);
-												}
-												z = agentParticipantsLength;
-												
-											}
-										}
-									}
-									
-									
-									if(answer[i].hasOwnProperty('transfers') && answer[i].transfers.length){
-										
-										var transferLength = answer[i].transfers.length;
-										var isGeneral = 0;
-										var isOutbound = 0;
-										
-										var agentSkill = "";
-										var sourceSkillName = "";
-										
-										
-										for (var f = 0; f < transferLength; f++){
-											if(answer[i].transfers[f].sourceSkillName.indexOf("bound") > -1){
-												isGeneral = 0;
-												isOutbound = 1;
-												f = transferLength;
-											} else if((answer[i].transfers[f].sourceSkillName.indexOf("acebook") > -1) || (answer[i].transfers[f].sourceSkillName.indexOf("uman") > -1)){
-												isGeneral = 1;
-												isOutbound = 0;
-												f = transferLength;
-											}
-										}
-										
-										
-												
-										for (var z = 0; z < agentParticipantsLength; z++){
-											if((answer[i].agentParticipants[z].userTypeName === "Human") && (answer[i].agentParticipants[z].permission === "ASSIGNED_AGENT")){
-												agentLoginName = answer[i].agentParticipants[z].agentLoginName;
-												jumpInTimestamp = answer[i].agentParticipants[z].timeL;
-												for (var f = 0; f < transferLength; f++){
-													if(answer[i].transfers[f].timeL > jumpInTimestamp){
-														if(answer[i].transfers[f].targetSkillName === "Limbo" || answer[i].transfers[f].targetSkillName === "Freeze" ){
-															partialTime = (answer[i].transfers[f].timeL - jumpInTimestamp)/1000;
-															if(isGeneral){
-																effortTimeGeneral = effortTimeGeneral + partialTime;
-																lastAgentGeneral = answer[i].agentParticipants[z].agentFullName;
-																lastTeamGeneral = answer[i].agentParticipants[z].agentGroupName;
-																lastProperTeamGeneral = answer[i].agentParticipants[z].agentGroupName;
-																if(!arrayProperTeamsGeneral.includes(lastTeamGeneral)){
-																	arrayProperTeamsGeneral.push(lastTeamGeneral);
-																}
-																if(!arrayAgentsGeneral.includes(lastAgentGeneral)){
-																	arrayAgentsGeneral.push(lastAgentGeneral);
-																}
-																var agentAlberoLength = alberoArray.length;
-																for(var counter = 0; counter < agentAlberoLength; counter++){
-																	if (alberoArray[counter].son === lastTeamGeneral){
-																		lastTeamGeneral = alberoArray[counter].father;
-																		counter = agentAlberoLength;
-																	}
-																}
-																if(!arrayTeamsGeneral.includes(lastTeamGeneral)){
-																	arrayTeamsGeneral.push(lastTeamGeneral);
-																}
-															}
-															if(isOutbound){
-																effortTimeOutbound = effortTimeOutbound + partialTime;
-																lastAgentOutbound = answer[i].agentParticipants[z].agentFullName;
-																lastTeamOutbound = answer[i].agentParticipants[z].agentGroupName;
-																lastProperTeamOutbound = answer[i].agentParticipants[z].agentGroupName;
-																if(!arrayProperTeamsOutbound.includes(lastTeamOutbound)){
-																	arrayProperTeamsOutbound.push(lastTeamOutbound);
-																}
-																if(!arrayAgentsOutbound.includes(lastAgentOutbound)){
-																	arrayAgentsOutbound.push(lastAgentOutbound);
-																}
-																var agentAlberoLength = alberoArray.length;
-																for(var counter = 0; counter < agentAlberoLength; counter++){
-																	if (alberoArray[counter].son === lastTeamOutbound){
-																		lastTeamOutbound = alberoArray[counter].father;
-																		counter = agentAlberoLength;
-																	}
-																}
-																if(!arrayTeamsOutbound.includes(lastTeamOutbound)){
-																	arrayTeamsOutbound.push(lastTeamOutbound);
-																}
-															}
-															f = transferLength;
-														}
-														else if((answer[i].transfers[f].targetSkillName.indexOf("acebook") > -1) || (answer[i].transfers[f].targetSkillName.indexOf("uman") > -1)){
-															
-															if(isOutbound){
-																isGeneral = 1;
-																isOutbound = 0;
-																partialTime = (answer[i].transfers[f].timeL - jumpInTimestamp)/1000;
-																effortTimeOutbound = effortTimeOutbound + partialTime;
-																lastAgentOutbound = answer[i].agentParticipants[z].agentFullName;
-																lastTeamOutbound = answer[i].agentParticipants[z].agentGroupName;
-																lastProperTeamOutbound = answer[i].agentParticipants[z].agentGroupName;
-																if(!arrayProperTeamsOutbound.includes(lastTeamOutbound)){
-																	arrayProperTeamsOutbound.push(lastTeamOutbound);
-																}
-																if(!arrayAgentsOutbound.includes(lastAgentOutbound)){
-																	arrayAgentsOutbound.push(lastAgentOutbound);
-																}
-																var agentAlberoLength = alberoArray.length;
-																for(var counter = 0; counter < agentAlberoLength; counter++){
-																	if (alberoArray[counter].son === lastTeamOutbound){
-																		lastTeamOutbound = alberoArray[counter].father;
-																		counter = agentAlberoLength;
-																	}
-																}
-																if(!arrayTeamsOutbound.includes(lastTeamOutbound)){
-																	arrayTeamsOutbound.push(lastTeamOutbound);
-																}
-																f = transferLength;
-															}
-														}
-														else if(answer[i].transfers[f].targetSkillName.indexOf("utbound") > -1){
-															
-															if(isGeneral){
-																isGeneral = 0;
-																isOutbound = 1;
-																partialTime = (answer[i].transfers[f].timeL - jumpInTimestamp)/1000;
-																effortTimeGeneral = effortTimeGeneral + partialTime;
-																lastAgentGeneral = answer[i].agentParticipants[z].agentFullName;
-																lastTeamGeneral = answer[i].agentParticipants[z].agentGroupName;
-																lastProperTeamGeneral = answer[i].agentParticipants[z].agentGroupName;
-																if(!arrayProperTeamsGeneral.includes(lastTeamGeneral)){
-																	arrayProperTeamsGeneral.push(lastTeamGeneral);
-																}
-																
-																if(!arrayAgentsGeneral.includes(lastAgentGeneral)){
-																	arrayAgentsGeneral.push(lastAgentGeneral);
-																}
-																var agentAlberoLength = alberoArray.length;
-																for(var counter = 0; counter < agentAlberoLength; counter++){
-																	if (alberoArray[counter].son === lastTeamGeneral){
-																		lastTeamGeneral = alberoArray[counter].father;
-																		counter = agentAlberoLength;
-																	}
-																}
-																if(!arrayTeamsGeneral.includes(lastTeamGeneral)){
-																	arrayTeamsGeneral.push(lastTeamGeneral);
-																}
-																f = transferLength;
-															}
-															
-															
-															
-														}
-													}
-													if (f === (transferLength - 1)){
-														if(answer[i].info.endTimeL > 0){
-															partialTime = (answer[i].info.endTimeL - jumpInTimestamp)/1000;
-														}
-														
-														if(isGeneral){
-															effortTimeGeneral = effortTimeGeneral + partialTime;
-															lastAgentGeneral = answer[i].agentParticipants[z].agentFullName;
-															lastTeamGeneral = answer[i].agentParticipants[z].agentGroupName;
-															lastProperTeamGeneral = answer[i].agentParticipants[z].agentGroupName;
-															if(!arrayProperTeamsGeneral.includes(lastTeamGeneral)){
-																arrayProperTeamsGeneral.push(lastTeamGeneral);
-															}
-															if(!arrayAgentsGeneral.includes(lastAgentGeneral)){
-																arrayAgentsGeneral.push(lastAgentGeneral);
-															}
-															var agentAlberoLength = alberoArray.length;
-															for(var counter = 0; counter < agentAlberoLength; counter++){
-																if (alberoArray[counter].son === lastTeamGeneral){
-																	lastTeamGeneral = alberoArray[counter].father;
-																	counter = agentAlberoLength;
-																}
-															}
-															if(!arrayTeamsGeneral.includes(lastTeamGeneral)){
-																arrayTeamsGeneral.push(lastTeamGeneral);
-															}
-														}
-														if(isOutbound){
-															effortTimeOutbound = effortTimeOutbound + partialTime;
-															lastAgentOutbound = answer[i].agentParticipants[z].agentFullName;
-															lastTeamOutbound = answer[i].agentParticipants[z].agentGroupName;
-															lastProperTeamOutbound = answer[i].agentParticipants[z].agentGroupName;
-															if(!arrayProperTeamsOutbound.includes(lastTeamOutbound)){
-																arrayProperTeamsOutbound.push(lastTeamOutbound);
-															}
-															if(!arrayAgentsOutbound.includes(lastAgentOutbound)){
-																arrayAgentsOutbound.push(lastAgentOutbound);
-															}
-															var agentAlberoLength = alberoArray.length;
-															for(var counter = 0; counter < agentAlberoLength; counter++){
-																if (alberoArray[counter].son === lastTeamOutbound){
-																	lastTeamOutbound = alberoArray[counter].father;
-																	counter = agentAlberoLength;
-																}
-															}
-															if(!arrayTeamsOutbound.includes(lastTeamOutbound)){
-																arrayTeamsOutbound.push(lastTeamOutbound);
-															}
-														}
-															
-														
-													}
-												}
-											}
-										}
-									}
-								}
+					}
+				}
+					
+				if(myXHR[4] !== null){
+					var triplettaunoposition = 0;
+					var triplettaunoname = "";
+					for(var val in firstlevel) {
+						if(firstlevel[val] === myXHR[4]){
+							triplettaunoname = val;
+							$("#triplettauno").prop("selectedIndex", triplettaunoposition).change();
+							break;
+						}
+						triplettaunoposition = triplettaunoposition + 1;
+					}
+				}
+				if(myXHR[5] !== null){
+					var triplettadueposition = 0;
+					var triplettaduename = "";
+					for(var val in secondlevel) {
+						if(val.indexOf(triplettaunoname) > -1){
+							if(secondlevel[val] === myXHR[5]){
+								triplettaduename = val;
+								$("#triplettadue").prop("selectedIndex", triplettadueposition).change();
+								break;
 							}
-							effortTimeGeneral = Math.floor(effortTimeGeneral);
-						        effortTimeOutbound = Math.floor(effortTimeOutbound);
-							// console.log("effortTimeGeneral: " + effortTimeGeneral + " ******** effortTimeOutbound: " + effortTimeOutbound);
-						        // console.log("convID: " + answer[i].info.conversationId);
-						      	numberAgentsGeneral = arrayAgentsGeneral.length;
-						        numberAgentsOutbound = arrayAgentsOutbound.length;
-						        numberTeamsGeneral = arrayTeamsGeneral.length;
-						        numberTeamsOutbound = arrayTeamsOutbound.length;
-						      
-								      
-						      
-						      
-						      
-						      
-						      
-						      
-						      
-						      
-						      
-						      
-						      
-						      howManyMessages = answer[i].messageRecords.length;
-						      if(howManyMessages){
-							      if (answer[i].messageRecords[0].sentBy === "Consumer"){
-								      whatTime = answer[i].messageRecords[0].timeL;
-								      if(answer[i].hasOwnProperty('agentParticipants') && answer[i].agentParticipants.length){
-									      for (var b = 0; b < answer[i].agentParticipants.length; b++){
-										      if(answer[i].agentParticipants[b].userTypeName === "Human"){
-											      TimeAnswer = (answer[i].agentParticipants[b].timeL - whatTime)/1000;
-											      isAnswered = 1;
-											      b = answer[i].agentParticipants.length;
-										      }
-									      }
-										
-								      }
-								      if (isAnswered){
-									      timeToAccept = parseInt(TimeAnswer);
-								      }
-								      else{
-									      timeToAccept = "NOT_ACCEPTED"
-								      }
-							      }
-						      }
-						      
-						      var efforttime = 0;
-						      var startTimestamp = 0;
-						      var managedByAgent = 0;
-						      howManyMessages = answer[i].messageRecords.length;
-						      if(howManyMessages && answer[i].hasOwnProperty('agentParticipants') && (answer[i].info.status) === "CLOSE"){
-							      var howManyPartecipants = answer[i].agentParticipants.length;
-							      if ((howManyPartecipants == 1) && (answer[i].agentParticipants[0].agentLoginName !== "facebookbot") && (answer[i].agentParticipants[0].permission === "ASSIGNED_AGENT") && !((answer[i].agentParticipants[0].agentLoginName).indexOf("@") > -1)){
-								      efforttime = ((answer[i].messageRecords[(howManyMessages - 1)].timeL - answer[i].agentParticipants[0].timeL)/1000);
-							      }
-							      else{
-								      for (var z = 0; z < howManyPartecipants; z++){
-									      if ((answer[i].agentParticipants[z].agentLoginName !== "facebookbot") && (answer[i].agentParticipants[z].permission === "ASSIGNED_AGENT") && !((answer[i].agentParticipants[z].agentLoginName).indexOf("@") > -1) && !managedByAgent){
-										      startTimestamp = answer[i].agentParticipants[z].timeL;
-										      managedByAgent = 1;
-									      } else if(managedByAgent && (answer[i].agentParticipants[z].agentLoginName === "facebookbot")){
-										      efforttime = efforttime + ((answer[i].agentParticipants[z].timeL - startTimestamp)/1000);
-										      managedByAgent = 0;
-									      }
-								      }
-								      if(managedByAgent){
-									      efforttime = efforttime + ((answer[i].messageRecords[(howManyMessages - 1)].timeL - startTimestamp)/1000);
-								      }
-							      }
-						      }
-						      if (efforttime < 0){
-							     efforttime = "---"; 
-						      }
-						      if (efforttime == 0){
-							    efforttime = "---";  
-						      }
-						      else{
-							    efforttime = Math.floor(efforttime)  
-						      }
-						      
-						      if(answer[i].hasOwnProperty('agentParticipants')){
-							      var arrayPartecipantAgents = [];
-							      var arrayPartecipantGroups = [];
-							      var howManyPartecipants = answer[i].agentParticipants.length;
-							      for (var z = 0; z < howManyPartecipants; z++){
-								      if((answer[i].agentParticipants[z].agentLoginName !== "facebookbot") && (answer[i].agentParticipants[z].permission === "ASSIGNED_AGENT") && !((answer[i].agentParticipants[z].agentLoginName).indexOf("@") > -1)){
-									      if(!arrayPartecipantAgents.includes(answer[i].agentParticipants[z].agentLoginName)){
-										      arrayPartecipantAgents.push(answer[i].agentParticipants[z].agentLoginName);
-									      }
-									      if(!arrayPartecipantGroups.includes(answer[i].agentParticipants[z].agentGroupName)){
-										      arrayPartecipantGroups.push(answer[i].agentParticipants[z].agentGroupName);
-									      }
-								      }
-							      }
-							      var numeroagenti = arrayPartecipantAgents.length;
-							      var numerogruppi = arrayPartecipantGroups.length;
-							      // console.log(arrayPartecipantAgents);
-							      // console.log(arrayPartecipantGroups);
-						      }
-						      
-						      var endDateEngagement = "";
-						      var durationinseconds = "";
-						      var startDateEngagement = new Date(answer[i].info.startTimeL);
-						      if (answer[i].info.endTimeL != -1){
-							      endDateEngagement = new Date(answer[i].info.endTimeL);
-							      durationinseconds = Math.floor((answer[i].info.endTimeL - answer[i].info.startTimeL)/1000);
-						      }
-						      else{
-							      endDateEngagement = "---";
-							      durationinseconds = "---";
-						      }
-						      
-						      var lastActivityAgent = 0;
-						      var lastTypeActivityAgent = 0;
-						      if((lastMessageAgent !== 0) || (lastTagFromAgent !== 0)){
-							      if(lastMessageAgent > lastTagFromAgent){
-								      lastActivityAgent = new Date(lastMessageAgent);
-								      lastTypeActivityAgent = "Message";
-							      } else{
-								      lastActivityAgent = new Date(lastTagFromAgent);
-								      lastTypeActivityAgent = "Tag";
-							      }
-						      }
-						      
-						      var inactivetime = durationinseconds - effortTimeGeneral - effortTimeOutbound;
-						      
-						      
-						      
-						      var timestampLastActGen = 0;
-						      var timestampLastActOut = 0;
-						      
-						     
-						      
-						      howManyMessages = answer[i].messageRecords.length;
-						      if(howManyMessages){
-						      		
-									var transferLength = answer[i].transfers.length;
-									var thisIsGeneral = false;
-									var thisIsOutbound = false;
-									var startThisPeriod = 0;
-									var endThisPeriod = 0;
-									var lastMessageSentGeneral = 0;
-									var lastMessageSentOutbound = 0;
-							      		if (transferLength === 0){
-										for (var m = (howManyMessages - 1); m > -1 ; m--){
-											if ((answer[i].messageRecords[m].sentBy === "Agent") && (answer[i].messageRecords[m].participantId !== "1089636032")){
-												lastMessageSentGeneral = answer[i].messageRecords[m].timeL;
-												m = 0;
-											}
-										}
-										timestampLastActGen = lastMessageSentGeneral;
-									}
-									for (var z = 0; z < transferLength; z++){
-										if(answer[i].transfers[z].targetSkillName.indexOf("acebook") > -1){
-											if(!thisIsGeneral){
-												thisIsGeneral = true;
-												startThisPeriod = answer[i].transfers[z].timeL;
-											}
-										}
-										if(answer[i].transfers[z].targetSkillName.indexOf("uman") > -1){
-											if(!thisIsGeneral){
-												thisIsGeneral = true;
-												startThisPeriod = answer[i].info.startTimeL;
-											}
-										}
-										if(answer[i].transfers[z].targetSkillName.indexOf("utbound") > -1){
-											if(thisIsGeneral){
-												thisIsGeneral = false;
-												endThisPeriod = answer[i].transfers[z].timeL;
-												for (var m = (howManyMessages - 1); m > -1 ; m--){
-													if((answer[i].messageRecords[m].timeL < endThisPeriod) && (answer[i].messageRecords[m].timeL > startThisPeriod) && (answer[i].messageRecords[m].sentBy === "Agent") && (answer[i].messageRecords[m].participantId !== "1089636032")){
-														lastMessageSentGeneral = answer[i].messageRecords[m].timeL;
-														m = 0;
-													}
-												}
-											}
-										}
-										if(thisIsGeneral){
-											if(answer[i].transfers[z].hasOwnProperty('contextData')){
-												if(answer[i].transfers[z].contextData.hasOwnProperty('structuredMetadata')){
-													if(answer[i].transfers[z].contextData.structuredMetadata[0].botResponse.intents[0].id === "telefono"){
-														timestampLastActGen = answer[i].transfers[z].timeL;
-													}
-													if(answer[i].transfers[z].contextData.structuredMetadata[0].botResponse.intents[0].id === "awakeLater"){
-														timestampLastActGen = answer[i].transfers[z].timeL;
-													}
-												}
-											}
-											if((transferLength - z) === 1){
-												endThisPeriod = Date.now();
-												for (var m = (howManyMessages - 1); m > -1 ; m--){
-													if((answer[i].messageRecords[m].timeL < endThisPeriod) && (answer[i].messageRecords[m].timeL > startThisPeriod) && (answer[i].messageRecords[m].sentBy === "Agent") && (answer[i].messageRecords[m].participantId !== "1089636032")){
-														lastMessageSentGeneral = answer[i].messageRecords[m].timeL;
-														m = 0;
-													}
-												}
-											}
-										}
-										
-										
-									}
-									if(lastMessageSentGeneral > timestampLastActGen){
-										timestampLastActGen = lastMessageSentGeneral;
-									}
-									
-									thisIsGeneral = false;
-									thisIsOutbound = false;
-									
-									for (var z = 0; z < transferLength; z++){
-										if(answer[i].transfers[z].targetSkillName.indexOf("utbound") > -1){
-											if(!thisIsOutbound){
-												thisIsOutbound = true;
-												startThisPeriod = answer[i].transfers[z].timeL;
-											}
-										}
-										if((answer[i].transfers[z].targetSkillName.indexOf("acebook") > -1) || (answer[i].transfers[z].targetSkillName.indexOf("uman") > -1)){
-											if(thisIsOutbound){
-												thisIsOutbound = false;
-												endThisPeriod = answer[i].transfers[z].timeL;
-												for (var m = (howManyMessages - 1); m > -1 ; m--){
-													if((answer[i].messageRecords[m].timeL < endThisPeriod) && (answer[i].messageRecords[m].timeL > startThisPeriod) && (answer[i].messageRecords[m].sentBy === "Agent") && (answer[i].messageRecords[m].participantId !== "1089636032")){
-														lastMessageSentOutbound = answer[i].messageRecords[m].timeL;
-														m = 0;
-													}
-												}
-											}
-										}
-										if(thisIsOutbound){
-											if(answer[i].transfers[z].hasOwnProperty('contextData')){
-												if(answer[i].transfers[z].contextData.hasOwnProperty('structuredMetadata')){
-													if(answer[i].transfers[z].contextData.structuredMetadata[0].botResponse.intents[0].id === "telefono"){
-														timestampLastActOut = answer[i].transfers[z].timeL;
-													}
-													if(answer[i].transfers[z].contextData.structuredMetadata[0].botResponse.intents[0].id === "awakeLater"){
-														timestampLastActOut = answer[i].transfers[z].timeL;
-													}
-												}
-											}
-											if((transferLength - z) === 1){
-												endThisPeriod = Date.now();
-												for (var m = (howManyMessages - 1); m > -1 ; m--){
-													if((answer[i].messageRecords[m].timeL < endThisPeriod) && (answer[i].messageRecords[m].timeL > startThisPeriod) && (answer[i].messageRecords[m].sentBy === "Agent") && (answer[i].messageRecords[m].participantId !== "1089636032")){
-														lastMessageSentOutbound = answer[i].messageRecords[m].timeL;
-														m = 0;
-													}
-												}
-											}
-										}
-										
-									}
-									if(lastMessageSentOutbound > timestampLastActOut){
-										timestampLastActOut = lastMessageSentOutbound;
-									}
-									
-								
-						      		
-							      
-						      }
-						      
-						      if(timestampLastActGen === 0){
-						      		timestampLastActGen = "-";
-						      } else{
-						      		timestampLastActGen = new Date(timestampLastActGen);
-						      }
-						      
-						      if(timestampLastActOut === 0){
-						      		timestampLastActOut = "-";
-						      } else{
-						      		timestampLastActOut = new Date(timestampLastActOut);
-						      }
-						      
-						      
-						      
-						      var timestampNextUnfreeze = "-";
-						      if (answer[i].hasOwnProperty('transfers')){
-						      		var transferlength = answer[i].transfers.length;
-								if (transferlength > 1){
-									if(answer[i].transfers[(transferlength - 2)].hasOwnProperty('contextData')){
-										if(answer[i].transfers[(transferlength - 2)].contextData.hasOwnProperty('structuredMetadata')){
-											if(answer[i].transfers[(transferlength - 2)].contextData.structuredMetadata[0].botResponse.intents[0].id === "awakeLater"){
-												timestampNextUnfreeze = new Date(parseInt(answer[i].transfers[(transferlength - 2)].contextData.structuredMetadata[0].botResponse.intents[0].name));
-											}
-										}
-									}
-								}
-						      }
-						      
-						      var campo1 = "";
-						      var campo2 = "";
-						      var campo3 = "";
-						      
-	
-						     
-						      
-						      var pieceToAdd = {"start": startDateEngagement,
-									"end": endDateEngagement,
-									"durationinseconds": durationinseconds,
-									"efforttimegeneral": effortTimeGeneral,
-									"efforttimeoutbound": effortTimeOutbound,
-									"inactivetime": inactivetime,
-									"agentgeneral": lastAgentGeneral,
-									"agentoutbound": lastAgentOutbound,
-									"teamgeneral": lastProperTeamGeneral,
-									"teamoutbound": lastProperTeamOutbound,
-									"skill": skill,
-									"channel": channel,
-									"night": night,
-									"outbound": facebook_out,
-									"telefono": numero_telefono,
-									"ricontatto": numero_ricontatto,
-									"cfiscale": numero_cfiscale,
-									"tags": vfTag,
-									"triplettauno": triplettauno,
-									"triplettadue": triplettadue,
-									"triplettatre": triplettatre,
-									"limbo": limbo,
-									"limboGeneral": limboGeneral,
-									"limboOutbound": limboOutbound,
-									"limboaveragetime": limboaveragetime,
-									"risvegliata": risvegliata,
-									"risvegliataGeneral": risvegliataGeneral,
-									"risvegliataOutbound": risvegliataOutbound,
-									"freeze": freeze,
-									"freezeGeneral": freezeGeneral,
-									"freezeOutbound": freezeOutbound,
-									"risvFreeze": risvegliataFreeze,
-									"risvFreezeGeneral": risvegliataFreezeGeneral,
-									"risvFreezeOutbound": risvegliataFreezeOutbound,
-									"numeroagentigeneral": numberAgentsGeneral,
-									"numeroagentioutbound": numberAgentsOutbound,
-									"numerogruppigeneral": numberTeamsGeneral,
-									"numerogruppioutbound": numberTeamsOutbound,
-									"yesno": yesno,
-									"comments": comments,
-									"endReason": endReason,
-									"timeToAccept": timeToAcceptFacebook,
-									"firstTimeAnswer": firstTimeAnswerFacebook,
-									"timestampFacebook_priv": timestampFacebook_priv,
-									"timestampOutbound": timestampOutbound,
-									"timeInFacebook_bot": timeSpentInFacebook_bot,
-									"timestampLastActGen": timestampLastActGen,
-									"timestampLastActOut": timestampLastActOut,
-									"timestampNextUnfreeze": timestampNextUnfreeze,
-									"lastActivityAgent": lastActivityAgent,
-									"lastTypeActivityAgent": lastTypeActivityAgent,
-									"customerName": customerName,
-									"phoneNumber": phoneNumber,
-									"imeiNumber": imeiNumber,
-									"conversation": answer[i].info.conversationId,
-									"transcript": messages,
-									"campo1": campo1,
-									"campo2": campo2,
-									"campo3": campo3
-								       };
-						      exportObject = exportObject.concat(pieceToAdd);
-					      }
-				      	      // console.log(exportObject);
-					      if (exportObject.length > 0){
-						      
-						      document.getElementById("reportMSG").innerHTML = answer.length + " Messaging conversations downloaded with success!";
-						      document.getElementById("reportMSG").style = "color : green";
-						      exportData(exportObject);
-		
-					      }
-					      else{
-						      document.getElementById("reportMSG").innerHTML = "I've not found any conversation in this period!";
-						      document.getElementById("reportMSG").style = "color : red"; 
-					      }
-				      }
-				      
-     
-				      
-                              },
-                              error: function error(e, text) {
-				      document.getElementById("reportMSG").innerHTML = "System error. Please try again!";
-				      document.getElementById("reportMSG").style = "color : red";  
-                              },
-                              beforeSend: function(xhr, settings) { xhr.setRequestHeader('Authorization','Bearer ' + bearer); }
+							triplettadueposition = triplettadueposition + 1;
+						}
+							
+					}
+				}
+				if(myXHR[6] !== null){
+					var triplettatreposition = 0;
+					var triplettatrename = "";
+					for(var val in thirdlevel) {
+						if(val.indexOf(triplettaduename) > -1){
+							if(thirdlevel[val] === myXHR[6]){
+								triplettatrename = val;
+								$("#triplettatre").prop("selectedIndex", triplettatreposition).change();
+								break;
+							}
+							triplettatreposition = triplettatreposition + 1;
+						}
+							
+					}
+				}
+				$("#myLogs").val(myXHR[7]);
+			}
 		});
-	 }
-	 
-	 tryUntilSuccess(offset, function(err, resp) {
-		 // Your code here...
-	 });
-	 
-	 
-	 function exportData(exportObject){
-		 testTypes = {
-    			"start": "String",
-    			"end": "String",
-			"durationinseconds": "String",
-			"efforttimegeneral": "String",
-			"efforttimeoutbound": "String",
-			"inactivetime": "String",
-    			"agentgeneral": "String",
-			"agentoutbound": "String",
-			"teamgeneral": "String",
-			"teamoutbound": "String",
-			"skill": "String",
-			"channel": "String",
-			"night": "String",
-			"outbound": "String",
-			"telefono": "String",
-			"ricontatto": "String",
-			"cfiscale": "String",
-			"tags": "String",
-			"triplettauno": "String",
-			"triplettadue": "String",
-			"triplettatre": "String",
-			"limbo": "String",
-			"limboGeneral": "String",
-			"limboOutbound": "String",
-			"limboaveragetime": "String",
-			"risvegliata": "String",
-			"risvegliataGeneral": "String",
-			"risvegliataOutbound": "String",
-			"freeze": "String",
-			"freezeGeneral": "String",
-			"freezeOutbound": "String",
-			"risvFreeze": "String",
-			"risvFreezeGeneral": "String",
-			"risvFreezeOutbound": "String",
-			"numeroagentigeneral": "String",
-			"numeroagentioutbound": "String",
-			"numerogruppigeneral": "String",
-			"numerogruppioutbound": "String",
-			"yesno": "String",
-			"comments": "String",
-			"endReason": "String",
-			"timeToAccept": "String",
-			"firstTimeAnswer": "String",
-			"timestampFacebook_priv": "String",
-			"timestampOutbound": "String",
-			"timeInFacebook_bot": "String",
-			"timestampLastActGen": "String",
-			"timestampLastActOut": "String",
-			"timestampNextUnfreeze": "String",
-			"lastActivityAgent": "String",
-			"lastTypeActivityAgent": "String",
-			"customerName": "String",
-			"phoneNumber": "String",
-			"imeiNumber": "String",
-    			"conversation": "String",
-    			"transcript": "String",
-			"campo1": "String",
-			"campo2": "String",
-			"campo3": "String"
-		 };
-		 
-		 emitXmlHeader = function () {
-    			var headerRow =  '<ss:Row>\n';
-    			for (var colName in testTypes) {
-        			headerRow += '  <ss:Cell>\n';
-        			headerRow += '    <ss:Data ss:Type="String">';
-        			headerRow += colName + '</ss:Data>\n';
-        			headerRow += '  </ss:Cell>\n';        
-    			}
-    			headerRow += '</ss:Row>\n';    
-    			return '<?xml version="1.0"?>\n' +
-           			'<ss:Workbook xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet">\n' +
-           			'<ss:Worksheet ss:Name="Sheet1">\n' +
-           			'<ss:Table>\n\n' + headerRow;
-		};
-		 
-		 emitXmlFooter = function() {
-    			return '\n</ss:Table>\n' +
-           			'</ss:Worksheet>\n' +
-           			'</ss:Workbook>\n';
-		};
-		 
-		 jsonToSsXml = function (jsonObject) {
-    			var row;
-    			var col;
-    			var xml;
-    			var data = typeof jsonObject != "object" ? JSON.parse(jsonObject) : jsonObject;
-    
-    			xml = emitXmlHeader();
-    			for (row = 0; row < data.length; row++) {
-        			xml += '<ss:Row>\n';
+		var URLforGET = "https://vodafonebotdario.herokuapp.com/add?retrieve=1&visitorID=" + visitorID + "&convID=" + convID ;
+		console.log(URLforGET);
+		xhr.open("GET", URLforGET);
+		xhr.send();
+	}
+	
       
-        			for (col in data[row]) {
-            				xml += '  <ss:Cell>\n';
-            				xml += '    <ss:Data ss:Type="' + testTypes[col]  + '">';
-            				xml += data[row][col] + '</ss:Data>\n';
-            				xml += '  </ss:Cell>\n';
-        			}
-        			xml += '</ss:Row>\n';
-    			}
-    
-    			xml += emitXmlFooter();
-    			return xml;  
-		};
-		 
-		 download = function (content, filename, contentType) {
-    			if (!contentType) contentType = 'application/octet-stream';
-    			var a = document.getElementById('hiddenbutton');
-    			var blob = new Blob([content], {
-        			'type': contentType
-    			});
-    			a.href = window.URL.createObjectURL(blob);
-    			a.download = filename;
-		};
-		download(jsonToSsXml(exportObject), 'transcripts.xls', 'application/vnd.ms-excel');
-		$("#hiddenbutton")[0].click();
+	function sendData() {
+		document.getElementById("alert").innerHTML = "...invio dati...";
+            	document.getElementById("alert").style = "color : red";
 		
-		 
-	 }
-	 
-	 console.log(start + "****" + end + "****" + options);
-	 
- }
+		var myRegex = /^[A-Za-z]{6}[0-9]{2}[A-Za-z][0-9]{2}[A-Za-z][0-9]{3}[A-Za-z]$/;
+		var myCodiceFiscale = $("#cfiscale").val();
+		var isCodiceFiscale = myRegex.test(myCodiceFiscale);
+		console.log("codice fiscale test: " + isCodiceFiscale);
+		
+		if(isCodiceFiscale || (myCodiceFiscale === "") || (myCodiceFiscale === "---")){
+			var telefono = $("#telefono").val();
+			if (telefono === undefined || telefono === ""){
+				telefono = "---";
+			}
+			var ricontatto = $("#ricontatto").val();
+			if (ricontatto === undefined || ricontatto === ""){
+				ricontatto = "---";
+			}
+			var cfiscale = $("#cfiscale").val();
+			if (cfiscale === undefined || cfiscale === ""){
+				cfiscale = "---";
+			}
+			var vfTag = $("#vfTag").chosen().val();
+			if (vfTag === undefined || vfTag === ""){
+				vfTag = "---";
+			}
+			for(var val in firstlevel) {
+				if(val === $("#triplettauno").val()){
+					var triplettauno = firstlevel[val];
+				}
+			}
+			for(var val in secondlevel) {
+				if(val === $("#triplettadue").val()){
+					var triplettadue = secondlevel[val];
+				}
+			}
+			for(var val in thirdlevel) {
+				if(val === $("#triplettatre").val()){
+					var triplettatre = thirdlevel[val];
+				}
+			}
+		
+		
+			// $("#vfTag").chosen().val()
+		
+			console.log("***" + telefono + "***" + ricontatto + "***" + cfiscale + "***" + vfTag + "***" + triplettauno + "***" + triplettadue + "***" + triplettatre + "***");
+        		var xhr = new XMLHttpRequest();
+        		xhr.addEventListener("readystatechange", function () {
+          			if (this.readyState === 4) {
+					// var jsonResult = JSON.parse(this.responseText);
+            				document.getElementById("alert").innerHTML = "fatto!";
+            				document.getElementById("alert").style = "color : green";
+					console.log(xhr.response);
+					setTimeout(function(){
+						document.getElementById("alert").innerHTML = "";
+					}, 3000);
+          			}
+        		});
+        		var URLforGET = "https://vodafonebotdario.herokuapp.com/add?retrieve=0&telefono=" + telefono + "&ricontatto=" + ricontatto + "&cfiscale=" + cfiscale + "&vfTag=" + vfTag + "&triplettauno=" + triplettauno + "&triplettadue=" + triplettadue + "&triplettatre=" + triplettatre + "&skill=" + skill + "&convID=" + convID;
+			console.log(URLforGET);
+			xhr.open("GET", URLforGET);
+        		xhr.send();
+		} else{
+			document.getElementById("alert").innerHTML = "Il codice fiscale inserito non e' corretto!";
+			document.getElementById("alert").style = "color : red";
+		}
+	}
+	
+	    
+	$(document).ready(function() {
+              
+              	var SDK=lpTag.agentSDK;
+              	SDK.init();
+		var call1 = 0;
+		var call2 = 0;
+		
+                var onSuccess1 = function(data) {
+                // Do something with the returning data
+                	convID = data;
+			$("textarea#myconversationID").val("Ticket nr: " + convID);
+			call1 = 1;
+			if (call2 == 1 && convID !== null && visitorID !== null){
+				doMyGet();
+			}
+                };
+                
+                var onError1 = function(data) {
+                // Do something with the returning data
+                	convID = null;
+                };
+		
+		var onSuccess2 = function(data) {
+			visitorID = data;
+			call2 = 1;
+			if (call1 == 1 && convID !== null && visitorID !== null){
+				doMyGet();
+			}
+		};
+                
+                var onError2 = function(data) {
+                // Do something with the returning data
+                	visitorID = null;
+                };
+		
+		var onSuccess3 = function(data) {
+                // Do something with the returning data
+                	skill = data;
+			console.log("***skill: " + data + " ***");
+                };
+                
+                var onError3 = function(data) {
+                // Do something with the returning data
+                	skill = null;
+                };
+		
+		var onSuccess4 = function(data) {
+                // Do something with the returning data
+                	agentID = data;
+                };
+                
+                var onError4 = function(data) {
+                // Do something with the returning data
+                	agentID = null;
+                };
+		
+		
+		var onSuccess5 = function(data) {
+                // Do something with the returning data
+			cfiscaleTobi = data;
+                	console.log("*****: " + data);
+                };
+                
+                var onError5 = function(data) {
+                // Do something with the returning data
+                	cfiscaleTobi = null;
+                };
+		
+		var onSuccess6 = function(data) {
+                // Do something with the returning data
+			ricontattoTobi = data;
+                	console.log("*****: " + data);
+                };
+                
+                var onError6 = function(data) {
+                // Do something with the returning data
+                	ricontattoTobi = null;
+                };
+		
+		var onSuccess7 = function(data) {
+                // Do something with the returning data
+			telefonoTobi = data;
+                	console.log("*****: " + data);
+                };
+                
+                var onError7 = function(data) {
+                // Do something with the returning data
+                	telefonoTobi = null;
+                };
+		
+		
+               
+               
    
+               
+             
+                SDK.get('chatInfo.rtSessionId', onSuccess1, onError1);
+		SDK.get('visitorInfo.visitorId', onSuccess2, onError2);
+		SDK.get('engagementInfo.skill', onSuccess3, onError3);
+		SDK.get('agentInfo.agentId', onSuccess4, onError4);
+		SDK.get('authenticatedData.customerDetails.customerId', onSuccess5, onError5); //codice fiscale
+		SDK.get('authenticatedData.customerDetails.imei', onSuccess6, onError6); //ricontatto
+		SDK.get('authenticatedData.personalInfo.contactInfo', onSuccess7, onError7); //telefono
+               
+              
+           });
+	    
+  var firstlevel = 
+      {
+       "0": "Scegli una opzione...",
+       "A": "Enterprise",
+       "B": "Prospect / Dummie",
+       "C": "Non Pertinente",
+       "D": "Eventi / Iniziative / Programmi Loyalty",
+       "E": "Residential",
+       "F": "Mobile"
+      }
+  
+  var secondlevel = 
+      {
+       "A0": "Scegli una opzione...",
+       "A1": "Informazioni Commerciali",
+       "A2": "Informazioni Tecniche",
+       "A3": "Problemi Gestione Cliente",
+       "A4": "Problemi Tecnici",
+       "B0": "Scegli una opzione...",
+       "B1": "Informazioni Commerciali",
+       "B2": "Problemi Gestione Cliente",
+       "B3": "Lamentela/Insoddisfazione",
+       "C0": "Scegli una opzione...",
+       "C1": "Caratteri non occidentali",
+       "C2": "SIM non italiana",
+       "C3": "Off Topic",
+       "D0": "Scegli una opzione...",
+       "D1": "Informazioni",
+       "D2": "Segnalazioni / Lamentele",
+       "E0": "Scegli una opzione...",
+       "E1": "Informazioni Commerciali",
+       "E2": "Informazioni Tecniche",
+       "E3": "Problemi Gestione Cliente",
+       "E4": "Problemi Tecnici",
+       "E5": "Informazioni sul mio numero",
+       "E6": "Lamentela/Insoddisfazione",
+       "F0": "Scegli una opzione...",
+       "F1": "Informazioni Commerciali",
+       "F2": "Informazioni Tecniche",
+       "F3": "Variazioni",
+       "F4": "Problemi Gestione Cliente",
+       "F5": "Problemi Tecnici"
+      }
+  var thirdlevel = 
+      {
+       "A11": "Microbusiness",
+       "A12": "Corporate",
+       "A13": "Office",
+       "A21": "Microbusiness",
+       "A22": "Corporate",
+       "A23": "Office",
+       "A31": "Microbusiness",
+       "A32": "Corporate",
+       "A33": "Office",
+       "A41": "Microbusiness",
+       "A42": "Corporate",
+       "A43": "Office",
+       "B11": "Abbonamenti",
+       "B12": "Ricaricabili",
+       "B13": "Smartphone, Tablet e Accessori",
+       "B14": "Mondo Vodafone e Procedure",
+       "B15": "Rete Fissa",
+       "B16": "Special 1000",
+       "B17": "Roaming",
+       "B18": "Campagne Winback",
+       "B21": "MNP Recipient",
+       "B22": "MNP Risottomissione pratica",
+       "B23": "BTC Annullamento pratica",
+       "B24": "BTC Ritardo /mancata consegna corriere",
+       "B25": "Fallita Identificazione",
+       "B26": "Teleselling",
+       "B31": "Abbonamenti",
+       "B32": "Ricaricabili",
+       "B33": "Smartphone, Tablet e Accessori",
+       "B34": "Mondo Vodafone e Procedure",
+       "B35": "Rete Fissa",
+       "B36": "Special 1000",
+       "B37": "Roaming",
+       "B38": "Fallita Identificazione",
+       "B39": "Campagne Winback",
+       "C11": ".",
+       "C21": ".",
+       "C31": ".",
+       "D11": "ADV",
+       "D12": "Happy",
+       "D13": "Care4YourFuture",
+       "D14": "Eventi/Live Tweet",
+       "D15": "GDPR",
+       "D16": "ILIAD",
+       "D17": "Like Moment",
+       "D18": "Un pensiero per te",
+       "D19": "Rete 4G n1",
+       "D110": "Shakethon",
+       "D111": "Social hunt",
+       "D112": "Terremoto",
+       "D113": "tredicesima tariffe",
+       "D114": "UFFICIO STAMPA",
+       "D115": "UNIONI CIVILI",
+       "D21": "ADV",
+       "D22": "Happy",
+       "D23": "Eventi/Live Tweet",
+       "D24": "Like Moment",
+       "D25": "Un pensiero per te",
+       "D26": "Rete 4G n1",
+       "D27": "Shakethon",
+       "D28": "Social hunt",
+       "D29": "Terremoto",
+       "D210": "Tredicesima tariffe",
+       "D211": "UFFICIO STAMPA",
+       "E11": "Fibra",
+       "E12": "Adsl",
+       "E13": "Entertainment (Netflix, Spotify, Infinity)",
+       "E14": "SinglePlay",
+       "E15": "Campagna",
+       "E16": "Canvass",
+       "E21": "SinglePlay",
+       "E22": "Vodafone Station",
+       "E23": "Upgrade Fibra",
+       "E24": "Passaggio ADSL - Fibra",
+       "E25": "Copertura",
+       "E26": "Wifi Community",
+       "E27": "Teletu",
+       "E28": "Velocita'",
+       "E31": "Conto Telefonico - Voce scontistica",
+       "E32": "Conto Telefonico - Contestazione addebiti",
+       "E33": "Conto Telefonico - Comunicazioni in fattura",
+       "E34": "Churn",
+       "E35": "Difficoltà accesso 190",
+       "E36": "SinglePlay",
+       "E37": "Reclamo",
+       "E41": "Assurance TS I livello",
+       "E42": "Assurance",
+       "E43": "Provisioning",
+       "E44": "Sito: Registrazione e/o utilizzo",
+       "E45": "App: Registrazione e/o utilizzo",
+       "E46": "Entertainment (Netflix, Spotify, Infinity)",
+       "E47": "SinglePlay TS I livello",
+       "E48": "SinglePlay altro",
+       "E49": "Teletu",
+       "E410": "Wifi Community",
+       "E51": "Conto Telefonico Voci specifiche",
+       "E52": "Conto Telefonico Dettaglio delle chiamate",
+       "E53": "Consenso Commerciale",
+       "E54": "Offerta attiva",
+       "E61": "Lamentela Punto Vendita",
+       "E62": "Rimod da 30 a 28 ADSL",
+       "E63": "Rimodulazione Sunday abb",
+       "F11": "Ricaricabili voci specifiche",
+       "F12": "Ricaricabili dettaglio chiamate",
+       "F13": "Abbonamenti voci specifiche",
+       "F14": "Abbonamenti dettaglio chiamate",
+       "F15": "Entertainment (Netflix, Spotify, Infinity)",
+       "F16": "Campagna",
+       "F17": "Canvass",
+       "F21": "Smartphone, Tablet e Accessori",
+       "F22": "4G",
+       "F23": "Richiesta PUK",
+       "F24": "Connessione / Configurazione",
+       "F31": "Consenso Commerciale",
+       "F32": "Piano",
+       "F33": "Servizi",
+       "F34": "Promozione",
+       "F35": "Anagrafica",
+       "F36": "Indirizzi fatturazione/Mail",
+       "F37": "Servizi a contenuto",
+       "F38": "Altro",
+       "F41": "Conto Telefonico - Voce scontistica",
+       "F42": "Conto Telefonico - Contestazione addebiti",
+       "F43": "Conto Telefonico - Comunicazioni in fattura",
+       "F44": "Tariffazione",
+       "F45": "Relax",
+       "F46": "Campagna",
+       "F47": "Difficoltà accesso 190",
+       "F48": "Reclamo",
+       "F49": "BTC Annullamento pratica",
+       "F410": "BTC Ritardo /mancata consegna corriere",
+       "F411": "Insoddisfazione su offerta",
+       "F412": "Teleselling",
+       "F51": "Rete Dati",
+       "F52": "Rete Voce",
+       "F53": "Noco",
+       "F54": "Promozione",
+       "F55": "SIM",
+       "F56": "Servizi",
+       "F57": "Ricarica",
+       "F58": "Sito: Registrazione e/o utilizzo",
+       "F59": "App: Registrazione e/o utilizzo",
+       "F510": "Sito: non disponibile",
+       "F511": "App: non disponibile",
+       "F512": "IVR",
+       "F513": "Entertainment (Netflix, Spotify, Infinity)",
+       "F514": "Smartphone, Tablet e Accessori (rimando ad assistenza)"
+      }
+  
+  $( document ).ready(function() {
+    $("#triplettauno").on('change', function() {
+	    console.log($("#triplettauno").prop("nodeName"));
+	    
+	    // $(".chzn-select").val("Messaggio Diretto").trigger('chosen:updated');
+     $("#triplettadue").remove();
+     $("#triplettatre").remove();
+     	
+      var s = $('<select id="triplettadue"/>');
+      if(!(this.value.indexOf('0') > -1)){
+       for(var val in secondlevel) {
+        if(val.indexOf(this.value) > -1){
+         $('<option />', {value: val, text: secondlevel[val]}).appendTo(s);
+        }
+       }
+       s.appendTo('#tripletta');
+       $("#triplettadue").css("display","block");
+      }
+     $("#triplettadue").on('change', function() {
+     $("#triplettatre").remove();
+     	
+      var s = $('<select id="triplettatre"/>');
+      if(!(this.value.indexOf('0') > -1)){
+       for(var val in thirdlevel) {
+        if(val.indexOf(this.value) > -1){
+         $('<option />', {value: val, text: thirdlevel[val]}).appendTo(s);
+        }
+       }
+       s.appendTo('#tripletta');
+       $("#triplettatre").css("display","block");
+      }
+    })
+    })
+   
+  });
     
+  
+$(function() {
+    $(".chzn-select").chosen();
+});
+   
+   
+   // $("#vfTag").chosen().val()
+  
+   
 </script>
-    
-    
+	
+
+	
+<div id="mywidget">
+	<label>Numero telefono: </label> <input type="text" id="telefono"></br>
+	<label>Numero ricontatto: </label> <input type="text" id="ricontatto"></br>
+	<label>Codice fiscale: </label> <input type="text" id="cfiscale"></br></br>
+	<label>Inserisci un tag: </label>
+	</br>
+
+<select id="vfTag" class="chzn-select" multiple="true" name="faculty" style="width:200px;">
+        <option value="BANNATO">BANNATO</option>
+        <option value="Contatto Outbound KO">Contatto Outbound KO</option>
+        <option value="Contatto Outbound OK">Contatto Outbound OK</option>
+        <option value="Contatto Outbound OK 2">Contatto Outbound OK 2</option>
+        <option value="Contatto Outbound OK 3">Contatto Outbound OK 3</option>
+        <option value="Da Contattare Outbound">Da Contattare Outbound</option>
+        <option value="Dati in pubblico">Dati in pubblico</option>
+        <option value="Dispatch">Dispatch</option>
+        <option value="Engagement">Engagement</option>
+        <option value="Escalation">Escalation</option>
+        <option value="Frequent writer">Frequent writer</option>
+	<option value="Fuori SLA">Fuori SLA</option>
+        <option value="Gestito da altro canale">Gestito da altro canale</option>
+        <option value="KO DEFINITIVO">KO DEFINITIVO</option>
+	<option value="Lavorato in Chorally">Lavorato in Chorally</option>
+        <option value="Messaggio Diretto">Messaggio Diretto</option>
+        <option value="Monitor">Monitor</option>
+        <option value="POST CANCELLATO">POST CANCELLATO</option>
+        <option value="POST NASCOSTO">POST NASCOSTO</option>
+        <option value="Primo Contatto KO">Primo Contatto KO</option>
+        <option value="RECALL">RECALL</option>
+        <option value="Richiesta dati mancanti">Richiesta dati mancanti</option>
+        <option value="Rimando a Privato">Rimando a Privato</option>
+        <option value="Rimando a pubblico">Rimando a pubblico</option>
+        <option value="Ringraziamenti">Ringraziamenti</option>
+        <option value="Risposta di altri utenti">Risposta di altri utenti</option>
+        <option value="Risposta Pubblica">Risposta Pubblica</option>
+        <option value="Secondo Contatto KO">Secondo Contatto KO</option>
+        <option value="Senza Risposta">Senza Risposta</option>
+        <option value="Sollecito">Sollecito</option>
+        <option value="Thanks">Thanks</option>
+        <option value="violazione netiquette">violazione netiquette</option>
+</select>
+  </br>
+  </br>
+	<label>Definisci una tripletta: </label>
+  
+ <div id="tripletta"> 
+  <select id="triplettauno">
+    <option value="0">Scegli una opzione...</option>
+    <option value="A">Enterprise</option>
+    <option value="B">Prospect / Dummie</option>
+    <option value="C">Non Pertinente</option>
+    <option value="D">Eventi / Iniziative / Programmi Loyalty</option>
+    <option value="E">Residential</option>
+    <option value="F">Mobile</option>
+  </select>
+</div>
+
+  </br>
+              
+   <button id ="submit" type="button" onclick="sendData()">Invia Dati</button>
+   <div id="alert"></div>
+
+</div>
+
+</br></br></br>
+
+<label>Posponi tra: </br>
+</label> <input type="text" id="daysAwake" maxlength="2" size="3"> <label> giorni, </label> <input type="text" id="hourAwake" maxlength="2" size="3"> <label> ore, </label> <input type="text" id="minuteAwake" maxlength="3" size="4"> <label> minuti</label> </br>
+</br>
+<button id ="submitawake" type="button" onclick="sendDataAwake()">Posponi</button>
+<button id ="submitlimbo" type="button" onclick="sendToLimbo()" style="float: right;">Limbo</button>
+</br>
+</br>
+<div id="alertAwake"></div>
+</br>
+<textarea rows="2" cols="50" id="myconversationID" readonly></textarea>
+</br>
+<label>Note tecniche:</label>
+</br>
+<textarea rows="10" cols="50" id="myLogs" readonly></textarea>
 
 
 </body>
+
+
 </html>
