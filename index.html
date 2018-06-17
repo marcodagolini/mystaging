@@ -841,9 +841,12 @@ button[disabled]{
 			assignedAgent = data;
 			call3 = 1;
 			if (call4 == 1 && assignedAgent !== null && thisAgent !== null){
-				$("#submit").prop( "disabled", false );
-				$("#submitawake").prop( "disabled", false );
-				$("#submitlimbo").prop( "disabled", false );
+				if( assignedAgent === thisAgent){
+					$("#submit").prop( "disabled", false );
+					$("#submitawake").prop( "disabled", false );
+					$("#submitlimbo").prop( "disabled", false );
+				}
+				
 			}
                 };
                 
@@ -857,9 +860,11 @@ button[disabled]{
 			thisAgent = data;
 			call4 = 1;
 			if (call3 == 1 && assignedAgent !== null && thisAgent !== null){
-				$("#submit").prop( "disabled", false );
-				$("#submitawake").prop( "disabled", false );
-				$("#submitlimbo").prop( "disabled", false );
+				if( assignedAgent === thisAgent){
+					$("#submit").prop( "disabled", false );
+					$("#submitawake").prop( "disabled", false );
+					$("#submitlimbo").prop( "disabled", false );
+				}
 			}
                 };
                 
