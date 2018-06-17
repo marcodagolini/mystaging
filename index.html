@@ -2566,8 +2566,6 @@ checklogin(accnumb, bearer);
 					      console.log("last bucket: " + data.conversationHistoryRecords.length);
 					      answer = answer.concat(data.conversationHistoryRecords);
 					      console.log(answer.length);
-					      document.getElementById("reportMSG").innerHTML = "almost done, starting with analysis...";
-					      document.getElementById("reportMSG").style = "color : green";
 					      
 					      function stampAnalyzingData(){
 						      document.getElementById("reportMSG").innerHTML = "...analyzing data...";
@@ -2576,7 +2574,7 @@ checklogin(accnumb, bearer);
 					      }
 	 
 			      
-					      var analyzingData = window.setInterval(stampAnalyzingData,1000);
+					      var analyzingData = window.setInterval(stampAnalyzingData(),1000);
 					      
 					      for (var i = 0; i < (answer.length); i++){
 						      var messages = "";
