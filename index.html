@@ -3012,6 +3012,10 @@ checklogin(accnumb, bearer);
 												f = transferLength;
 											}
 										}
+										
+										if(answer[i].info.conversationId === "855c00bc-4a03-4918-b5c9-396c9da40cc8"){
+											console.log("hoooray!!");
+										}
 												
 										for (var z = 0; z < agentParticipantsLength; z++){
 											if((answer[i].agentParticipants[z].userTypeName === "Human") && (answer[i].agentParticipants[z].permission === "ASSIGNED_AGENT")){
@@ -3317,9 +3321,7 @@ checklogin(accnumb, bearer);
 						      var timestampLastActGen = 0;
 						      var timestampLastActOut = 0;
 						      
-						     if(answer[i].info.conversationId === "0a0c7e37-467b-4de9-bf36-8c2ea0e7c2d3"){
-								console.log("hoooray!!");
-							}
+						     
 						      
 						      howManyMessages = answer[i].messageRecords.length;
 						      if(howManyMessages){
