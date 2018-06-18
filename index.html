@@ -2977,7 +2977,7 @@ checklogin(accnumb, bearer);
 						      var partialTime = 0;
 						      if(howManyMessages){
 						      		if(answer[i].hasOwnProperty('agentParticipants') && answer[i].agentParticipants.length){
-									if(answer[i].hasOwnProperty('transfers') && answer[i].transfers.length){
+									if(answer[i].hasOwnProperty('transfers')){
 										var agentParticipantsLength = answer[i].agentParticipants.length;
 										var transferLength = answer[i].transfers.length;
 										var isGeneral = 0;
