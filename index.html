@@ -3003,7 +3003,6 @@ checklogin(accnumb, bearer);
 												agentLoginName = answer[i].agentParticipants[z].agentLoginName;
 												jumpInTimestamp = answer[i].agentParticipants[z].timeL;
 												if(transferLength === 0){
-													z = agentParticipantsLength;
 													effortTimeGeneral = (answer[i].info.endTimeL - jumpInTimestamp)/1000;
 													lastAgentGeneral = answer[i].agentParticipants[z].agentFullName;
 													lastTeamGeneral = answer[i].agentParticipants[z].agentGroupName;
@@ -3024,6 +3023,7 @@ checklogin(accnumb, bearer);
 													if(!arrayTeamsGeneral.includes(lastTeamGeneral)){
 														arrayTeamsGeneral.push(lastTeamGeneral);
 													}
+													z = agentParticipantsLength;
 												}
 												for (var f = 0; f < transferLength; f++){
 													if(answer[i].transfers[f].timeL > jumpInTimestamp){
