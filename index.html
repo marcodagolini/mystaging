@@ -2558,6 +2558,7 @@ checklogin(accnumb, bearer);
 					      
 					      
 					      timerID = setInterval(function() {
+						      console.log("inside the loop");
 						      document.getElementById("reportMSG").innerHTML = "...analyzing data...";
 						      document.getElementById("reportMSG").style = "color : green";
 					      }, 1000);
