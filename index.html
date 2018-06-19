@@ -2556,12 +2556,15 @@ checklogin(accnumb, bearer);
 					      console.log(answer.length);
 					      
 					      
+					      timerID = setInterval(function() {
+						      document.getElementById("reportMSG").innerHTML = "...analyzing data...";
+						      document.getElementById("reportMSG").style = "color : green";
+					      }, 1000);
+							     
+							      
+					      
 					      for (var i = 0; i < (answer.length); i++){
-						      timerID = setInterval(function() {
-							      document.getElementById("reportMSG").innerHTML = "...analyzing data...";
-							      document.getElementById("reportMSG").style = "color : green";
-						      }, 1000);
-						      
+
 						      
 						      var messages = "";
 						      var thismessage = "";
