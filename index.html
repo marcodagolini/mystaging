@@ -2559,7 +2559,7 @@ checklogin(accnumb, bearer);
 						      timerID = setInterval(function() {
 							      document.getElementById("reportMSG").innerHTML = "...analyzing data...";
 							      document.getElementById("reportMSG").style = "color : green";
-						      }
+						      }, 60 * 1000);
 						      
 						      
 						      var messages = "";
