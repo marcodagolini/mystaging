@@ -2509,7 +2509,6 @@ checklogin(accnumb, bearer);
 	 var body = "";
 	 var answer = [];
 	 var exportObject = [];
-	 var timerID = 0;
 	 
 	 if (options === "Open"){ 
 		 body = '{"start":{"from":' + start + ',"to":' + end + '},"status":["OPEN"]}'; 
@@ -2555,16 +2554,15 @@ checklogin(accnumb, bearer);
 					      answer = answer.concat(data.conversationHistoryRecords);
 					      console.log(answer.length);
 					      
-					      
-					      timerID = setInterval(function() {
-						      console.log("inside the loop");
-						      document.getElementById("reportMSG").innerHTML = "...analyzing data...";
-						      document.getElementById("reportMSG").style = "color : green";
-					      }, 1000);
-							     
-							      
+
+	      
 					      
 					      for (var i = 0; i < (answer.length); i++){
+						      
+						      if (i % 1000 == 0){
+							      document.getElementById("reportMSG").innerHTML = "...analyzing data...";
+							      document.getElementById("reportMSG").style = "color : green";
+						      }
 
 						      
 						      var messages = "";
@@ -3550,8 +3548,6 @@ checklogin(accnumb, bearer);
 				      	      // console.log(exportObject);
 					      if (exportObject.length > 0){
 						      
-						      clearInterval(timerID);
-						      timerID = 0;
 						      document.getElementById("reportMSG").innerHTML = answer.length + " Messaging conversations downloaded with success!";
 						      document.getElementById("reportMSG").style = "color : green";
 						      exportData(exportObject);
