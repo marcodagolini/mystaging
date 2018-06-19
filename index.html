@@ -2504,7 +2504,8 @@ checklogin(accnumb, bearer);
 		 console.log("inside refresh");
 		 document.getElementById("reportMSG").innerHTML = "...analyzing data...";
 		 document.getElementById("reportMSG").style = "color : green";
-		 $('#reportMSG').hide().show(0);
+		 $(window).trigger('resize')
+		 // $('#reportMSG').hide().show(0);
 	 }
  }
  
