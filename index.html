@@ -2507,6 +2507,7 @@ checklogin(accnumb, bearer);
 	 var body = "";
 	 var answer = [];
 	 var exportObject = [];
+	 var timerID = 0;
 	 
 	 if (options === "Open"){ 
 		 body = '{"start":{"from":' + start + ',"to":' + end + '},"status":["OPEN"]}'; 
@@ -2554,8 +2555,12 @@ checklogin(accnumb, bearer);
 					      
 					      
 					      for (var i = 0; i < (answer.length); i++){
-						      document.getElementById("reportMSG").innerHTML = "...analyzing data...";
-						      document.getElementById("reportMSG").style = "color : green";
+						      timerID = setInterval(function() {
+							      document.getElementById("reportMSG").innerHTML = "...analyzing data...";
+							      document.getElementById("reportMSG").style = "color : green";
+						      }
+						      
+						      
 						      var messages = "";
 						      var thismessage = "";
 						      var thisactor = "";
@@ -3539,6 +3544,8 @@ checklogin(accnumb, bearer);
 				      	      // console.log(exportObject);
 					      if (exportObject.length > 0){
 						      
+						      clearInterval(timerID);
+						      timerID = 0;
 						      document.getElementById("reportMSG").innerHTML = answer.length + " Messaging conversations downloaded with success!";
 						      document.getElementById("reportMSG").style = "color : green";
 						      exportData(exportObject);
