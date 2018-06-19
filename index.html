@@ -2499,7 +2499,13 @@ checklogin(accnumb, bearer);
 	 
  }
 	
- 
+ function refreshMyField(i){
+	 if (i % 1000 == 0){
+		 console.log("inside refresh");
+		 document.getElementById("reportMSG").innerHTML = "...analyzing data...";
+		 document.getElementById("reportMSG").style = "color : green";
+	 }
+ }
  
  
  function downloadTranscripts(start, end, options){
@@ -2560,10 +2566,8 @@ checklogin(accnumb, bearer);
 					      
 					      for (var i = 0; i < (answer.length); i++){
 						      
-						      if (i % 1000 == 0){
-							      document.getElementById("reportMSG").innerHTML = "...analyzing data...";
-							      document.getElementById("reportMSG").style = "color : green";
-						      }
+						      refreshMyField(i);
+						      
 
 						      
 						      var messages = "";
