@@ -2502,7 +2502,8 @@ checklogin(accnumb, bearer);
  function refreshMyField(i){
 	 if (i % 1000 == 0){
 		 console.log("inside refresh");
-		 document.getElementById("reportMSG").innerHTML = "...analyzing data...";
+		 $('#reportMSG').replaceWith('<div id="reportMSG">...analyzing data...</div>');
+		 // document.getElementById("reportMSG").innerHTML = "...analyzing data...";
 		 document.getElementById("reportMSG").style = "color : green";
 	 }
  }
