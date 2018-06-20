@@ -2629,7 +2629,7 @@ function analysis(answer){
 	var exportObject = [];
 	var generalCounter = 0;
 	var myAnswerLength = answer.length;
-	function tryAnalysisUntilSuccess(generalCounter, callback) {
+	function tryAnalysisUntilSuccess(generalCounter) {
 							var i = generalCounter;
 							var messages = "";
 							var thismessage = "";
@@ -3611,11 +3611,7 @@ function analysis(answer){
 						      exportObject = exportObject.concat(pieceToAdd);
 		console.log(generalCounter);
 		generalCounter = generalCounter + 1;
-		if(generalCounter < myAnswerLength){
-			tryAnalysisUntilSuccess(generalCounter, callback);
-			console.log(generalCounter);
-		}
-		else{
+		if(generalCounter === myAnswerLength){
 			document.getElementById("reportMSG").innerHTML = answer.length + " Messaging conversations downloaded with success!";
 			document.getElementById("reportMSG").style = "color : green";
 			exportData(exportObject);
@@ -3629,10 +3625,9 @@ function analysis(answer){
 		document.getElementById("reportMSG").innerHTML = "I've not found any conversation in this period!";
 		document.getElementById("reportMSG").style = "color : red";
 	} else{
-		tryAnalysisUntilSuccess(generalCounter, function(err, resp) {
-			console.log("here we go: " + generalCounter);
-			// Your code here...
-		});
+		for(var mz = 0; mz < generalCounter; mz ++){
+			tryAnalysisUntilSuccess(mz);
+		}
 	}
 	
 
