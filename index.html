@@ -2628,7 +2628,7 @@ function analysis(answer){
 	var exportObject = [];
 	var generalCounter = 0;
 	var myAnswerLength = answer.length;
-	function tryUntilSuccess(generalCounter, callback) {
+	function tryAnalysisUntilSuccess(generalCounter, callback) {
 							var i = generalCounter;
 							var messages = "";
 							var thismessage = "";
@@ -3610,7 +3610,7 @@ function analysis(answer){
 						      exportObject = exportObject.concat(pieceToAdd);
 		generalCounter = generalCounter + 1;
 		if(generalCounter < myAnswerLength){
-			tryUntilSuccess(generalCounter, callback);
+			tryAnalysisUntilSuccess(generalCounter, callback);
 			console.log(generalCounter);
 		}
 		else{
@@ -3627,7 +3627,7 @@ function analysis(answer){
 		document.getElementById("reportMSG").innerHTML = "I've not found any conversation in this period!";
 		document.getElementById("reportMSG").style = "color : red";
 	} else{
-		tryUntilSuccess(generalCounter, function(err, resp) {
+		tryAnalysisUntilSuccess(generalCounter, function(err, resp) {
 			// Your code here...
 		});
 	}
