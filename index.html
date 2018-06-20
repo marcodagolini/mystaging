@@ -4,6 +4,9 @@
 
 
 
+
+
+
 <head>
   
 </head>
@@ -2496,137 +2499,64 @@ checklogin(accnumb, bearer);
 	 
  }
 	
-	
-	 function exportData(exportObject){
-		 testTypes = {
-    			"start": "String",
-    			"end": "String",
-			"durationinseconds": "String",
-			"efforttimegeneral": "String",
-			"efforttimeoutbound": "String",
-			"inactivetime": "String",
-    			"agentgeneral": "String",
-			"agentoutbound": "String",
-			"teamgeneral": "String",
-			"teamoutbound": "String",
-			"skill": "String",
-			"channel": "String",
-			"night": "String",
-			"outbound": "String",
-			"telefono": "String",
-			"ricontatto": "String",
-			"cfiscale": "String",
-			"tags": "String",
-			"triplettauno": "String",
-			"triplettadue": "String",
-			"triplettatre": "String",
-			"limbo": "String",
-			"limboGeneral": "String",
-			"limboOutbound": "String",
-			"limboaveragetime": "String",
-			"risvegliata": "String",
-			"risvegliataGeneral": "String",
-			"risvegliataOutbound": "String",
-			"freeze": "String",
-			"freezeGeneral": "String",
-			"freezeOutbound": "String",
-			"risvFreeze": "String",
-			"risvFreezeGeneral": "String",
-			"risvFreezeOutbound": "String",
-			"numeroagentigeneral": "String",
-			"numeroagentioutbound": "String",
-			"numerogruppigeneral": "String",
-			"numerogruppioutbound": "String",
-			"yesno": "String",
-			"comments": "String",
-			"endReason": "String",
-			"timeToAccept": "String",
-			"firstTimeAnswer": "String",
-			"timestampFacebook_priv": "String",
-			"timestampOutbound": "String",
-			"timeInFacebook_bot": "String",
-			"timestampLastActGen": "String",
-			"timestampLastActOut": "String",
-			"timestampNextUnfreeze": "String",
-			"lastActivityAgent": "String",
-			"lastTypeActivityAgent": "String",
-			"customerName": "String",
-			"phoneNumber": "String",
-			"imeiNumber": "String",
-    			"conversation": "String",
-    			"transcript": "String",
-			"campo1": "String",
-			"campo2": "String",
-			"campo3": "String"
-		 };
-		 
-		 emitXmlHeader = function () {
-    			var headerRow =  '<ss:Row>\n';
-    			for (var colName in testTypes) {
-        			headerRow += '  <ss:Cell>\n';
-        			headerRow += '    <ss:Data ss:Type="String">';
-        			headerRow += colName + '</ss:Data>\n';
-        			headerRow += '  </ss:Cell>\n';        
-    			}
-    			headerRow += '</ss:Row>\n';    
-    			return '<?xml version="1.0"?>\n' +
-           			'<ss:Workbook xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet">\n' +
-           			'<ss:Worksheet ss:Name="Sheet1">\n' +
-           			'<ss:Table>\n\n' + headerRow;
-		};
-		 
-		 emitXmlFooter = function() {
-    			return '\n</ss:Table>\n' +
-           			'</ss:Worksheet>\n' +
-           			'</ss:Workbook>\n';
-		};
-		 
-		 jsonToSsXml = function (jsonObject) {
-    			var row;
-    			var col;
-    			var xml;
-    			var data = typeof jsonObject != "object" ? JSON.parse(jsonObject) : jsonObject;
-    
-    			xml = emitXmlHeader();
-    			for (row = 0; row < data.length; row++) {
-        			xml += '<ss:Row>\n';
-      
-        			for (col in data[row]) {
-            				xml += '  <ss:Cell>\n';
-            				xml += '    <ss:Data ss:Type="' + testTypes[col]  + '">';
-            				xml += data[row][col] + '</ss:Data>\n';
-            				xml += '  </ss:Cell>\n';
-        			}
-        			xml += '</ss:Row>\n';
-    			}
-    
-    			xml += emitXmlFooter();
-    			return xml;  
-		};
-		 
-		 download = function (content, filename, contentType) {
-    			if (!contentType) contentType = 'application/octet-stream';
-    			var a = document.getElementById('hiddenbutton');
-    			var blob = new Blob([content], {
-        			'type': contentType
-    			});
-    			a.href = window.URL.createObjectURL(blob);
-    			a.download = filename;
-		};
-		download(jsonToSsXml(exportObject), 'transcripts.xls', 'application/vnd.ms-excel');
-		$("#hiddenbutton")[0].click();
-		
-		 
+ 
+ 
+ 
+ function downloadTranscripts(start, end, options){
+	 
+	 var conversationsToDownload = 0;
+	 var conversationsPartial = 0;
+	 var offset = 0;
+	 var body = "";
+	 var answer = [];
+	 var exportObject = [];
+	 
+	 if (options === "Open"){ 
+		 body = '{"start":{"from":' + start + ',"to":' + end + '},"status":["OPEN"]}'; 
+	 }
+	 else if (options === "Close"){
+		 body = '{"start":{"from":' + start + ',"to":' + end + '},"status":["CLOSE"]}';	 
+	 }
+	 else if (options === "Open+Close"){
+		 body = '{"start":{"from":' + start + ',"to":' + end + '}, "status":["OPEN","CLOSE"]}';	 
 	 }
 	 
-
-	
-	
-function elaborate(answer){
-	
-	var exportObject = [];
-	
-						      for (var i = 0; i < (answer.length); i++){
+	 function tryUntilSuccess(offset, callback) {
+	 
+	 	$.ajax({
+                              url: "https://" + uri + "/messaging_history/api/account/" + accnumb + "/conversations/search?offset=" + offset + "&limit=100",
+                              method: "POST",
+                              jsonp: "cb",
+                              jsonpCallback: "domainCallback",
+                              cache: true,
+                              contentType: "application/json",
+                              data: body,
+                              success: function success(data) {
+				      
+				      if(offset == 0){
+					      conversationsToDownload = data._metadata.count;    
+				      }
+				      
+				      conversationsPartial = conversationsPartial + data.conversationHistoryRecords.length;
+				      if(conversationsPartial < conversationsToDownload){
+					      offset = conversationsPartial;
+					      answer = answer.concat(data.conversationHistoryRecords);
+					      document.getElementById("reportMSG").innerHTML = "...downloading sessions:" + Math.round(100*(offset/data._metadata.count)) + "% completed...";
+					      document.getElementById("reportMSG").style = "color : green";      
+					      // console.log(data.conversationHistoryRecords);
+					      console.log ("adding conversations...");
+					      console.log(offset + " of --> " + conversationsToDownload);
+					      // setTimeout(function(){
+						      tryUntilSuccess(offset, callback);
+					      // }, 1000);
+				      }
+				      else{
+					      console.log("last bucket: " + data.conversationHistoryRecords.length);
+					      answer = answer.concat(data.conversationHistoryRecords);
+					      console.log(answer.length);
+					      
+					      
+					      for (var i = 0; i < (answer.length); i++){
 						      
 						      if (i % 1000 == 0){
 							      console.log("inside refresh");
@@ -3622,67 +3552,6 @@ function elaborate(answer){
 						      document.getElementById("reportMSG").innerHTML = "I've not found any conversation in this period!";
 						      document.getElementById("reportMSG").style = "color : red"; 
 					      }
-	
-}
-	
- 
- 
- 
- function downloadTranscripts(start, end, options){
-	 
-	 var conversationsToDownload = 0;
-	 var conversationsPartial = 0;
-	 var offset = 0;
-	 var body = "";
-	 var answer = [];
-	 
-	 
-	 if (options === "Open"){ 
-		 body = '{"start":{"from":' + start + ',"to":' + end + '},"status":["OPEN"]}'; 
-	 }
-	 else if (options === "Close"){
-		 body = '{"start":{"from":' + start + ',"to":' + end + '},"status":["CLOSE"]}';	 
-	 }
-	 else if (options === "Open+Close"){
-		 body = '{"start":{"from":' + start + ',"to":' + end + '}, "status":["OPEN","CLOSE"]}';	 
-	 }
-	 
-	 function tryUntilSuccess(offset, callback) {
-	 
-	 	$.ajax({
-                              url: "https://" + uri + "/messaging_history/api/account/" + accnumb + "/conversations/search?offset=" + offset + "&limit=100",
-                              method: "POST",
-                              jsonp: "cb",
-                              jsonpCallback: "domainCallback",
-                              cache: true,
-                              contentType: "application/json",
-                              data: body,
-                              success: function success(data) {
-				      
-				      if(offset == 0){
-					      conversationsToDownload = data._metadata.count;    
-				      }
-				      
-				      conversationsPartial = conversationsPartial + data.conversationHistoryRecords.length;
-				      if(conversationsPartial < conversationsToDownload){
-					      offset = conversationsPartial;
-					      answer = answer.concat(data.conversationHistoryRecords);
-					      document.getElementById("reportMSG").innerHTML = "...downloading sessions:" + Math.round(100*(offset/data._metadata.count)) + "% completed...";
-					      document.getElementById("reportMSG").style = "color : green";      
-					      // console.log(data.conversationHistoryRecords);
-					      console.log ("adding conversations...");
-					      console.log(offset + " of --> " + conversationsToDownload);
-					      // setTimeout(function(){
-						      tryUntilSuccess(offset, callback);
-					      // }, 1000);
-				      }
-				      else{
-					      console.log("last bucket: " + data.conversationHistoryRecords.length);
-					      answer = answer.concat(data.conversationHistoryRecords);
-					      console.log(answer.length);
-					      elaborate(answer);
-					      
-
 				      }
 				      
      
@@ -3693,10 +3562,6 @@ function elaborate(answer){
 				      document.getElementById("reportMSG").style = "color : red";  
                               },
                               beforeSend: function(xhr, settings) { xhr.setRequestHeader('Authorization','Bearer ' + bearer); }
-			
-				 console.log(start + "****" + end + "****" + options);
-		}
-	 
 		});
 	 }
 	 
@@ -3705,7 +3570,131 @@ function elaborate(answer){
 	 });
 	 
 	 
-
+	 function exportData(exportObject){
+		 testTypes = {
+    			"start": "String",
+    			"end": "String",
+			"durationinseconds": "String",
+			"efforttimegeneral": "String",
+			"efforttimeoutbound": "String",
+			"inactivetime": "String",
+    			"agentgeneral": "String",
+			"agentoutbound": "String",
+			"teamgeneral": "String",
+			"teamoutbound": "String",
+			"skill": "String",
+			"channel": "String",
+			"night": "String",
+			"outbound": "String",
+			"telefono": "String",
+			"ricontatto": "String",
+			"cfiscale": "String",
+			"tags": "String",
+			"triplettauno": "String",
+			"triplettadue": "String",
+			"triplettatre": "String",
+			"limbo": "String",
+			"limboGeneral": "String",
+			"limboOutbound": "String",
+			"limboaveragetime": "String",
+			"risvegliata": "String",
+			"risvegliataGeneral": "String",
+			"risvegliataOutbound": "String",
+			"freeze": "String",
+			"freezeGeneral": "String",
+			"freezeOutbound": "String",
+			"risvFreeze": "String",
+			"risvFreezeGeneral": "String",
+			"risvFreezeOutbound": "String",
+			"numeroagentigeneral": "String",
+			"numeroagentioutbound": "String",
+			"numerogruppigeneral": "String",
+			"numerogruppioutbound": "String",
+			"yesno": "String",
+			"comments": "String",
+			"endReason": "String",
+			"timeToAccept": "String",
+			"firstTimeAnswer": "String",
+			"timestampFacebook_priv": "String",
+			"timestampOutbound": "String",
+			"timeInFacebook_bot": "String",
+			"timestampLastActGen": "String",
+			"timestampLastActOut": "String",
+			"timestampNextUnfreeze": "String",
+			"lastActivityAgent": "String",
+			"lastTypeActivityAgent": "String",
+			"customerName": "String",
+			"phoneNumber": "String",
+			"imeiNumber": "String",
+    			"conversation": "String",
+    			"transcript": "String",
+			"campo1": "String",
+			"campo2": "String",
+			"campo3": "String"
+		 };
+		 
+		 emitXmlHeader = function () {
+    			var headerRow =  '<ss:Row>\n';
+    			for (var colName in testTypes) {
+        			headerRow += '  <ss:Cell>\n';
+        			headerRow += '    <ss:Data ss:Type="String">';
+        			headerRow += colName + '</ss:Data>\n';
+        			headerRow += '  </ss:Cell>\n';        
+    			}
+    			headerRow += '</ss:Row>\n';    
+    			return '<?xml version="1.0"?>\n' +
+           			'<ss:Workbook xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet">\n' +
+           			'<ss:Worksheet ss:Name="Sheet1">\n' +
+           			'<ss:Table>\n\n' + headerRow;
+		};
+		 
+		 emitXmlFooter = function() {
+    			return '\n</ss:Table>\n' +
+           			'</ss:Worksheet>\n' +
+           			'</ss:Workbook>\n';
+		};
+		 
+		 jsonToSsXml = function (jsonObject) {
+    			var row;
+    			var col;
+    			var xml;
+    			var data = typeof jsonObject != "object" ? JSON.parse(jsonObject) : jsonObject;
+    
+    			xml = emitXmlHeader();
+    			for (row = 0; row < data.length; row++) {
+        			xml += '<ss:Row>\n';
+      
+        			for (col in data[row]) {
+            				xml += '  <ss:Cell>\n';
+            				xml += '    <ss:Data ss:Type="' + testTypes[col]  + '">';
+            				xml += data[row][col] + '</ss:Data>\n';
+            				xml += '  </ss:Cell>\n';
+        			}
+        			xml += '</ss:Row>\n';
+    			}
+    
+    			xml += emitXmlFooter();
+    			return xml;  
+		};
+		 
+		 download = function (content, filename, contentType) {
+    			if (!contentType) contentType = 'application/octet-stream';
+    			var a = document.getElementById('hiddenbutton');
+    			var blob = new Blob([content], {
+        			'type': contentType
+    			});
+    			a.href = window.URL.createObjectURL(blob);
+    			a.download = filename;
+		};
+		download(jsonToSsXml(exportObject), 'transcripts.xls', 'application/vnd.ms-excel');
+		$("#hiddenbutton")[0].click();
+		
+		 
+	 }
+	 
+	 console.log(start + "****" + end + "****" + options);
+	 
+ }
    
     
 </script>
