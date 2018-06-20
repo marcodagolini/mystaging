@@ -2501,6 +2501,8 @@ checklogin(accnumb, bearer);
 	
 function elaborate(answer){
 	
+	var exportObject = [];
+	
 						      for (var i = 0; i < (answer.length); i++){
 						      
 						      if (i % 1000 == 0){
@@ -3510,7 +3512,7 @@ function elaborate(answer){
 	 var offset = 0;
 	 var body = "";
 	 var answer = [];
-	 var exportObject = [];
+	 
 	 
 	 if (options === "Open"){ 
 		 body = '{"start":{"from":' + start + ',"to":' + end + '},"status":["OPEN"]}'; 
