@@ -2497,64 +2497,11 @@ checklogin(accnumb, bearer);
 	 
  }
 	
- 
- 
- 
- function downloadTranscripts(start, end, options){
-	 
-	 var conversationsToDownload = 0;
-	 var conversationsPartial = 0;
-	 var offset = 0;
-	 var body = "";
-	 var answer = [];
-	 var exportObject = [];
-	 
-	 if (options === "Open"){ 
-		 body = '{"start":{"from":' + start + ',"to":' + end + '},"status":["OPEN"]}'; 
-	 }
-	 else if (options === "Close"){
-		 body = '{"start":{"from":' + start + ',"to":' + end + '},"status":["CLOSE"]}';	 
-	 }
-	 else if (options === "Open+Close"){
-		 body = '{"start":{"from":' + start + ',"to":' + end + '}, "status":["OPEN","CLOSE"]}';	 
-	 }
-	 
-	 function tryUntilSuccess(offset, callback) {
-	 
-	 	$.ajax({
-                              url: "https://" + uri + "/messaging_history/api/account/" + accnumb + "/conversations/search?offset=" + offset + "&limit=100",
-                              method: "POST",
-                              jsonp: "cb",
-                              jsonpCallback: "domainCallback",
-                              cache: true,
-                              contentType: "application/json",
-                              data: body,
-                              success: function success(data) {
-				      
-				      if(offset == 0){
-					      conversationsToDownload = data._metadata.count;    
-				      }
-				      
-				      conversationsPartial = conversationsPartial + data.conversationHistoryRecords.length;
-				      if(conversationsPartial < conversationsToDownload){
-					      offset = conversationsPartial;
-					      answer = answer.concat(data.conversationHistoryRecords);
-					      document.getElementById("reportMSG").innerHTML = "...downloading sessions:" + Math.round(100*(offset/data._metadata.count)) + "% completed...";
-					      document.getElementById("reportMSG").style = "color : green";      
-					      // console.log(data.conversationHistoryRecords);
-					      console.log ("adding conversations...");
-					      console.log(offset + " of --> " + conversationsToDownload);
-					      // setTimeout(function(){
-						      tryUntilSuccess(offset, callback);
-					      // }, 1000);
-				      }
-				      else{
-					      console.log("last bucket: " + data.conversationHistoryRecords.length);
-					      answer = answer.concat(data.conversationHistoryRecords);
-					      console.log(answer.length);
-					      
-					      
-					      for (var i = 0; i < (answer.length); i++){
+function analysis(answer){
+	
+	var exportObject = [];
+	
+						      for (var i = 0; i < (answer.length); i++){
 						      
 						      if (i % 1000 == 0){
 							      console.log("inside refresh");
@@ -3550,6 +3497,67 @@ checklogin(accnumb, bearer);
 						      document.getElementById("reportMSG").innerHTML = "I've not found any conversation in this period!";
 						      document.getElementById("reportMSG").style = "color : red"; 
 					      }
+	
+}
+	
+ 
+ 
+ 
+ function downloadTranscripts(start, end, options){
+	 
+	 var conversationsToDownload = 0;
+	 var conversationsPartial = 0;
+	 var offset = 0;
+	 var body = "";
+	 var answer = [];
+	 
+	 
+	 if (options === "Open"){ 
+		 body = '{"start":{"from":' + start + ',"to":' + end + '},"status":["OPEN"]}'; 
+	 }
+	 else if (options === "Close"){
+		 body = '{"start":{"from":' + start + ',"to":' + end + '},"status":["CLOSE"]}';	 
+	 }
+	 else if (options === "Open+Close"){
+		 body = '{"start":{"from":' + start + ',"to":' + end + '}, "status":["OPEN","CLOSE"]}';	 
+	 }
+	 
+	 function tryUntilSuccess(offset, callback) {
+	 
+	 	$.ajax({
+                              url: "https://" + uri + "/messaging_history/api/account/" + accnumb + "/conversations/search?offset=" + offset + "&limit=100",
+                              method: "POST",
+                              jsonp: "cb",
+                              jsonpCallback: "domainCallback",
+                              cache: true,
+                              contentType: "application/json",
+                              data: body,
+                              success: function success(data) {
+				      
+				      if(offset == 0){
+					      conversationsToDownload = data._metadata.count;    
+				      }
+				      
+				      conversationsPartial = conversationsPartial + data.conversationHistoryRecords.length;
+				      if(conversationsPartial < conversationsToDownload){
+					      offset = conversationsPartial;
+					      answer = answer.concat(data.conversationHistoryRecords);
+					      document.getElementById("reportMSG").innerHTML = "...downloading sessions:" + Math.round(100*(offset/data._metadata.count)) + "% completed...";
+					      document.getElementById("reportMSG").style = "color : green";      
+					      // console.log(data.conversationHistoryRecords);
+					      console.log ("adding conversations...");
+					      console.log(offset + " of --> " + conversationsToDownload);
+					      // setTimeout(function(){
+						      tryUntilSuccess(offset, callback);
+					      // }, 1000);
+				      }
+				      else{
+					      console.log("last bucket: " + data.conversationHistoryRecords.length);
+					      answer = answer.concat(data.conversationHistoryRecords);
+					      console.log(answer.length);
+					      
+					      
+
 				      }
 				      
      
