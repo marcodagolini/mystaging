@@ -2627,18 +2627,15 @@ checklogin(accnumb, bearer);
 function analysis(answer){
 	
 	var exportObject = [];
-	
-						      for (var i = 0; i < (answer.length); i++){
-						      
-						      if (i % 1000 == 0){
-							      console.log("inside refresh");
-						      }
-						      var messages = "";
-						      var thismessage = "";
-						      var thisactor = "";
-						      var endReason = "";
-						      var length = answer[i].messageRecords.length;
-						      for (var m = 0; m < length; m++){
+	var generalCounter = 0;
+	function tryUntilSuccess(generalCounter, callback) {
+							var i = generalCounter;
+							var messages = "";
+							var thismessage = "";
+							var thisactor = "";
+							var endReason = "";
+							var length = answer[i].messageRecords.length;
+							for (var m = 0; m < length; m++){
 							      var type = answer[i].messageRecords[m].type;
 							      if(type === "TEXT_PLAIN"){
 								   thismessage = answer[i].messageRecords[m].messageData.msg.text;
@@ -3611,19 +3608,30 @@ function analysis(answer){
 									"campo3": campo3
 								       };
 						      exportObject = exportObject.concat(pieceToAdd);
-					      }
-				      	      // console.log(exportObject);
-					      if (exportObject.length > 0){
-						      
-						      document.getElementById("reportMSG").innerHTML = answer.length + " Messaging conversations downloaded with success!";
-						      document.getElementById("reportMSG").style = "color : green";
-						      exportData(exportObject);
+		if(generalCounter > 0){
+			generalCounter = generalCounter - 1;
+			tryUntilSuccess(generalCounter, callback);
+		}
+		else{
+			document.getElementById("reportMSG").innerHTML = answer.length + " Messaging conversations downloaded with success!";
+			document.getElementById("reportMSG").style = "color : green";
+			exportData(exportObject);
+		}
 		
-					      }
-					      else{
-						      document.getElementById("reportMSG").innerHTML = "I've not found any conversation in this period!";
-						      document.getElementById("reportMSG").style = "color : red"; 
-					      }
+	}
+	
+
+	
+	if(generalCounter === 0){
+		document.getElementById("reportMSG").innerHTML = "I've not found any conversation in this period!";
+		document.getElementById("reportMSG").style = "color : red";
+	} else{
+		tryUntilSuccess(generalCounter, function(err, resp) {
+			// Your code here...
+		});
+	}
+	
+
 	
 }
 	
