@@ -2627,6 +2627,7 @@ function analysis(answer){
 	
 	var exportObject = [];
 	var generalCounter = 0;
+	var myAnswerLength = answer.length;
 	function tryUntilSuccess(generalCounter, callback) {
 							var i = generalCounter;
 							var messages = "";
@@ -3607,8 +3608,8 @@ function analysis(answer){
 									"campo3": campo3
 								       };
 						      exportObject = exportObject.concat(pieceToAdd);
-		if(generalCounter > 0){
-			generalCounter = generalCounter - 1;
+		generalCounter = generalCounter + 1;
+		if(generalCounter < myAnswerLength){
 			tryUntilSuccess(generalCounter, callback);
 		}
 		else{
@@ -3621,7 +3622,7 @@ function analysis(answer){
 	
 
 	
-	if(generalCounter === 0){
+	if(myAnswerLength === 0){
 		document.getElementById("reportMSG").innerHTML = "I've not found any conversation in this period!";
 		document.getElementById("reportMSG").style = "color : red";
 	} else{
