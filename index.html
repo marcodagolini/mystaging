@@ -3631,6 +3631,7 @@ function analysis(answer){
 		document.getElementById("reportMSG").style = "color : red";
 	} else{
 		tryAnalysisUntilSuccess(generalCounter, function(err, resp) {
+			console.log("here we go: " + generalCounter);
 			// Your code here...
 		});
 	}
