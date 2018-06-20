@@ -3608,13 +3608,7 @@ function analysis(answer){
 									"campo3": campo3
 								       };
 						      exportObject = exportObject.concat(pieceToAdd);
-		console.log(generalCounter);
-		generalCounter = generalCounter + 1;
-		if(generalCounter === myAnswerLength){
-			document.getElementById("reportMSG").innerHTML = answer.length + " Messaging conversations downloaded with success!";
-			document.getElementById("reportMSG").style = "color : green";
-			exportData(exportObject);
-		}
+		
 		
 	}
 	
@@ -3625,8 +3619,11 @@ function analysis(answer){
 		document.getElementById("reportMSG").style = "color : red";
 	} else{
 		for(var mz = 0; mz < generalCounter; mz ++){
-			tryAnalysisUntilSuccess(mz);
+			tryAnalysisUntilSuccess(mz);	
 		}
+		document.getElementById("reportMSG").innerHTML = answer.length + " Messaging conversations downloaded with success!";
+		document.getElementById("reportMSG").style = "color : green";
+		exportData(exportObject);
 	}
 	
 
