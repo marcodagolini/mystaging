@@ -3618,7 +3618,12 @@ function analysis(answer){
 		document.getElementById("reportMSG").style = "color : red";
 	} else{
 		for(var mz = 0; mz < generalCounter; mz ++){
-			tryAnalysisUntilSuccess(mz);	
+			tryAnalysisUntilSuccess(mz);
+			if (mz % 1000 == 0){
+				console.log("inside refresh");
+				document.getElementById("reportMSG").innerHTML = "...analyzing data...";
+				document.getElementById("reportMSG").style = "color : green";
+			}
 		}
 		document.getElementById("reportMSG").innerHTML = answer.length + " Messaging conversations downloaded with success!";
 		document.getElementById("reportMSG").style = "color : green";
