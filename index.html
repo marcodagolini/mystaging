@@ -2620,9 +2620,7 @@ checklogin(accnumb, bearer);
 		 
 	 }
 	 
-	 console.log(start + "****" + end + "****" + options);
-	 
- }
+
 	
 	
 function elaborate(answer){
@@ -3696,6 +3694,10 @@ function elaborate(answer){
 				      document.getElementById("reportMSG").style = "color : red";  
                               },
                               beforeSend: function(xhr, settings) { xhr.setRequestHeader('Authorization','Bearer ' + bearer); }
+			
+				 console.log(start + "****" + end + "****" + options);
+		}
+	 
 		});
 	 }
 	 
