@@ -2620,14 +2620,13 @@ checklogin(accnumb, bearer);
 		 
 	 }
 	
-	
-function analysis(answer){
-	
-	var exportObject = [];
-	var generalCounter = 0;
-	var myAnswerLength = answer.length;
 	function tryAnalysisUntilSuccess(generalCounter) {
-							var i = generalCounter;
+		var i = generalCounter;
+		if (i % 1000 == 0){
+			console.log("inside refresh");
+			document.getElementById("reportMSG").innerHTML = "...analyzing data...";
+			document.getElementById("reportMSG").style = "color : green";
+		}
 							var messages = "";
 							var thismessage = "";
 							var thisactor = "";
@@ -3610,6 +3609,16 @@ function analysis(answer){
 		
 	}
 	
+	
+	
+	
+function analysis(answer){
+	
+	var exportObject = [];
+	var generalCounter = 0;
+	var myAnswerLength = answer.length;
+
+	
 
 	
 	if(myAnswerLength === 0){
@@ -3618,11 +3627,7 @@ function analysis(answer){
 	} else{
 		for(var mz = 0; mz < generalCounter; mz ++){
 			tryAnalysisUntilSuccess(mz);
-			if (mz % 1000 == 0){
-				console.log("inside refresh");
-				document.getElementById("reportMSG").innerHTML = "...analyzing data...";
-				document.getElementById("reportMSG").style = "color : green";
-			}
+			
 		}
 		document.getElementById("reportMSG").innerHTML = answer.length + " Messaging conversations downloaded with success!";
 		document.getElementById("reportMSG").style = "color : green";
