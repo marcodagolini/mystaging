@@ -3612,6 +3612,7 @@ function analysis(answer){
 		generalCounter = generalCounter + 1;
 		if(generalCounter < myAnswerLength){
 			tryUntilSuccess(generalCounter, callback);
+			console.log(generalCounter);
 		}
 		else{
 			document.getElementById("reportMSG").innerHTML = answer.length + " Messaging conversations downloaded with success!";
