@@ -3682,8 +3682,6 @@ checklogin(accnumb, bearer);
 				      if(conversationsPartial < conversationsToDownload){
 					      offset = conversationsPartial;
 					      // answer = answer.concat(data.conversationHistoryRecords);
-					      analysis(answer);
-					      answer = [];
 					      document.getElementById("reportMSG").innerHTML = "...downloading sessions:" + Math.round(100*(offset/data._metadata.count)) + "% completed...";
 					      document.getElementById("reportMSG").style = "color : green";      
 					      // console.log(data.conversationHistoryRecords);
