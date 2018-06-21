@@ -2624,15 +2624,20 @@ checklogin(accnumb, bearer);
 	function tryAnalysisUntilSuccess(generalCounter, answer) {
 		var i = generalCounter;
 		if (i % 1000 == 0){
-			var delay = 100;
+			var inc = 0,
+			    max = 1;
+			delay = 10; // 100 milliseconds
 			function timeoutLoop() {
 				console.log("inside refresh");
 				document.getElementById("reportMSG").innerHTML = "...analyzing data...";
 				document.getElementById("reportMSG").style = "color : green";
 				setTimeout(timeoutLoop, delay);
+				if (++inc < max){
+					setTimeout(timeoutLoop, delay);
+				}
 			}
-			
 			setTimeout(timeoutLoop, delay);
+			
 		}
 		
 							var messages = "";
