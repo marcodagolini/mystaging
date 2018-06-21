@@ -1804,9 +1804,10 @@ function retrieveAgentsLogged(){
 		  } else{
 			  isAssigned = true;
 			  if(!agentLogged.includes(answer[z].info.latestAgentLoginName)){
-				  agentAssigned.push(answer[z].info.latestAgentLoginName);
+				  if(!agentAssigned.includes(answer[z].info.latestAgentLoginName)){
+					  agentAssigned.push(answer[z].info.latestAgentLoginName);
+				  }
 			  }
-			
 		  }
 		  switch(latestSkill) {
 			  case "Facebook_priv":
