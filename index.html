@@ -790,6 +790,8 @@ function retrieveAgentsLogged(){
 	var totalSpots = 0;
 	var availableSpots = 0;
 	
+	agentLogged = [];
+	
 	setTimeout(function(){
 		  
 		  $.ajax({
@@ -803,13 +805,20 @@ function retrieveAgentsLogged(){
 			  data: body,
 			  success: function success(data) {
 				  // console.log("********");
-				  // console.log(JSON.stringify(data));
+				  console.log(JSON.stringify(data));
 				  if(data.hasOwnProperty('_metadata')){
 					  if(data._metadata.hasOwnProperty('count')){
 						  if(data._metadata.count > 0){
 							  if(data.hasOwnProperty('agentStatusRecords')){
 								  var agentStatusRecordsLength = data.agentStatusRecords.length;
 								  for (var z = 0; z < agentStatusRecordsLength; z++){
+									  // agentLogged.push(answer[z].info.latestAgentLoginName);
+									  
+									
+									  
+				  
+			  
+									  
 									  var counted = false;
 									  totalSpots = (data.agentStatusRecords[z].configuredMaxSlots) - (data.agentStatusRecords[z].busySlots);
 									  availableSpots = availableSpots + totalSpots;
@@ -1782,6 +1791,7 @@ function retrieveAgentsLogged(){
 	  var TOtheropenConv =0;
 	  var TOtherassignedConv =0;
 	  var TOtherunassignedConv =0;
+	  agentAssigned = [];
 	  
 	  
 	  
@@ -1796,6 +1806,10 @@ function retrieveAgentsLogged(){
 			  isAssigned = false;
 		  } else{
 			  isAssigned = true;
+			  if(!agentAssigned.includes(answer[z].info.latestAgentLoginName)){
+				  agentAssigned.push(answer[z].info.latestAgentLoginName);
+			  }
+			
 		  }
 		  switch(latestSkill) {
 			  case "Facebook_priv":
