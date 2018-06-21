@@ -2625,10 +2625,17 @@ checklogin(accnumb, bearer);
 	function tryAnalysisUntilSuccess(generalCounter, answer) {
 		var i = generalCounter;
 		if (i % 1000 == 0){
-			console.log("inside refresh");
-			document.getElementById("reportMSG").innerHTML = "...analyzing data...";
-			document.getElementById("reportMSG").style = "color : green";
+			var delay = 100;
+			function timeoutLoop() {
+				console.log("inside refresh");
+				document.getElementById("reportMSG").innerHTML = "...analyzing data...";
+				document.getElementById("reportMSG").style = "color : green";
+				setTimeout(timeoutLoop, delay);
+			}
+			
+			setTimeout(timeoutLoop, delay);
 		}
+		
 							var messages = "";
 							var thismessage = "";
 							var thisactor = "";
