@@ -2039,7 +2039,7 @@ function retrieveAgentsLogged(){
 	  console.log("your logged agents: " + JSON.stringify(agentLogged));
 	  console.log("your not-logged agents: " + JSON.stringify(agentAssigned));
 	  
-	  document.getElementById("offlineAssignedAgent").innerHTML = agentAssigned;
+	  document.getElementById("offlineAssignedAgent").innerHTML = "Operatori offline che hanno conversazioni assegnate: " + agentAssigned;
 	  document.getElementById("offlineAssignedAgent").style = "color : red";
 	  
 	  
