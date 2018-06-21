@@ -632,7 +632,6 @@ span.psw {
   var endCustomDate;
   var overwriteHumanSkill = "";
   var FacebookBotID = "1089636032";
-  var exportObject = [];
   var agentLogged = [];
   var agentAssigned = [];
 	
@@ -2651,7 +2650,7 @@ checklogin(accnumb, bearer);
 	 }
 	
 	function tryAnalysisUntilSuccess(bool, answer) {
-		exportObject = [];
+		var exportObject = [];
 		for (var i = 0; i < answer.length; i++){
 
 		
@@ -3654,7 +3653,6 @@ checklogin(accnumb, bearer);
 	 var offset = 0;
 	 var body = "";
 	 var answer = [];
-	 exportObject = [];
 	 
 	 
 	 if (options === "Open"){ 
