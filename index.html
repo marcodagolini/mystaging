@@ -3624,17 +3624,27 @@ function analysis(answer){
 		document.getElementById("reportMSG").innerHTML = "I've not found any conversation in this period!";
 		document.getElementById("reportMSG").style = "color : red";
 	} else{
-		for(var mz = 0; mz < myAnswerLength; mz ++){
-			if (mz % 1000 == 0){
-				console.log("inside refresh");
-				document.getElementById("reportMSG").innerHTML = "...analyzing data...";
-				document.getElementById("reportMSG").style = "color : green";
-				setTimeout(function(){ tryAnalysisUntilSuccess(mz, answer); }, 100);
-			} else{
-				tryAnalysisUntilSuccess(mz, answer);
+		var mz = 0;
+		function myLoop(){
+			if (mz < myAnswerLength){
+				if (mz % 1000 == 0){
+					setTimeout(function(){
+						console.log("inside refresh");
+						document.getElementById("reportMSG").innerHTML = "...analyzing data...";
+						document.getElementById("reportMSG").style = "color : green";
+						mz++
+						myLoop();
+					}, 100);
+				}else{
+					mz++;
+					myLoop();
+				}
 			}
-			
 		}
+		
+		myLoop();
+		
+		
 		document.getElementById("reportMSG").innerHTML = answer.length + " Messaging conversations downloaded with success!";
 		document.getElementById("reportMSG").style = "color : green";
 		exportData(exportObject);
