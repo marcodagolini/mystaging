@@ -532,7 +532,9 @@ span.psw {
 	</div>
 
 	</br>
-	<div id="slotsAvailable"></div>
+	<div id="slotsAvailable"></div></br></br>
+
+	<div id="offlineAssignedAgent"></div>
 
 	</br></br></br></br>
 
@@ -2037,6 +2039,10 @@ function retrieveAgentsLogged(){
 	  
 	  console.log("your logged agents: " + JSON.stringify(agentLogged));
 	  console.log("your not-logged agents: " + JSON.stringify(agentAssigned));
+	  
+	  document.getElementById("offlineAssignedAgent").innerHTML = agentAssigned;
+	  document.getElementById("offlineAssignedAgent").style = "color : red";
+	  
 	  
 	  
 	 
