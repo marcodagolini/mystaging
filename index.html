@@ -2524,7 +2524,7 @@ checklogin(accnumb, bearer);
  }
 	
 	
-	 function exportData(exportObject, export){
+	 function exportData(exportObject, bool){
 		 testTypes = {
     			"start": "String",
     			"end": "String",
@@ -2641,7 +2641,7 @@ checklogin(accnumb, bearer);
     			a.download = filename;
 		};
 		download(jsonToSsXml(exportObject), 'transcripts.xls', 'application/vnd.ms-excel');
-		if(export){
+		if(bool){
 			$("#hiddenbutton")[0].click();
 		}
 		
@@ -2649,7 +2649,7 @@ checklogin(accnumb, bearer);
 		 
 	 }
 	
-	function tryAnalysisUntilSuccess(export, answer) {
+	function tryAnalysisUntilSuccess(bool, answer) {
 		for (var i = 0; i < answer.length; i++){
 
 		
@@ -3630,7 +3630,7 @@ checklogin(accnumb, bearer);
 									"campo2": campo2,
 									"campo3": campo3
 								       };
-						      exportObject = exportObject.concat(pieceToAdd, export);
+						      exportObject = exportObject.concat(pieceToAdd, bool);
 		}
 		
 		
