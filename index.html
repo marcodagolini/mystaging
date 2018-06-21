@@ -2522,6 +2522,7 @@ checklogin(accnumb, bearer);
 	
 	
 	 function exportData(exportObject, bool){
+		 console.log("inside loop export");
 		 testTypes = {
     			"start": "String",
     			"end": "String",
@@ -2651,6 +2652,8 @@ checklogin(accnumb, bearer);
 	function tryAnalysisUntilSuccess(bool, answer) {
 		var exportObject = [];
 		for (var i = 0; i < answer.length; i++){
+			
+			console.log("inside loop i");
 
 		
 							var messages = "";
