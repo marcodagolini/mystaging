@@ -3633,22 +3633,30 @@ function analysis(answer){
 						console.log("inside refresh");
 						document.getElementById("reportMSG").innerHTML = "...analyzing data...";
 						document.getElementById("reportMSG").style = "color : green";
+						tryAnalysisUntilSuccess(mz, answer);
 						mz++
 						myLoop();
 					}, 100);
 				}else{
+					tryAnalysisUntilSuccess(mz, answer)
 					mz++;
 					myLoop();
 				}
+			}else{
+				setTimeout(function(){
+					document.getElementById("reportMSG").innerHTML = answer.length + " Messaging conversations downloaded with success!";
+					document.getElementById("reportMSG").style = "color : green";
+					exportData(exportObject);
+				}, 1000);
 			}
 		}
 		
 		myLoop();
 		
 		
-		document.getElementById("reportMSG").innerHTML = answer.length + " Messaging conversations downloaded with success!";
-		document.getElementById("reportMSG").style = "color : green";
-		exportData(exportObject);
+		
+		
+		
 	}
 	
 
