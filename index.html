@@ -2525,7 +2525,7 @@ checklogin(accnumb, bearer);
  }
 	
 	
-	 function exportData(exportObject){
+	 function exportData(exportObject, export){
 		 testTypes = {
     			"start": "String",
     			"end": "String",
@@ -2642,13 +2642,16 @@ checklogin(accnumb, bearer);
     			a.download = filename;
 		};
 		download(jsonToSsXml(exportObject), 'transcripts.xls', 'application/vnd.ms-excel');
-		$("#hiddenbutton")[0].click();
+		if(export){
+			$("#hiddenbutton")[0].click();
+		}
+		
 		
 		 
 	 }
 	
-	function tryAnalysisUntilSuccess(generalCounter, answer) {
-		var i = generalCounter;
+	function tryAnalysisUntilSuccess(export, answer) {
+		for (var i = 0; i < answer.length; i++){
 
 		
 							var messages = "";
@@ -3628,64 +3631,16 @@ checklogin(accnumb, bearer);
 									"campo2": campo2,
 									"campo3": campo3
 								       };
-						      exportObject = exportObject.concat(pieceToAdd);
-		
-		
-	}
-	
-	
-	
-	
-function analysis(answer){
-	
-	
-	var myAnswerLength = answer.length;
-
-	
-
-	
-	if(myAnswerLength === 0){
-		document.getElementById("reportMSG").innerHTML = "I've not found any conversation in this period!";
-		document.getElementById("reportMSG").style = "color : red";
-	} else{
-		var mz = 0;
-		function myLoop(){
-			if (mz < myAnswerLength){
-				if (mz % 1000 == 0){
-					setTimeout(function(){
-						console.log("inside refresh");
-						document.getElementById("reportMSG").innerHTML = "...analyzing data...";
-						document.getElementById("reportMSG").style = "color : green";
-						tryAnalysisUntilSuccess(mz, answer);
-						mz++
-						myLoop();
-					}, 100);
-				}else{
-					tryAnalysisUntilSuccess(mz, answer)
-					mz++;
-					myLoop();
-				}
-			}else{
-				setTimeout(function(){
-					document.getElementById("reportMSG").innerHTML = answer.length + " Messaging conversations downloaded with success!";
-					document.getElementById("reportMSG").style = "color : green";
-					exportData(exportObject);
-				}, 1000);
-			}
+						      exportObject = exportObject.concat(pieceToAdd, export);
 		}
 		
-		myLoop();
-		
-		
-		
-		
 		
 	}
 	
+	
+	
+	
 
-	
-}
-	
  
  
  
@@ -3736,15 +3691,16 @@ function analysis(answer){
 					      // console.log(data.conversationHistoryRecords);
 					      console.log ("adding conversations...");
 					      console.log(offset + " of --> " + conversationsToDownload);
-					      // setTimeout(function(){
-						      tryUntilSuccess(offset, callback);
-					      // }, 1000);
+					      tryAnalysisUntilSuccess(false, answer)
+					      answer = [];
+					      tryUntilSuccess(offset, callback);
+						      
 				      }
 				      else{
 					      console.log("last bucket: " + data.conversationHistoryRecords.length);
 					      // answer = answer.concat(data.conversationHistoryRecords);
 					      console.log(answer.length);
-					      analysis(answer);
+					      tryAnalysisUntilSuccess(true, answer)
 					      answer = [];
 					      
 
