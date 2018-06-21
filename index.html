@@ -3727,7 +3727,9 @@ function analysis(answer){
 				      conversationsPartial = conversationsPartial + data.conversationHistoryRecords.length;
 				      if(conversationsPartial < conversationsToDownload){
 					      offset = conversationsPartial;
-					      answer = answer.concat(data.conversationHistoryRecords);
+					      // answer = answer.concat(data.conversationHistoryRecords);
+					      analysis(answer);
+					      answer = [];
 					      document.getElementById("reportMSG").innerHTML = "...downloading sessions:" + Math.round(100*(offset/data._metadata.count)) + "% completed...";
 					      document.getElementById("reportMSG").style = "color : green";      
 					      // console.log(data.conversationHistoryRecords);
@@ -3739,9 +3741,10 @@ function analysis(answer){
 				      }
 				      else{
 					      console.log("last bucket: " + data.conversationHistoryRecords.length);
-					      answer = answer.concat(data.conversationHistoryRecords);
+					      // answer = answer.concat(data.conversationHistoryRecords);
 					      console.log(answer.length);
 					      analysis(answer);
+					      answer = [];
 					      
 
 				      }
