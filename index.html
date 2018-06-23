@@ -2608,13 +2608,14 @@ checklogin(accnumb, bearer);
 		};
 		 
 		 jsonToSsXml = function (jsonObject) {
+			var myLength = jsonObject.lebgth
     			var row;
     			var col;
     			var xml;
     			var data = typeof jsonObject != "object" ? JSON.parse(jsonObject) : jsonObject;
     
     			xml = emitXmlHeader();
-    			for (row = 0; row < data.length; row++) {
+    			for (row = 0; row < myLength; row++) {
         			xml += '<ss:Row>\n';
       
         			for (col in data[0]) {
