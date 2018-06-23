@@ -631,6 +631,7 @@ span.psw {
   var endCustomDate;
   var overwriteHumanSkill = "";
   var FacebookBotID = "1089636032";
+  var exportObject = [];
   var agentLogged = [];
   var agentAssigned = [];
 	
@@ -806,7 +807,7 @@ function retrieveAgentsLogged(){
 			  data: body,
 			  success: function success(data) {
 				  // console.log("********");
-				  // console.log(JSON.stringify(data));
+				  console.log(JSON.stringify(data));
 				  if(data.hasOwnProperty('_metadata')){
 					  if(data._metadata.hasOwnProperty('count')){
 						  if(data._metadata.count > 0){
@@ -2521,8 +2522,7 @@ checklogin(accnumb, bearer);
  }
 	
 	
-	 function exportData(exportObject, bool){
-		 console.log("inside loop export");
+	 function exportData(exportObject){
 		 testTypes = {
     			"start": "String",
     			"end": "String",
@@ -2639,22 +2639,13 @@ checklogin(accnumb, bearer);
     			a.download = filename;
 		};
 		download(jsonToSsXml(exportObject), 'transcripts.xls', 'application/vnd.ms-excel');
-		if(bool){
-			$("#hiddenbutton")[0].click();
-		}
-		
-		
-		
+		$("#hiddenbutton")[0].click();
 		
 		 
 	 }
 	
-	function tryAnalysisUntilSuccess(bool, answer) {
-		var exportObject = [];
-		for (var i = 0; i < answer.length; i++){
-			
-			console.log("inside loop i");
-
+	function tryAnalysisUntilSuccess(generalCounter, answer) {
+		var i = generalCounter;
 		
 							var messages = "";
 							var thismessage = "";
@@ -3633,10 +3624,7 @@ checklogin(accnumb, bearer);
 									"campo2": campo2,
 									"campo3": campo3
 								       };
-						      exportObject = exportObject.concat(pieceToAdd, bool);
-		}
-		
-		exportData(exportObject, bool)
+						      exportObject = exportObject.concat(pieceToAdd);
 		
 		
 	}
@@ -3644,7 +3632,53 @@ checklogin(accnumb, bearer);
 	
 	
 	
-
+function analysis(answer){
+	
+	
+	var myAnswerLength = answer.length;
+	
+	
+	if(myAnswerLength === 0){
+		document.getElementById("reportMSG").innerHTML = "I've not found any conversation in this period!";
+		document.getElementById("reportMSG").style = "color : red";
+	} else{
+		var mz = 0;
+		function myLoop(){
+			if (mz < myAnswerLength){
+				if (mz % 1000 == 0){
+					setTimeout(function(){
+						console.log("inside refresh");
+						document.getElementById("reportMSG").innerHTML = "...analyzing data...";
+						document.getElementById("reportMSG").style = "color : green";
+						tryAnalysisUntilSuccess(mz, answer);
+						mz++
+						myLoop();
+					}, 100);
+				}else{
+					tryAnalysisUntilSuccess(mz, answer)
+					mz++;
+					myLoop();
+				}
+			}else{
+				setTimeout(function(){
+					document.getElementById("reportMSG").innerHTML = answer.length + " Messaging conversations downloaded with success!";
+					document.getElementById("reportMSG").style = "color : green";
+					exportData(exportObject);
+				}, 1000);
+			}
+		}
+		
+		myLoop();
+		
+		
+		
+		
+		
+	}
+	
+	
+}
+	
  
  
  
@@ -3655,6 +3689,7 @@ checklogin(accnumb, bearer);
 	 var offset = 0;
 	 var body = "";
 	 var answer = [];
+	 exportObject = [];
 	 
 	 
 	 if (options === "Open"){ 
@@ -3686,25 +3721,22 @@ checklogin(accnumb, bearer);
 				      conversationsPartial = conversationsPartial + data.conversationHistoryRecords.length;
 				      if(conversationsPartial < conversationsToDownload){
 					      offset = conversationsPartial;
-					      answer = [];
-					      answer = data.conversationHistoryRecords;
+					      answer = answer.concat(data.conversationHistoryRecords);
 					      document.getElementById("reportMSG").innerHTML = "...downloading sessions:" + Math.round(100*(offset/data._metadata.count)) + "% completed...";
 					      document.getElementById("reportMSG").style = "color : green";      
 					      // console.log(data.conversationHistoryRecords);
 					      console.log ("adding conversations...");
 					      console.log(offset + " of --> " + conversationsToDownload);
-					      tryAnalysisUntilSuccess(false, answer)
-					      
-					      tryUntilSuccess(offset, callback);
-						      
+					      // setTimeout(function(){
+						      tryUntilSuccess(offset, callback);
+					      // }, 1000);
 				      }
 				      else{
 					      console.log("last bucket: " + data.conversationHistoryRecords.length);
-					      answer = [];
-					      answer = data.conversationHistoryRecords;
+					      answer = answer.concat(data.conversationHistoryRecords);
 					      console.log(answer.length);
-					      tryAnalysisUntilSuccess(true, answer)
-
+					      analysis(answer);
+					      
 				      }
 				      
      
@@ -3723,7 +3755,6 @@ checklogin(accnumb, bearer);
 	 });
 	 
 	 
-
 	 
 	 console.log(start + "****" + end + "****" + options);
 	 
