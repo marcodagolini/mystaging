@@ -2616,13 +2616,14 @@ checklogin(accnumb, bearer);
     			for (row = 0; row < data.length; row++) {
         			xml += '<ss:Row>\n';
       
-        			for (col in data[row]) {
+        			for (col in data[0]) {
             				xml += '  <ss:Cell>\n';
             				xml += '    <ss:Data ss:Type="' + testTypes[col]  + '">';
-            				xml += data[row][col] + '</ss:Data>\n';
+            				xml += data[0][col] + '</ss:Data>\n';
             				xml += '  </ss:Cell>\n';
         			}
         			xml += '</ss:Row>\n';
+				data.splice(0, 1);
     			}
     
     			xml += emitXmlFooter();
@@ -3663,6 +3664,7 @@ function analysis(answer){
 				setTimeout(function(){
 					document.getElementById("reportMSG").innerHTML = answer.length + " Messaging conversations downloaded with success!";
 					document.getElementById("reportMSG").style = "color : green";
+					answer = [];
 					exportData(exportObject);
 				}, 1000);
 			}
