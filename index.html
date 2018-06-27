@@ -532,7 +532,9 @@ span.psw {
 	</br>
 	<div id="slotsAvailable"></div></br></br>
 
-	<div id="offlineAssignedAgent"></div>
+	<div id="offlineAssignedAgent"></div></br></br>
+
+	<div id="unassignedConversationsList"></div>
 
 	</br></br></br></br>
 
@@ -1789,6 +1791,8 @@ function retrieveAgentsLogged(){
 	  var TOtherunassignedConv =0;
 	  agentAssigned = [];
 	  
+	  var unassignedConversationsList = "Conversazioni non assegnate:";
+	  
 	  
 	  
 	  $('#loadingStats').css('display', 'none');
@@ -1816,6 +1820,7 @@ function retrieveAgentsLogged(){
 					  FBPassignedConv ++;
 					  TFBassignedConv ++;
 				  } else{
+					  unassignedConversationsList = unassignedConversationsList + "<br>Facebook_priv: " + answer[z].info.conversationId;
 					  FBPunassignedConv ++;
 					  TFBunassignedConv ++;
 				  }
@@ -1829,6 +1834,7 @@ function retrieveAgentsLogged(){
 					  FBRassignedConv ++;
 					  TFBassignedConv ++;
 				  } else{
+					  unassignedConversationsList = unassignedConversationsList + "<br>Facebook_risvegliate: " + answer[z].info.conversationId;
 					  FBRunassignedConv ++;
 					  TFBunassignedConv ++;
 				  }
@@ -1841,6 +1847,7 @@ function retrieveAgentsLogged(){
 					  FBPNassignedConv ++;
 					  TFBassignedConv ++;
 				  } else{
+					  unassignedConversationsList = unassignedConversationsList + "<br>Facebook_priv_night: " + answer[z].info.conversationId;
 					  FBPNunassignedConv ++;
 					  TFBunassignedConv ++;
 				  }
@@ -1853,6 +1860,7 @@ function retrieveAgentsLogged(){
 					  FBPNRassignedConv ++;
 					  TFBassignedConv ++;
 				  } else{
+					  unassignedConversationsList = unassignedConversationsList + "<br>Facebook_priv_night_risvegli: " + answer[z].info.conversationId;
 					  FBPNRunassignedConv ++;
 					  TFBunassignedConv ++;
 				  }
@@ -1865,6 +1873,7 @@ function retrieveAgentsLogged(){
 					  HassignedConv ++;
 					  TWebassignedConv ++;
 				  } else{
+					  unassignedConversationsList = unassignedConversationsList + "<br>Human: " + answer[z].info.conversationId;
 					  HunassignedConv ++;
 					  TWebunassignedConv ++;
 				  }
@@ -1877,6 +1886,7 @@ function retrieveAgentsLogged(){
 					  HRassignedConv ++;
 					  TWebassignedConv ++;
 				  } else{
+					  unassignedConversationsList = unassignedConversationsList + "<br>Human_risvegliate: " + answer[z].info.conversationId;
 					  HRunassignedConv ++;
 					  TWebunassignedConv ++;
 				  }
@@ -1889,6 +1899,7 @@ function retrieveAgentsLogged(){
 					  HNassignedConv ++;
 					  TWebassignedConv ++;
 				  } else{
+					  unassignedConversationsList = unassignedConversationsList + "<br>Human_night: " + answer[z].info.conversationId;
 					  HNunassignedConv ++;
 					  TWebunassignedConv ++;
 				  }
@@ -1901,6 +1912,7 @@ function retrieveAgentsLogged(){
 					  HNRassignedConv ++;
 					  TWebassignedConv ++;
 				  } else{
+					  unassignedConversationsList = unassignedConversationsList + "<br>Human_night_risvegliate: " + answer[z].info.conversationId;
 					  HNRunassignedConv ++;
 					  TWebunassignedConv ++;
 				  }
@@ -1913,6 +1925,7 @@ function retrieveAgentsLogged(){
 					  OassignedConv ++;
 					  TOassignedConv ++;
 				  } else{
+					  unassignedConversationsList = unassignedConversationsList + "<br>Outbound: " + answer[z].info.conversationId;
 					  OunassignedConv ++;
 					  TOunassignedConv ++;
 				  }
@@ -1925,6 +1938,7 @@ function retrieveAgentsLogged(){
 					  ORassignedConv ++;
 					  TOassignedConv ++;
 				  } else{
+					  unassignedConversationsList = unassignedConversationsList + "<br>outbound_risvegliate: " + answer[z].info.conversationId;
 					  ORunassignedConv ++;
 					  TOunassignedConv ++;
 				  }
@@ -1937,6 +1951,7 @@ function retrieveAgentsLogged(){
 					  OFassignedConv ++;
 					  TOassignedConv ++;
 				  } else{
+					  unassignedConversationsList = unassignedConversationsList + "<br>outbound_fixed: " + answer[z].info.conversationId;
 					  OFunassignedConv ++;
 					  TOunassignedConv ++;
 				  }
@@ -1949,6 +1964,7 @@ function retrieveAgentsLogged(){
 					  OFRassignedConv ++;
 					  TOassignedConv ++;
 				  } else{
+					  unassignedConversationsList = unassignedConversationsList + "<br>Outbound_fixed_risvegliate: " + answer[z].info.conversationId;
 					  OFRunassignedConv ++;
 					  TOunassignedConv ++;
 				  }
@@ -1961,6 +1977,7 @@ function retrieveAgentsLogged(){
 					  IassignedConv ++;
 					  TOtherassignedConv ++;
 				  } else{
+					  unassignedConversationsList = unassignedConversationsList + "<br>Inglese: " + answer[z].info.conversationId;
 					  IunassignedConv ++;
 					  TOtherunassignedConv ++;
 				  }
@@ -1973,6 +1990,7 @@ function retrieveAgentsLogged(){
 					  PassignedConv ++;
 					  TOtherassignedConv ++;
 				  } else{
+					  unassignedConversationsList = unassignedConversationsList + "<br>Priority: " + answer[z].info.conversationId;
 					  PunassignedConv ++;
 					  TOtherunassignedConv ++;
 				  }
@@ -2040,6 +2058,9 @@ function retrieveAgentsLogged(){
 	  
 	  document.getElementById("offlineAssignedAgent").innerHTML = "Operatori offline che hanno conversazioni assegnate: " + agentAssigned;
 	  document.getElementById("offlineAssignedAgent").style = "color : red";
+	  
+	  document.getElementById("unassignedConversationsList").innerHTML = unassignedConversationsList;
+	  document.getElementById("unassignedConversationsList").style = "color : red";
 	  
 	  
 	  
