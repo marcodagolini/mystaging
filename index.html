@@ -2808,6 +2808,7 @@ checklogin(accnumb, bearer);
 							      var participantID = 0;
 							      var controlOB = 0;
 							      var night = "No";
+							      var campo1 = "";
 							      if((channel === "FaceBook") || (channel === "Web")){
 								      if(answer[i].hasOwnProperty('transfers')){
 									      if (typeof answer[i].transfers !== 'undefined' && answer[i].transfers.length > 0) {
@@ -2844,6 +2845,20 @@ checklogin(accnumb, bearer);
 								      }
 								      
 								      if(channel === "FaceBook"){
+									      
+									      
+									      if(answer[i].hasOwnProperty('sdes')){
+										      if(answer[i].sdes.hasOwnProperty('events')){
+											      var searchCustomerInfo = answer[i].sdes.events.length;
+											      for (var wq = 0; wq  < searchCustomerInfo; wq ++){
+												      if(answer[i].sdes.events[wq].hasOwnProperty('customerInfo')){
+													      campo1 = answer[i].sdes.events[wq].customerInfo[0].customerInfo[0].customerId;
+													      wq = searchCustomerInfo;
+												      }
+											      }
+										      }
+									      }
+									      
 									 
 									 if(answer[i].hasOwnProperty('agentParticipants') && answer[i].agentParticipants.length){
 									      for (var b = 0; b < answer[i].agentParticipants.length; b++){
@@ -3602,7 +3617,7 @@ checklogin(accnumb, bearer);
 								}
 						      }
 						      
-						      var campo1 = "";
+						      
 						      var campo2 = "";
 						      var campo3 = "";
 	
