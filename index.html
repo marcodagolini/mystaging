@@ -2851,7 +2851,7 @@ checklogin(accnumb, bearer);
 											      var searchCustomerInfo = answer[i].sdes.events.length;
 											      for (var wq = 0; wq  < searchCustomerInfo; wq ++){
 												      if(answer[i].sdes.events[wq].hasOwnProperty('customerInfo')){
-													      campo1 = answer[i].sdes.events[wq].customerInfo[0].customerInfo[0].customerId;
+													      campo1 = answer[i].sdes.events[wq].customerInfo.customerInfo.customerId;
 													      wq = searchCustomerInfo;
 												      }
 											      }
