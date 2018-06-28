@@ -1815,14 +1815,14 @@ function retrieveAgentsLogged(){
 			  if(answer[z].hasOwnProperty('transfers')){
 				  var rew = answer[z].transfers.length;
 				  if(rew === 0){
-					  waitingFrom = Math.round(Date.now() - answer[z].info.startTimeL)/1000);
+					  waitingFrom = Math.round((Date.now() - answer[z].info.startTimeL)/1000);
 					  stringWaitingFrom = ", " + waitingFrom;
 				  } else{
-					  waitingFrom = Math.round(Date.now() - answer[z].transfer[(rew-1)].timeL)/1000);
+					  waitingFrom = Math.round((Date.now() - answer[z].transfer[(rew-1)].timeL)/1000);
 					  stringWaitingFrom = ", " + waitingFrom; 
 				  }
 			  } else{
-				  waitingFrom = Math.round(Date.now() - answer[z].info.startTimeL)/1000);
+				  waitingFrom = Math.round((Date.now() - answer[z].info.startTimeL)/1000);
 				  stringWaitingFrom = ", " + waitingFrom;	  
 			  }
 		  } else{
