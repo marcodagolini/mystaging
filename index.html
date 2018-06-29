@@ -573,6 +573,11 @@ button[disabled]{
 		var xhr = new XMLHttpRequest();
 		xhr.addEventListener("readystatechange", function () {
 			if (this.readyState === 4) {
+				document.getElementById("alert").innerHTML = "Dati recuperati con successo!";
+				document.getElementById("alert").style = "color : green";
+				setTimeout(function(){
+					document.getElementById("alert").innerHTML = "";
+				}, 3000)
 				console.log(xhr.response);
 				var myXHR = JSON.parse(xhr.response)
 				console.log(cfiscaleTobi);
@@ -591,11 +596,11 @@ button[disabled]{
 				
 				
 				if(myXHR[3] !== null){
-					document.getElementById("alertAwake").innerHTML = "Dati recuperati con successo!";
-					document.getElementById("alert").style = "color : green";
-					setTimeout(function(){
-						document.getElementById("alertAwake").innerHTML = "";
-					}, 3000)
+					
+					
+					
+						
+					
 					if(myXHR[3].indexOf(",") == -1){
 						$(".chzn-select").val(myXHR[3]).trigger('chosen:updated');
 					} else{
