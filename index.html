@@ -718,10 +718,18 @@ button[disabled]{
         		var xhr = new XMLHttpRequest();
         		xhr.addEventListener("readystatechange", function () {
           			if (this.readyState === 4) {
-					// var jsonResult = JSON.parse(this.responseText);
-            				document.getElementById("alert").innerHTML = "fatto!";
-            				document.getElementById("alert").style = "color : green";
 					console.log(xhr.response);
+					if(xhr.response === "inviato"){
+						document.getElementById("alert").innerHTML = "fatto!";
+						document.getElementById("alert").style = "color : green";
+					} else{
+						document.getElementById("alert").innerHTML = "dati non inviati!";
+						document.getElementById("alert").style = "color : red";
+					}
+					// var jsonResult = JSON.parse(this.responseText);
+            				
+            				
+					
 					setTimeout(function(){
 						document.getElementById("alert").innerHTML = "";
 					}, 3000);
