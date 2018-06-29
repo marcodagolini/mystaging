@@ -670,6 +670,10 @@ button[disabled]{
 	
       
 	function sendData() {
+		$("#submit").prop( "disabled", true );
+		setTimeout(function(){
+			$("#submit").prop( "disabled", false ); 
+		}, 5000);
 		document.getElementById("alert").innerHTML = "...invio dati...";
             	document.getElementById("alert").style = "color : red";
 		
