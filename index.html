@@ -1792,6 +1792,12 @@ function retrieveAgentsLogged(){
 	  var FBPNRopenConv =0;
 	  var FBPNRassignedConv =0;
 	  var FBPNRunassignedConv =0;
+	  var FIXopenConv =0;
+	  var FIXassignedConv =0;
+	  var FIXunassignedConv =0;
+	  var FIXRopenConv =0;
+	  var FIXRassignedConv =0;
+	  var FIXRunassignedConv =0;
 	  var HopenConv =0;
 	  var HassignedConv =0;
 	  var HunassignedConv =0;
@@ -1930,6 +1936,36 @@ function retrieveAgentsLogged(){
 					  TFBunassignedConv ++;
 				  }
 				  break;
+				  
+			case "Fixed":
+				  FIXopenConv ++;
+				  TFBopenConv ++;
+				  if(isAssigned){
+					  assignedConversationsList = assignedConversationsList + "<br>" + answer[z].info.latestAgentFullName + ": " + answer[z].info.conversationId;
+					  FIXassignedConv ++;
+					  TFBassignedConv ++;
+				  } else{
+					  unassignedConversationsList = unassignedConversationsList + "<br>Facebook_priv: " + answer[z].info.conversationId + stringWaitingFrom;
+					  FIXunassignedConv ++;
+					  TFBunassignedConv ++;
+				  }
+				  break;
+				  
+			case "Fixed_risvegliata":
+				  FIXRopenConv ++;
+				  TFBopenConv ++;
+				  if(isAssigned){
+					  assignedConversationsList = assignedConversationsList + "<br>" + answer[z].info.latestAgentFullName + ": " + answer[z].info.conversationId;
+					  FIXRassignedConv ++;
+					  TFBassignedConv ++;
+				  } else{
+					  unassignedConversationsList = unassignedConversationsList + "<br>Facebook_priv: " + answer[z].info.conversationId + stringWaitingFrom;
+					  FIXRunassignedConv ++;
+					  TFBunassignedConv ++;
+				  }
+				  break;
+				  
+				  
 				  
 			case "human":
 				  HopenConv ++;
@@ -2085,6 +2121,12 @@ function retrieveAgentsLogged(){
 	  document.getElementById("FBPNRopenConv").innerHTML = FBPNRopenConv;
 	  document.getElementById("FBPNRassignedConv").innerHTML = FBPNRassignedConv;
 	  document.getElementById("FBPNRunassignedConv").innerHTML = FBPNRunassignedConv;
+	  document.getElementById("FIXopenConv").innerHTML = FIXopenConv;
+	  document.getElementById("FIXRassignedConv").innerHTML = FIXRassignedConv;
+	  document.getElementById("FIXunassignedConv").innerHTML = FIXunassignedConv;
+	  document.getElementById("FIXRopenConv").innerHTML = FIXRopenConv;
+	  document.getElementById("FIXRassignedConv").innerHTML = FIXRassignedConv;
+	  document.getElementById("FIXRunassignedConv").innerHTML = FIXRunassignedConv;
 	  document.getElementById("HopenConv").innerHTML = HopenConv;
 	  document.getElementById("HassignedConv").innerHTML = HassignedConv;
 	  document.getElementById("HunassignedConv").innerHTML = HunassignedConv;
