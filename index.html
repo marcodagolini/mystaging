@@ -554,9 +554,7 @@ span.psw {
 	</br>
 	<div id="slotsAvailable"></div></br></br>
 
-	<div id="offlineAssignedAgent"></div></br></br>
-
-	<div id="unassignedConversationsList"></div>
+	<div id="offlineAssignedAgent"></div>
 
 	</br></br></br></br>
 
@@ -625,6 +623,12 @@ span.psw {
     <button type="button" id ="downloadTranscripts" class="downloadTranscripts" disabled>Download</button></br></br>
     <div id="reportMSG"></div>
     </br></br></br>
+
+	
+
+	<div id="unassignedConversationsList"></div>
+
+	</br></br>
 
 	<div id="assignedConversationsList"></div>
 
@@ -2180,7 +2184,7 @@ function retrieveAgentsLogged(){
 	  document.getElementById("unassignedConversationsList").style = "color : red";
 	  
 	  document.getElementById("assignedConversationsList").innerHTML = assignedConversationsList;
-	  document.getElementById("assignedConversationsList").style = "color : red";
+	  document.getElementById("assignedConversationsList").style = "color : green";
 	  
 	  
 	  
