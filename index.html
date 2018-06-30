@@ -997,7 +997,7 @@ function retrieveAgentsLogged(){
 																  TFBslots = TFBslots + totalSpots;
 																  FBcounted = true;
 															  }
-															  FBPslots = FBPslots + totalSpots;
+															  FIXslots = FIXslots + totalSpots;
 															  break;
 															  
 															  case "AWAY":
@@ -1027,7 +1027,7 @@ function retrieveAgentsLogged(){
 																  TFBslots = TFBslots + totalSpots;
 																  FBcounted = true;
 															  }
-															  FBPslots = FBPslots + totalSpots;
+															  FIXRslots = FIXRslots + totalSpots;
 															  break;
 															  
 															  case "AWAY":
@@ -1383,6 +1383,16 @@ function retrieveAgentsLogged(){
 				  document.getElementById("FBPNRsoonAgents").innerHTML = FBPNRsoonAgents;
 				  FBPNRslots = (Math.round(FBPNRslots * 100) / 100);
 				  document.getElementById("FBPNRslots").innerHTML = FBPNRslots;
+				  document.getElementById("FIXonlineAgents").innerHTML = FIXonlineAgents;
+				  document.getElementById("FIXawayAgents").innerHTML = FIXawayAgents;
+				  document.getElementById("FIXsoonAgents").innerHTML = FIXsoonAgents;
+				  FBPNRslots = (Math.round(FIXslots * 100) / 100);
+				  document.getElementById("FIXslots").innerHTML = FIXslots;
+				  document.getElementById("FIXRonlineAgents").innerHTML = FIXRonlineAgents;
+				  document.getElementById("FIXRawayAgents").innerHTML = FIXRawayAgents;
+				  document.getElementById("FIXRsoonAgents").innerHTML = FIXRsoonAgents;
+				  FBPNRslots = (Math.round(FIXRslots * 100) / 100);
+				  document.getElementById("FIXRslots").innerHTML = FIXRslots;
 				  document.getElementById("HonlineAgents").innerHTML = HonlineAgents;
 				  document.getElementById("HawayAgents").innerHTML = HawayAgents;
 				  document.getElementById("HsoonAgents").innerHTML = HsoonAgents;
