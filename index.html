@@ -3807,7 +3807,7 @@ function analysis(answer){
 	} else{
 		var mz = 0;
 		function myLoop(){
-			setTimeout(function(i) {
+			setTimeout(function(mz) {
 				if (mz < myAnswerLength){
 					if (mz % 1000 == 0){
 						console.log("inside refresh");
@@ -3829,7 +3829,7 @@ function analysis(answer){
 						exportData(exportObject);
 					}, 1000);
 				}
-			}, 0, i);
+			}, 0, mz);
 		}
 		
 		myLoop();
