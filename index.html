@@ -3807,7 +3807,7 @@ function analysis(answer){
 	} else{
 		document.getElementById("reportMSG").innerHTML = "...analyzing data...";
 		document.getElementById("reportMSG").style = "color : green";
-		for (var mz = ; mz <= myAnswerLength; mz++) {
+		for (var mz = 0; mz <= myAnswerLength; mz++) {
 			if(mz === myAnswerLength){
 				document.getElementById("reportMSG").innerHTML = answer.length + " Messaging conversations downloaded with success!";
 				document.getElementById("reportMSG").style = "color : green";
