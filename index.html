@@ -2782,6 +2782,7 @@ checklogin(accnumb, bearer);
     			});
     			a.href = window.URL.createObjectURL(blob);
     			a.download = filename;
+			$("#downloadTranscripts").prop( "disabled", false ); 
 		};
 		download(jsonToSsXml(exportObject), 'transcripts.xls', 'application/vnd.ms-excel');
 		$("#hiddenbutton")[0].click();
@@ -3839,6 +3840,7 @@ function analysis(answer){
 	 var answer = [];
 	 exportObject = [];
 	 
+	 $("#downloadTranscripts").prop( "disabled", true ); 
 	 
 	 if (options === "Open"){ 
 		 body = '{"start":{"from":' + start + ',"to":' + end + '},"status":["OPEN"]}'; 
