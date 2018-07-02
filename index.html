@@ -2786,7 +2786,7 @@ checklogin(accnumb, bearer);
     			a.download = filename;
 			$("#downloadTranscripts").prop( "disabled", false ); 
 		};
-		download(jsonToSsXml(exportObject), 'transcripts.xls', 'application/vnd.ms-excel');
+		download(jsonToSsXml(exportObject), 'transcripts.xls', 'text/csv');
 		$("#hiddenbutton")[0].click();
 		
 		 
