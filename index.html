@@ -2782,7 +2782,7 @@ checklogin(accnumb, bearer);
         			headerRow += '  </ss:Cell>\n';        
     			}
     			headerRow += '</ss:Row>\n';    
-    			return '<?xml version="1.0"?>\n' +
+    			return '<?xml version="1.0" encoding="UTF-8"?>\n' +
            			'<ss:Workbook xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet">\n' +
            			'<ss:Worksheet ss:Name="Sheet1">\n' +
            			'<ss:Table>\n\n' + headerRow;
