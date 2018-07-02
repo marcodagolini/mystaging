@@ -2834,6 +2834,7 @@ checklogin(accnumb, bearer);
    			
 			console.log("your URL: " + uri);
     			a.download = filename;
+			a.dispatchEvent(new MouseEvent('click'));
 			$("#downloadTranscripts").prop( "disabled", false ); 
 		};
 		download(jsonToSsXml(exportObject), 'transcripts.xls', 'application/vnd.ms-excel');
