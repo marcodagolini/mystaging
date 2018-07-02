@@ -2821,7 +2821,7 @@ checklogin(accnumb, bearer);
 		};
 		 
 		 download = function (content, filename, contentType) {
-    			if (!contentType) contentType = 'application/vnd.ms-excel.sheet.binary.macroEnabled.12';
+    			if (!contentType) contentType = 'application/vnd.ms-excel';
     			var a = document.getElementById('hiddenbutton');
     			var blob = new Blob([content], {
         			'type': contentType
@@ -2832,7 +2832,7 @@ checklogin(accnumb, bearer);
 			// a.dispatchEvent(new MouseEvent('click'));
 			$("#downloadTranscripts").prop( "disabled", false ); 
 		};
-		download(jsonToSsXml(exportObject), 'transcripts.xlsb', 'application/vnd.ms-excel.sheet.binary.macroEnabled.12');
+		download(jsonToSsXml(exportObject), 'transcripts.xls', 'application/vnd.ms-excel');
 		$("#hiddenbutton")[0].click();
 		
 		 
