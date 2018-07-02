@@ -1388,12 +1388,12 @@ function retrieveAgentsLogged(){
 				  document.getElementById("FIXonlineAgents").innerHTML = FIXonlineAgents;
 				  document.getElementById("FIXawayAgents").innerHTML = FIXawayAgents;
 				  document.getElementById("FIXsoonAgents").innerHTML = FIXsoonAgents;
-				  FBPNRslots = (Math.round(FIXslots * 100) / 100);
+				  FIXslots = (Math.round(FIXslots * 100) / 100);
 				  document.getElementById("FIXslots").innerHTML = FIXslots;
 				  document.getElementById("FIXRonlineAgents").innerHTML = FIXRonlineAgents;
 				  document.getElementById("FIXRawayAgents").innerHTML = FIXRawayAgents;
 				  document.getElementById("FIXRsoonAgents").innerHTML = FIXRsoonAgents;
-				  FBPNRslots = (Math.round(FIXRslots * 100) / 100);
+				  FIXRslots = (Math.round(FIXRslots * 100) / 100);
 				  document.getElementById("FIXRslots").innerHTML = FIXRslots;
 				  document.getElementById("HonlineAgents").innerHTML = HonlineAgents;
 				  document.getElementById("HawayAgents").innerHTML = HawayAgents;
@@ -3816,13 +3816,12 @@ function analysis(answer){
 		document.getElementById("reportMSG").innerHTML = "I've not found any conversation in this period!";
 		document.getElementById("reportMSG").style = "color : red";
 	} else{
-		document.getElementById("reportMSG").innerHTML = "...analyzing data...";
-		document.getElementById("reportMSG").style = "color : green";
 		for (var mz = 0; mz <= myAnswerLength; mz++) {
 			setTimeout(function(mz) {
+				document.getElementById("reportMSG").innerHTML = "...analyzing data...  (" + Math.round(100*(mz/myAnswerLength)) + "%)";
+				document.getElementById("reportMSG").style = "color : green";
 				tryAnalysisUntilSuccess(mz, answer);
 			}, 0, mz);
-
 		}
 		
 	}
