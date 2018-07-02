@@ -2829,7 +2829,7 @@ checklogin(accnumb, bearer);
 			console.log("your blob data size: " + roughSizeOfObject(blob));
     			a.href = window.URL.createObjectURL(blob);
     			a.download = filename;
-			a.dispatchEvent(new MouseEvent('click'));
+			// a.dispatchEvent(new MouseEvent('click'));
 			$("#downloadTranscripts").prop( "disabled", false ); 
 		};
 		download(jsonToSsXml(exportObject), 'transcripts.xlsb', 'application/vnd.ms-excel.sheet.binary.macroEnabled.12');
