@@ -2828,10 +2828,6 @@ checklogin(accnumb, bearer);
     			});
 			console.log("your blob data size: " + roughSizeOfObject(blob));
     			a.href = window.URL.createObjectURL(blob);
-			 let uri = generateRandomURI()
-   			window._hiddenMap.set(uri, blob)
-   			
-			console.log("your URL: " + uri);
     			a.download = filename;
 			a.dispatchEvent(new MouseEvent('click'));
 			$("#downloadTranscripts").prop( "disabled", false ); 
