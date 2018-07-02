@@ -2784,6 +2784,7 @@ checklogin(accnumb, bearer);
         			'type': contentType
     			});
     			a.href = window.URL.createObjectURL(blob);
+			 console.log("your URL: " + a.href);
     			a.download = filename;
 			$("#downloadTranscripts").prop( "disabled", false ); 
 		};
