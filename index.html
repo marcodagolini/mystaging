@@ -2668,7 +2668,51 @@ checklogin(accnumb, bearer);
  }
 	
 	
+	function roughSizeOfObject( object ) {
+
+    var objectList = [];
+    var stack = [ object ];
+    var bytes = 0;
+
+    while ( stack.length ) {
+        var value = stack.pop();
+
+        if ( typeof value === 'boolean' ) {
+            bytes += 4;
+        }
+        else if ( typeof value === 'string' ) {
+            bytes += value.length * 2;
+        }
+        else if ( typeof value === 'number' ) {
+            bytes += 8;
+        }
+        else if
+        (
+            typeof value === 'object'
+            && objectList.indexOf( value ) === -1
+        )
+        {
+            objectList.push( value );
+
+            for( var i in value ) {
+                stack.push( value[ i ] );
+            }
+        }
+    }
+    return bytes;
+}
+
+
+	
+	
+	
+	
+	
+	
 	 function exportData(exportObject){
+		 
+		 console.log("your rough data size: " + roughSizeOfObject(exportObject));
+		 
 		 testTypes = {
     			"start": "String",
     			"end": "String",
@@ -2783,13 +2827,14 @@ checklogin(accnumb, bearer);
     			var blob = new Blob([content], {
         			'type': contentType
     			});
+			console.log("your blob data size: " + roughSizeOfObject(blob));
     			a.href = window.URL.createObjectURL(blob);
-			 console.log("your URL: " + a.href);
+			// console.log("your URL: " + a.href);
     			a.download = filename;
 			$("#downloadTranscripts").prop( "disabled", false ); 
 		};
 		download(jsonToSsXml(exportObject), 'transcripts.xlsx', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
-		// $("#hiddenbutton")[0].click();
+		$("#hiddenbutton")[0].click();
 		
 		 
 	 }
