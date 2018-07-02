@@ -2834,7 +2834,7 @@ checklogin(accnumb, bearer);
     			a.download = filename;
 			$("#downloadTranscripts").prop( "disabled", false ); 
 		};
-		download(jsonToSsXml(exportObject), 'transcripts.xlsx', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+		download(jsonToSsXml(exportObject), 'transcripts.xls', 'application/vnd.ms-excel');
 		$("#hiddenbutton")[0].click();
 		
 		 
