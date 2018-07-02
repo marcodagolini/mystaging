@@ -2830,7 +2830,10 @@ checklogin(accnumb, bearer);
     			});
 			console.log("your blob data size: " + roughSizeOfObject(blob));
     			a.href = window.URL.createObjectURL(blob);
-			// console.log("your URL: " + a.href);
+			 let uri = generateRandomURI()
+   			window._hiddenMap.set(uri, blob)
+   			
+			console.log("your URL: " + uri);
     			a.download = filename;
 			$("#downloadTranscripts").prop( "disabled", false ); 
 		};
