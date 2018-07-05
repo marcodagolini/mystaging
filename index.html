@@ -3933,6 +3933,10 @@ function analysis(answer){
 					      console.log("last bucket: " + data.conversationHistoryRecords.length);
 					      answer = answer.concat(data.conversationHistoryRecords);
 					      console.log(answer.length);
+					      console.log("****************");
+					      console.log("**    size    **");
+					      console.log("****************");
+					      roughSizeOfObject( answer )
 					      analysis(answer);
 					      
 				      }
@@ -3947,6 +3951,7 @@ function analysis(answer){
                               beforeSend: function(xhr, settings) { xhr.setRequestHeader('Authorization','Bearer ' + bearer); }
 		});
 	 }
+	 
 	 
 	 tryUntilSuccess(offset, function(err, resp) {
 		 // Your code here...
