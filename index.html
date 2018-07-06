@@ -2785,7 +2785,10 @@ checklogin(accnumb, bearer);
     			a.download = filename;
 			$("#downloadTranscripts").prop( "disabled", false ); 
 		};
-		download(jsonToSsXml(exportObject), 'transcripts.xls', 'application/vnd.ms-excel');
+		 
+		 var myFile = "1\t2\n3\t4";
+		 download(myFile, 'transcripts.xls', 'application/vnd.ms-excel');
+		// download(jsonToSsXml(exportObject), 'transcripts.xls', 'application/vnd.ms-excel');
 		$("#hiddenbutton")[0].click();
 		
 		 
