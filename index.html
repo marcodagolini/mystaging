@@ -3858,10 +3858,8 @@ checklogin(accnumb, bearer);
 						      $("#downloadTranscripts").prop( "disabled", false ); 
 					      }
 				      }
-				      else{
-				      
-					      conversationsPartial = conversationsPartial + data.conversationHistoryRecords.length;
-					      if(conversationsPartial < conversationsToDownload){
+				      conversationsPartial = conversationsPartial + data.conversationHistoryRecords.length;
+				      if(conversationsPartial < conversationsToDownload){
 						      offset = conversationsPartial;
 						      answer = data.conversationHistoryRecords;
 						      document.getElementById("reportMSG").innerHTML = "...downloading sessions:" + Math.round(100*(offset/data._metadata.count)) + "% completed...";
@@ -3871,14 +3869,13 @@ checklogin(accnumb, bearer);
 						      console.log(offset + " of --> " + conversationsToDownload);
 						      analysis(answer, false);
 						      tryUntilSuccess(offset, callback);
-					      }
-					      else{
+				      }
+				      else{
 						      console.log("last bucket: " + data.conversationHistoryRecords.length);
 						      answer = data.conversationHistoryRecords;
 						      analysis(answer, true);
-
-					      }
 				      }
+				      
 				      
      
 				      
