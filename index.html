@@ -2857,7 +2857,7 @@ checklogin(accnumb, bearer);
 											      var searchCustomerInfo = answer[i].sdes.events.length;
 											      for (var wq = 0; wq  < searchCustomerInfo; wq ++){
 												      if(answer[i].sdes.events[wq].hasOwnProperty('customerInfo')){
-													      campo1 = answer[i].sdes.events[wq].customerInfo.customerInfo.customerId.replace('facebook_13099967_','');
+													      campo1 = answer[i].sdes.events[wq].customerInfo.customerInfo.customerId.replace('facebook_13099967_','').toString();
 													      wq = searchCustomerInfo;
 												      }
 											      }
