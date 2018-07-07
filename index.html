@@ -2856,7 +2856,7 @@ checklogin(accnumb, bearer);
 											      var searchCustomerInfo = answer[i].sdes.events.length;
 											      for (var wq = 0; wq  < searchCustomerInfo; wq ++){
 												      if(answer[i].sdes.events[wq].hasOwnProperty('customerInfo')){
-													      campo1 = answer[i].sdes.events[wq].customerInfo.customerInfo.customerId.replace('facebook_13099967_','').toString();
+													      campo1 = answer[i].sdes.events[wq].customerInfo.customerInfo.customerId.replace('facebook_13099967_','');
 													      wq = searchCustomerInfo;
 												      }
 											      }
@@ -3623,7 +3623,7 @@ checklogin(accnumb, bearer);
 								}
 						      }
 						      
-						      
+						      campo1 = campo1.toString();
 						      var campo2 = "";
 						      var campo3 = "";
 	
