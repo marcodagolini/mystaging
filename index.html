@@ -666,6 +666,7 @@ span.psw {
   var exportObject = [];
   var agentLogged = [];
   var agentAssigned = [];
+  var myFileToXLS = "";
 	
   function findBulk(Seconds){
 	 if (Seconds <= 30){
@@ -2667,117 +2668,9 @@ checklogin(accnumb, bearer);
  }
 	
 	
-	 function exportData(exportObject){
-		 testTypes = {
-    			"start": "String",
-    			"end": "String",
-			"durationinseconds": "String",
-			"efforttimegeneral": "String",
-			"efforttimeoutbound": "String",
-			"inactivetime": "String",
-    			"agentgeneral": "String",
-			"agentoutbound": "String",
-			"teamgeneral": "String",
-			"teamoutbound": "String",
-			"skill": "String",
-			"channel": "String",
-			"night": "String",
-			"outbound": "String",
-			"telefono": "String",
-			"ricontatto": "String",
-			"cfiscale": "String",
-			"tags": "String",
-			"triplettauno": "String",
-			"triplettadue": "String",
-			"triplettatre": "String",
-			"limbo": "String",
-			"limboGeneral": "String",
-			"limboOutbound": "String",
-			"limboaveragetime": "String",
-			"risvegliata": "String",
-			"risvegliataGeneral": "String",
-			"risvegliataOutbound": "String",
-			"freeze": "String",
-			"freezeGeneral": "String",
-			"freezeOutbound": "String",
-			"risvFreeze": "String",
-			"risvFreezeGeneral": "String",
-			"risvFreezeOutbound": "String",
-			"numeroagentigeneral": "String",
-			"numeroagentioutbound": "String",
-			"numerogruppigeneral": "String",
-			"numerogruppioutbound": "String",
-			"yesno": "String",
-			"comments": "String",
-			"endReason": "String",
-			"timeToAccept": "String",
-			"firstTimeAnswer": "String",
-			"timestampFacebook_priv": "String",
-			"timestampOutbound": "String",
-			"timeInFacebook_bot": "String",
-			"timestampLastActGen": "String",
-			"timestampLastActOut": "String",
-			"timestampNextUnfreeze": "String",
-			"lastActivityAgent": "String",
-			"lastTypeActivityAgent": "String",
-			"customerName": "String",
-			"phoneNumber": "String",
-			"imeiNumber": "String",
-    			"conversation": "String",
-    			"transcript": "String",
-			"campo1": "String",
-			"campo2": "String",
-			"campo3": "String"
-		 };
-		 
-		 emitXmlHeader = function () {
-    			var headerRow =  '<ss:Row>\n';
-    			for (var colName in testTypes) {
-        			headerRow += '  <ss:Cell>\n';
-        			headerRow += '    <ss:Data ss:Type="String">';
-        			headerRow += colName + '</ss:Data>\n';
-        			headerRow += '  </ss:Cell>\n';        
-    			}
-    			headerRow += '</ss:Row>\n';    
-    			return '<?xml version="1.0"?>\n' +
-           			'<ss:Workbook xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet">\n' +
-           			'<ss:Worksheet ss:Name="Sheet1">\n' +
-           			'<ss:Table>\n\n' + headerRow;
-		};
-		 
-		 emitXmlFooter = function() {
-    			return '\n</ss:Table>\n' +
-           			'</ss:Worksheet>\n' +
-           			'</ss:Workbook>\n';
-		};
-		 
-		 jsonToSsXml = function (jsonObject) {
-			var myLength = jsonObject.length
-    			var row;
-    			var col;
-    			var xml;
-    			var data = typeof jsonObject != "object" ? JSON.parse(jsonObject) : jsonObject;
-    
-    			xml = emitXmlHeader();
-    			for (row = 0; row < myLength; row++) {
-        			xml += '<ss:Row>\n';
-      
-        			for (col in data[0]) {
-            				xml += '  <ss:Cell>\n';
-            				xml += '    <ss:Data ss:Type="' + testTypes[col]  + '">';
-            				xml += data[0][col] + '</ss:Data>\n';
-            				xml += '  </ss:Cell>\n';
-        			}
-        			xml += '</ss:Row>\n';
-				data.splice(0, 1);
-    			}
-    
-    			xml += emitXmlFooter();
-    			return xml;  
-		};
-		 
+	 function exportData(convs){
+
 		 download = function (content, filename, contentType) {
-    			if (!contentType) contentType = 'application/octet-stream';
     			var a = document.getElementById('hiddenbutton');
     			var blob = new Blob([content], {
         			'type': contentType
@@ -2786,26 +2679,19 @@ checklogin(accnumb, bearer);
     			a.download = filename;
 			$("#downloadTranscripts").prop( "disabled", false ); 
 		};
-		 
-		 var myFile = "1\t2\n3\t4";
-		 download(myFile, 'transcripts.xls', 'application/vnd.ms-excel');
-		// download(jsonToSsXml(exportObject), 'transcripts.xls', 'application/vnd.ms-excel');
+
+		download(myFileToXLS, 'transcripts.xls', 'application/vnd.ms-excel');
 		$("#hiddenbutton")[0].click();
-		
-		 
+		document.getElementById("reportMSG").innerHTML = convs + " Messaging conversations downloaded with success!";
+		document.getElementById("reportMSG").style = "color : green";
+			 
 	 }
 	
-	function analysis(answer, proceed) {
+	function analysis(answer, proceed, convs) {
 
 		var totalLength = answer.length;
-		if (totalLength === 0){
-			// document.getElementById("reportMSG").innerHTML = answer.length + " Messaging conversations downloaded with success!";
-			// document.getElementById("reportMSG").style = "color : green";
-			// answer = [];
-			exportData(exportObject);
-			
-		} else{
-			for (var i = 0; i < totalLength; i++){
+
+		for (var i = 0; i < totalLength; i++){
 		
 		
 							var messages = "";
@@ -3742,75 +3628,80 @@ checklogin(accnumb, bearer);
 	
 						     
 						      
-						      var pieceToAdd = {"start": startDateEngagement,
-									"end": endDateEngagement,
-									"durationinseconds": durationinseconds,
-									"efforttimegeneral": effortTimeGeneral,
-									"efforttimeoutbound": effortTimeOutbound,
-									"inactivetime": inactivetime,
-									"agentgeneral": lastAgentGeneral,
-									"agentoutbound": lastAgentOutbound,
-									"teamgeneral": lastProperTeamGeneral,
-									"teamoutbound": lastProperTeamOutbound,
-									"skill": skill,
-									"channel": channel,
-									"night": night,
-									"outbound": facebook_out,
-									"telefono": numero_telefono,
-									"ricontatto": numero_ricontatto,
-									"cfiscale": numero_cfiscale,
-									"tags": vfTag,
-									"triplettauno": triplettauno,
-									"triplettadue": triplettadue,
-									"triplettatre": triplettatre,
-									"limbo": limbo,
-									"limboGeneral": limboGeneral,
-									"limboOutbound": limboOutbound,
-									"limboaveragetime": limboaveragetime,
-									"risvegliata": risvegliata,
-									"risvegliataGeneral": risvegliataGeneral,
-									"risvegliataOutbound": risvegliataOutbound,
-									"freeze": freeze,
-									"freezeGeneral": freezeGeneral,
-									"freezeOutbound": freezeOutbound,
-									"risvFreeze": risvegliataFreeze,
-									"risvFreezeGeneral": risvegliataFreezeGeneral,
-									"risvFreezeOutbound": risvegliataFreezeOutbound,
-									"numeroagentigeneral": numberAgentsGeneral,
-									"numeroagentioutbound": numberAgentsOutbound,
-									"numerogruppigeneral": numberTeamsGeneral,
-									"numerogruppioutbound": numberTeamsOutbound,
-									"yesno": yesno,
-									"comments": comments,
-									"endReason": endReason,
-									"timeToAccept": timeToAcceptFacebook,
-									"firstTimeAnswer": firstTimeAnswerFacebook,
-									"timestampFacebook_priv": timestampFacebook_priv,
-									"timestampOutbound": timestampOutbound,
-									"timeInFacebook_bot": timeSpentInFacebook_bot,
-									"timestampLastActGen": timestampLastActGen,
-									"timestampLastActOut": timestampLastActOut,
-									"timestampNextUnfreeze": timestampNextUnfreeze,
-									"lastActivityAgent": lastActivityAgent,
-									"lastTypeActivityAgent": lastTypeActivityAgent,
-									"customerName": customerName,
-									"phoneNumber": phoneNumber,
-									"imeiNumber": imeiNumber,
-									"conversation": answer[i].info.conversationId,
-									"transcript": messages,
-									"campo1": campo1,
-									"campo2": campo2,
-									"campo3": campo3
-								       };
-						      exportObject = exportObject.concat(pieceToAdd);
-			}
-		}
-		if(proceed === true){
-			exportData(exportObject)
-		}
+						      var pieceToAdd = [startDateEngagement,
+									endDateEngagement,
+									durationinseconds,
+									effortTimeGeneral,
+									effortTimeOutbound,
+									inactivetime,
+									lastAgentGeneral,
+									lastAgentOutbound,
+									lastProperTeamGeneral,
+									lastProperTeamOutbound,
+									skill,
+									channel,
+									night,
+									facebook_out,
+									numero_telefono,
+									numero_ricontatto,
+									numero_cfiscale,
+									vfTag,
+									triplettauno,
+									triplettadue,
+									triplettatre,
+									limbo,
+									limboGeneral,
+									limboOutbound,
+									limboaveragetime,
+									risvegliata,
+									risvegliataGeneral,
+									risvegliataOutbound,
+									freeze,
+									freezeGeneral,
+									freezeOutbound,
+									risvegliataFreeze,
+									risvegliataFreezeGeneral,
+									risvegliataFreezeOutbound,
+									numberAgentsGeneral,
+									numberAgentsOutbound,
+									numberTeamsGeneral,
+									numberTeamsOutbound,
+									yesno,
+									comments,
+									endReason,
+									timeToAcceptFacebook,
+									firstTimeAnswerFacebook,
+									timestampFacebook_priv,
+									timestampOutbound,
+									timeSpentInFacebook_bot,
+									timestampLastActGen,
+									timestampLastActOut,
+									timestampNextUnfreeze,
+									lastActivityAgent,
+									lastTypeActivityAgent,
+									customerName,
+									phoneNumber,
+									imeiNumber,
+									answer[i].info.conversationId,
+									messages,
+									campo1,
+									campo2,
+									campo3
+								       ];
+									
+							var myLength = pieceToAdd.length;
+							for(var i = 0; i < myLength; i++){
+								myFileToXLS += pieceToAdd[i];
+								myFileToXLS += "\t";
+							}
+							myFileToXLS += "\n";
 
-		
+		}
 		answer = [];
+		if (proceed === true){
+			exportData(convs);
+		}
+		
 		
 		
 	}
@@ -3823,6 +3714,68 @@ checklogin(accnumb, bearer);
  
  
  function downloadTranscripts(start, end, options){
+	 
+	 testTypes = {
+    			"start": "String",
+    			"end": "String",
+			"durationinseconds": "String",
+			"efforttimegeneral": "String",
+			"efforttimeoutbound": "String",
+			"inactivetime": "String",
+    			"agentgeneral": "String",
+			"agentoutbound": "String",
+			"teamgeneral": "String",
+			"teamoutbound": "String",
+			"skill": "String",
+			"channel": "String",
+			"night": "String",
+			"outbound": "String",
+			"telefono": "String",
+			"ricontatto": "String",
+			"cfiscale": "String",
+			"tags": "String",
+			"triplettauno": "String",
+			"triplettadue": "String",
+			"triplettatre": "String",
+			"limbo": "String",
+			"limboGeneral": "String",
+			"limboOutbound": "String",
+			"limboaveragetime": "String",
+			"risvegliata": "String",
+			"risvegliataGeneral": "String",
+			"risvegliataOutbound": "String",
+			"freeze": "String",
+			"freezeGeneral": "String",
+			"freezeOutbound": "String",
+			"risvFreeze": "String",
+			"risvFreezeGeneral": "String",
+			"risvFreezeOutbound": "String",
+			"numeroagentigeneral": "String",
+			"numeroagentioutbound": "String",
+			"numerogruppigeneral": "String",
+			"numerogruppioutbound": "String",
+			"yesno": "String",
+			"comments": "String",
+			"endReason": "String",
+			"timeToAccept": "String",
+			"firstTimeAnswer": "String",
+			"timestampFacebook_priv": "String",
+			"timestampOutbound": "String",
+			"timeInFacebook_bot": "String",
+			"timestampLastActGen": "String",
+			"timestampLastActOut": "String",
+			"timestampNextUnfreeze": "String",
+			"lastActivityAgent": "String",
+			"lastTypeActivityAgent": "String",
+			"customerName": "String",
+			"phoneNumber": "String",
+			"imeiNumber": "String",
+    			"conversation": "String",
+    			"transcript": "String",
+			"campo1": "String",
+			"campo2": "String",
+			"campo3": "String"
+		 };
 	 
 	 var conversationsToDownload = 0;
 	 var conversationsPartial = 0;
@@ -3842,6 +3795,13 @@ checklogin(accnumb, bearer);
 	 else if (options === "Open+Close"){
 		 body = '{"start":{"from":' + start + ',"to":' + end + '}, "status":["OPEN","CLOSE"]}';	 
 	 }
+	 
+	 myFileToXLS = "";
+	 for (var colName in testTypes) {
+        	myFileToXLS += colName;
+		myFileToXLS += "\t";      
+    	 }
+	 myFileToXLS += "\n";
 	 
 	 function tryUntilSuccess(offset, callback) {
 	 
@@ -3863,22 +3823,24 @@ checklogin(accnumb, bearer);
 						      $("#downloadTranscripts").prop( "disabled", false ); 
 					      }
 				      }
-				      conversationsPartial = conversationsPartial + data.conversationHistoryRecords.length;
-				      if(conversationsPartial < conversationsToDownload){
-						      offset = conversationsPartial;
-						      answer = data.conversationHistoryRecords;
-						      document.getElementById("reportMSG").innerHTML = "...downloading sessions:" + Math.round(100*(offset/data._metadata.count)) + "% completed...";
-						      document.getElementById("reportMSG").style = "color : green";      
-						      // console.log(data.conversationHistoryRecords);
-						      console.log ("adding conversations...");
-						      console.log(offset + " of --> " + conversationsToDownload);
-						      analysis(answer, false);
-						      tryUntilSuccess(offset, callback);
-				      }
-				      else{
-						      console.log("last bucket: " + data.conversationHistoryRecords.length);
-						      answer = data.conversationHistoryRecords;
-						      analysis(answer, true);
+				      if (conversationsToDownload > 0){
+					      conversationsPartial = conversationsPartial + data.conversationHistoryRecords.length;
+					      if(conversationsPartial < conversationsToDownload){
+							      offset = conversationsPartial;
+							      answer = data.conversationHistoryRecords;
+							      document.getElementById("reportMSG").innerHTML = "...downloading sessions:" + Math.round(100*(offset/data._metadata.count)) + "% completed...";
+							      document.getElementById("reportMSG").style = "color : green";      
+							      // console.log(data.conversationHistoryRecords);
+							      console.log ("adding conversations...");
+							      console.log(offset + " of --> " + conversationsToDownload);
+							      analysis(answer, false, conversationsPartial);
+							      tryUntilSuccess(offset, callback);
+					      }
+					      else{
+							      console.log("last bucket: " + data.conversationHistoryRecords.length);
+							      answer = data.conversationHistoryRecords;
+							      analysis(answer, true, conversationsPartial);
+					      }
 				      }
 				      
 				      
