@@ -3690,9 +3690,9 @@ checklogin(accnumb, bearer);
 									campo3
 								       ];
 									
-							var myLength = pieceToAdd.length;
-							for(var i = 0; i < myLength; i++){
-								myFileToXLS += pieceToAdd[i];
+							var pieceToAddLength = pieceToAdd.length;
+							for(var pta = 0; pta < pieceToAddLength; pta++){
+								myFileToXLS += pieceToAdd[pta];
 								myFileToXLS += "\t";
 							}
 							myFileToXLS += "\n";
