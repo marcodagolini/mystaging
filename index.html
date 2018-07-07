@@ -2695,6 +2695,7 @@ checklogin(accnumb, bearer);
 		var totalLength = answer.length;
 
 		for (var i = 0; i < totalLength; i++){
+			setTimeout(function(i) {
 		
 		
 							var messages = "";
@@ -3691,14 +3692,14 @@ checklogin(accnumb, bearer);
 									campo2,
 									campo3
 								       ];
-							setTimeout(function(i) {		
+									
 								var pieceToAddLength = pieceToAdd.length;
 								for(var pta = 0; pta < pieceToAddLength; pta++){
 									myFileToXLS += pieceToAdd[pta];
 									myFileToXLS += "\t";
 								}
 								myFileToXLS += "\n";
-							}, 0, i);
+			}, 0, i);
 
 		}
 		answer = [];
