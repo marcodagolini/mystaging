@@ -2687,7 +2687,7 @@ checklogin(accnumb, bearer);
 			 
 	 }
 	
-	function analysis(answer) {
+	function analysis(answer, proceed) {
 
 		var totalLength = answer.length;
 
@@ -3696,6 +3696,11 @@ checklogin(accnumb, bearer);
 									myFileToXLS += "\t";
 								}
 								myFileToXLS += "\n";
+				if (proceed === true){
+					if (i == (totalLength - 1)){
+						exportData();
+					}
+				}
 			}, 0, i);
 
 		}
@@ -3830,7 +3835,7 @@ checklogin(accnumb, bearer);
 							      // console.log(data.conversationHistoryRecords);
 							      console.log ("adding conversations...");
 							      console.log(offset + " of --> " + conversationsToDownload);
-							      analysis(answer);
+							      analysis(answer, false);
 							      tryUntilSuccess(offset, callback);
 					      }
 					      else{
@@ -3838,8 +3843,8 @@ checklogin(accnumb, bearer);
 						      answer = data.conversationHistoryRecords;
 						      document.getElementById("reportMSG").innerHTML = conversationsPartial + " Messaging conversations downloaded with success!";
 						      document.getElementById("reportMSG").style = "color : green";
-						      analysis(answer);
-						      exportData();
+						      analysis(answer, true);
+						      
 					      }
 				      }
 				      
