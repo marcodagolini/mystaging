@@ -2670,7 +2670,7 @@ checklogin(accnumb, bearer);
  }
 	
 	
-	 function exportData(convs){
+	 function exportData(){
 
 		 download = function (content, filename, contentType) {
     			var a = document.getElementById('hiddenbutton');
@@ -2684,12 +2684,11 @@ checklogin(accnumb, bearer);
 
 		download(myFileToXLS, 'transcripts.xls', 'application/vnd.ms-excel');
 		$("#hiddenbutton")[0].click();
-		document.getElementById("reportMSG").innerHTML = convs + " Messaging conversations downloaded with success!";
-		document.getElementById("reportMSG").style = "color : green";
+		
 			 
 	 }
 	
-	function analysis(answer, proceed, convs) {
+	function analysis(answer) {
 
 		var totalLength = answer.length;
 
@@ -3701,12 +3700,7 @@ checklogin(accnumb, bearer);
 			}, 0, i);
 
 		}
-		answer = [];
-		if (proceed === true){
-			exportData(convs);
-		}
-		
-		
+
 		
 	}
 	
@@ -3837,13 +3831,16 @@ checklogin(accnumb, bearer);
 							      // console.log(data.conversationHistoryRecords);
 							      console.log ("adding conversations...");
 							      console.log(offset + " of --> " + conversationsToDownload);
-							      analysis(answer, false, conversationsPartial);
+							      analysis(answer);
 							      tryUntilSuccess(offset, callback);
 					      }
 					      else{
-							      console.log("last bucket: " + data.conversationHistoryRecords.length);
-							      answer = data.conversationHistoryRecords;
-							      analysis(answer, true, conversationsPartial);
+						      console.log("last bucket: " + data.conversationHistoryRecords.length);
+						      answer = data.conversationHistoryRecords;
+						      document.getElementById("reportMSG").innerHTML = conversationsPartial + " Messaging conversations downloaded with success!";
+						      document.getElementById("reportMSG").style = "color : green";
+						      analysis(answer);
+						      exportData();
 					      }
 				      }
 				      
