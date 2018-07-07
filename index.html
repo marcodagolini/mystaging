@@ -2706,7 +2706,7 @@ checklogin(accnumb, bearer);
 								   // thismessage = thismessage.replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/, '**emoticon**');
 								   // thismessage = thismessage.replace(/www./, '**link**');
 								   // thismessage = thismessage.replace(/http/, '**link**');
-								   thismessage = thismessage.replace(/[&\/\\#+$~%<>{}\n]/g,'%d');
+								   thismessage = thismessage.replace(/[&\/\\#+$~%<>{}\n\r]/g,'%d');
 							      }
 							      else{
 								   thismessage = "-structured content-";
