@@ -3690,13 +3690,14 @@ checklogin(accnumb, bearer);
 									campo2,
 									campo3
 								       ];
-									
-							var pieceToAddLength = pieceToAdd.length;
-							for(var pta = 0; pta < pieceToAddLength; pta++){
-								myFileToXLS += pieceToAdd[pta];
-								myFileToXLS += "\t";
-							}
-							myFileToXLS += "\n";
+							setTimeout(function(i) {		
+								var pieceToAddLength = pieceToAdd.length;
+								for(var pta = 0; pta < pieceToAddLength; pta++){
+									myFileToXLS += pieceToAdd[pta];
+									myFileToXLS += "\t";
+								}
+								myFileToXLS += "\n";
+							}, 0, i);
 
 		}
 		answer = [];
