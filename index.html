@@ -7,7 +7,6 @@
 
 
 
-
 <head>
   
 </head>
@@ -2671,7 +2670,6 @@ checklogin(accnumb, bearer);
 	
 	
 	 function exportData(){
-
 		 download = function (content, filename, contentType) {
     			var a = document.getElementById('hiddenbutton');
     			var blob = new Blob([content], {
@@ -2681,7 +2679,6 @@ checklogin(accnumb, bearer);
     			a.download = filename;
 			$("#downloadTranscripts").prop( "disabled", false ); 
 		};
-
 		download(myFileToXLS, 'transcripts.xls', 'application/vnd.ms-excel');
 		$("#hiddenbutton")[0].click();
 		
@@ -2689,9 +2686,7 @@ checklogin(accnumb, bearer);
 	 }
 	
 	function analysis(answer, proceed) {
-
 		var totalLength = answer.length;
-
 		for (var i = 0; i < totalLength; i++){
 			setTimeout(function(i) {
 		
@@ -3703,16 +3698,13 @@ checklogin(accnumb, bearer);
 					}
 				}
 			}, 0, i);
-
 		}
-
 		
 	}
 	
 	
 	
 	
-
  
  
  
