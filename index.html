@@ -1860,7 +1860,7 @@ function retrieveAgentsLogged(){
 	  var stringWaitingFrom = "";
 	  for (var z = 0; z < answerLength; z++){
 		  latestSkill = answer[z].info.latestSkillName;
-		  var isRealQueue = true;
+		  var isRealQueue = false;
 		  var wer = 0;
 		  var qwer = 0;
 		  var myLastAgentTimestampHere = 0;
@@ -1873,6 +1873,7 @@ function retrieveAgentsLogged(){
 		  if(answer[z].hasOwnProperty('transfers')){
 			  wer = answer[z].transfers.length;
 			  if(wer > 0){
+				  
 				  for (var mycounter = (wer-1); mycounter >= 0; mycounter --){
 					  if(answer[z].transfers[mycounter].hasOwnProperty('contextData')){
 						  if(answer[z].transfers[mycounter].contextData.hasOwnProperty('structuredMetadata')){
@@ -1890,6 +1891,9 @@ function retrieveAgentsLogged(){
 							  }
 						  } 
 					  }  
+				  }
+				  if(answer[z].transfers[wer-1].reason === "Back2Q"){
+					  myLastLimboFreezeHere = answer[z].transfers[wer-1].timeL;
 				  }
 			  }
 		  }
@@ -1909,12 +1913,13 @@ function retrieveAgentsLogged(){
 		  
 		  if((myLastAgentTimestampHere > 0) && (myLastLimboFreezeHere > 0)){
 			  if(myLastAgentTimestampHere < myLastLimboFreezeHere){
-				  isRealQueue = false;
+				  isRealQueue = true;
 			  }
 		  }
 		  
+
 		  
-		  
+
 					  
 		
 		  
