@@ -1909,7 +1909,7 @@ function retrieveAgentsLogged(){
 			  }
 		  }
 		  
-		  if(myLastAgentTimestampHere > 0){
+		  if((myLastAgentTimestampHere > 0) && (myLastLimboFreezeHere > 0)){
 			  if(myLastAgentTimestampHere < myLastLimboFreezeHere){
 				  isRealQueue = false;
 			  }
