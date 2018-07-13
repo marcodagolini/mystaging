@@ -1868,6 +1868,11 @@ function retrieveAgentsLogged(){
 		  var qwer = 0;
 		  var myLastAgentTimestampHere = 0;
 		  var myLastLimboFreezeHere = 0;
+		  
+		  if((answer[z].info.latestAgentLoginName === "")){
+			  console.log("hooray");
+		  }
+		     
 		  if(answer[z].hasOwnProperty('transfers')){
 			  wer = answer[z].transfers.length;
 			  if(wer > 0){
