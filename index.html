@@ -1860,14 +1860,11 @@ function retrieveAgentsLogged(){
 	  var stringWaitingFrom = "";
 	  for (var z = 0; z < answerLength; z++){
 		  latestSkill = answer[z].info.latestSkillName;
-		  var isRealQueue = false;
+		  var isRealQueue = true;
 		  var wer = 0;
 		  var qwer = 0;
 		  var myLastAgentTimestampHere = 0;
 		  var myLastLimboFreezeHere = 0;
-		  if(answer[z].info.conversationId == "f8dc71a9-0412-490a-afc6-f403d8d1cc66"){
-		     console.log("hooray");
-		     }
 		  if(answer[z].hasOwnProperty('transfers')){
 			  wer = answer[z].transfers.length;
 			  if(wer > 0){
