@@ -1863,14 +1863,30 @@ function retrieveAgentsLogged(){
 	  for (var z = 0; z < answerLength; z++){
 		  latestSkill = answer[z].info.latestSkillName;
 		  var isRealQueue = true;
+		  var wer = 0;
+		  var qwer = 0;
+		  var myLastAgentTimestampHere = 0;
 		  if(answer[z].hasOwnProperty('transfers')){
-			  var wer = answer[z].transfers.length;
-			  if (wer > 0){
-				  if(answer[z].transfers[(wer-1)].reason === "Back2Q"){
-					  isRealQueue = false;
+			  wer = answer[z].transfers.length;
+		  }
+		  if(answer[z].hasOwnProperty('agentParticipants')){
+			  qwer = answer[z].transfers.length;
+			  for (var mycounter = (qwer-1); mycounter >= 0; mycounter --){
+				  if (answer[z].agentParticipants[mycounter].permission === "ASSIGNED_AGENT"){
+					  if (answer[z].agentParticipants[mycounter].userTypeName === "Human"){
+						  myLastAgentTimestampHere = answer[z].agentParticipants[mycounter].timeL;
+						  mycounter = 0;
+					  }
 				  }
 			  }
 		  }
+		  for (var mycounter = (wer-1); mycounter >= 0; mycounter --){
+			  
+		  }
+		
+					  isRealQueue = false;
+		
+		  
 		  if(answer[z].info.latestQueueState === "IN_QUEUE" && !isRealQueue){
 			  isAssigned = false;
 			  if(answer[z].hasOwnProperty('transfers')){
@@ -1893,6 +1909,9 @@ function retrieveAgentsLogged(){
 					  agentAssigned.push(answer[z].info.latestAgentFullName);
 				  }
 			  }
+		  }
+		  if(answer[z].info.latestAgentFullName === "NA"){
+			  isAssigned = false;
 		  }
 		  switch(latestSkill) {
 			  case "Facebook_priv":
