@@ -1891,15 +1891,13 @@ function retrieveAgentsLogged(){
 			  }
 		  }
 		  if(answer[z].hasOwnProperty('agentParticipants')){
-			  qwer = answer[z].transfers.length;
+			  qwer = answer[z].agentParticipants.length;
 			  if(qwer > 0){
 				  for (var mycounter = (qwer-1); mycounter >= 0; mycounter --){
-					  if(answer[z].agentParticipants[mycounter].hasOwnProperty('permission')){
-						  if (answer[z].agentParticipants[mycounter].permission === "ASSIGNED_AGENT"){
-							  if (answer[z].agentParticipants[mycounter].userTypeName === "Human"){
-								  myLastAgentTimestampHere = answer[z].agentParticipants[mycounter].timeL;
-								  mycounter = 0;
-							  }
+					  if (answer[z].agentParticipants[mycounter].permission === "ASSIGNED_AGENT"){
+						  if (answer[z].agentParticipants[mycounter].userTypeName === "Human"){
+							  myLastAgentTimestampHere = answer[z].agentParticipants[mycounter].timeL;
+							  mycounter = 0;
 						  }
 					  }
 				  }
