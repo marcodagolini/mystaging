@@ -1868,32 +1868,36 @@ function retrieveAgentsLogged(){
 		  var myLastLimboFreezeHere = 0;
 		  if(answer[z].hasOwnProperty('transfers')){
 			  wer = answer[z].transfers.length;
-			  for (var mycounter = (wer-1); mycounter >= 0; mycounter --){
-				  if(answer[z].transfers[wer].hasOwnProperty('contextData')){
-					  if(answer[z].transfers[wer].contextData.hasOwnProperty('structuredMetadata')){
-						  if(answer[z].transfers[wer].contextData.structuredMetadata[0].hasOwnProperty('botResponse')){
-							  if(answer[z].transfers[wer].contextData.structuredMetadata[0].botResponse.hasOwnProperty('intents')){
-								  if(answer[z].transfers[wer].contextData.structuredMetadata[0].botResponse.intents[2] === "limbo"){
-									  myLastLimboFreezeHere = answer[z].transfers[wer].timeL;
-									  mycounter = 0;
-								  }
-								  if(answer[z].transfers[wer].contextData.structuredMetadata[0].botResponse.intents[2] === "risvegliata"){
-									  myLastLimboFreezeHere = answer[z].transfers[wer].timeL;
-									  mycounter = 0;
+			  if(wer > 0){
+				  for (var mycounter = (wer-1); mycounter >= 0; mycounter --){
+					  if(answer[z].transfers[wer].hasOwnProperty('contextData')){
+						  if(answer[z].transfers[wer].contextData.hasOwnProperty('structuredMetadata')){
+							  if(answer[z].transfers[wer].contextData.structuredMetadata[0].hasOwnProperty('botResponse')){
+								  if(answer[z].transfers[wer].contextData.structuredMetadata[0].botResponse.hasOwnProperty('intents')){
+									  if(answer[z].transfers[wer].contextData.structuredMetadata[0].botResponse.intents[2] === "limbo"){
+										  myLastLimboFreezeHere = answer[z].transfers[wer].timeL;
+										  mycounter = 0;
+									  }
+									  if(answer[z].transfers[wer].contextData.structuredMetadata[0].botResponse.intents[2] === "risvegliata"){
+										  myLastLimboFreezeHere = answer[z].transfers[wer].timeL;
+										  mycounter = 0;
+									  }
 								  }
 							  }
-						  }
-					  } 
-				  }  
+						  } 
+					  }  
+				  }
 			  }
 		  }
 		  if(answer[z].hasOwnProperty('agentParticipants')){
 			  qwer = answer[z].transfers.length;
-			  for (var mycounter = (qwer-1); mycounter >= 0; mycounter --){
-				  if (answer[z].agentParticipants[mycounter].permission === "ASSIGNED_AGENT"){
-					  if (answer[z].agentParticipants[mycounter].userTypeName === "Human"){
-						  myLastAgentTimestampHere = answer[z].agentParticipants[mycounter].timeL;
-						  mycounter = 0;
+			  if(qwer > 0){
+				  for (var mycounter = (qwer-1); mycounter >= 0; mycounter --){
+					  if (answer[z].agentParticipants[mycounter].permission === "ASSIGNED_AGENT"){
+						  if (answer[z].agentParticipants[mycounter].userTypeName === "Human"){
+							  myLastAgentTimestampHere = answer[z].agentParticipants[mycounter].timeL;
+							  mycounter = 0;
+						  }
 					  }
 				  }
 			  }
