@@ -1864,6 +1864,9 @@ function retrieveAgentsLogged(){
 		  var qwer = 0;
 		  var myLastAgentTimestampHere = 0;
 		  var myLastLimboFreezeHere = 0;
+		  if(answer[z].info.conversationId === "82558865-d966-4ae2-8617-5b8fad0b380c"){
+			  console.log("hooray");
+		  }
 		  if(answer[z].hasOwnProperty('transfers')){
 			  wer = answer[z].transfers.length;
 			  if(wer > 0){
