@@ -1882,11 +1882,11 @@ function retrieveAgentsLogged(){
 							  if(answer[z].transfers[mycounter].contextData.structuredMetadata[0].hasOwnProperty('botResponse')){
 								  if(answer[z].transfers[mycounter].contextData.structuredMetadata[0].botResponse.hasOwnProperty('intents')){
 									  if(answer[z].transfers[mycounter].contextData.structuredMetadata[0].botResponse.intents.length > 2){
-										  if(answer[z].transfers[mycounter].contextData.structuredMetadata[0].botResponse.intents[2] === "limbo"){
+										  if(answer[z].transfers[mycounter].contextData.structuredMetadata[0].botResponse.intents[2].name === "limbo"){
 											  myLastLimboFreezeHere = answer[z].transfers[mycounter].timeL;
 											  mycounter = 0;
 										  }
-										  if(answer[z].transfers[mycounter].contextData.structuredMetadata[0].botResponse.intents[2] === "risvegliata"){
+										  if(answer[z].transfers[mycounter].contextData.structuredMetadata[0].botResponse.intents[2].name === "risvegliata"){
 											  myLastLimboFreezeHere = answer[z].transfers[mycounter].timeL;
 											  mycounter = 0;
 										  }
