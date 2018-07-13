@@ -1860,63 +1860,8 @@ function retrieveAgentsLogged(){
 	  var stringWaitingFrom = "";
 	  for (var z = 0; z < answerLength; z++){
 		  latestSkill = answer[z].info.latestSkillName;
-		  var isRealQueue = true;
-		  var wer = 0;
-		  var qwer = 0;
-		  var myLastAgentTimestampHere = 0;
-		  var myLastLimboFreezeHere = 0;
-		  if(answer[z].info.conversationId === "82558865-d966-4ae2-8617-5b8fad0b380c"){
-			  console.log("hooray");
-		  }
-		  if(answer[z].hasOwnProperty('transfers')){
-			  wer = answer[z].transfers.length;
-			  if(wer > 0){
-				  for (var mycounter = (wer-1); mycounter >= 0; mycounter --){
-					  if(answer[z].transfers[mycounter].hasOwnProperty('contextData')){
-						  if(answer[z].transfers[mycounter].contextData.hasOwnProperty('structuredMetadata')){
-							  if(answer[z].transfers[mycounter].contextData.structuredMetadata[0].hasOwnProperty('botResponse')){
-								  if(answer[z].transfers[mycounter].contextData.structuredMetadata[0].botResponse.hasOwnProperty('intents')){
-									  if(answer[z].transfers[mycounter].contextData.structuredMetadata[0].botResponse.intents[2] === "limbo"){
-										  myLastLimboFreezeHere = answer[z].transfers[mycounter].timeL;
-										  mycounter = 0;
-									  }
-									  if(answer[z].transfers[mycounter].contextData.structuredMetadata[0].botResponse.intents[2] === "risvegliata"){
-										  myLastLimboFreezeHere = answer[z].transfers[mycounter].timeL;
-										  mycounter = 0;
-									  }
-								  }
-							  }
-						  } 
-					  }  
-				  }
-			  }
-		  }
-		  if(answer[z].hasOwnProperty('agentParticipants')){
-			  qwer = answer[z].agentParticipants.length;
-			  if(qwer > 0){
-				  for (var mycounter = (qwer-1); mycounter >= 0; mycounter --){
-					  if (answer[z].agentParticipants[mycounter].permission === "ASSIGNED_AGENT"){
-						  if (answer[z].agentParticipants[mycounter].userTypeName === "Human"){
-							  myLastAgentTimestampHere = answer[z].agentParticipants[mycounter].timeL;
-							  mycounter = 0;
-						  }
-					  }
-				  }
-			  }
-		  }
 		  
-		  if((myLastAgentTimestampHere > 0) && (myLastLimboFreezeHere > 0)){
-			  if(myLastAgentTimestampHere < myLastLimboFreezeHere){
-				  isRealQueue = false;
-			  }
-		  }
-		  
-		  
-		  
-					  
-		
-		  
-		  if(answer[z].info.latestQueueState === "IN_QUEUE" && isRealQueue){
+		  if(answer[z].info.latestQueueState === "IN_QUEUE"){
 			  isAssigned = false;
 			  if(answer[z].hasOwnProperty('transfers')){
 				  var rew = answer[z].transfers.length;
