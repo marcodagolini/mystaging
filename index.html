@@ -792,13 +792,6 @@ var LPWs = function () {
 
 
 <script>
-	
-function photoSharing(socket){
-	socket.GenerateURLForUploadFile({
-		"fileSize": "1000",
-		"fileType": "JPG"
-        }).then(resp => console.log(JSON.stringify(resp)));
-}
   
   
 function displayToaster(){
@@ -990,7 +983,10 @@ setTimeout(function(){
 	
   $(document).on('click', function(evt) {
 	  if($(evt.target).is('#photo')) {
-             photoSharing(socket);
+		  socket.GenerateURLForUploadFile({
+			 "fileSize": "1000",
+			  "fileType": "JPG"
+		  }).then(resp => console.log(JSON.stringify(resp)));
          }
   });
 	
