@@ -1179,12 +1179,11 @@ setTimeout(function(){
 			   var img = document.createElement("img");
 			   img.width = "30px";
 			   img.height = "30px";
-			   img.src = change.event.message.preview;
-			   newdiv.appendChild(img);
-			   // newdiv.innerHTML = change.event.message;                
+			   img.src = change.event.message.preview;               
 			   var maindiv = document.getElementById('log');
 			   maindiv.appendChild(hostdiv);
 			   hostdiv.appendChild(newdiv);
+			   newdiv.appendChild(img);
 		   }
                  
                    var marks = document.createElement('div');
