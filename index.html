@@ -1161,14 +1161,25 @@ setTimeout(function(){
                    var maindiv = document.getElementById('log');
                    maindiv.appendChild(space);
                    
-                   var hostdiv = document.createElement('div');
-                   hostdiv.setAttribute("class","hostcustomer");
-                   var newdiv = document.createElement('div');
-                   newdiv.setAttribute("class","customer");
-                   newdiv.innerHTML = change.event.message;                
-                   var maindiv = document.getElementById('log');
-                   maindiv.appendChild(hostdiv);
-                   hostdiv.appendChild(newdiv);
+		   if(change.event.contentType === "text/plain"){
+			   var hostdiv = document.createElement('div');
+			   hostdiv.setAttribute("class","hostcustomer");
+			   var newdiv = document.createElement('div');
+			   newdiv.setAttribute("class","customer");
+			   newdiv.innerHTML = change.event.message;                
+			   var maindiv = document.getElementById('log');
+			   maindiv.appendChild(hostdiv);
+			   hostdiv.appendChild(newdiv);
+		   }else if(change.event.contentType === "hosted/file"){
+			   var hostdiv = document.createElement('div');
+			   hostdiv.setAttribute("class","hostcustomer");
+			   var newdiv = document.createElement('div');
+			   newdiv.setAttribute("class","customer");
+			   newdiv.innerHTML = change.event.message;                
+			   var maindiv = document.getElementById('log');
+			   maindiv.appendChild(hostdiv);
+			   hostdiv.appendChild(newdiv);
+		   }
                  
                    var marks = document.createElement('div');
                    marks.setAttribute("class","hostmarks");
