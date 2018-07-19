@@ -887,7 +887,7 @@ function AllowNotifications() {
 }
 	
   
-AllowNotifications();
+AllowNotifications(socket);
 	
 var arrayBadge = []; // *** unread events
 var badge = 0;  // *** number of unread events
@@ -913,7 +913,7 @@ $(document).ready(() => {
 });
 $(document).on('click', function(evt) {
 	  if($(evt.target).is('#photo')) {
-             photoSharing();
+             photoSharing(socket);
          }
   });
 function prepareToConnect() {
