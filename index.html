@@ -945,11 +945,6 @@ function handleOpenedSocket(socket,jwt) {
   $('.spacecustomer').remove();
   $('.lp-panel').remove();
 	
-  $(document).on('click', function(evt) {
-	  if($(evt.target).is('#photo')) {
-             photoSharing(socket);
-         }
-  });
     
     
   var space = document.createElement('div');
@@ -991,7 +986,13 @@ setTimeout(function(){
 	 
 	 
 ****************************/
+
 	
+  $(document).on('click', function(evt) {
+	  if($(evt.target).is('#photo')) {
+             photoSharing(socket);
+         }
+  });
 	
 	
   socket.onNotification(withType('MessagingEvent'),
