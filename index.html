@@ -887,7 +887,7 @@ function AllowNotifications() {
 }
 	
   
-AllowNotifications(socket);
+AllowNotifications();
 	
 var arrayBadge = []; // *** unread events
 var badge = 0;  // *** number of unread events
@@ -911,11 +911,7 @@ $(document).ready(() => {
   prepareToConnect();
   $('#connect').click();  
 });
-$(document).on('click', function(evt) {
-	  if($(evt.target).is('#photo')) {
-             photoSharing(socket);
-         }
-  });
+
 function prepareToConnect() {
   $('#connect').text('connect').unbind('click').click(() => {
     $('#connect').text('connecting...');
@@ -950,6 +946,12 @@ function handleOpenedSocket(socket,jwt) {
   $('.spaceagent').remove();
   $('.spacecustomer').remove();
   $('.lp-panel').remove();
+	
+  $(document).on('click', function(evt) {
+	  if($(evt.target).is('#photo')) {
+             photoSharing(socket);
+         }
+  });
     
     
   var space = document.createElement('div');
