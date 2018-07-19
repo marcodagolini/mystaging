@@ -1175,7 +1175,12 @@ setTimeout(function(){
 			   hostdiv.setAttribute("class","hostcustomer");
 			   var newdiv = document.createElement('div');
 			   newdiv.setAttribute("class","customer");
-			   newdiv.innerHTML = change.event.message;                
+			   var img = document.createElement("img");
+			   img.width = "30px";
+			   img.height = "30px";
+			   img.src = change.event.message.preview;
+			   newdiv.appendChild(img);
+			   // newdiv.innerHTML = change.event.message;                
 			   var maindiv = document.getElementById('log');
 			   maindiv.appendChild(hostdiv);
 			   hostdiv.appendChild(newdiv);
