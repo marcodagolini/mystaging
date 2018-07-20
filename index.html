@@ -1375,7 +1375,8 @@ setTimeout(function(){
 		  
 		  input.onchange = function(){
 			  process_file(input.files, convID)
-			  .then(function(res){ 
+			  .then(function(res){
+				  console.log("second level");
 				  myPath = res.myPath;
 				  extension = res.extension;
 				  base64 = res.base64;
