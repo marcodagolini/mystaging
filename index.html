@@ -1004,13 +1004,8 @@ setTimeout(function(){
 					  
 					  function dataURItoBlob(dataURI) {
 						  var binary = atob(dataURI.split(',')[1]);
-
-						    var len = binary.length;
-						    var bytes = new Uint8Array( len );
-						    for (var i = 0; i < len; i++)        {
-							bytes[i] = binary.charCodeAt(i);
-						    }
-						    return bytes.buffer;
+						  return binary;
+						    
 					  }
 					  base64 = e.target.result;
 					  var base64ToBin = dataURItoBlob(base64);
