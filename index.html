@@ -983,10 +983,15 @@ setTimeout(function(){
 	
   $(document).on('click', function(evt) {
 	  if($(evt.target).is('#photo')) {
-		  socket.generateURLForUploadFile({
-			 "fileSize": "1000",
-			  "fileType": "JPG"
-		  }).then(resp => console.log(JSON.stringify(resp)));
+		  var input = document.createElement('input');
+		  input.type = 'file';
+		  input.click();
+			
+			
+		  // socket.generateURLForUploadFile({
+			 // "fileSize": "1000",
+			  // "fileType": "JPG"
+		  // }).then(resp => console.log(JSON.stringify(resp)));
          }
   });
 	
