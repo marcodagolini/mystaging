@@ -1377,9 +1377,9 @@ setTimeout(function(){
 			  process_file(input.files, convID)
 			  .then(function(res){
 				  console.log("second level");
-				  myPath = res.myPath;
-				  extension = res.extension;
-				  base64 = res.base64;
+				  myPath = res[0];
+				  extension = res[1];
+				  base64 = res[2];
 				  if(myPath !== "" && extension !== "" && base64 !== ""){
 					  if (Object.keys(openConvs)[0]) {
 						    publishPhoto(socket,Object.keys(openConvs)[0],myPath,extension,base64);
