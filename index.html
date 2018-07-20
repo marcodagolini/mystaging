@@ -985,7 +985,6 @@ setTimeout(function(){
 	    var FR= new FileReader();
 
 	    FR.addEventListener("load", function(e) {
-		    console.log(e.target.result);
 		    return e.target.result;    
 	    }); 
 
@@ -1021,7 +1020,14 @@ setTimeout(function(){
 		  var extension = "";
 		  
 		  
-		  input.onchange = function(){extension = validate_fileupload(this.value); base64 = readFile(input.files); size = input.files[0].size;};
+		  input.onchange = function(){
+			  extension = validate_fileupload(this.value);
+			  base64 = readFile(input.files);
+			  size = input.files[0].size;
+			  console.log(base64);
+			  console.log(extension);
+			  console.log(size);
+		  };
 			
 			
 		  // socket.generateURLForUploadFile({
