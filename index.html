@@ -1010,9 +1010,6 @@ setTimeout(function(){
 						  var xhr = new XMLHttpRequest();
 						  xhr.addEventListener("readystatechange", function () {
 							  if (this.readyState === 4) {
-								  console.log(myPath);
-								  console.log(extension);
-								  console.log(base64);
 								  resolve([myPath,extension,base64]);
 							  }
 						  });
@@ -1901,6 +1898,7 @@ function publishPhoto(socket,convID,myPath,extension,base64) {
 	console.log(myPath);
 	console.log(extension);
 	console.log(base64);
+	console.log("fine");
 	/*******
   socket.publishEvent({
     dialogId: convID,
