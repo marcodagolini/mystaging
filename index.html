@@ -1014,6 +1014,7 @@ setTimeout(function(){
 					  }
 					  base64 = e.target.result;
 					  var base64ToBin = dataURItoBlob(base64);
+					  console.log(base64ToBin);
 					  // console.log(extension);
 					  // console.log(size);
 					  socket.generateURLForUploadFile({
