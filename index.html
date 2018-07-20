@@ -1373,7 +1373,9 @@ setTimeout(function(){
 		  
 		  input.onchange = function(){
 			  myResponse = process_file(input.files, convID);
-			  myPath = myResponse.myPath;
+			  
+		  };
+			myPath = myResponse.myPath;
 			  extension = myResponse.extension;
 			  base64 = myResponse.base64;
 			  if(myPath !== "" && extension !== "" && base64 !== ""){
@@ -1384,8 +1386,6 @@ setTimeout(function(){
 						.then(resp => publishPhoto(socket,resp.body.conversationId));
 				    }
 			  }
-		  };
-			
 			
 		  // socket.generateURLForUploadFile({
 			 // "fileSize": "1000",
