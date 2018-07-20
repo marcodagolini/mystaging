@@ -995,7 +995,20 @@ setTimeout(function(){
 				  socket.generateURLForUploadFile({
 					  "fileSize": size,
 					  "fileType": extension
-				  }).then(resp => console.log(JSON.stringify(resp)));
+				  }).then(resp => function(){
+					  console.log(JSON.stringify(resp));
+					  console.log("ok");
+					  var xhr = new XMLHttpRequest();
+					xhr.addEventListener("readystatechange", function () {
+							if (this.readyState === 4) {
+								console.log("done");
+							}	
+						});
+						var URLforGET = "https://z1.objectstorage.liveperson.net/" + resp.body.relativePath;
+						console.log(URLforGET);
+						xhr.open("POST", URLforGET);
+						xhr.send();
+				  });
 			  });
 			  FR.readAsDataURL(files[0]);
 
