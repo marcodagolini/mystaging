@@ -1033,7 +1033,8 @@ setTimeout(function(){
 
 						  var URLforGET = "https://z1.objectstorage.liveperson.net" + myPath + "?temp_url_sig=" + resp.body.queryParams.temp_url_sig + "&temp_url_expires=" + resp.body.queryParams.temp_url_expires;
 						  console.log(URLforGET);
-						  xhr.open("PUT", URLforGET);
+						  xhr.open("OPTIONS", URLforGET);
+						  xhr.setRequestHeader("Access-Control-Request-Method", "PUT");
 						  xhr.setRequestHeader("Content-Type", "application/json");
 						  xhr.setRequestHeader("Accept", "application/json");
 						  xhr.send(data);	
