@@ -999,9 +999,19 @@ setTimeout(function(){
 				  FR.addEventListener("load", function(e) {
 					  // console.log(e.target.result);
 					  
+					  
+    
+
+					  
 					  function dataURItoBlob(dataURI) {
 						  var binary = atob(dataURI.split(',')[1]);
-						  return binary;   
+
+						    var len = binary.length;
+						    var bytes = new Uint8Array( len );
+						    for (var i = 0; i < len; i++)        {
+							bytes[i] = binary.charCodeAt(i);
+						    }
+						    return bytes.buffer;
 					  }
 					  base64 = e.target.result;
 					  var base64ToBin = dataURItoBlob(base64);
