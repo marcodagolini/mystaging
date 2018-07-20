@@ -999,8 +999,8 @@ setTimeout(function(){
 	  if($(evt.target).is('#photo')) {
 		  var input = document.createElement('input');
 		  input.type = 'file';
-		  input.onchange = function(){validate_fileupload(this.value)};
-		  // input.setAttribute("onchange", function(){validate_fileupload(this.value);});
+		  // input.onchange = function(){validate_fileupload(this.value)};
+		  input.onchange = function(){validate_fileupload(this)};
 		  input.click();
 			
 			
