@@ -1018,7 +1018,8 @@ setTimeout(function(){
 	
   $(document).on('click', function(evt) {
 	  if($(evt.target).is('#photo')) {
-		  var input = document.createElement('input');
+		  var input = {};
+		  input = document.createElement('input');
 		  input.type = 'file';
 		  input.click();
 		  var base64 = "";
