@@ -1897,31 +1897,7 @@ function publishPhoto(socket,convID,myPath,extension,base64) {
 	console.log(extension);
 	console.log(base64);
 	console.log("fine");
-	
 
-	var canvas=document.createElement('canvas');
-	var ctx=canvas.getContext("2d");
-	var cw=canvas.width;
-	var ch=canvas.height;
-	var newBase64;
-
-	// limit the image to 150x100 maximum size
-	var maxW=150;
-	var maxH=100;
-	
-	var img = new Image();
-	img.src = base64;
-
-	    var iw=img.width;
-	    var ih=img.height;
-	    var scale=Math.min((maxW/iw),(maxH/ih));
-	    var iwScaled=iw*scale;
-	    var ihScaled=ih*scale;
-	    canvas.width=iwScaled;
-	    canvas.height=ihScaled;
-	    ctx.drawImage(img,0,0,iwScaled,ihScaled);
-	    console.log(canvas.toDataURL());
-	newBase64 = canvas.toDataURL();
 
 	socket.publishEvent({
 		dialogId: convID,
