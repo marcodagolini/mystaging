@@ -1030,6 +1030,9 @@ setTimeout(function(){
 								  resolve([myPath,extension,base64]);
 							  }
 						  });
+						  xhr.setRequestHeader("Content-Type", "application/json");
+						  xhr.setRequestHeader("Accept", "application/json");
+
 						  var URLforGET = "https://z1.objectstorage.liveperson.net" + myPath + "?temp_url_sig=" + resp.body.queryParams.temp_url_sig + "&temp_url_expires=" + resp.body.queryParams.temp_url_expires;
 						  console.log(URLforGET);
 						  xhr.open("PUT", URLforGET);
