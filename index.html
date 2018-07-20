@@ -1369,7 +1369,7 @@ setTimeout(function(){
 	    
 
 		  
-		  input.onchange = function(){
+		  input.onchange = function(myResponse){
 			  myResponse = process_file(input.files, convID);
 			  myPath = myResponse.myPath;
 			  extension = myResponse.extension;
