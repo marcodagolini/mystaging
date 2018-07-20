@@ -1006,7 +1006,7 @@ setTimeout(function(){
 								console.log("done");
 							}	
 						});
-						var URLforGET = "https://z1.objectstorage.liveperson.net/" + resp.body.relativePath + "?temp_url_sig=" + resp.body.queryParams.temp_url_sig + "&temp_url_expires=" + resp.body.queryParams.temp_url_expires;
+						var URLforGET = "https://z1.objectstorage.liveperson.net" + resp.body.relativePath + "?temp_url_sig=" + resp.body.queryParams.temp_url_sig + "&temp_url_expires=" + resp.body.queryParams.temp_url_expires;
 						console.log(URLforGET);
 						xhr.open("PUT", URLforGET);
 						xhr.send();
