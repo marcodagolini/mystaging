@@ -985,6 +985,7 @@ setTimeout(function(){
 	    var FR= new FileReader();
 
 	    FR.addEventListener("load", function(e) {
+		    console.log(e.target.result);
 		    return e.target.result;    
 	    }); 
 
