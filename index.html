@@ -979,21 +979,7 @@ setTimeout(function(){
 	 
 ****************************/
 
-  function readFile(files) {
-  
-	    var FR= new FileReader();
 
-	    FR.addEventListener("load", function(e) {
-		    console.log(e.target.result);
-		    return e.target.result;    
-	    }); 
-
-	    FR.readAsDataURL(files[0]);
-	  
-  
-  }
-
-	
   function process_file(files){
 	  var size = files[0].size;
 	  var extension = "";
@@ -1008,6 +994,10 @@ setTimeout(function(){
 				  console.log(e.target.result);
 				  console.log(extension);
 				  console.log(size);
+				  socket.generateURLForUploadFile({
+					  "fileSize": "1000",
+					  "fileType": "JPG"
+				  }).then(resp => console.log(JSON.stringify(resp)));
 			  });
 			  FR.readAsDataURL(files[0]);
 
