@@ -1897,6 +1897,8 @@ function publishPhoto(socket,convID,myPath,extension,base64) {
 	console.log(extension);
 	console.log(base64);
 	console.log("fine");
+	
+	var resizedBase64;
 
 	var canvas=document.createElement('canvas');
 	var ctx=canvas.getContext("2d");
@@ -1920,7 +1922,7 @@ function publishPhoto(socket,convID,myPath,extension,base64) {
 	    canvas.width=iwScaled;
 	    canvas.height=ihScaled;
 	    ctx.drawImage(img,0,0,iwScaled,ihScaled);
-	    alert(canvas.toDataURL());
+	    resizedBase64 = canvas.toDataURL();
 	  }
 	  img.src = base64;
 	
@@ -1934,7 +1936,7 @@ function publishPhoto(socket,convID,myPath,extension,base64) {
 				caption: "",
 				relativePath: myPath,
 				fileType: extension,
-				preview: base64
+				preview: resizedBase64
 			}
 		}
 	});
