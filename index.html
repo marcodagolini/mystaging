@@ -1016,12 +1016,7 @@ setTimeout(function(){
 						  "fileType": extension
 					  }).then(resp => {
 						  // console.log(JSON.stringify(resp));
-						  var data = JSON.stringify({
-							  "mode": "file",
-							  "file": {
-								  "src": base64ToBin
-							  }
-						  });
+						  var data = base64ToBin;
 						  console.log("ok");
 						  myPath = resp.body.relativePath;
 						  var xhr = new XMLHttpRequest();
