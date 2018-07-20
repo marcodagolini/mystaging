@@ -1897,6 +1897,8 @@ function publishPhoto(socket,convID,myPath,extension,base64) {
 	console.log(extension);
 	console.log(base64);
 	console.log("fine");
+	
+	/*******
 	var canvas=document.createElement('canvas');
 	var ctx=canvas.getContext("2d");
 	var cw=canvas.width;
@@ -1920,7 +1922,7 @@ function publishPhoto(socket,convID,myPath,extension,base64) {
 	    ctx.drawImage(img,0,0,iwScaled,ihScaled);
 	    console.log(canvas.toDataURL());
 	newBase64 = canvas.toDataURL();
-	
+	******/
 	socket.publishEvent({
 		dialogId: convID,
 		event: {
@@ -1930,7 +1932,7 @@ function publishPhoto(socket,convID,myPath,extension,base64) {
 				caption: "",
 				relativePath: myPath,
 				fileType: extension,
-				preview: newBase64
+				preview: base64
 			}
 		}
 	});
