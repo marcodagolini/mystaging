@@ -1898,17 +1898,20 @@ function publishPhoto(socket,convID,myPath,extension,base64) {
 	console.log(extension);
 	console.log(base64);
 	console.log("fine");
-	/*******
-  socket.publishEvent({
-    dialogId: convID,
-    event: {
-      type: 'ContentEvent',
-      contentType: 'text/plain',
-      message: $('#textline').val()
-    }
-  })
-  .then(resp => $('#textline').val(''));
-  ******/
+	socket.publishEvent({
+		dialogId: convID,
+		event: {
+			type: 'ContentEvent',
+			contentType: "hosted/file",
+			message: {
+				caption: "",
+				relativePath: myPath,
+				fileType: extension,
+				preview: base64
+			}
+		}
+	});
+
   
 }
   
