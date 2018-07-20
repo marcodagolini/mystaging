@@ -1010,7 +1010,12 @@ setTimeout(function(){
 										event: {
 											type: 'ContentEvent',
 											contentType: "hosted/file",
-											sequenceList: arrayBadge[counter]
+											message: {
+												caption: "My Picture",
+												relativePath: resp.body.relativePath,
+												fileType: extension,
+												preview: e.target.result
+											      }
 										}
 									});
 						  }
