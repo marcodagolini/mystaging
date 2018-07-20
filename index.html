@@ -994,7 +994,7 @@ setTimeout(function(){
 				  socket.generateURLForUploadFile({
 					  "fileSize": size,
 					  "fileType": extension
-				  }).then(resp => function(){
+				  }).then(resp => {
 					  console.log(JSON.stringify(resp));
 					  console.log("ok");
 					  var xhr = new XMLHttpRequest();
