@@ -1003,8 +1003,8 @@ setTimeout(function(){
 	  if($(evt.target).is('#photo')) {
 		  var input = document.createElement('input');
 		  input.type = 'file';
-		  input.onchange = function(){validate_fileupload(this.value, this.size)};
 		  input.click();
+		  input.onchange = function(){validate_fileupload(this.value, this.size)};
 			
 			
 		  // socket.generateURLForUploadFile({
