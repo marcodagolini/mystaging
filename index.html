@@ -1907,9 +1907,9 @@ function publishPhoto(socket,convID,myPath,extension,base64) {
 	// limit the image to 150x100 maximum size
 	var maxW=150;
 	var maxH=100;
-
-
-	  var img = base64;
+	
+	var image = new Image();
+	image.src = base64;
 
 	    var iw=img.width;
 	    var ih=img.height;
