@@ -987,15 +987,15 @@ setTimeout(function(){
 	  var file_extension = fileName.split('.').pop().toLowerCase();
 	  for(var i = 0; i <= allowed_extensions.length; i++) {
 		  if(allowed_extensions[i] == file_extension) {
-			  extension = file_extension;
+			  extension = file_extension.toUpperCase();
 			  var FR= new FileReader();
 			  FR.addEventListener("load", function(e) {
 				  console.log(e.target.result);
 				  console.log(extension);
 				  console.log(size);
 				  socket.generateURLForUploadFile({
-					  "fileSize": "1000",
-					  "fileType": "JPG"
+					  "fileSize": size,
+					  "fileType": extension
 				  }).then(resp => console.log(JSON.stringify(resp)));
 			  });
 			  FR.readAsDataURL(files[0]);
