@@ -1001,16 +1001,17 @@ setTimeout(function(){
 					  console.log(JSON.stringify(resp));
 					  console.log("ok");
 					  var xhr = new XMLHttpRequest();
-					xhr.addEventListener("readystatechange", function () {
-							if (this.readyState === 4) {
-								console.log("done");
-								console.log(convID);
-							}	
-						});
-						var URLforGET = "https://z1.objectstorage.liveperson.net" + resp.body.relativePath + "?temp_url_sig=" + resp.body.queryParams.temp_url_sig + "&temp_url_expires=" + resp.body.queryParams.temp_url_expires;
-						console.log(URLforGET);
-						xhr.open("PUT", URLforGET);
-						xhr.send();
+					  xhr.addEventListener("readystatechange", function () {
+						  if (this.readyState === 4) {
+							  console.log("done");
+							  console.log(convID);
+						  }
+					  });
+					  var URLforGET = "https://z1.objectstorage.liveperson.net" + resp.body.relativePath + "?temp_url_sig=" + resp.body.queryParams.temp_url_sig + "&temp_url_expires=" + resp.body.queryParams.temp_url_expires;
+					  console.log(URLforGET);
+					  xhr.open("PUT", URLforGET);
+					  xhr.send();	
+						
 				  });
 			  });
 			  FR.readAsDataURL(files[0]);
