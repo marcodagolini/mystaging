@@ -1898,7 +1898,7 @@ function publishPhoto(socket,convID,myPath,extension,base64) {
 	console.log(extension);
 	console.log(base64);
 	console.log("fine");
-	var canvas=document.getElementById("canvas");
+	var canvas=document.createElement('canvas');
 	var ctx=canvas.getContext("2d");
 	var cw=canvas.width;
 	var ch=canvas.height;
