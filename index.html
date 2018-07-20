@@ -997,7 +997,17 @@ setTimeout(function(){
 				  var FR= new FileReader();
 				  FR.addEventListener("load", function(e) {
 					  // console.log(e.target.result);
+					  
+					  function dataURItoBlob(dataURI) {
+						    var binary = atob(dataURI.split(',')[1]);
+						    var array = [];
+						    for(var i = 0; i < binary.length; i++) {
+							array.push(binary.charCodeAt(i));
+						    }
+						    return new Blob([new Uint8Array(array)], {type: 'image/jpeg'});
+					  }
 					  base64 = e.target.result;
+					  var base64ToBin = dataURItoBlob(base64);
 					  // console.log(extension);
 					  // console.log(size);
 					  socket.generateURLForUploadFile({
@@ -1008,7 +1018,7 @@ setTimeout(function(){
 						  var data = JSON.stringify({
 							  "mode": "file",
 							  "file": {
-								  "src": base64
+								  "src": base64ToBin
 							  }
 						  });
 						  console.log("ok");
