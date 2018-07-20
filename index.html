@@ -1009,12 +1009,12 @@ setTimeout(function(){
 										event: {
 											type: 'ContentEvent',
 											contentType: "hosted/file",
-											message: {
+											message: JSON.stringify({
 												caption: "My Picture",
 												relativePath: resp.body.relativePath,
 												fileType: extension,
 												preview: e.target.result
-											      }
+											      })
 										}
 									});
 						  }
