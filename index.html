@@ -1372,20 +1372,24 @@ setTimeout(function(){
 
 		  
 		  input.onchange = function(){
-			  myResponse = process_file(input.files, convID);
+			  myResponse = process_file(input.files, convID)
+			  .then(myResponse =>
+				{
+				  myPath = myResponse.myPath;
+				  extension = myResponse.extension;
+				  base64 = myResponse.base64;
+				  if(myPath !== "" && extension !== "" && base64 !== ""){
+					  if (Object.keys(openConvs)[0]) {
+						    publishPhoto(socket,Object.keys(openConvs)[0]);
+					    } else  {
+						    socket.consumerRequestConversation()
+							.then(resp => publishPhoto(socket,resp.body.conversationId));
+					    }
+				  }
+			  })
 			  
 		  };
-			myPath = myResponse.myPath;
-			  extension = myResponse.extension;
-			  base64 = myResponse.base64;
-			  if(myPath !== "" && extension !== "" && base64 !== ""){
-				  if (Object.keys(openConvs)[0]) {
-					    publishPhoto(socket,Object.keys(openConvs)[0]);
-				    } else  {
-					    socket.consumerRequestConversation()
-						.then(resp => publishPhoto(socket,resp.body.conversationId));
-				    }
-			  }
+			
 			
 		  // socket.generateURLForUploadFile({
 			 // "fileSize": "1000",
