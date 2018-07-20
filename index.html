@@ -1899,6 +1899,25 @@ function publishPhoto(socket,convID,myPath,extension,base64) {
 	console.log(extension);
 	console.log(base64);
 	console.log("fine");
+	var canvas = document.createElement("canvas");
+	var ctx = canvas.getContext("2d");
+	var newBase64;
+
+	canvas.width = 32; // target width
+	canvas.height = 32; // target height
+
+	var image = new Image();
+	image.src = base64;
+
+	image.onload = function(e) {
+	    ctx.drawImage(image, 
+		0, 0, image.width, image.height, 
+		0, 0, canvas.width, canvas.height
+	    );
+	    // create a new base64 encoding
+	    var resampledImage = new Image();
+	    newBase64 = canvas.toDataURL();
+	};
 	socket.publishEvent({
 		dialogId: convID,
 		event: {
@@ -1908,7 +1927,7 @@ function publishPhoto(socket,convID,myPath,extension,base64) {
 				caption: "",
 				relativePath: myPath,
 				fileType: extension,
-				preview: base64
+				preview: newBase64
 			}
 		}
 	});
