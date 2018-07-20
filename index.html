@@ -1924,6 +1924,7 @@ function publishPhoto(socket,convID,myPath,extension,base64) {
 	    canvas.height=ihScaled;
 	    ctx.drawImage(img,0,0,iwScaled,ihScaled);
 	    resizedBase64 = canvas.toDataURL();
+		  console.log(resizedBase64);
 	  }
 	  img.src = base64;
 	
