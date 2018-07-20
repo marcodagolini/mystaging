@@ -1031,8 +1031,7 @@ setTimeout(function(){
 
 						  var URLforGET = "https://z1.objectstorage.liveperson.net" + myPath + "?temp_url_sig=" + resp.body.queryParams.temp_url_sig + "&temp_url_expires=" + resp.body.queryParams.temp_url_expires;
 						  console.log(URLforGET);
-						  xhr.open("PUT", URLforGET, true);
-						  // xhr.setRequestHeader('Content-type','application/json; charset=utf-8');
+						  xhr.open("PUT", URLforGET);
 						  xhr.send(data);	
 
 					  });
