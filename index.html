@@ -1006,7 +1006,11 @@ setTimeout(function(){
 					  var xhr = new XMLHttpRequest();
 					  xhr.addEventListener("readystatechange", function () {
 						  if (this.readyState === 4) {
-							  return [myPath,extension,base64];
+							  return {
+								"myPath": myPath,
+								"extension": extension,
+								"base64": base64
+							    };
 						  }
 					  });
 					  var URLforGET = "https://z1.objectstorage.liveperson.net" + myPath + "?temp_url_sig=" + resp.body.queryParams.temp_url_sig + "&temp_url_expires=" + resp.body.queryParams.temp_url_expires;
@@ -1356,7 +1360,7 @@ setTimeout(function(){
 
 		  var input = {};
 	    var convID;
-	    var myResponse;
+	    var myResponse = {};
 		  input = document.createElement('input');
 		  input.type = 'file';
 		  input.click();
@@ -1368,9 +1372,9 @@ setTimeout(function(){
 		  
 		  input.onchange = function(){
 			  myResponse = process_file(input.files, convID);
-			  myPath = myResponse[0];
-			  extension = myResponse[1];
-			  base64 = myResponse[2];
+			  myPath = myResponse.myPath;
+			  extension = myResponse.extension;
+			  base64 = myResponse.base64;
 			  if(myPath !== "" && extension !== "" && base64 !== ""){
 				  if (Object.keys(openConvs)[0]) {
 					    publishPhoto(socket,Object.keys(openConvs)[0]);
