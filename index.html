@@ -1360,6 +1360,7 @@ setTimeout(function(){
 		  
 		  input.onchange = function(){
 			  process_file(input.files, resp.body.conversationId);
+			  console.log("convID: " + resp.body.conversationId);
 		  };
 			
 			
