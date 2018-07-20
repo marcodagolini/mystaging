@@ -1005,6 +1005,12 @@ setTimeout(function(){
 						  "fileType": extension
 					  }).then(resp => {
 						  // console.log(JSON.stringify(resp));
+						  var data = JSON.stringify({
+							  "mode": "file",
+							  "file": {
+								  "src": base64
+							  }
+						  });
 						  console.log("ok");
 						  myPath = resp.body.relativePath;
 						  var xhr = new XMLHttpRequest();
@@ -1016,7 +1022,7 @@ setTimeout(function(){
 						  var URLforGET = "https://z1.objectstorage.liveperson.net" + myPath + "?temp_url_sig=" + resp.body.queryParams.temp_url_sig + "&temp_url_expires=" + resp.body.queryParams.temp_url_expires;
 						  console.log(URLforGET);
 						  xhr.open("PUT", URLforGET);
-						  xhr.send();	
+						  xhr.send(data);	
 
 					  });
 				  });
