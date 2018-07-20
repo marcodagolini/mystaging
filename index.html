@@ -1360,8 +1360,13 @@ setTimeout(function(){
 		  var base64 = "";
 		  var size = 0;
 		  var extension = "";
-	    socket.consumerRequestConversation()
-		    .then(resp => convID = resp.body.conversationId);
+	    if (Object.keys(openConvs)[0]) {
+		    convID = Object.keys(openConvs)[0];
+	    } else  {
+		    socket.consumerRequestConversation()
+             		.then(resp => convID = resp.body.conversationId);
+	    }
+
 		  
 		  input.onchange = function(){
 			  process_file(input.files, convID);
