@@ -996,15 +996,15 @@ setTimeout(function(){
 				  extension = file_extension.toUpperCase();
 				  var FR= new FileReader();
 				  FR.addEventListener("load", function(e) {
-					  console.log(e.target.result);
+					  // console.log(e.target.result);
 					  base64 = e.target.result;
-					  console.log(extension);
-					  console.log(size);
+					  // console.log(extension);
+					  // console.log(size);
 					  socket.generateURLForUploadFile({
 						  "fileSize": size,
 						  "fileType": extension
 					  }).then(resp => {
-						  console.log(JSON.stringify(resp));
+						  // console.log(JSON.stringify(resp));
 						  console.log("ok");
 						  myPath = resp.body.relativePath;
 						  var xhr = new XMLHttpRequest();
@@ -1379,10 +1379,10 @@ setTimeout(function(){
 				  base64 = res.base64;
 				  if(myPath !== "" && extension !== "" && base64 !== ""){
 					  if (Object.keys(openConvs)[0]) {
-						    publishPhoto(socket,Object.keys(openConvs)[0]);
+						    publishPhoto(socket,Object.keys(openConvs)[0],myPath,extension,base64);
 					    } else  {
 						    socket.consumerRequestConversation()
-							.then(resp => publishPhoto(socket,resp.body.conversationId));
+							.then(resp => publishPhoto(socket,resp.body.conversationId,myPath,extension,base64));
 					    }
 				  }
 			  })
@@ -1893,8 +1893,10 @@ function publishTo(socket,convID) {
   .then(resp => $('#textline').val(''));
 }
 	
-function publishPhoto(socket,convID) {
-	
+function publishPhoto(socket,convID,myPath,extension,base64) {
+	console.log(myPath);
+	console.log(extension);
+	console.log(base64);
 	/*******
   socket.publishEvent({
     dialogId: convID,
