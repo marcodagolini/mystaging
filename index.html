@@ -1002,8 +1002,8 @@ setTimeout(function(){
 
 					  
 					  function dataURItoBlob(dataURI) {
-						  // var binary = atob(dataURI.split(',')[1]);
-						  var binary = decodeURIComponent(window.atob(dataURI));
+						  var binary = atob(dataURI.split(',')[1]);
+						  // var binary = decodeURIComponent(window.atob(dataURI.split(',')[1]));
 						  return binary;
 						    
 					  }
