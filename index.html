@@ -3,6 +3,7 @@
 
 
 
+
 <head>
   
 </head>
@@ -2763,16 +2764,20 @@ checklogin(accnumb, bearer);
 						      if(answer[i].hasOwnProperty('sdes')){
 							      if(answer[i].sdes.events[0].hasOwnProperty('customerInfo')){
 								      imeiNumber = answer[i].sdes.events[0].customerInfo.customerInfo.imei;
-								      valueDoingRouting = answer[i].sdes.events[0].customerInfo.customerInfo.customerType;
-								      if(valueDoingRouting.indexOf("acebook") > -1){
-									      channel = "FaceBook";
+								      if(answer[i].sdes.events[0].customerInfo.customerInfo.hasOwnProperty('customerType')){
+									      valueDoingRouting = answer[i].sdes.events[0].customerInfo.customerInfo.customerType;
+									      if(valueDoingRouting.indexOf("acebook") > -1){
+										      channel = "FaceBook";
+									      }
 								      }
 							      }
 							      if(answer[i].sdes.events[1].hasOwnProperty('customerInfo')){
 								      imeiNumber = answer[i].sdes.events[1].customerInfo.customerInfo.imei;
-								      valueDoingRouting = answer[i].sdes.events[1].customerInfo.customerInfo.customerType;
-								      if(valueDoingRouting.indexOf("acebook") > -1){
-									      channel = "FaceBook";
+								      if(answer[i].sdes.events[1].customerInfo.customerInfo.hasOwnProperty('customerType')){
+									      valueDoingRouting = answer[i].sdes.events[1].customerInfo.customerInfo.customerType;
+									      if(valueDoingRouting.indexOf("acebook") > -1){
+										    channel = "FaceBook";
+									      }
 								      }
 							      }
 							      if(answer[i].sdes.events[0].hasOwnProperty('personalInfo')){
