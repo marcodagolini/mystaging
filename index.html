@@ -31,7 +31,7 @@ input.onclick = function () {
 };
 
 input.onchange = function(){
-	resizeImageToSpecificWidth(50, function(dat) {
+	resizeImageToSpecificWidth(100, function(dat) {
         console.log(dat);
         document.getElementById("great-image").src = dat;
   });
@@ -44,6 +44,7 @@ function resizeImageToSpecificWidth(max, cb) {
     reader.onload = function(event) {
       var img = new Image();
       img.onload = function() {
+	      console.log(img);
         if (img.width > max) {
           var oc = document.createElement('canvas'), octx = oc.getContext('2d');
           oc.width = img.width;
@@ -62,7 +63,6 @@ function resizeImageToSpecificWidth(max, cb) {
         } else {
           data = oc.toDataURL();
         }
-	      console.log(data);
         cb(data);
       };
       img.src = event.target.result;
