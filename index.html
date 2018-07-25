@@ -3094,6 +3094,10 @@ checklogin(accnumb, bearer);
 						      howManyMessages = answer[i].messageRecords.length;
 						      var partialTime = 0;
 						      if(howManyMessages){
+							      if(answer[i].info.conversationId === "115b28f4-930c-46ef-bd16-26e108680f08"){
+								      console.log("oi");
+							      }
+								      
 						      		if(answer[i].hasOwnProperty('agentParticipants') && answer[i].agentParticipants.length){
 									if(answer[i].hasOwnProperty('transfers')){
 										var agentParticipantsLength = answer[i].agentParticipants.length;
@@ -3260,9 +3264,6 @@ checklogin(accnumb, bearer);
 													if (f === (transferLength - 1)){
 														if(answer[i].info.endTimeL > 0){
 															partialTime = (answer[i].info.endTimeL - jumpInTimestamp)/1000;
-															if (partialTime < 0){
-																console.log("oi");
-															}
 														}
 														
 														if(isGeneral){
