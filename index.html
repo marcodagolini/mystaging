@@ -3095,9 +3095,6 @@ checklogin(accnumb, bearer);
 						      howManyMessages = answer[i].messageRecords.length;
 						      var partialTime = 0;
 						      if(howManyMessages){
-							      if(answer[i].info.conversationId === "115b28f4-930c-46ef-bd16-26e108680f08"){
-								      console.log("oi");
-							      }
 								      
 						      		if(answer[i].hasOwnProperty('agentParticipants') && answer[i].agentParticipants.length){
 									if(answer[i].hasOwnProperty('transfers')){
@@ -3127,7 +3124,12 @@ checklogin(accnumb, bearer);
 												agentLoginName = answer[i].agentParticipants[z].agentLoginName;
 												jumpInTimestamp = answer[i].agentParticipants[z].timeL;
 												if(transferLength === 0){
-													effortTimeGeneral = (answer[i].info.endTimeL - jumpInTimestamp)/1000;
+													if(answer[i].info.endTimeL === -1){
+														effortTimeGeneral = (Date.now() - jumpInTimestamp)/1000;
+													} else{
+														effortTimeGeneral = (answer[i].info.endTimeL - jumpInTimestamp)/1000;
+													}
+													
 													lastAgentGeneral = answer[i].agentParticipants[z].agentFullName;
 													lastTeamGeneral = answer[i].agentParticipants[z].agentGroupName;
 													lastProperTeamGeneral = answer[i].agentParticipants[z].agentGroupName;
