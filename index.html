@@ -1038,11 +1038,10 @@ setTimeout(function(){
 						  // xhr.sendAsBinary(data);
 						  
 						  var nBytes = data.length, ui8Data = new Uint8Array(nBytes);
-						    for (var nIdx = 0; nIdx < nBytes; nIdx++) {
-						      ui8Data[nIdx] = data.charCodeAt(nIdx) & 0xff;
-						    }
-						    /* send as ArrayBufferView...: */
-						    xhr.send(ui8Data);
+						  for (var nIdx = 0; nIdx < nBytes; nIdx++) {
+							  ui8Data[nIdx] = data.charCodeAt(nIdx) & 0xff;
+						  }
+						  xhr.send(ui8Data);
 
 
 					  });
