@@ -61,6 +61,7 @@ function resizeImageToSpecificWidth(max, cb) {
         } else {
           data = oc.toDataURL();
         }
+	      console.log(data);
         cb(data);
       };
       img.src = event.target.result;
