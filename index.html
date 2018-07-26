@@ -32,6 +32,34 @@
   opacity: 0.5;
 }
 	
+	
+.facebook-button {
+    background-color: #000000;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 4px;
+    cursor: pointer;
+	  border-radius: 4px;
+	  -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+	  font-family: "Myriad pro","Trebuchet MS","Lucida Grande","Lucida Sans Unicode","Lucida Sans",sans-serif;
+}
+.facebook-button:hover {
+    background-color: #bbbbbb;
+    color: white;	
+}
+	
+.facebook-button:disabled,
+.facebook-button[disabled]{
+  background-color: #dddddd;
+  opacity: 0.5;
+}
+	
 
  
 </style>
@@ -46,6 +74,8 @@
 
 
 <script>
+	
+	$("#submit").addClass('facebook-button').removeClass('web-button');
 
   
    
