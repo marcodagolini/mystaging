@@ -79,7 +79,9 @@
 	$( document ).ready(function() {
 		
 		$("#submit").addClass('facebook-button').removeClass('web-button');
-		$("#submit").prop( "disabled", false );
+		setTimeout(function(){
+			$("#submit").prop( "disabled", false );
+		}, 5000);
 	});
 
   
