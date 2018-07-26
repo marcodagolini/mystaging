@@ -588,7 +588,10 @@ button[disabled]{
 					console.log(cfiscaleTobi);
 					$("button").css('background-color', '#000000');
 					$("button").hover(function() {
-					  $(this).css("background-color","red")
+					  	$(this).css("background-color","red")
+						$(this).bind("mouseout", function(){
+							$(this).css("background", '#000000');
+					    })   
 					});
 
 					routing = "facebook";
