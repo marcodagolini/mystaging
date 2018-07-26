@@ -39,7 +39,7 @@ button[disabled]{
 }
 	
 button-facebook {
-    background-color: #f68a1f;
+    background-color: #425fb4;
     border: none;
     color: white;
     padding: 15px 32px;
@@ -55,13 +55,13 @@ button-facebook {
 	  font-family: "Myriad pro","Trebuchet MS","Lucida Grande","Lucida Sans Unicode","Lucida Sans",sans-serif;
 }
 button-facebook:hover {
-    background-color: #da7009;
+    background-color: #425fb4;
     color: white;	
 }
 	
 button-facebook:disabled,
 button[disabled]{
-  background-color: #f68a1f;
+  background-color: #425fb4;
   opacity: 0.5;
 }
 	
@@ -612,6 +612,7 @@ button[disabled]{
 					}, 3000)
 					var myXHR = JSON.parse(xhr.response)
 					console.log(cfiscaleTobi);
+					routing = "facebook";
 					if (routing.indexOf("acebook") > -1){
 						console.log("questo e' facebook");
 						$('#telefono').val(myXHR[0]);
