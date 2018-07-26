@@ -617,8 +617,9 @@ textarea {
 					routing = "facebook";
 					
 					$("#submit").removeClass("web-button").addClass("facebook-button");
-						$("#submitawake").removeClass("web-button").addClass("facebook-button");
-						$("#submitlimbo").removeClass("web-button").addClass("facebook-button");
+					$("#submitawake").removeClass("web-button").addClass("facebook-button");
+					$("#submitlimbo").removeClass("web-button").addClass("facebook-button");
+					$("#submit").prop( "disabled", false );
 					if (routing.indexOf("acebook") > -1){
 						console.log("questo e' facebook");
 						$('#telefono').val(myXHR[0]);
@@ -1273,7 +1274,7 @@ $(function() {
 <label>Posponi tra: </br>
 </label> <input type="text" id="daysAwake" maxlength="2" size="3"> <label> giorni, </label> <input type="text" id="hourAwake" maxlength="2" size="3"> <label> ore, </label> <input type="text" id="minuteAwake" maxlength="3" size="4"> <label> minuti</label> </br>
 </br>
-<button id ="submitawake" class = "web-button" type="button" onclick="sendDataAwake()" >Posponi</button>
+<button id ="submitawake" class = "web-button" type="button" onclick="sendDataAwake()" disabled>Posponi</button>
 <button id ="submitlimbo" class = "web-button" type="button" onclick="sendToLimbo()" style="float: right;" disabled>Limbo</button>
 </br>
 </br>
