@@ -615,15 +615,15 @@ button[disabled]{
 					var myXHR = JSON.parse(xhr.response)
 					console.log(cfiscaleTobi);
 					routing = "facebook";
-					
+					$("#submit").className = "button-facebook";
+						$("#submitawake").className = "button-facebook";
+						$("#submitlimbo").className = "button-facebook";
 					if (routing.indexOf("acebook") > -1){
 						console.log("questo e' facebook");
 						$('#telefono').val(myXHR[0]);
 						$('#ricontatto').val(myXHR[1]);
 						$('#cfiscale').val(myXHR[2]);
-						$("#submit").className = "button-facebook";
-						$("#submitawake").className = "button-facebook";
-						$("#submitlimbo").className = "button-facebook";
+						
 						
 					} else{
 						console.log("questo e' web");
