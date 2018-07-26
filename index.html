@@ -12,7 +12,7 @@ textarea {
 }	
 	
 	
-button {
+.web-button {
     background-color: #f68a1f;
     border: none;
     color: white;
@@ -28,18 +28,18 @@ button {
     transition-duration: 0.4s;
 	  font-family: "Myriad pro","Trebuchet MS","Lucida Grande","Lucida Sans Unicode","Lucida Sans",sans-serif;
 }
-button:hover {
+.web-button:hover {
     background-color: #da7009;
     color: white;	
 }
 	
-button:disabled,
-button[disabled]{
+.web-button:disabled,
+.web-button[disabled]{
   background-color: #f68a1f;
   opacity: 0.5;
 }
 	
-button-facebook {
+.facebook-button {
     background-color: #425fb4;
     border: none;
     color: white;
@@ -55,13 +55,13 @@ button-facebook {
     transition-duration: 0.4s;
 	  font-family: "Myriad pro","Trebuchet MS","Lucida Grande","Lucida Sans Unicode","Lucida Sans",sans-serif;
 }
-button-facebook:hover {
+.facebook-button:hover {
     background-color: #425fb4;
     color: white;	
 }
 	
-button-facebook:disabled,
-button[disabled]{
+.facebook-button:disabled,
+.facebook-button[disabled]{
   background-color: #425fb4;
   opacity: 0.5;
 }
@@ -615,9 +615,9 @@ button[disabled]{
 					console.log(cfiscaleTobi);
 					routing = "facebook";
 					
-					$("#submit").removeClass("button").addClass("button-facebook");
-						$("#submitawake").removeClass("button").addClass("button-facebook");
-						$("#submitlimbo").removeClass("button").addClass("button-facebook");
+					$("#submit").removeClass("web-button").addClass("facebook-button");
+						$("#submitawake").removeClass("web-button").addClass("facebook-button");
+						$("#submitlimbo").removeClass("web-button").addClass("facebook-button");
 					if (routing.indexOf("acebook") > -1){
 						console.log("questo e' facebook");
 						$('#telefono').val(myXHR[0]);
@@ -1262,7 +1262,7 @@ $(function() {
 
   </br>
               
-   <button id ="submit" type="button" onclick="sendData()" disabled>Invia Dati</button>
+   <button id ="submit" class = "web-button" type="button" onclick="sendData()" disabled>Invia Dati</button>
    <div id="alert"></div>
 
 </div>
@@ -1272,8 +1272,8 @@ $(function() {
 <label>Posponi tra: </br>
 </label> <input type="text" id="daysAwake" maxlength="2" size="3"> <label> giorni, </label> <input type="text" id="hourAwake" maxlength="2" size="3"> <label> ore, </label> <input type="text" id="minuteAwake" maxlength="3" size="4"> <label> minuti</label> </br>
 </br>
-<button id ="submitawake" type="button" onclick="sendDataAwake()" >Posponi</button>
-<button id ="submitlimbo" type="button" onclick="sendToLimbo()" style="float: right;" disabled>Limbo</button>
+<button id ="submitawake" class = "web-button" type="button" onclick="sendDataAwake()" >Posponi</button>
+<button id ="submitlimbo" class = "web-button" type="button" onclick="sendToLimbo()" style="float: right;" disabled>Limbo</button>
 </br>
 </br>
 <div id="alertAwake"></div>
