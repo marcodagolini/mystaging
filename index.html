@@ -613,6 +613,7 @@ button[disabled]{
 					var myXHR = JSON.parse(xhr.response)
 					console.log(cfiscaleTobi);
 					routing = "facebook";
+					$("#submit").prop( "disabled", false );
 					if (routing.indexOf("acebook") > -1){
 						console.log("questo e' facebook");
 						$('#telefono').val(myXHR[0]);
@@ -621,7 +622,7 @@ button[disabled]{
 						$("#submit").className = "button-facebook";
 						$("#submitawake").className = "button-facebook";
 						$("#submitlimbo").className = "button-facebook";
-						$("#submit").prop( "disabled", false );
+						
 					} else{
 						console.log("questo e' web");
 						$('#telefono').val(telefonoTobi[0].phone);
