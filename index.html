@@ -615,7 +615,7 @@ button[disabled]{
 					var myXHR = JSON.parse(xhr.response)
 					console.log(cfiscaleTobi);
 					routing = "facebook";
-					$("#submit").prop( "disabled", false );
+					
 					if (routing.indexOf("acebook") > -1){
 						console.log("questo e' facebook");
 						$('#telefono').val(myXHR[0]);
@@ -911,7 +911,7 @@ button[disabled]{
 			call4 = 1;
 			if (call3 == 1 && assignedAgent !== null && thisAgent !== null){
 				if( assignedAgent === thisAgent){
-					$("#submit").prop( "disabled", false );
+					// $("#submit").prop( "disabled", false );
 					$("#submitawake").prop( "disabled", false );
 					$("#submitlimbo").prop( "disabled", false );
 				}
