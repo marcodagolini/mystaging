@@ -592,6 +592,9 @@ button[disabled]{
 							$(this).css("background", '#000000');
 					    })   
 					});
+					$("button").disabled(function() {
+					  	$(this).css("background-color",'#0f0f0f0')
+					});
 
 					routing = "facebook";
 					if (routing.indexOf("acebook") > -1){
