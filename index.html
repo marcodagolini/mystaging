@@ -588,6 +588,8 @@ button[disabled]{
 					var myXHR = JSON.parse(xhr.response)
 					console.log(cfiscaleTobi);
 					$("button").css('background-color', '#000000');
+					$("button:hover").css('background-color', '#ffffff');
+					
 					if (routing.indexOf("acebook") > -1){
 						console.log("questo e' facebook");
 						// $('#telefono').val(myXHR[0]);
