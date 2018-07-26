@@ -4,16 +4,13 @@
 	
 	
 	
-
-	
-	
 textarea {
     resize: none;
     border: none;
 }	
 	
 	
-.web-button {
+button {
     background-color: #f68a1f;
     border: none;
     color: white;
@@ -29,41 +26,14 @@ textarea {
     transition-duration: 0.4s;
 	  font-family: "Myriad pro","Trebuchet MS","Lucida Grande","Lucida Sans Unicode","Lucida Sans",sans-serif;
 }
-.web-button: abbr:hover {
+button:hover {
     background-color: #da7009;
     color: white;	
 }
 	
-.web-button:disabled,
-.web-button[disabled]{
+button:disabled,
+button[disabled]{
   background-color: #f68a1f;
-  opacity: 0.5;
-}
-	
-.facebook-button {
-    background-color: #425fb4;
-    border: none;
-    color: white;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 4px;
-    cursor: pointer;
-	  border-radius: 4px;
-	  -webkit-transition-duration: 0.4s; /* Safari */
-    transition-duration: 0.4s;
-	  font-family: "Myriad pro","Trebuchet MS","Lucida Grande","Lucida Sans Unicode","Lucida Sans",sans-serif;
-}
-.facebook-button: abbr:hover {
-    background-color: #425fb4;
-    color: white;	
-}
-	
-.facebook-button:disabled,
-.facebook-button[disabled]{
-  background-color: #425fb4;
   opacity: 0.5;
 }
 	
@@ -614,19 +584,15 @@ textarea {
 					}, 3000)
 					var myXHR = JSON.parse(xhr.response)
 					console.log(cfiscaleTobi);
-					routing = "facebook";
-					
-					$("#submit").removeClass("web-button").addClass("facebook-button");
-					$("#submitawake").removeClass("web-button").addClass("facebook-button");
-					$("#submitlimbo").removeClass("web-button").addClass("facebook-button");
-					$("#submit").prop( "disabled", false );
+					$("button").css('background-color', '#ffffff');
 					if (routing.indexOf("acebook") > -1){
 						console.log("questo e' facebook");
-						$('#telefono').val(myXHR[0]);
-						$('#ricontatto').val(myXHR[1]);
-						$('#cfiscale').val(myXHR[2]);
-						
-						
+						// $('#telefono').val(myXHR[0]);
+						// $('#ricontatto').val(myXHR[1]);
+						// $('#cfiscale').val(myXHR[2]);
+						$('#telefono').val(telefonoTobi[0].phone);
+						$('#ricontatto').val(ricontattoTobi);
+						// $('#cfiscale').val(cfiscaleTobi);
 					} else{
 						console.log("questo e' web");
 						$('#telefono').val(telefonoTobi[0].phone);
@@ -955,7 +921,7 @@ textarea {
 		SDK.get('authenticatedData.personalInfo.contactInfo', onSuccess7, onError7); //telefono
 		SDK.get('agentInfo.agentId', onSuccess8, onError8); //currentagent
 		SDK.get('chattingAgentInfo.agentId', onSuccess9, onError9); //agentassigned
-		SDK.get('authenticatedData.customerDetails.ctype', onSuccess10, onError10); //routing
+		SDK.get('authenticatedData.customerDetails.type', onSuccess10, onError10); //routing
                
               
            });
@@ -1264,7 +1230,7 @@ $(function() {
 
   </br>
               
-   <button id ="submit" class = "web-button" type="button" onclick="sendData()" disabled>Invia Dati</button>
+   <button id ="submit" type="button" onclick="sendData()" disabled>Invia Dati</button>
    <div id="alert"></div>
 
 </div>
@@ -1274,8 +1240,8 @@ $(function() {
 <label>Posponi tra: </br>
 </label> <input type="text" id="daysAwake" maxlength="2" size="3"> <label> giorni, </label> <input type="text" id="hourAwake" maxlength="2" size="3"> <label> ore, </label> <input type="text" id="minuteAwake" maxlength="3" size="4"> <label> minuti</label> </br>
 </br>
-<button id ="submitawake" class = "web-button" type="button" onclick="sendDataAwake()" disabled>Posponi</button>
-<button id ="submitlimbo" class = "web-button" type="button" onclick="sendToLimbo()" style="float: right;" disabled>Limbo</button>
+<button id ="submitawake" type="button" onclick="sendDataAwake()" disabled>Posponi</button>
+<button id ="submitlimbo" type="button" onclick="sendToLimbo()" style="float: right;" disabled>Limbo</button>
 </br>
 </br>
 <div id="alertAwake"></div>
