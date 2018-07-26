@@ -910,7 +910,7 @@ button[disabled]{
 			call4 = 1;
 			if (call3 == 1 && assignedAgent !== null && thisAgent !== null){
 				if( assignedAgent === thisAgent){
-					// $("#submit").prop( "disabled", false );
+					$("#submit").prop( "disabled", false );
 					$("#submitawake").prop( "disabled", false );
 					$("#submitlimbo").prop( "disabled", false );
 				}
@@ -1271,7 +1271,7 @@ $(function() {
 <label>Posponi tra: </br>
 </label> <input type="text" id="daysAwake" maxlength="2" size="3"> <label> giorni, </label> <input type="text" id="hourAwake" maxlength="2" size="3"> <label> ore, </label> <input type="text" id="minuteAwake" maxlength="3" size="4"> <label> minuti</label> </br>
 </br>
-<button id ="submitawake" type="button" onclick="sendDataAwake()" disabled>Posponi</button>
+<button id ="submitawake" type="button" onclick="sendDataAwake()" >Posponi</button>
 <button id ="submitlimbo" type="button" onclick="sendToLimbo()" style="float: right;" disabled>Limbo</button>
 </br>
 </br>
